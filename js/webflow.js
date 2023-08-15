@@ -973,7 +973,7 @@
         _.VERSION = "1.6.0-Webflow";
         var breaker = {};
         var ArrayProto = Array.prototype, ObjProto = Object.prototype, FuncProto = Function.prototype;
-        var push = ArrayProto.push, slice = ArrayProto.slice, concat4 = ArrayProto.concat, toString4 = ObjProto.toString, hasOwnProperty3 = ObjProto.hasOwnProperty;
+        var push = ArrayProto.push, slice = ArrayProto.slice, concat5 = ArrayProto.concat, toString4 = ObjProto.toString, hasOwnProperty3 = ObjProto.hasOwnProperty;
         var nativeForEach = ArrayProto.forEach, nativeMap = ArrayProto.map, nativeReduce = ArrayProto.reduce, nativeReduceRight = ArrayProto.reduceRight, nativeFilter = ArrayProto.filter, nativeEvery = ArrayProto.every, nativeSome = ArrayProto.some, nativeIndexOf = ArrayProto.indexOf, nativeLastIndexOf = ArrayProto.lastIndexOf, nativeIsArray = Array.isArray, nativeKeys = Object.keys, nativeBind = FuncProto.bind;
         var each = _.each = _.forEach = function(obj, iterator, context) {
           if (obj == null)
@@ -981,13 +981,13 @@
           if (nativeForEach && obj.forEach === nativeForEach) {
             obj.forEach(iterator, context);
           } else if (obj.length === +obj.length) {
-            for (var i = 0, length = obj.length; i < length; i++) {
+            for (var i = 0, length2 = obj.length; i < length2; i++) {
               if (iterator.call(context, obj[i], i, obj) === breaker)
                 return;
             }
           } else {
             var keys = _.keys(obj);
-            for (var i = 0, length = keys.length; i < length; i++) {
+            for (var i = 0, length2 = keys.length; i < length2; i++) {
               if (iterator.call(context, obj[keys[i]], keys[i], obj) === breaker)
                 return;
             }
@@ -1075,9 +1075,9 @@
         _.debounce = function(func, wait, immediate) {
           var timeout, args, context, timestamp, result;
           var later = function() {
-            var last2 = _.now() - timestamp;
-            if (last2 < wait) {
-              timeout = setTimeout(later, wait - last2);
+            var last3 = _.now() - timestamp;
+            if (last3 < wait) {
+              timeout = setTimeout(later, wait - last3);
             } else {
               timeout = null;
               if (!immediate) {
@@ -1104,11 +1104,11 @@
         _.defaults = function(obj) {
           if (!_.isObject(obj))
             return obj;
-          for (var i = 1, length = arguments.length; i < length; i++) {
+          for (var i = 1, length2 = arguments.length; i < length2; i++) {
             var source = arguments[i];
-            for (var prop in source) {
-              if (obj[prop] === void 0)
-                obj[prop] = source[prop];
+            for (var prop2 in source) {
+              if (obj[prop2] === void 0)
+                obj[prop2] = source[prop2];
             }
           }
           return obj;
@@ -1148,8 +1148,8 @@
           "\u2029": "u2029"
         };
         var escapeRegExp = /\\|'|\r|\n|\u2028|\u2029/g;
-        var escapeChar = function(match) {
-          return "\\" + escapes[match];
+        var escapeChar = function(match2) {
+          return "\\" + escapes[match2];
         };
         var bareIdentifier = /^\s*(\w|\$)+\s*$/;
         _.template = function(text, settings, oldSettings) {
@@ -1159,9 +1159,9 @@
           var matcher = RegExp([(settings.escape || noMatch).source, (settings.interpolate || noMatch).source, (settings.evaluate || noMatch).source].join("|") + "|$", "g");
           var index = 0;
           var source = "__p+='";
-          text.replace(matcher, function(match, escape, interpolate, evaluate, offset) {
+          text.replace(matcher, function(match2, escape, interpolate, evaluate, offset) {
             source += text.slice(index, offset).replace(escapeRegExp, escapeChar);
-            index = offset + match.length;
+            index = offset + match2.length;
             if (escape) {
               source += "'+\n((__t=(" + escape + "))==null?'':_.escape(__t))+\n'";
             } else if (interpolate) {
@@ -1169,7 +1169,7 @@
             } else if (evaluate) {
               source += "';\n" + evaluate + "\n__p+='";
             }
-            return match;
+            return match2;
           });
           source += "';\n";
           var argument = settings.variable;
@@ -1444,9 +1444,9 @@
         }
         function ensureBrand() {
           var found = $body.children(namespace);
-          var match = found.length && found.get(0) === brandElement;
+          var match2 = found.length && found.get(0) === brandElement;
           var inEditor = Webflow2.env("editor");
-          if (match) {
+          if (match2) {
             if (inEditor) {
               found.remove();
             }
@@ -1950,11 +1950,11 @@
       var fails = require_fails();
       var classof = require_classof_raw();
       var Object2 = global2.Object;
-      var split4 = uncurryThis("".split);
+      var split5 = uncurryThis("".split);
       module.exports = fails(function() {
         return !Object2("z").propertyIsEnumerable(0);
       }) ? function(it) {
-        return classof(it) == "String" ? split4(it, "") : Object2(it);
+        return classof(it) == "String" ? split5(it, "") : Object2(it);
       } : Object2;
     }
   });
@@ -2041,18 +2041,18 @@
       var Deno = global2.Deno;
       var versions = process2 && process2.versions || Deno && Deno.version;
       var v8 = versions && versions.v8;
-      var match;
+      var match2;
       var version2;
       if (v8) {
-        match = v8.split(".");
-        version2 = match[0] > 0 && match[0] < 4 ? 1 : +(match[0] + match[1]);
+        match2 = v8.split(".");
+        version2 = match2[0] > 0 && match2[0] < 4 ? 1 : +(match2[0] + match2[1]);
       }
       if (!version2 && userAgent) {
-        match = userAgent.match(/Edge\/(\d+)/);
-        if (!match || match[1] >= 74) {
-          match = userAgent.match(/Chrome\/(\d+)/);
-          if (match)
-            version2 = +match[1];
+        match2 = userAgent.match(/Edge\/(\d+)/);
+        if (!match2 || match2[1] >= 74) {
+          match2 = userAgent.match(/Chrome\/(\d+)/);
+          if (match2)
+            version2 = +match2[1];
         }
       }
       module.exports = version2;
@@ -2227,7 +2227,7 @@
       var uncurryThis = require_function_uncurry_this();
       var toObject = require_to_object();
       var hasOwnProperty3 = uncurryThis({}.hasOwnProperty);
-      module.exports = Object.hasOwn || function hasOwn3(it, key) {
+      module.exports = Object.hasOwn || function hasOwn4(it, key) {
         return hasOwnProperty3(toObject(it), key);
       };
     }
@@ -2251,7 +2251,7 @@
     "node_modules/core-js/internals/well-known-symbol.js"(exports, module) {
       var global2 = require_global();
       var shared = require_shared();
-      var hasOwn3 = require_has_own_property();
+      var hasOwn4 = require_has_own_property();
       var uid = require_uid();
       var NATIVE_SYMBOL = require_native_symbol();
       var USE_SYMBOL_AS_UID = require_use_symbol_as_uid();
@@ -2260,9 +2260,9 @@
       var symbolFor = Symbol2 && Symbol2["for"];
       var createWellKnownSymbol = USE_SYMBOL_AS_UID ? Symbol2 : Symbol2 && Symbol2.withoutSetter || uid;
       module.exports = function(name) {
-        if (!hasOwn3(WellKnownSymbolsStore, name) || !(NATIVE_SYMBOL || typeof WellKnownSymbolsStore[name] == "string")) {
+        if (!hasOwn4(WellKnownSymbolsStore, name) || !(NATIVE_SYMBOL || typeof WellKnownSymbolsStore[name] == "string")) {
           var description = "Symbol." + name;
-          if (NATIVE_SYMBOL && hasOwn3(Symbol2, name)) {
+          if (NATIVE_SYMBOL && hasOwn4(Symbol2, name)) {
             WellKnownSymbolsStore[name] = Symbol2[name];
           } else if (USE_SYMBOL_AS_UID && symbolFor) {
             WellKnownSymbolsStore[name] = symbolFor(description);
@@ -2357,7 +2357,7 @@
       var createPropertyDescriptor = require_create_property_descriptor();
       var toIndexedObject = require_to_indexed_object();
       var toPropertyKey = require_to_property_key();
-      var hasOwn3 = require_has_own_property();
+      var hasOwn4 = require_has_own_property();
       var IE8_DOM_DEFINE = require_ie8_dom_define();
       var $getOwnPropertyDescriptor = Object.getOwnPropertyDescriptor;
       exports.f = DESCRIPTORS ? $getOwnPropertyDescriptor : function getOwnPropertyDescriptor(O, P) {
@@ -2368,7 +2368,7 @@
             return $getOwnPropertyDescriptor(O, P);
           } catch (error) {
           }
-        if (hasOwn3(O, P))
+        if (hasOwn4(O, P))
           return createPropertyDescriptor(!call(propertyIsEnumerableModule.f, O, P), O[P]);
       };
     }
@@ -2486,18 +2486,18 @@
       var uncurryThis = require_function_uncurry_this();
       var isObject2 = require_is_object();
       var createNonEnumerableProperty = require_create_non_enumerable_property();
-      var hasOwn3 = require_has_own_property();
+      var hasOwn4 = require_has_own_property();
       var shared = require_shared_store();
       var sharedKey = require_shared_key();
       var hiddenKeys = require_hidden_keys();
       var OBJECT_ALREADY_INITIALIZED = "Object already initialized";
       var TypeError2 = global2.TypeError;
       var WeakMap2 = global2.WeakMap;
-      var set;
+      var set2;
       var get;
-      var has;
+      var has2;
       var enforce = function(it) {
-        return has(it) ? get(it) : set(it, {});
+        return has2(it) ? get(it) : set2(it, {});
       };
       var getterFor = function(TYPE) {
         return function(it) {
@@ -2513,7 +2513,7 @@
         wmget = uncurryThis(store.get);
         wmhas = uncurryThis(store.has);
         wmset = uncurryThis(store.set);
-        set = function(it, metadata) {
+        set2 = function(it, metadata) {
           if (wmhas(store, it))
             throw new TypeError2(OBJECT_ALREADY_INITIALIZED);
           metadata.facade = it;
@@ -2523,24 +2523,24 @@
         get = function(it) {
           return wmget(store, it) || {};
         };
-        has = function(it) {
+        has2 = function(it) {
           return wmhas(store, it);
         };
       } else {
         STATE = sharedKey("state");
         hiddenKeys[STATE] = true;
-        set = function(it, metadata) {
-          if (hasOwn3(it, STATE))
+        set2 = function(it, metadata) {
+          if (hasOwn4(it, STATE))
             throw new TypeError2(OBJECT_ALREADY_INITIALIZED);
           metadata.facade = it;
           createNonEnumerableProperty(it, STATE, metadata);
           return metadata;
         };
         get = function(it) {
-          return hasOwn3(it, STATE) ? it[STATE] : {};
+          return hasOwn4(it, STATE) ? it[STATE] : {};
         };
-        has = function(it) {
-          return hasOwn3(it, STATE);
+        has2 = function(it) {
+          return hasOwn4(it, STATE);
         };
       }
       var store;
@@ -2549,9 +2549,9 @@
       var wmset;
       var STATE;
       module.exports = {
-        set,
+        set: set2,
         get,
-        has,
+        has: has2,
         enforce,
         getterFor
       };
@@ -2562,10 +2562,10 @@
   var require_function_name = __commonJS({
     "node_modules/core-js/internals/function-name.js"(exports, module) {
       var DESCRIPTORS = require_descriptors();
-      var hasOwn3 = require_has_own_property();
+      var hasOwn4 = require_has_own_property();
       var FunctionPrototype = Function.prototype;
       var getDescriptor = DESCRIPTORS && Object.getOwnPropertyDescriptor;
-      var EXISTS = hasOwn3(FunctionPrototype, "name");
+      var EXISTS = hasOwn4(FunctionPrototype, "name");
       var PROPER = EXISTS && function something() {
       }.name === "something";
       var CONFIGURABLE = EXISTS && (!DESCRIPTORS || DESCRIPTORS && getDescriptor(FunctionPrototype, "name").configurable);
@@ -2582,7 +2582,7 @@
     "node_modules/core-js/internals/redefine.js"(exports, module) {
       var global2 = require_global();
       var isCallable = require_is_callable();
-      var hasOwn3 = require_has_own_property();
+      var hasOwn4 = require_has_own_property();
       var createNonEnumerableProperty = require_create_non_enumerable_property();
       var setGlobal = require_set_global();
       var inspectSource = require_inspect_source();
@@ -2601,7 +2601,7 @@
           if (String(name).slice(0, 7) === "Symbol(") {
             name = "[" + String(name).replace(/^Symbol\(([^)]*)\)/, "$1") + "]";
           }
-          if (!hasOwn3(value, "name") || CONFIGURABLE_FUNCTION_NAME && value.name !== name) {
+          if (!hasOwn4(value, "name") || CONFIGURABLE_FUNCTION_NAME && value.name !== name) {
             createNonEnumerableProperty(value, "name", name);
           }
           state = enforceInternalState(value);
@@ -2646,11 +2646,11 @@
   var require_to_absolute_index = __commonJS({
     "node_modules/core-js/internals/to-absolute-index.js"(exports, module) {
       var toIntegerOrInfinity = require_to_integer_or_infinity();
-      var max = Math.max;
+      var max2 = Math.max;
       var min = Math.min;
-      module.exports = function(index, length) {
+      module.exports = function(index, length2) {
         var integer = toIntegerOrInfinity(index);
-        return integer < 0 ? max(integer + length, 0) : min(integer, length);
+        return integer < 0 ? max2(integer + length2, 0) : min(integer, length2);
       };
     }
   });
@@ -2685,17 +2685,17 @@
       var createMethod = function(IS_INCLUDES) {
         return function($this, el, fromIndex) {
           var O = toIndexedObject($this);
-          var length = lengthOfArrayLike(O);
-          var index = toAbsoluteIndex(fromIndex, length);
+          var length2 = lengthOfArrayLike(O);
+          var index = toAbsoluteIndex(fromIndex, length2);
           var value;
           if (IS_INCLUDES && el != el)
-            while (length > index) {
+            while (length2 > index) {
               value = O[index++];
               if (value != value)
                 return true;
             }
           else
-            for (; length > index; index++) {
+            for (; length2 > index; index++) {
               if ((IS_INCLUDES || index in O) && O[index] === el)
                 return IS_INCLUDES || index || 0;
             }
@@ -2717,7 +2717,7 @@
   var require_object_keys_internal = __commonJS({
     "node_modules/core-js/internals/object-keys-internal.js"(exports, module) {
       var uncurryThis = require_function_uncurry_this();
-      var hasOwn3 = require_has_own_property();
+      var hasOwn4 = require_has_own_property();
       var toIndexedObject = require_to_indexed_object();
       var indexOf = require_array_includes().indexOf;
       var hiddenKeys = require_hidden_keys();
@@ -2728,9 +2728,9 @@
         var result = [];
         var key;
         for (key in O)
-          !hasOwn3(hiddenKeys, key) && hasOwn3(O, key) && push(result, key);
+          !hasOwn4(hiddenKeys, key) && hasOwn4(O, key) && push(result, key);
         while (names.length > i)
-          if (hasOwn3(O, key = names[i++])) {
+          if (hasOwn4(O, key = names[i++])) {
             ~indexOf(result, key) || push(result, key);
           }
         return result;
@@ -2780,11 +2780,11 @@
       var getOwnPropertyNamesModule = require_object_get_own_property_names();
       var getOwnPropertySymbolsModule = require_object_get_own_property_symbols();
       var anObject = require_an_object();
-      var concat4 = uncurryThis([].concat);
+      var concat5 = uncurryThis([].concat);
       module.exports = getBuiltIn("Reflect", "ownKeys") || function ownKeys(it) {
         var keys = getOwnPropertyNamesModule.f(anObject(it));
         var getOwnPropertySymbols = getOwnPropertySymbolsModule.f;
-        return getOwnPropertySymbols ? concat4(keys, getOwnPropertySymbols(it)) : keys;
+        return getOwnPropertySymbols ? concat5(keys, getOwnPropertySymbols(it)) : keys;
       };
     }
   });
@@ -2792,7 +2792,7 @@
   // node_modules/core-js/internals/copy-constructor-properties.js
   var require_copy_constructor_properties = __commonJS({
     "node_modules/core-js/internals/copy-constructor-properties.js"(exports, module) {
-      var hasOwn3 = require_has_own_property();
+      var hasOwn4 = require_has_own_property();
       var ownKeys = require_own_keys();
       var getOwnPropertyDescriptorModule = require_object_get_own_property_descriptor();
       var definePropertyModule = require_object_define_property();
@@ -2802,7 +2802,7 @@
         var getOwnPropertyDescriptor = getOwnPropertyDescriptorModule.f;
         for (var i = 0; i < keys.length; i++) {
           var key = keys[i];
-          if (!hasOwn3(target, key))
+          if (!hasOwn4(target, key))
             defineProperty(target, key, getOwnPropertyDescriptor(source, key));
         }
       };
@@ -2892,15 +2892,15 @@
       var definePropertyModule = require_object_define_property();
       var anObject = require_an_object();
       var toIndexedObject = require_to_indexed_object();
-      var objectKeys = require_object_keys();
+      var objectKeys2 = require_object_keys();
       module.exports = DESCRIPTORS ? Object.defineProperties : function defineProperties(O, Properties) {
         anObject(O);
         var props = toIndexedObject(Properties);
-        var keys = objectKeys(Properties);
-        var length = keys.length;
+        var keys = objectKeys2(Properties);
+        var length2 = keys.length;
         var index = 0;
         var key;
-        while (length > index)
+        while (length2 > index)
           definePropertyModule.f(O, key = keys[index++], props[key]);
         return O;
       };
@@ -2962,13 +2962,13 @@
         } catch (error) {
         }
         NullProtoObject = typeof document != "undefined" ? document.domain && activeXDocument ? NullProtoObjectViaActiveX(activeXDocument) : NullProtoObjectViaIFrame() : NullProtoObjectViaActiveX(activeXDocument);
-        var length = enumBugKeys.length;
-        while (length--)
-          delete NullProtoObject[PROTOTYPE][enumBugKeys[length]];
+        var length2 = enumBugKeys.length;
+        while (length2--)
+          delete NullProtoObject[PROTOTYPE][enumBugKeys[length2]];
         return NullProtoObject();
       };
       hiddenKeys[IE_PROTO] = true;
-      module.exports = Object.create || function create2(O, Properties) {
+      module.exports = Object.create || function create5(O, Properties) {
         var result;
         if (O !== null) {
           EmptyConstructor[PROTOTYPE] = anObject(O);
@@ -2986,14 +2986,14 @@
   var require_add_to_unscopables = __commonJS({
     "node_modules/core-js/internals/add-to-unscopables.js"(exports, module) {
       var wellKnownSymbol = require_well_known_symbol();
-      var create2 = require_object_create();
+      var create5 = require_object_create();
       var definePropertyModule = require_object_define_property();
       var UNSCOPABLES = wellKnownSymbol("unscopables");
       var ArrayPrototype = Array.prototype;
       if (ArrayPrototype[UNSCOPABLES] == void 0) {
         definePropertyModule.f(ArrayPrototype, UNSCOPABLES, {
           configurable: true,
-          value: create2(null)
+          value: create5(null)
         });
       }
       module.exports = function(key) {
@@ -3528,8 +3528,8 @@
     "node_modules/redux/lib/compose.js"(exports) {
       "use strict";
       exports.__esModule = true;
-      exports["default"] = compose;
-      function compose() {
+      exports["default"] = compose2;
+      function compose2() {
         for (var _len = arguments.length, funcs = Array(_len), _key = 0; _key < _len; _key++) {
           funcs[_key] = arguments[_key];
         }
@@ -3541,12 +3541,12 @@
         if (funcs.length === 1) {
           return funcs[0];
         }
-        var last2 = funcs[funcs.length - 1];
+        var last3 = funcs[funcs.length - 1];
         var rest = funcs.slice(0, -1);
         return function() {
           return rest.reduceRight(function(composed, f) {
             return f(composed);
-          }, last2.apply(void 0, arguments));
+          }, last3.apply(void 0, arguments));
         };
       }
     }
@@ -4155,14 +4155,14 @@
       exports.removeAt = removeAt;
       exports.replaceAt = replaceAt;
       exports.getIn = getIn;
-      exports.set = set;
+      exports.set = set2;
       exports.setIn = setIn;
       exports.update = update;
       exports.updateIn = updateIn;
       exports.merge = merge2;
       exports.mergeDeep = mergeDeep;
       exports.mergeIn = mergeIn;
-      exports.omit = omit;
+      exports.omit = omit2;
       exports.addDefaults = addDefaults;
       var INVALID_ARGS = "INVALID_ARGS";
       function throwStr(msg) {
@@ -4276,7 +4276,7 @@
         }
         return ptr;
       }
-      function set(obj, key, val) {
+      function set2(obj, key, val) {
         var fallback = typeof key === "number" ? [] : {};
         var finalObj = obj == null ? fallback : obj;
         if (finalObj[key] === val)
@@ -4294,7 +4294,7 @@
           var nestedObj = isObject2(obj) && isObject2(obj[key]) ? obj[key] : typeof path[idx + 1] === "number" ? [] : {};
           newValue = doSetIn(nestedObj, path, val, idx + 1);
         }
-        return set(obj, key, newValue);
+        return set2(obj, key, newValue);
       }
       function setIn(obj, path, val) {
         if (!path.length)
@@ -4304,7 +4304,7 @@
       function update(obj, key, fnUpdate) {
         var prevVal = obj == null ? void 0 : obj[key];
         var nextVal = fnUpdate(prevVal);
-        return set(obj, key, nextVal);
+        return set2(obj, key, nextVal);
       }
       function updateIn(obj, path, fnUpdate) {
         var prevVal = getIn(obj, path);
@@ -4338,7 +4338,7 @@
         }
         return setIn(a, path, nextVal);
       }
-      function omit(obj, attrs) {
+      function omit2(obj, attrs) {
         var omitList = Array.isArray(attrs) ? attrs : [attrs];
         var fDoSomething = false;
         for (var i = 0; i < omitList.length; i++) {
@@ -4376,7 +4376,7 @@
         replaceAt,
         getIn,
         // eslint-disable-next-line object-shorthand
-        set,
+        set: set2,
         // so that flow doesn't complain
         setIn,
         update,
@@ -4384,7 +4384,7 @@
         merge: merge2,
         mergeDeep,
         mergeIn,
-        omit,
+        omit: omit2,
         addDefaults
       };
       exports.default = timm;
@@ -4538,9 +4538,9 @@
               const {
                 key,
                 min,
-                max
+                max: max2
               } = mediaQueries[i];
-              if (width >= min && width <= max) {
+              if (width >= min && width <= max2) {
                 mediaQueryKey = key;
                 break;
               }
@@ -4588,10 +4588,10 @@
     "node_modules/lodash/_assocIndexOf.js"(exports, module) {
       var eq = require_eq();
       function assocIndexOf(array, key) {
-        var length = array.length;
-        while (length--) {
-          if (eq(array[length][0], key)) {
-            return length;
+        var length2 = array.length;
+        while (length2--) {
+          if (eq(array[length2][0], key)) {
+            return length2;
           }
         }
         return -1;
@@ -4673,11 +4673,11 @@
       var listCacheGet = require_listCacheGet();
       var listCacheHas = require_listCacheHas();
       var listCacheSet = require_listCacheSet();
-      function ListCache(entries) {
-        var index = -1, length = entries == null ? 0 : entries.length;
+      function ListCache(entries2) {
+        var index = -1, length2 = entries2 == null ? 0 : entries2.length;
         this.clear();
-        while (++index < length) {
-          var entry = entries[index];
+        while (++index < length2) {
+          var entry = entries2[index];
           this.set(entry[0], entry[1]);
         }
       }
@@ -4960,11 +4960,11 @@
       var hashGet = require_hashGet();
       var hashHas = require_hashHas();
       var hashSet = require_hashSet();
-      function Hash(entries) {
-        var index = -1, length = entries == null ? 0 : entries.length;
+      function Hash(entries2) {
+        var index = -1, length2 = entries2 == null ? 0 : entries2.length;
         this.clear();
-        while (++index < length) {
-          var entry = entries[index];
+        while (++index < length2) {
+          var entry = entries2[index];
           this.set(entry[0], entry[1]);
         }
       }
@@ -5010,8 +5010,8 @@
   var require_getMapData = __commonJS({
     "node_modules/lodash/_getMapData.js"(exports, module) {
       var isKeyable = require_isKeyable();
-      function getMapData(map, key) {
-        var data = map.__data__;
+      function getMapData(map2, key) {
+        var data = map2.__data__;
         return isKeyable(key) ? data[typeof key == "string" ? "string" : "hash"] : data.map;
       }
       module.exports = getMapData;
@@ -5075,11 +5075,11 @@
       var mapCacheGet = require_mapCacheGet();
       var mapCacheHas = require_mapCacheHas();
       var mapCacheSet = require_mapCacheSet();
-      function MapCache(entries) {
-        var index = -1, length = entries == null ? 0 : entries.length;
+      function MapCache(entries2) {
+        var index = -1, length2 = entries2 == null ? 0 : entries2.length;
         this.clear();
-        while (++index < length) {
-          var entry = entries[index];
+        while (++index < length2) {
+          var entry = entries2[index];
           this.set(entry[0], entry[1]);
         }
       }
@@ -5127,8 +5127,8 @@
       var stackGet = require_stackGet();
       var stackHas = require_stackHas();
       var stackSet = require_stackSet();
-      function Stack(entries) {
-        var data = this.__data__ = new ListCache(entries);
+      function Stack(entries2) {
+        var data = this.__data__ = new ListCache(entries2);
         this.size = data.size;
       }
       Stack.prototype.clear = stackClear;
@@ -5168,11 +5168,11 @@
       var MapCache = require_MapCache();
       var setCacheAdd = require_setCacheAdd();
       var setCacheHas = require_setCacheHas();
-      function SetCache(values) {
-        var index = -1, length = values == null ? 0 : values.length;
+      function SetCache(values2) {
+        var index = -1, length2 = values2 == null ? 0 : values2.length;
         this.__data__ = new MapCache();
-        while (++index < length) {
-          this.add(values[index]);
+        while (++index < length2) {
+          this.add(values2[index]);
         }
       }
       SetCache.prototype.add = SetCache.prototype.push = setCacheAdd;
@@ -5185,8 +5185,8 @@
   var require_arraySome = __commonJS({
     "node_modules/lodash/_arraySome.js"(exports, module) {
       function arraySome(array, predicate) {
-        var index = -1, length = array == null ? 0 : array.length;
-        while (++index < length) {
+        var index = -1, length2 = array == null ? 0 : array.length;
+        while (++index < length2) {
           if (predicate(array[index], index, array)) {
             return true;
           }
@@ -5274,9 +5274,9 @@
   // node_modules/lodash/_mapToArray.js
   var require_mapToArray = __commonJS({
     "node_modules/lodash/_mapToArray.js"(exports, module) {
-      function mapToArray(map) {
-        var index = -1, result = Array(map.size);
-        map.forEach(function(value, key) {
+      function mapToArray(map2) {
+        var index = -1, result = Array(map2.size);
+        map2.forEach(function(value, key) {
           result[++index] = [key, value];
         });
         return result;
@@ -5288,9 +5288,9 @@
   // node_modules/lodash/_setToArray.js
   var require_setToArray = __commonJS({
     "node_modules/lodash/_setToArray.js"(exports, module) {
-      function setToArray(set) {
-        var index = -1, result = Array(set.size);
-        set.forEach(function(value) {
+      function setToArray(set2) {
+        var index = -1, result = Array(set2.size);
+        set2.forEach(function(value) {
           result[++index] = value;
         });
         return result;
@@ -5376,10 +5376,10 @@
   // node_modules/lodash/_arrayPush.js
   var require_arrayPush = __commonJS({
     "node_modules/lodash/_arrayPush.js"(exports, module) {
-      function arrayPush(array, values) {
-        var index = -1, length = values.length, offset = array.length;
-        while (++index < length) {
-          array[offset + index] = values[index];
+      function arrayPush(array, values2) {
+        var index = -1, length2 = values2.length, offset = array.length;
+        while (++index < length2) {
+          array[offset + index] = values2[index];
         }
         return array;
       }
@@ -5412,8 +5412,8 @@
   var require_arrayFilter = __commonJS({
     "node_modules/lodash/_arrayFilter.js"(exports, module) {
       function arrayFilter(array, predicate) {
-        var index = -1, length = array == null ? 0 : array.length, resIndex = 0, result = [];
-        while (++index < length) {
+        var index = -1, length2 = array == null ? 0 : array.length, resIndex = 0, result = [];
+        while (++index < length2) {
           var value = array[index];
           if (predicate(value, index, array)) {
             result[resIndex++] = value;
@@ -5530,10 +5530,10 @@
     "node_modules/lodash/_isIndex.js"(exports, module) {
       var MAX_SAFE_INTEGER = 9007199254740991;
       var reIsUint = /^(?:0|[1-9]\d*)$/;
-      function isIndex(value, length) {
+      function isIndex(value, length2) {
         var type = typeof value;
-        length = length == null ? MAX_SAFE_INTEGER : length;
-        return !!length && (type == "number" || type != "symbol" && reIsUint.test(value)) && (value > -1 && value % 1 == 0 && value < length);
+        length2 = length2 == null ? MAX_SAFE_INTEGER : length2;
+        return !!length2 && (type == "number" || type != "symbol" && reIsUint.test(value)) && (value > -1 && value % 1 == 0 && value < length2);
       }
       module.exports = isIndex;
     }
@@ -5648,13 +5648,13 @@
       var objectProto = Object.prototype;
       var hasOwnProperty3 = objectProto.hasOwnProperty;
       function arrayLikeKeys(value, inherited) {
-        var isArr = isArray(value), isArg = !isArr && isArguments(value), isBuff = !isArr && !isArg && isBuffer(value), isType = !isArr && !isArg && !isBuff && isTypedArray(value), skipIndexes = isArr || isArg || isBuff || isType, result = skipIndexes ? baseTimes(value.length, String) : [], length = result.length;
+        var isArr = isArray(value), isArg = !isArr && isArguments(value), isBuff = !isArr && !isArg && isBuffer(value), isType = !isArr && !isArg && !isBuff && isTypedArray(value), skipIndexes = isArr || isArg || isBuff || isType, result = skipIndexes ? baseTimes(value.length, String) : [], length2 = result.length;
         for (var key in value) {
           if ((inherited || hasOwnProperty3.call(value, key)) && !(skipIndexes && // Safari 9 has enumerable `arguments.length` in strict mode.
           (key == "length" || // Node.js 0.10 has enumerable non-index properties on buffers.
           isBuff && (key == "offset" || key == "parent") || // PhantomJS 2 has enumerable non-index properties on typed arrays.
           isType && (key == "buffer" || key == "byteLength" || key == "byteOffset") || // Skip index properties.
-          isIndex(key, length)))) {
+          isIndex(key, length2)))) {
             result.push(key);
           }
         }
@@ -5963,9 +5963,9 @@
       var COMPARE_PARTIAL_FLAG = 1;
       var COMPARE_UNORDERED_FLAG = 2;
       function baseIsMatch(object, source, matchData, customizer) {
-        var index = matchData.length, length = index, noCustomizer = !customizer;
+        var index = matchData.length, length2 = index, noCustomizer = !customizer;
         if (object == null) {
-          return !length;
+          return !length2;
         }
         object = Object(object);
         while (index--) {
@@ -5974,7 +5974,7 @@
             return false;
           }
         }
-        while (++index < length) {
+        while (++index < length2) {
           data = matchData[index];
           var key = data[0], objValue = object[key], srcValue = data[1];
           if (noCustomizer && data[2]) {
@@ -6014,10 +6014,10 @@
       var isStrictComparable = require_isStrictComparable();
       var keys = require_keys();
       function getMatchData(object) {
-        var result = keys(object), length = result.length;
-        while (length--) {
-          var key = result[length], value = object[key];
-          result[length] = [key, value, isStrictComparable(value)];
+        var result = keys(object), length2 = result.length;
+        while (length2--) {
+          var key = result[length2], value = object[key];
+          result[length2] = [key, value, isStrictComparable(value)];
         }
         return result;
       }
@@ -6149,8 +6149,8 @@
         if (string.charCodeAt(0) === 46) {
           result.push("");
         }
-        string.replace(rePropName, function(match, number, quote, subString) {
-          result.push(quote ? subString.replace(reEscapeChar, "$1") : number || match);
+        string.replace(rePropName, function(match2, number, quote, subString) {
+          result.push(quote ? subString.replace(reEscapeChar, "$1") : number || match2);
         });
         return result;
       });
@@ -6162,8 +6162,8 @@
   var require_arrayMap = __commonJS({
     "node_modules/lodash/_arrayMap.js"(exports, module) {
       function arrayMap(array, iteratee) {
-        var index = -1, length = array == null ? 0 : array.length, result = Array(length);
-        while (++index < length) {
+        var index = -1, length2 = array == null ? 0 : array.length, result = Array(length2);
+        while (++index < length2) {
           result[index] = iteratee(array[index], index, array);
         }
         return result;
@@ -6250,11 +6250,11 @@
       var toKey = require_toKey();
       function baseGet(object, path) {
         path = castPath(path, object);
-        var index = 0, length = path.length;
-        while (object != null && index < length) {
+        var index = 0, length2 = path.length;
+        while (object != null && index < length2) {
           object = object[toKey(path[index++])];
         }
-        return index && index == length ? object : void 0;
+        return index && index == length2 ? object : void 0;
       }
       module.exports = baseGet;
     }
@@ -6293,19 +6293,19 @@
       var toKey = require_toKey();
       function hasPath(object, path, hasFunc) {
         path = castPath(path, object);
-        var index = -1, length = path.length, result = false;
-        while (++index < length) {
+        var index = -1, length2 = path.length, result = false;
+        while (++index < length2) {
           var key = toKey(path[index]);
           if (!(result = object != null && hasFunc(object, key))) {
             break;
           }
           object = object[key];
         }
-        if (result || ++index != length) {
+        if (result || ++index != length2) {
           return result;
         }
-        length = object == null ? 0 : object.length;
-        return !!length && isLength(length) && isIndex(key, length) && (isArray(object) || isArguments(object));
+        length2 = object == null ? 0 : object.length;
+        return !!length2 && isLength(length2) && isIndex(key, length2) && (isArray(object) || isArguments(object));
       }
       module.exports = hasPath;
     }
@@ -6351,10 +6351,10 @@
   // node_modules/lodash/identity.js
   var require_identity = __commonJS({
     "node_modules/lodash/identity.js"(exports, module) {
-      function identity(value) {
+      function identity2(value) {
         return value;
       }
-      module.exports = identity;
+      module.exports = identity2;
     }
   });
 
@@ -6402,7 +6402,7 @@
     "node_modules/lodash/_baseIteratee.js"(exports, module) {
       var baseMatches = require_baseMatches();
       var baseMatchesProperty = require_baseMatchesProperty();
-      var identity = require_identity();
+      var identity2 = require_identity();
       var isArray = require_isArray();
       var property = require_property();
       function baseIteratee(value) {
@@ -6410,7 +6410,7 @@
           return value;
         }
         if (value == null) {
-          return identity;
+          return identity2;
         }
         if (typeof value == "object") {
           return isArray(value) ? baseMatchesProperty(value[0], value[1]) : baseMatches(value);
@@ -6449,8 +6449,8 @@
   var require_baseFindIndex = __commonJS({
     "node_modules/lodash/_baseFindIndex.js"(exports, module) {
       function baseFindIndex(array, predicate, fromIndex, fromRight) {
-        var length = array.length, index = fromIndex + (fromRight ? 1 : -1);
-        while (fromRight ? index-- : ++index < length) {
+        var length2 = array.length, index = fromIndex + (fromRight ? 1 : -1);
+        while (fromRight ? index-- : ++index < length2) {
           if (predicate(array[index], index, array)) {
             return index;
           }
@@ -6561,13 +6561,13 @@
       var toInteger = require_toInteger();
       var nativeMax = Math.max;
       function findIndex(array, predicate, fromIndex) {
-        var length = array == null ? 0 : array.length;
-        if (!length) {
+        var length2 = array == null ? 0 : array.length;
+        if (!length2) {
           return -1;
         }
         var index = fromIndex == null ? 0 : toInteger(fromIndex);
         if (index < 0) {
-          index = nativeMax(length + index, 0);
+          index = nativeMax(length2 + index, 0);
         }
         return baseFindIndex(array, baseIteratee(predicate, 3), index);
       }
@@ -6580,8 +6580,8 @@
     "node_modules/lodash/find.js"(exports, module) {
       var createFind = require_createFind();
       var findIndex = require_findIndex();
-      var find = createFind(findIndex);
-      module.exports = find;
+      var find2 = createFind(findIndex);
+      module.exports = find2;
     }
   });
 
@@ -6610,14 +6610,14 @@
       exports.ELEMENT_MATCHES = ELEMENT_MATCHES;
       var FLEX_PREFIXED = withBrowser(() => {
         const el = document.createElement("i");
-        const values = ["flex", "-webkit-flex", "-ms-flexbox", "-moz-box", "-webkit-box"];
+        const values2 = ["flex", "-webkit-flex", "-ms-flexbox", "-moz-box", "-webkit-box"];
         const none = "";
         try {
           const {
-            length
-          } = values;
-          for (let i = 0; i < length; i++) {
-            const value = values[i];
+            length: length2
+          } = values2;
+          for (let i = 0; i < length2; i++) {
+            const value = values2[i];
             el.style.display = value;
             if (el.style.display === value) {
               return value;
@@ -6635,12 +6635,12 @@
           const prefixes = ["Webkit", "Moz", "ms"];
           const suffix = "Transform";
           const {
-            length
+            length: length2
           } = prefixes;
-          for (let i = 0; i < length; i++) {
-            const prop = prefixes[i] + suffix;
-            if (el.style[prop] !== void 0) {
-              return prop;
+          for (let i = 0; i < length2; i++) {
+            const prop2 = prefixes[i] + suffix;
+            if (el.style[prop2] !== void 0) {
+              return prop2;
             }
           }
         }
@@ -7402,11 +7402,11 @@
   var require_arrayReduce = __commonJS({
     "node_modules/lodash/_arrayReduce.js"(exports, module) {
       function arrayReduce(array, iteratee, accumulator, initAccum) {
-        var index = -1, length = array == null ? 0 : array.length;
-        if (initAccum && length) {
+        var index = -1, length2 = array == null ? 0 : array.length;
+        if (initAccum && length2) {
           accumulator = array[++index];
         }
-        while (++index < length) {
+        while (++index < length2) {
           accumulator = iteratee(accumulator, array[index], index, array);
         }
         return accumulator;
@@ -7420,9 +7420,9 @@
     "node_modules/lodash/_createBaseFor.js"(exports, module) {
       function createBaseFor(fromRight) {
         return function(object, iteratee, keysFunc) {
-          var index = -1, iterable = Object(object), props = keysFunc(object), length = props.length;
-          while (length--) {
-            var key = props[fromRight ? length : ++index];
+          var index = -1, iterable = Object(object), props = keysFunc(object), length2 = props.length;
+          while (length2--) {
+            var key = props[fromRight ? length2 : ++index];
             if (iteratee(iterable[key], key, iterable) === false) {
               break;
             }
@@ -7467,8 +7467,8 @@
           if (!isArrayLike(collection)) {
             return eachFunc(collection, iteratee);
           }
-          var length = collection.length, index = fromRight ? length : -1, iterable = Object(collection);
-          while (fromRight ? index-- : ++index < length) {
+          var length2 = collection.length, index = fromRight ? length2 : -1, iterable = Object(collection);
+          while (fromRight ? index-- : ++index < length2) {
             if (iteratee(iterable[index], index, iterable) === false) {
               break;
             }
@@ -7511,11 +7511,11 @@
       var baseIteratee = require_baseIteratee();
       var baseReduce = require_baseReduce();
       var isArray = require_isArray();
-      function reduce(collection, iteratee, accumulator) {
+      function reduce2(collection, iteratee, accumulator) {
         var func = isArray(collection) ? arrayReduce : baseReduce, initAccum = arguments.length < 3;
         return func(collection, baseIteratee(iteratee, 4), accumulator, initAccum, baseEach);
       }
-      module.exports = reduce;
+      module.exports = reduce2;
     }
   });
 
@@ -7528,14 +7528,14 @@
       var nativeMax = Math.max;
       var nativeMin = Math.min;
       function findLastIndex(array, predicate, fromIndex) {
-        var length = array == null ? 0 : array.length;
-        if (!length) {
+        var length2 = array == null ? 0 : array.length;
+        if (!length2) {
           return -1;
         }
-        var index = length - 1;
+        var index = length2 - 1;
         if (fromIndex !== void 0) {
           index = toInteger(fromIndex);
-          index = fromIndex < 0 ? nativeMax(length + index, 0) : nativeMin(index, length - 1);
+          index = fromIndex < 0 ? nativeMax(length2 + index, 0) : nativeMin(index, length2 - 1);
         }
         return baseFindIndex(array, baseIteratee(predicate, 3), index, true);
       }
@@ -7939,11 +7939,11 @@
         }
       }
       var pxValueRegex = /px/;
-      var getFilterDefaults = (actionState, filters) => filters.reduce((result, filter) => {
-        if (result[filter.type] == null) {
-          result[filter.type] = filterDefaults[
+      var getFilterDefaults = (actionState, filters) => filters.reduce((result, filter2) => {
+        if (result[filter2.type] == null) {
+          result[filter2.type] = filterDefaults[
             // $FlowFixMe - property `saturation` (did you mean `saturate`?) is missing in `filterDefaults`
-            filter.type
+            filter2.type
           ];
         }
         return result;
@@ -8021,9 +8021,9 @@
           }
         }
       }
-      var reduceFilters = (result, filter) => {
-        if (filter) {
-          result[filter.type] = filter.value || 0;
+      var reduceFilters = (result, filter2) => {
+        if (filter2) {
+          result[filter2.type] = filter2.value || 0;
         }
         return result;
       };
@@ -8039,10 +8039,10 @@
         }
         switch (actionTypeId) {
           case STYLE_FILTER: {
-            const filter = (0, _findLast.default)(config.filters, ({
+            const filter2 = (0, _findLast.default)(config.filters, ({
               type
             }) => type === key);
-            return filter ? filter.value : 0;
+            return filter2 ? filter2.value : 0;
           }
           case STYLE_FONT_VARIATION: {
             const fontVariation = (0, _findLast.default)(config.fontVariations, ({
@@ -8224,11 +8224,11 @@
         slnt: 0
       });
       var getFilterUnit = (filterType, actionItemConfig) => {
-        const filter = (0, _findLast.default)(actionItemConfig.filters, ({
+        const filter2 = (0, _findLast.default)(actionItemConfig.filters, ({
           type
         }) => type === filterType);
-        if (filter && filter.unit) {
-          return filter.unit;
+        if (filter2 && filter2.unit) {
+          return filter2.unit;
         }
         switch (filterType) {
           case "blur":
@@ -8308,8 +8308,8 @@
       var rgbValidRegex = /^rgb/;
       var rgbMatchRegex = RegExp(`rgba?${paramCapture}`);
       function getFirstMatch(regex, value) {
-        const match = regex.exec(value);
-        return match ? match[1] : "";
+        const match2 = regex.exec(value);
+        return match2 ? match2[1] : "";
       }
       function parseColor({
         element,
@@ -8317,9 +8317,9 @@
         computedStyle,
         getStyle
       }) {
-        const prop = colorStyleProps[actionTypeId];
-        const inlineValue = getStyle(element, prop);
-        const value = rgbValidRegex.test(inlineValue) ? inlineValue : computedStyle[prop];
+        const prop2 = colorStyleProps[actionTypeId];
+        const inlineValue = getStyle(element, prop2);
+        const value = rgbValidRegex.test(inlineValue) ? inlineValue : computedStyle[prop2];
         const matches = getFirstMatch(rgbMatchRegex, value).split(COMMA_DELIMITER);
         return {
           rValue: (0, _defaultTo.default)(parseInt(matches[0], 10), 255),
@@ -8369,13 +8369,13 @@
           case STYLE_BACKGROUND_COLOR:
           case STYLE_BORDER:
           case STYLE_TEXT_COLOR: {
-            const prop = colorStyleProps[actionItem.actionTypeId];
+            const prop2 = colorStyleProps[actionItem.actionTypeId];
             const rValue = Math.round(actionState.rValue);
             const gValue = Math.round(actionState.gValue);
             const bValue = Math.round(actionState.bValue);
             const aValue = actionState.aValue;
-            addWillChange(element, prop, elementApi);
-            setStyle(element, prop, aValue >= 1 ? `rgb(${rValue},${gValue},${bValue})` : `rgba(${rValue},${gValue},${bValue},${aValue})`);
+            addWillChange(element, prop2, elementApi);
+            setStyle(element, prop2, aValue >= 1 ? `rgb(${rValue},${gValue},${bValue})` : `rgba(${rValue},${gValue},${bValue},${aValue})`);
             break;
           }
           default: {
@@ -8406,11 +8406,11 @@
           }
         }
       }
-      function addWillChange(element, prop, elementApi) {
+      function addWillChange(element, prop2, elementApi) {
         if (!_IX2BrowserSupport.IS_BROWSER_ENV) {
           return;
         }
-        const validProp = willChangeProps[prop];
+        const validProp = willChangeProps[prop2];
         if (!validProp) {
           return;
         }
@@ -8423,16 +8423,16 @@
           setStyle(element, WILL_CHANGE, validProp);
           return;
         }
-        const values = value.split(COMMA_DELIMITER).map(trim);
-        if (values.indexOf(validProp) === -1) {
-          setStyle(element, WILL_CHANGE, values.concat(validProp).join(COMMA_DELIMITER));
+        const values2 = value.split(COMMA_DELIMITER).map(trim);
+        if (values2.indexOf(validProp) === -1) {
+          setStyle(element, WILL_CHANGE, values2.concat(validProp).join(COMMA_DELIMITER));
         }
       }
-      function removeWillChange(element, prop, elementApi) {
+      function removeWillChange(element, prop2, elementApi) {
         if (!_IX2BrowserSupport.IS_BROWSER_ENV) {
           return;
         }
-        const validProp = willChangeProps[prop];
+        const validProp = willChangeProps[prop2];
         if (!validProp) {
           return;
         }
@@ -8601,13 +8601,13 @@
             break;
         }
       };
-      function clearStyleProp(element, prop, elementApi) {
+      function clearStyleProp(element, prop2, elementApi) {
         const {
           setStyle
         } = elementApi;
-        removeWillChange(element, prop, elementApi);
-        setStyle(element, prop, "");
-        if (prop === _IX2BrowserSupport.TRANSFORM_PREFIXED) {
+        removeWillChange(element, prop2, elementApi);
+        setStyle(element, prop2, "");
+        if (prop2 === _IX2BrowserSupport.TRANSFORM_PREFIXED) {
           setStyle(element, _IX2BrowserSupport.TRANSFORM_STYLE_PREFIXED, "");
         }
       }
@@ -8823,8 +8823,8 @@
         let positionOffset;
         let positionRange;
         for (let i = 0, {
-          length
-        } = actionGroups; i < length; i++) {
+          length: length2
+        } = actionGroups; i < length2; i++) {
           const {
             keyframe,
             actionItems
@@ -8846,8 +8846,8 @@
         const current = {};
         if (fromActionItem && !toActionItem) {
           for (let i = 0, {
-            length
-          } = destinationKeys; i < length; i++) {
+            length: length2
+          } = destinationKeys; i < length2; i++) {
             const key = destinationKeys[i];
             current[key] = getItemConfigByKey(actionTypeId, key, fromActionItem.config);
           }
@@ -8856,8 +8856,8 @@
           const easing = fromActionItem.config.easing;
           const eased = applyEasing(easing, localPosition, customEasingFn);
           for (let i = 0, {
-            length
-          } = destinationKeys; i < length; i++) {
+            length: length2
+          } = destinationKeys; i < length2; i++) {
             const key = destinationKeys[i];
             const fromVal = getItemConfigByKey(actionTypeId, key, fromActionItem.config);
             const toVal = getItemConfigByKey(actionTypeId, key, toActionItem.config);
@@ -9038,9 +9038,9 @@
             const newState = {};
             const keys = Object.keys(state);
             const {
-              length
+              length: length2
             } = keys;
-            for (let i = 0; i < length; i++) {
+            for (let i = 0; i < length2; i++) {
               const key = keys[i];
               if (key !== instanceId) {
                 newState[key] = state[key];
@@ -9052,9 +9052,9 @@
             let newState = state;
             const keys = Object.keys(state);
             const {
-              length
+              length: length2
             } = keys;
-            for (let i = 0; i < length; i++) {
+            for (let i = 0; i < length2; i++) {
               const key = keys[i];
               const instance = state[key];
               const reducer = instance.continuous ? continuousInstance : timedInstance;
@@ -9375,8 +9375,8 @@
           return object;
         }
         path = castPath(path, object);
-        var index = -1, length = path.length, lastIndex = length - 1, nested = object;
-        while (nested != null && ++index < length) {
+        var index = -1, length2 = path.length, lastIndex = length2 - 1, nested = object;
+        while (nested != null && ++index < length2) {
           var key = toKey(path[index]), newValue = value;
           if (key === "__proto__" || key === "constructor" || key === "prototype") {
             return object;
@@ -9404,8 +9404,8 @@
       var baseSet = require_baseSet();
       var castPath = require_castPath();
       function basePickBy(object, paths, predicate) {
-        var index = -1, length = paths.length, result = {};
-        while (++index < length) {
+        var index = -1, length2 = paths.length, result = {};
+        while (++index < length2) {
           var path = paths[index], value = baseGet(object, path);
           if (predicate(value, path)) {
             baseSet(result, castPath(path, object), value);
@@ -9510,19 +9510,19 @@
       var baseIteratee = require_baseIteratee();
       var basePickBy = require_basePickBy();
       var getAllKeysIn = require_getAllKeysIn();
-      function pickBy(object, predicate) {
+      function pickBy2(object, predicate) {
         if (object == null) {
           return {};
         }
-        var props = arrayMap(getAllKeysIn(object), function(prop) {
-          return [prop];
+        var props = arrayMap(getAllKeysIn(object), function(prop2) {
+          return [prop2];
         });
         predicate = baseIteratee(predicate);
         return basePickBy(object, props, function(value, path) {
           return predicate(value, path[0]);
         });
       }
-      module.exports = pickBy;
+      module.exports = pickBy2;
     }
   });
 
@@ -9531,9 +9531,9 @@
     "node_modules/lodash/omitBy.js"(exports, module) {
       var baseIteratee = require_baseIteratee();
       var negate = require_negate();
-      var pickBy = require_pickBy();
+      var pickBy2 = require_pickBy();
       function omitBy(object, predicate) {
-        return pickBy(object, negate(baseIteratee(predicate)));
+        return pickBy2(object, negate(baseIteratee(predicate)));
       }
       module.exports = omitBy;
     }
@@ -9585,7 +9585,7 @@
       var baseAssignValue = require_baseAssignValue();
       var baseForOwn = require_baseForOwn();
       var baseIteratee = require_baseIteratee();
-      function mapValues(object, iteratee) {
+      function mapValues2(object, iteratee) {
         var result = {};
         iteratee = baseIteratee(iteratee, 3);
         baseForOwn(object, function(value, key, object2) {
@@ -9593,7 +9593,7 @@
         });
         return result;
       }
-      module.exports = mapValues;
+      module.exports = mapValues2;
     }
   });
 
@@ -9601,8 +9601,8 @@
   var require_arrayEach = __commonJS({
     "node_modules/lodash/_arrayEach.js"(exports, module) {
       function arrayEach(array, iteratee) {
-        var index = -1, length = array == null ? 0 : array.length;
-        while (++index < length) {
+        var index = -1, length2 = array == null ? 0 : array.length;
+        while (++index < length2) {
           if (iteratee(array[index], index, array) === false) {
             break;
           }
@@ -9616,9 +9616,9 @@
   // node_modules/lodash/_castFunction.js
   var require_castFunction = __commonJS({
     "node_modules/lodash/_castFunction.js"(exports, module) {
-      var identity = require_identity();
+      var identity2 = require_identity();
       function castFunction(value) {
-        return typeof value == "function" ? value : identity;
+        return typeof value == "function" ? value : identity2;
       }
       module.exports = castFunction;
     }
@@ -10006,14 +10006,14 @@
         PLAIN_OBJECT,
         WF_PAGE
       } = _constants.IX2EngineConstants;
-      function setStyle(element, prop, value) {
-        element.style[prop] = value;
+      function setStyle(element, prop2, value) {
+        element.style[prop2] = value;
       }
-      function getStyle(element, prop) {
-        return element.style[prop];
+      function getStyle(element, prop2) {
+        return element.style[prop2];
       }
-      function getProperty(element, prop) {
-        return element[prop];
+      function getProperty(element, prop2) {
+        return element[prop2];
       }
       function matchSelector(selector) {
         return (element) => element[ELEMENT_MATCHES](selector);
@@ -10055,8 +10055,8 @@
       function getChildElements(sourceElements) {
         const childElements = [];
         for (let i = 0, {
-          length
-        } = sourceElements || []; i < length; i++) {
+          length: length2
+        } = sourceElements || []; i < length2; i++) {
           const {
             children
           } = sourceElements[i];
@@ -10076,8 +10076,8 @@
         const elements = [];
         const parentCache = [];
         for (let i = 0, {
-          length
-        } = sourceElements; i < length; i++) {
+          length: length2
+        } = sourceElements; i < length2; i++) {
           const {
             parentNode
           } = sourceElements[i];
@@ -10198,10 +10198,10 @@
       var arrayPush = require_arrayPush();
       var isFlattenable = require_isFlattenable();
       function baseFlatten(array, depth, predicate, isStrict, result) {
-        var index = -1, length = array.length;
+        var index = -1, length2 = array.length;
         predicate || (predicate = isFlattenable);
         result || (result = []);
-        while (++index < length) {
+        while (++index < length2) {
           var value = array[index];
           if (depth > 0 && predicate(value)) {
             if (depth > 1) {
@@ -10224,8 +10224,8 @@
     "node_modules/lodash/flatten.js"(exports, module) {
       var baseFlatten = require_baseFlatten();
       function flatten(array) {
-        var length = array == null ? 0 : array.length;
-        return length ? baseFlatten(array, 1) : [];
+        var length2 = array == null ? 0 : array.length;
+        return length2 ? baseFlatten(array, 1) : [];
       }
       module.exports = flatten;
     }
@@ -10259,8 +10259,8 @@
       function overRest(func, start, transform) {
         start = nativeMax(start === void 0 ? func.length - 1 : start, 0);
         return function() {
-          var args = arguments, index = -1, length = nativeMax(args.length - start, 0), array = Array(length);
-          while (++index < length) {
+          var args = arguments, index = -1, length2 = nativeMax(args.length - start, 0), array = Array(length2);
+          while (++index < length2) {
             array[index] = args[start + index];
           }
           index = -1;
@@ -10279,26 +10279,26 @@
   // node_modules/lodash/constant.js
   var require_constant = __commonJS({
     "node_modules/lodash/constant.js"(exports, module) {
-      function constant(value) {
+      function constant2(value) {
         return function() {
           return value;
         };
       }
-      module.exports = constant;
+      module.exports = constant2;
     }
   });
 
   // node_modules/lodash/_baseSetToString.js
   var require_baseSetToString = __commonJS({
     "node_modules/lodash/_baseSetToString.js"(exports, module) {
-      var constant = require_constant();
+      var constant2 = require_constant();
       var defineProperty = require_defineProperty();
-      var identity = require_identity();
-      var baseSetToString = !defineProperty ? identity : function(func, string) {
+      var identity2 = require_identity();
+      var baseSetToString = !defineProperty ? identity2 : function(func, string) {
         return defineProperty(func, "toString", {
           "configurable": true,
           "enumerable": false,
-          "value": constant(string),
+          "value": constant2(string),
           "writable": true
         });
       };
@@ -10399,9 +10399,9 @@
       var objectProto = Object.prototype;
       var hasOwnProperty3 = objectProto.hasOwnProperty;
       function getFuncName(func) {
-        var result = func.name + "", array = realNames[result], length = hasOwnProperty3.call(realNames, result) ? array.length : 0;
-        while (length--) {
-          var data = array[length], otherFunc = data.func;
+        var result = func.name + "", array = realNames[result], length2 = hasOwnProperty3.call(realNames, result) ? array.length : 0;
+        while (length2--) {
+          var data = array[length2], otherFunc = data.func;
           if (otherFunc == null || otherFunc == func) {
             return data.name;
           }
@@ -10437,9 +10437,9 @@
   var require_copyArray = __commonJS({
     "node_modules/lodash/_copyArray.js"(exports, module) {
       function copyArray(source, array) {
-        var index = -1, length = source.length;
-        array || (array = Array(length));
-        while (++index < length) {
+        var index = -1, length2 = source.length;
+        array || (array = Array(length2));
+        while (++index < length2) {
           array[index] = source[index];
         }
         return array;
@@ -10534,7 +10534,7 @@
       var WRAP_REARG_FLAG = 256;
       function createFlow(fromRight) {
         return flatRest(function(funcs) {
-          var length = funcs.length, index = length, prereq = LodashWrapper.prototype.thru;
+          var length2 = funcs.length, index = length2, prereq = LodashWrapper.prototype.thru;
           if (fromRight) {
             funcs.reverse();
           }
@@ -10547,8 +10547,8 @@
               var wrapper = new LodashWrapper([], true);
             }
           }
-          index = wrapper ? index : length;
-          while (++index < length) {
+          index = wrapper ? index : length2;
+          while (++index < length2) {
             func = funcs[index];
             var funcName = getFuncName(func), data = funcName == "wrapper" ? getData(func) : void 0;
             if (data && isLaziable(data[0]) && data[1] == (WRAP_ARY_FLAG | WRAP_CURRY_FLAG | WRAP_PARTIAL_FLAG | WRAP_REARG_FLAG) && !data[4].length && data[9] == 1) {
@@ -10562,8 +10562,8 @@
             if (wrapper && args.length == 1 && isArray(value)) {
               return wrapper.plant(value).value();
             }
-            var index2 = 0, result = length ? funcs[index2].apply(this, args) : value;
-            while (++index2 < length) {
+            var index2 = 0, result = length2 ? funcs[index2].apply(this, args) : value;
+            while (++index2 < length2) {
               result = funcs[index2].call(this, result);
             }
             return result;
@@ -10763,9 +10763,9 @@
         });
         return state;
       };
-      var withFilter = (filter, handler) => (options, state) => (
+      var withFilter = (filter2, handler) => (options, state) => (
         // $FlowFixMe
-        filter(options, state) === true ? handler(options, state) : state
+        filter2(options, state) === true ? handler(options, state) : state
       );
       var baseActionGroupOptions = {
         handler: withFilter(isOrContainsElement, actionGroupCreator)
@@ -12175,9 +12175,12 @@
         const {
           element,
           actionItem,
+          // $FlowIgnore - Flow 0.121.0
           immediate,
           pluginInstance,
+          // $FlowIgnore - Flow 0.121.0
           continuous,
+          // $FlowIgnore - Flow 0.121.0
           restingValue,
           eventId
         } = rest;
@@ -12457,8 +12460,8 @@
           if (href === "#" || href === "") {
             return;
           }
-          var match = tempLink.href === location.href || href === slug || indexPage.test(href) && dirList.test(slug);
-          setClass($link, linkCurrent, match);
+          var match2 = tempLink.href === location.href || href === slug || indexPage.test(href) && dirList.test(slug);
+          setClass($link, linkCurrent, match2);
         }
         function scroll() {
           var viewTop = $win.scrollTop();
@@ -12477,15 +12480,15 @@
             setClass($link, linkCurrent, active);
           });
         }
-        function setClass($elem, className, add) {
+        function setClass($elem, className, add2) {
           var exists = $elem.hasClass(className);
-          if (add && exists) {
+          if (add2 && exists) {
             return;
           }
-          if (!add && !exists) {
+          if (!add2 && !exists) {
             return;
           }
-          add ? $elem.addClass(className) : $elem.removeClass(className);
+          add2 ? $elem.addClass(className) : $elem.removeClass(className);
         }
         return api;
       });
@@ -13143,6 +13146,464 @@
     }
   });
 
+  // shared/render/plugins/Form/webflow-forms.js
+  var require_webflow_forms = __commonJS({
+    "shared/render/plugins/Form/webflow-forms.js"(exports, module) {
+      var Webflow2 = require_webflow_lib();
+      Webflow2.define("forms", module.exports = function($2, _) {
+        var api = {};
+        var $doc = $2(document);
+        var $forms;
+        var loc = window.location;
+        var retro = window.XDomainRequest && !window.atob;
+        var namespace = ".w-form";
+        var siteId;
+        var emailField = /e(-)?mail/i;
+        var emailValue = /^\S+@\S+$/;
+        var alert = window.alert;
+        var inApp = Webflow2.env();
+        var listening;
+        var formUrl;
+        var signFileUrl;
+        var chimpRegex = /list-manage[1-9]?.com/i;
+        var disconnected = _.debounce(function() {
+          alert("Oops! This page has improperly configured forms. Please contact your website administrator to fix this issue.");
+        }, 100);
+        api.ready = api.design = api.preview = function() {
+          init();
+          if (!inApp && !listening) {
+            addListeners();
+          }
+        };
+        function init() {
+          siteId = $2("html").attr("data-wf-site");
+          formUrl = "https://webflow.com/api/v1/form/" + siteId;
+          if (retro && formUrl.indexOf("https://webflow.com") >= 0) {
+            formUrl = formUrl.replace("https://webflow.com", "https://formdata.webflow.com");
+          }
+          signFileUrl = `${formUrl}/signFile`;
+          $forms = $2(namespace + " form");
+          if (!$forms.length) {
+            return;
+          }
+          $forms.each(build);
+        }
+        function build(i, el) {
+          var $el = $2(el);
+          var data = $2.data(el, namespace);
+          if (!data) {
+            data = $2.data(el, namespace, {
+              form: $el
+            });
+          }
+          reset(data);
+          var wrap2 = $el.closest("div.w-form");
+          data.done = wrap2.find("> .w-form-done");
+          data.fail = wrap2.find("> .w-form-fail");
+          data.fileUploads = wrap2.find(".w-file-upload");
+          data.fileUploads.each(function(j) {
+            initFileUpload(j, data);
+          });
+          var formName = data.form.attr("aria-label") || data.form.attr("data-name") || "Form";
+          if (!data.done.attr("aria-label")) {
+            data.form.attr("aria-label", formName);
+          }
+          data.done.attr("tabindex", "-1");
+          data.done.attr("role", "region");
+          if (!data.done.attr("aria-label")) {
+            data.done.attr("aria-label", formName + " success");
+          }
+          data.fail.attr("tabindex", "-1");
+          data.fail.attr("role", "region");
+          if (!data.fail.attr("aria-label")) {
+            data.fail.attr("aria-label", formName + " failure");
+          }
+          var action = data.action = $el.attr("action");
+          data.handler = null;
+          data.redirect = $el.attr("data-redirect");
+          if (chimpRegex.test(action)) {
+            data.handler = submitMailChimp;
+            return;
+          }
+          if (action) {
+            return;
+          }
+          if (siteId) {
+            data.handler = true ? exportedSubmitWebflow : (() => {
+              const hostedSubmitHandler = null.default;
+              return hostedSubmitHandler(reset, loc, Webflow2, collectEnterpriseTrackingCookies, preventDefault, findFields, alert, findFileUploads, disableBtn, siteId, afterSubmit, $2, formUrl);
+            })();
+            return;
+          }
+          disconnected();
+        }
+        function addListeners() {
+          listening = true;
+          $doc.on("submit", namespace + " form", function(evt) {
+            var data = $2.data(this, namespace);
+            if (data.handler) {
+              data.evt = evt;
+              data.handler(data);
+            }
+          });
+          const CHECKBOX_CLASS_NAME = ".w-checkbox-input";
+          const RADIO_INPUT_CLASS_NAME = ".w-radio-input";
+          const CHECKED_CLASS = "w--redirected-checked";
+          const FOCUSED_CLASS = "w--redirected-focus";
+          const FOCUSED_VISIBLE_CLASS = "w--redirected-focus-visible";
+          const focusVisibleSelectors = ":focus-visible, [data-wf-focus-visible]";
+          const CUSTOM_CONTROLS = [["checkbox", CHECKBOX_CLASS_NAME], ["radio", RADIO_INPUT_CLASS_NAME]];
+          $doc.on("change", namespace + ` form input[type="checkbox"]:not(` + CHECKBOX_CLASS_NAME + ")", (evt) => {
+            $2(evt.target).siblings(CHECKBOX_CLASS_NAME).toggleClass(CHECKED_CLASS);
+          });
+          $doc.on("change", namespace + ` form input[type="radio"]`, (evt) => {
+            $2(`input[name="${evt.target.name}"]:not(${CHECKBOX_CLASS_NAME})`).map((i, el) => $2(el).siblings(RADIO_INPUT_CLASS_NAME).removeClass(CHECKED_CLASS));
+            const $target = $2(evt.target);
+            if (!$target.hasClass("w-radio-input")) {
+              $target.siblings(RADIO_INPUT_CLASS_NAME).addClass(CHECKED_CLASS);
+            }
+          });
+          CUSTOM_CONTROLS.forEach(([controlType, customControlClassName]) => {
+            $doc.on("focus", namespace + ` form input[type="${controlType}"]:not(` + customControlClassName + ")", (evt) => {
+              $2(evt.target).siblings(customControlClassName).addClass(FOCUSED_CLASS);
+              $2(evt.target).filter(focusVisibleSelectors).siblings(customControlClassName).addClass(FOCUSED_VISIBLE_CLASS);
+            });
+            $doc.on("blur", namespace + ` form input[type="${controlType}"]:not(` + customControlClassName + ")", (evt) => {
+              $2(evt.target).siblings(customControlClassName).removeClass(`${FOCUSED_CLASS} ${FOCUSED_VISIBLE_CLASS}`);
+            });
+          });
+        }
+        function reset(data) {
+          var btn = data.btn = data.form.find(':input[type="submit"]');
+          data.wait = data.btn.attr("data-wait") || null;
+          data.success = false;
+          btn.prop("disabled", false);
+          data.label && btn.val(data.label);
+        }
+        function disableBtn(data) {
+          var btn = data.btn;
+          var wait = data.wait;
+          btn.prop("disabled", true);
+          if (wait) {
+            data.label = btn.val();
+            btn.val(wait);
+          }
+        }
+        function findFields(form, result) {
+          var status = null;
+          result = result || {};
+          form.find(':input:not([type="submit"]):not([type="file"])').each(function(i, el) {
+            var field = $2(el);
+            var type = field.attr("type");
+            var name = field.attr("data-name") || field.attr("name") || "Field " + (i + 1);
+            var value = field.val();
+            if (type === "checkbox") {
+              value = field.is(":checked");
+            } else if (type === "radio") {
+              if (result[name] === null || typeof result[name] === "string") {
+                return;
+              }
+              value = form.find('input[name="' + field.attr("name") + '"]:checked').val() || null;
+            }
+            if (typeof value === "string") {
+              value = $2.trim(value);
+            }
+            result[name] = value;
+            status = status || getStatus(field, type, name, value);
+          });
+          return status;
+        }
+        function findFileUploads(form) {
+          var result = {};
+          form.find(':input[type="file"]').each(function(i, el) {
+            var field = $2(el);
+            var name = field.attr("data-name") || field.attr("name") || "File " + (i + 1);
+            var value = field.attr("data-value");
+            if (typeof value === "string") {
+              value = $2.trim(value);
+            }
+            result[name] = value;
+          });
+          return result;
+        }
+        const trackingCookieNameMap = {
+          _mkto_trk: "marketo"
+          // __hstc: 'hubspot',
+        };
+        function collectEnterpriseTrackingCookies() {
+          const cookies = document.cookie.split("; ").reduce(function(acc, cookie) {
+            const splitCookie = cookie.split("=");
+            const name = splitCookie[0];
+            if (name in trackingCookieNameMap) {
+              const mappedName = trackingCookieNameMap[name];
+              const value = splitCookie.slice(1).join("=");
+              acc[mappedName] = value;
+            }
+            return acc;
+          }, {});
+          return cookies;
+        }
+        function getStatus(field, type, name, value) {
+          var status = null;
+          if (type === "password") {
+            status = "Passwords cannot be submitted.";
+          } else if (field.attr("required")) {
+            if (!value) {
+              status = "Please fill out the required field: " + name;
+            } else if (emailField.test(field.attr("type"))) {
+              if (!emailValue.test(value)) {
+                status = "Please enter a valid email address for: " + name;
+              }
+            }
+          } else if (name === "g-recaptcha-response" && !value) {
+            status = "Please confirm you\u2019re not a robot.";
+          }
+          return status;
+        }
+        function exportedSubmitWebflow(data) {
+          preventDefault(data);
+          afterSubmit(data);
+        }
+        function submitMailChimp(data) {
+          reset(data);
+          var form = data.form;
+          var payload = {};
+          if (/^https/.test(loc.href) && !/^https/.test(data.action)) {
+            form.attr("method", "post");
+            return;
+          }
+          preventDefault(data);
+          var status = findFields(form, payload);
+          if (status) {
+            return alert(status);
+          }
+          disableBtn(data);
+          var fullName;
+          _.each(payload, function(value, key) {
+            if (emailField.test(key)) {
+              payload.EMAIL = value;
+            }
+            if (/^((full[ _-]?)?name)$/i.test(key)) {
+              fullName = value;
+            }
+            if (/^(first[ _-]?name)$/i.test(key)) {
+              payload.FNAME = value;
+            }
+            if (/^(last[ _-]?name)$/i.test(key)) {
+              payload.LNAME = value;
+            }
+          });
+          if (fullName && !payload.FNAME) {
+            fullName = fullName.split(" ");
+            payload.FNAME = fullName[0];
+            payload.LNAME = payload.LNAME || fullName[1];
+          }
+          var url = data.action.replace("/post?", "/post-json?") + "&c=?";
+          var userId = url.indexOf("u=") + 2;
+          userId = url.substring(userId, url.indexOf("&", userId));
+          var listId = url.indexOf("id=") + 3;
+          listId = url.substring(listId, url.indexOf("&", listId));
+          payload["b_" + userId + "_" + listId] = "";
+          $2.ajax({
+            url,
+            data: payload,
+            dataType: "jsonp"
+          }).done(function(resp) {
+            data.success = resp.result === "success" || /already/.test(resp.msg);
+            if (!data.success) {
+              console.info("MailChimp error: " + resp.msg);
+            }
+            afterSubmit(data);
+          }).fail(function() {
+            afterSubmit(data);
+          });
+        }
+        function afterSubmit(data) {
+          var form = data.form;
+          var redirect = data.redirect;
+          var success = data.success;
+          if (success && redirect) {
+            Webflow2.location(redirect);
+            return;
+          }
+          data.done.toggle(success);
+          data.fail.toggle(!success);
+          if (success) {
+            data.done.focus();
+          } else {
+            data.fail.focus();
+          }
+          form.toggle(!success);
+          reset(data);
+        }
+        function preventDefault(data) {
+          data.evt && data.evt.preventDefault();
+          data.evt = null;
+        }
+        function initFileUpload(i, form) {
+          if (!form.fileUploads || !form.fileUploads[i]) {
+            return;
+          }
+          var file;
+          var $el = $2(form.fileUploads[i]);
+          var $defaultWrap = $el.find("> .w-file-upload-default");
+          var $uploadingWrap = $el.find("> .w-file-upload-uploading");
+          var $successWrap = $el.find("> .w-file-upload-success");
+          var $errorWrap = $el.find("> .w-file-upload-error");
+          var $input = $defaultWrap.find(".w-file-upload-input");
+          var $label = $defaultWrap.find(".w-file-upload-label");
+          var $labelChildren = $label.children();
+          var $errorMsgEl = $errorWrap.find(".w-file-upload-error-msg");
+          var $fileEl = $successWrap.find(".w-file-upload-file");
+          var $removeEl = $successWrap.find(".w-file-remove-link");
+          var $fileNameEl = $fileEl.find(".w-file-upload-file-name");
+          var sizeErrMsg = $errorMsgEl.attr("data-w-size-error");
+          var typeErrMsg = $errorMsgEl.attr("data-w-type-error");
+          var genericErrMsg = $errorMsgEl.attr("data-w-generic-error");
+          if (!inApp) {
+            $label.on("click keydown", function(e) {
+              if (e.type === "keydown" && e.which !== 13 && e.which !== 32) {
+                return;
+              }
+              e.preventDefault();
+              $input.click();
+            });
+          }
+          $label.find(".w-icon-file-upload-icon").attr("aria-hidden", "true");
+          $removeEl.find(".w-icon-file-upload-remove").attr("aria-hidden", "true");
+          if (!inApp) {
+            $removeEl.on("click keydown", function(e) {
+              if (e.type === "keydown") {
+                if (e.which !== 13 && e.which !== 32) {
+                  return;
+                }
+                e.preventDefault();
+              }
+              $input.removeAttr("data-value");
+              $input.val("");
+              $fileNameEl.html("");
+              $defaultWrap.toggle(true);
+              $successWrap.toggle(false);
+              $label.focus();
+            });
+            $input.on("change", function(e) {
+              file = e.target && e.target.files && e.target.files[0];
+              if (!file) {
+                return;
+              }
+              $defaultWrap.toggle(false);
+              $errorWrap.toggle(false);
+              $uploadingWrap.toggle(true);
+              $uploadingWrap.focus();
+              $fileNameEl.text(file.name);
+              if (!isUploading()) {
+                disableBtn(form);
+              }
+              form.fileUploads[i].uploading = true;
+              signFile(file, afterSign);
+            });
+            var height = $label.outerHeight();
+            $input.height(height);
+            $input.width(1);
+          } else {
+            $input.on("click", function(e) {
+              e.preventDefault();
+            });
+            $label.on("click", function(e) {
+              e.preventDefault();
+            });
+            $labelChildren.on("click", function(e) {
+              e.preventDefault();
+            });
+          }
+          function parseError(err) {
+            var errorMsg = err.responseJSON && err.responseJSON.msg;
+            var userError = genericErrMsg;
+            if (typeof errorMsg === "string" && errorMsg.indexOf("InvalidFileTypeError") === 0) {
+              userError = typeErrMsg;
+            } else if (typeof errorMsg === "string" && errorMsg.indexOf("MaxFileSizeError") === 0) {
+              userError = sizeErrMsg;
+            }
+            $errorMsgEl.text(userError);
+            $input.removeAttr("data-value");
+            $input.val("");
+            $uploadingWrap.toggle(false);
+            $defaultWrap.toggle(true);
+            $errorWrap.toggle(true);
+            $errorWrap.focus();
+            form.fileUploads[i].uploading = false;
+            if (!isUploading()) {
+              reset(form);
+            }
+          }
+          function afterSign(err, data) {
+            if (err) {
+              return parseError(err);
+            }
+            var fileName = data.fileName;
+            var postData = data.postData;
+            var fileId = data.fileId;
+            var s3Url = data.s3Url;
+            $input.attr("data-value", fileId);
+            uploadS3(s3Url, postData, file, fileName, afterUpload);
+          }
+          function afterUpload(err) {
+            if (err) {
+              return parseError(err);
+            }
+            $uploadingWrap.toggle(false);
+            $successWrap.css("display", "inline-block");
+            $successWrap.focus();
+            form.fileUploads[i].uploading = false;
+            if (!isUploading()) {
+              reset(form);
+            }
+          }
+          function isUploading() {
+            var uploads = form.fileUploads && form.fileUploads.toArray() || [];
+            return uploads.some(function(value) {
+              return value.uploading;
+            });
+          }
+        }
+        function signFile(file, cb) {
+          var payload = new URLSearchParams({
+            name: file.name,
+            size: file.size
+          });
+          $2.ajax({
+            type: "GET",
+            url: `${signFileUrl}?${payload}`,
+            crossDomain: true
+          }).done(function(data) {
+            cb(null, data);
+          }).fail(function(err) {
+            cb(err);
+          });
+        }
+        function uploadS3(url, data, file, fileName, cb) {
+          var formData = new FormData();
+          for (var k in data) {
+            formData.append(k, data[k]);
+          }
+          formData.append("file", file, fileName);
+          $2.ajax({
+            type: "POST",
+            url,
+            data: formData,
+            processData: false,
+            contentType: false
+          }).done(function() {
+            cb(null);
+          }).fail(function(err) {
+            cb(err);
+          });
+        }
+        return api;
+      });
+    }
+  });
+
   // shared/render/plugins/Navbar/webflow-navbar.js
   var require_webflow_navbar = __commonJS({
     "shared/render/plugins/Navbar/webflow-navbar.js"(exports, module) {
@@ -13596,6 +14057,909 @@
     }
   });
 
+  // shared/render/plugins/Slider/webflow-slider.js
+  var require_webflow_slider = __commonJS({
+    "shared/render/plugins/Slider/webflow-slider.js"(exports, module) {
+      var Webflow2 = require_webflow_lib();
+      var IXEvents = require_webflow_ix2_events();
+      var KEY_CODES = {
+        ARROW_LEFT: 37,
+        ARROW_UP: 38,
+        ARROW_RIGHT: 39,
+        ARROW_DOWN: 40,
+        SPACE: 32,
+        ENTER: 13,
+        HOME: 36,
+        END: 35
+      };
+      var FOCUSABLE_SELECTOR = 'a[href], area[href], [role="button"], input, select, textarea, button, iframe, object, embed, *[tabindex], *[contenteditable]';
+      Webflow2.define("slider", module.exports = function($2, _) {
+        var api = {};
+        var tram = $2.tram;
+        var $doc = $2(document);
+        var $sliders;
+        var designer;
+        var inApp = Webflow2.env();
+        var namespace = ".w-slider";
+        var dot = '<div class="w-slider-dot" data-wf-ignore />';
+        var ariaLiveLabelHtml = '<div aria-live="off" aria-atomic="true" class="w-slider-aria-label" data-wf-ignore />';
+        var forceShow = "w-slider-force-show";
+        var ix = IXEvents.triggers;
+        var fallback;
+        var inRedraw = false;
+        api.ready = function() {
+          designer = Webflow2.env("design");
+          init();
+        };
+        api.design = function() {
+          designer = true;
+          setTimeout(init, 1e3);
+        };
+        api.preview = function() {
+          designer = false;
+          init();
+        };
+        api.redraw = function() {
+          inRedraw = true;
+          init();
+          inRedraw = false;
+        };
+        api.destroy = removeListeners;
+        function init() {
+          $sliders = $doc.find(namespace);
+          if (!$sliders.length) {
+            return;
+          }
+          $sliders.each(build);
+          if (fallback) {
+            return;
+          }
+          removeListeners();
+          addListeners();
+        }
+        function removeListeners() {
+          Webflow2.resize.off(renderAll);
+          Webflow2.redraw.off(api.redraw);
+        }
+        function addListeners() {
+          Webflow2.resize.on(renderAll);
+          Webflow2.redraw.on(api.redraw);
+        }
+        function renderAll() {
+          $sliders.filter(":visible").each(render);
+        }
+        function build(i, el) {
+          var $el = $2(el);
+          var data = $2.data(el, namespace);
+          if (!data) {
+            data = $2.data(el, namespace, {
+              index: 0,
+              depth: 1,
+              hasFocus: {
+                keyboard: false,
+                mouse: false
+              },
+              el: $el,
+              config: {}
+            });
+          }
+          data.mask = $el.children(".w-slider-mask");
+          data.left = $el.children(".w-slider-arrow-left");
+          data.right = $el.children(".w-slider-arrow-right");
+          data.nav = $el.children(".w-slider-nav");
+          data.slides = data.mask.children(".w-slide");
+          data.slides.each(ix.reset);
+          if (inRedraw) {
+            data.maskWidth = 0;
+          }
+          if ($el.attr("role") === void 0) {
+            $el.attr("role", "region");
+          }
+          if ($el.attr("aria-label") === void 0) {
+            $el.attr("aria-label", "carousel");
+          }
+          var slideViewId = data.mask.attr("id");
+          if (!slideViewId) {
+            slideViewId = "w-slider-mask-" + i;
+            data.mask.attr("id", slideViewId);
+          }
+          if (!designer && !data.ariaLiveLabel) {
+            data.ariaLiveLabel = $2(ariaLiveLabelHtml).appendTo(data.mask);
+          }
+          data.left.attr("role", "button");
+          data.left.attr("tabindex", "0");
+          data.left.attr("aria-controls", slideViewId);
+          if (data.left.attr("aria-label") === void 0) {
+            data.left.attr("aria-label", "previous slide");
+          }
+          data.right.attr("role", "button");
+          data.right.attr("tabindex", "0");
+          data.right.attr("aria-controls", slideViewId);
+          if (data.right.attr("aria-label") === void 0) {
+            data.right.attr("aria-label", "next slide");
+          }
+          if (!tram.support.transform) {
+            data.left.hide();
+            data.right.hide();
+            data.nav.hide();
+            fallback = true;
+            return;
+          }
+          data.el.off(namespace);
+          data.left.off(namespace);
+          data.right.off(namespace);
+          data.nav.off(namespace);
+          configure(data);
+          if (designer) {
+            data.el.on("setting" + namespace, handler(data));
+            stopTimer(data);
+            data.hasTimer = false;
+          } else {
+            data.el.on("swipe" + namespace, handler(data));
+            data.left.on("click" + namespace, previousFunction(data));
+            data.right.on("click" + namespace, next(data));
+            data.left.on("keydown" + namespace, keyboardSlideButtonsFunction(data, previousFunction));
+            data.right.on("keydown" + namespace, keyboardSlideButtonsFunction(data, next));
+            data.nav.on("keydown" + namespace, "> div", handler(data));
+            if (data.config.autoplay && !data.hasTimer) {
+              data.hasTimer = true;
+              data.timerCount = 1;
+              startTimer(data);
+            }
+            data.el.on("mouseenter" + namespace, hasFocus(data, true, "mouse"));
+            data.el.on("focusin" + namespace, hasFocus(data, true, "keyboard"));
+            data.el.on("mouseleave" + namespace, hasFocus(data, false, "mouse"));
+            data.el.on("focusout" + namespace, hasFocus(data, false, "keyboard"));
+          }
+          data.nav.on("click" + namespace, "> div", handler(data));
+          if (!inApp) {
+            data.mask.contents().filter(function() {
+              return this.nodeType === 3;
+            }).remove();
+          }
+          var $elHidden = $el.filter(":hidden");
+          $elHidden.addClass(forceShow);
+          var $elHiddenParents = $el.parents(":hidden");
+          $elHiddenParents.addClass(forceShow);
+          if (!inRedraw) {
+            render(i, el);
+          }
+          $elHidden.removeClass(forceShow);
+          $elHiddenParents.removeClass(forceShow);
+        }
+        function configure(data) {
+          var config = {};
+          config.crossOver = 0;
+          config.animation = data.el.attr("data-animation") || "slide";
+          if (config.animation === "outin") {
+            config.animation = "cross";
+            config.crossOver = 0.5;
+          }
+          config.easing = data.el.attr("data-easing") || "ease";
+          var duration = data.el.attr("data-duration");
+          config.duration = duration != null ? parseInt(duration, 10) : 500;
+          if (isAttrTrue(data.el.attr("data-infinite"))) {
+            config.infinite = true;
+          }
+          if (isAttrTrue(data.el.attr("data-disable-swipe"))) {
+            config.disableSwipe = true;
+          }
+          if (isAttrTrue(data.el.attr("data-hide-arrows"))) {
+            config.hideArrows = true;
+          } else if (data.config.hideArrows) {
+            data.left.show();
+            data.right.show();
+          }
+          if (isAttrTrue(data.el.attr("data-autoplay"))) {
+            config.autoplay = true;
+            config.delay = parseInt(data.el.attr("data-delay"), 10) || 2e3;
+            config.timerMax = parseInt(data.el.attr("data-autoplay-limit"), 10);
+            var touchEvents = "mousedown" + namespace + " touchstart" + namespace;
+            if (!designer) {
+              data.el.off(touchEvents).one(touchEvents, function() {
+                stopTimer(data);
+              });
+            }
+          }
+          var arrowWidth = data.right.width();
+          config.edge = arrowWidth ? arrowWidth + 40 : 100;
+          data.config = config;
+        }
+        function isAttrTrue(value) {
+          return value === "1" || value === "true";
+        }
+        function hasFocus(data, focusIn, eventType) {
+          return function(evt) {
+            if (!focusIn) {
+              if ($2.contains(data.el.get(0), evt.relatedTarget)) {
+                return;
+              }
+              data.hasFocus[eventType] = focusIn;
+              if (data.hasFocus.mouse && eventType === "keyboard" || data.hasFocus.keyboard && eventType === "mouse") {
+                return;
+              }
+            } else {
+              data.hasFocus[eventType] = focusIn;
+            }
+            if (focusIn) {
+              data.ariaLiveLabel.attr("aria-live", "polite");
+              if (data.hasTimer) {
+                stopTimer(data);
+              }
+            } else {
+              data.ariaLiveLabel.attr("aria-live", "off");
+              if (data.hasTimer) {
+                startTimer(data);
+              }
+            }
+            return;
+          };
+        }
+        function keyboardSlideButtonsFunction(data, directionFunction) {
+          return function(evt) {
+            switch (evt.keyCode) {
+              case KEY_CODES.SPACE:
+              case KEY_CODES.ENTER: {
+                directionFunction(data)();
+                evt.preventDefault();
+                return evt.stopPropagation();
+              }
+            }
+          };
+        }
+        function previousFunction(data) {
+          return function() {
+            change(data, {
+              index: data.index - 1,
+              vector: -1
+            });
+          };
+        }
+        function next(data) {
+          return function() {
+            change(data, {
+              index: data.index + 1,
+              vector: 1
+            });
+          };
+        }
+        function select(data, value) {
+          var found = null;
+          if (value === data.slides.length) {
+            init();
+            layout(data);
+          }
+          _.each(data.anchors, function(anchor, index) {
+            $2(anchor.els).each(function(i, el) {
+              if ($2(el).index() === value) {
+                found = index;
+              }
+            });
+          });
+          if (found != null) {
+            change(data, {
+              index: found,
+              immediate: true
+            });
+          }
+        }
+        function startTimer(data) {
+          stopTimer(data);
+          var config = data.config;
+          var timerMax = config.timerMax;
+          if (timerMax && data.timerCount++ > timerMax) {
+            return;
+          }
+          data.timerId = window.setTimeout(function() {
+            if (data.timerId == null || designer) {
+              return;
+            }
+            next(data)();
+            startTimer(data);
+          }, config.delay);
+        }
+        function stopTimer(data) {
+          window.clearTimeout(data.timerId);
+          data.timerId = null;
+        }
+        function handler(data) {
+          return function(evt, options) {
+            options = options || {};
+            var config = data.config;
+            if (designer && evt.type === "setting") {
+              if (options.select === "prev") {
+                return previousFunction(data)();
+              }
+              if (options.select === "next") {
+                return next(data)();
+              }
+              configure(data);
+              layout(data);
+              if (options.select == null) {
+                return;
+              }
+              select(data, options.select);
+              return;
+            }
+            if (evt.type === "swipe") {
+              if (config.disableSwipe) {
+                return;
+              }
+              if (Webflow2.env("editor")) {
+                return;
+              }
+              if (options.direction === "left") {
+                return next(data)();
+              }
+              if (options.direction === "right") {
+                return previousFunction(data)();
+              }
+              return;
+            }
+            if (data.nav.has(evt.target).length) {
+              var index = $2(evt.target).index();
+              if (evt.type === "click") {
+                change(data, {
+                  index
+                });
+              }
+              if (evt.type === "keydown") {
+                switch (evt.keyCode) {
+                  case KEY_CODES.ENTER:
+                  case KEY_CODES.SPACE: {
+                    change(data, {
+                      index
+                    });
+                    evt.preventDefault();
+                    break;
+                  }
+                  case KEY_CODES.ARROW_LEFT:
+                  case KEY_CODES.ARROW_UP: {
+                    focusDot(data.nav, Math.max(index - 1, 0));
+                    evt.preventDefault();
+                    break;
+                  }
+                  case KEY_CODES.ARROW_RIGHT:
+                  case KEY_CODES.ARROW_DOWN: {
+                    focusDot(data.nav, Math.min(index + 1, data.pages));
+                    evt.preventDefault();
+                    break;
+                  }
+                  case KEY_CODES.HOME: {
+                    focusDot(data.nav, 0);
+                    evt.preventDefault();
+                    break;
+                  }
+                  case KEY_CODES.END: {
+                    focusDot(data.nav, data.pages);
+                    evt.preventDefault();
+                    break;
+                  }
+                  default: {
+                    return;
+                  }
+                }
+              }
+            }
+          };
+        }
+        function focusDot($nav, index) {
+          var $active = $nav.children().eq(index).focus();
+          $nav.children().not($active);
+        }
+        function change(data, options) {
+          options = options || {};
+          var config = data.config;
+          var anchors = data.anchors;
+          data.previous = data.index;
+          var index = options.index;
+          var shift = {};
+          if (index < 0) {
+            index = anchors.length - 1;
+            if (config.infinite) {
+              shift.x = -data.endX;
+              shift.from = 0;
+              shift.to = anchors[0].width;
+            }
+          } else if (index >= anchors.length) {
+            index = 0;
+            if (config.infinite) {
+              shift.x = anchors[anchors.length - 1].width;
+              shift.from = -anchors[anchors.length - 1].x;
+              shift.to = shift.from - shift.x;
+            }
+          }
+          data.index = index;
+          var $active = data.nav.children().eq(index).addClass("w-active").attr("aria-pressed", "true").attr("tabindex", "0");
+          data.nav.children().not($active).removeClass("w-active").attr("aria-pressed", "false").attr("tabindex", "-1");
+          if (config.hideArrows) {
+            data.index === anchors.length - 1 ? data.right.hide() : data.right.show();
+            data.index === 0 ? data.left.hide() : data.left.show();
+          }
+          var lastOffsetX = data.offsetX || 0;
+          var offsetX = data.offsetX = -anchors[data.index].x;
+          var resetConfig = {
+            x: offsetX,
+            opacity: 1,
+            visibility: ""
+          };
+          var targets = $2(anchors[data.index].els);
+          var prevTargs = $2(anchors[data.previous] && anchors[data.previous].els);
+          var others = data.slides.not(targets);
+          var animation = config.animation;
+          var easing = config.easing;
+          var duration = Math.round(config.duration);
+          var vector = options.vector || (data.index > data.previous ? 1 : -1);
+          var fadeRule = "opacity " + duration + "ms " + easing;
+          var slideRule = "transform " + duration + "ms " + easing;
+          targets.find(FOCUSABLE_SELECTOR).removeAttr("tabindex");
+          targets.removeAttr("aria-hidden");
+          targets.find("*").removeAttr("aria-hidden");
+          others.find(FOCUSABLE_SELECTOR).attr("tabindex", "-1");
+          others.attr("aria-hidden", "true");
+          others.find("*").attr("aria-hidden", "true");
+          if (!designer) {
+            targets.each(ix.intro);
+            others.each(ix.outro);
+          }
+          if (options.immediate && !inRedraw) {
+            tram(targets).set(resetConfig);
+            resetOthers();
+            return;
+          }
+          if (data.index === data.previous) {
+            return;
+          }
+          if (!designer) {
+            data.ariaLiveLabel.text(`Slide ${index + 1} of ${anchors.length}.`);
+          }
+          if (animation === "cross") {
+            var reduced = Math.round(duration - duration * config.crossOver);
+            var wait = Math.round(duration - reduced);
+            fadeRule = "opacity " + reduced + "ms " + easing;
+            tram(prevTargs).set({
+              visibility: ""
+            }).add(fadeRule).start({
+              opacity: 0
+            });
+            tram(targets).set({
+              visibility: "",
+              x: offsetX,
+              opacity: 0,
+              zIndex: data.depth++
+            }).add(fadeRule).wait(wait).then({
+              opacity: 1
+            }).then(resetOthers);
+            return;
+          }
+          if (animation === "fade") {
+            tram(prevTargs).set({
+              visibility: ""
+            }).stop();
+            tram(targets).set({
+              visibility: "",
+              x: offsetX,
+              opacity: 0,
+              zIndex: data.depth++
+            }).add(fadeRule).start({
+              opacity: 1
+            }).then(resetOthers);
+            return;
+          }
+          if (animation === "over") {
+            resetConfig = {
+              x: data.endX
+            };
+            tram(prevTargs).set({
+              visibility: ""
+            }).stop();
+            tram(targets).set({
+              visibility: "",
+              zIndex: data.depth++,
+              x: offsetX + anchors[data.index].width * vector
+            }).add(slideRule).start({
+              x: offsetX
+            }).then(resetOthers);
+            return;
+          }
+          if (config.infinite && shift.x) {
+            tram(data.slides.not(prevTargs)).set({
+              visibility: "",
+              x: shift.x
+            }).add(slideRule).start({
+              x: offsetX
+            });
+            tram(prevTargs).set({
+              visibility: "",
+              x: shift.from
+            }).add(slideRule).start({
+              x: shift.to
+            });
+            data.shifted = prevTargs;
+          } else {
+            if (config.infinite && data.shifted) {
+              tram(data.shifted).set({
+                visibility: "",
+                x: lastOffsetX
+              });
+              data.shifted = null;
+            }
+            tram(data.slides).set({
+              visibility: ""
+            }).add(slideRule).start({
+              x: offsetX
+            });
+          }
+          function resetOthers() {
+            targets = $2(anchors[data.index].els);
+            others = data.slides.not(targets);
+            if (animation !== "slide") {
+              resetConfig.visibility = "hidden";
+            }
+            tram(others).set(resetConfig);
+          }
+        }
+        function render(i, el) {
+          var data = $2.data(el, namespace);
+          if (!data) {
+            return;
+          }
+          if (maskChanged(data)) {
+            return layout(data);
+          }
+          if (designer && slidesChanged(data)) {
+            layout(data);
+          }
+        }
+        function layout(data) {
+          var pages = 1;
+          var offset = 0;
+          var anchor = 0;
+          var width = 0;
+          var maskWidth = data.maskWidth;
+          var threshold = maskWidth - data.config.edge;
+          if (threshold < 0) {
+            threshold = 0;
+          }
+          data.anchors = [{
+            els: [],
+            x: 0,
+            width: 0
+          }];
+          data.slides.each(function(i, el) {
+            if (anchor - offset > threshold) {
+              pages++;
+              offset += maskWidth;
+              data.anchors[pages - 1] = {
+                els: [],
+                x: anchor,
+                width: 0
+              };
+            }
+            width = $2(el).outerWidth(true);
+            anchor += width;
+            data.anchors[pages - 1].width += width;
+            data.anchors[pages - 1].els.push(el);
+            var ariaLabel = i + 1 + " of " + data.slides.length;
+            $2(el).attr("aria-label", ariaLabel);
+            $2(el).attr("role", "group");
+          });
+          data.endX = anchor;
+          if (designer) {
+            data.pages = null;
+          }
+          if (data.nav.length && data.pages !== pages) {
+            data.pages = pages;
+            buildNav(data);
+          }
+          var index = data.index;
+          if (index >= pages) {
+            index = pages - 1;
+          }
+          change(data, {
+            immediate: true,
+            index
+          });
+        }
+        function buildNav(data) {
+          var dots = [];
+          var $dot;
+          var spacing = data.el.attr("data-nav-spacing");
+          if (spacing) {
+            spacing = parseFloat(spacing) + "px";
+          }
+          for (var i = 0, len = data.pages; i < len; i++) {
+            $dot = $2(dot);
+            $dot.attr("aria-label", "Show slide " + (i + 1) + " of " + len).attr("aria-pressed", "false").attr("role", "button").attr("tabindex", "-1");
+            if (data.nav.hasClass("w-num")) {
+              $dot.text(i + 1);
+            }
+            if (spacing != null) {
+              $dot.css({
+                "margin-left": spacing,
+                "margin-right": spacing
+              });
+            }
+            dots.push($dot);
+          }
+          data.nav.empty().append(dots);
+        }
+        function maskChanged(data) {
+          var maskWidth = data.mask.width();
+          if (data.maskWidth !== maskWidth) {
+            data.maskWidth = maskWidth;
+            return true;
+          }
+          return false;
+        }
+        function slidesChanged(data) {
+          var slidesWidth = 0;
+          data.slides.each(function(i, el) {
+            slidesWidth += $2(el).outerWidth(true);
+          });
+          if (data.slidesWidth !== slidesWidth) {
+            data.slidesWidth = slidesWidth;
+            return true;
+          }
+          return false;
+        }
+        return api;
+      });
+    }
+  });
+
+  // shared/render/plugins/Tabs/webflow-tabs.js
+  var require_webflow_tabs = __commonJS({
+    "shared/render/plugins/Tabs/webflow-tabs.js"(exports, module) {
+      var Webflow2 = require_webflow_lib();
+      var IXEvents = require_webflow_ix2_events();
+      Webflow2.define("tabs", module.exports = function($2) {
+        var api = {};
+        var tram = $2.tram;
+        var $doc = $2(document);
+        var $tabs;
+        var design;
+        var env = Webflow2.env;
+        var safari = env.safari;
+        var inApp = env();
+        var tabAttr = "data-w-tab";
+        var paneAttr = "data-w-pane";
+        var namespace = ".w-tabs";
+        var linkCurrent = "w--current";
+        var tabActive = "w--tab-active";
+        var ix = IXEvents.triggers;
+        var inRedraw = false;
+        api.ready = api.design = api.preview = init;
+        api.redraw = function() {
+          inRedraw = true;
+          init();
+          inRedraw = false;
+        };
+        api.destroy = function() {
+          $tabs = $doc.find(namespace);
+          if (!$tabs.length) {
+            return;
+          }
+          $tabs.each(resetIX);
+          removeListeners();
+        };
+        function init() {
+          design = inApp && Webflow2.env("design");
+          $tabs = $doc.find(namespace);
+          if (!$tabs.length) {
+            return;
+          }
+          $tabs.each(build);
+          if (Webflow2.env("preview") && !inRedraw) {
+            $tabs.each(resetIX);
+          }
+          removeListeners();
+          addListeners();
+        }
+        function removeListeners() {
+          Webflow2.redraw.off(api.redraw);
+        }
+        function addListeners() {
+          Webflow2.redraw.on(api.redraw);
+        }
+        function resetIX(i, el) {
+          var data = $2.data(el, namespace);
+          if (!data) {
+            return;
+          }
+          data.links && data.links.each(ix.reset);
+          data.panes && data.panes.each(ix.reset);
+        }
+        function build(i, el) {
+          var widgetHash = namespace.substr(1) + "-" + i;
+          var $el = $2(el);
+          var data = $2.data(el, namespace);
+          if (!data) {
+            data = $2.data(el, namespace, {
+              el: $el,
+              config: {}
+            });
+          }
+          data.current = null;
+          data.tabIdentifier = widgetHash + "-" + tabAttr;
+          data.paneIdentifier = widgetHash + "-" + paneAttr;
+          data.menu = $el.children(".w-tab-menu");
+          data.links = data.menu.children(".w-tab-link");
+          data.content = $el.children(".w-tab-content");
+          data.panes = data.content.children(".w-tab-pane");
+          data.el.off(namespace);
+          data.links.off(namespace);
+          data.menu.attr("role", "tablist");
+          data.links.attr("tabindex", "-1");
+          configure(data);
+          if (!design) {
+            data.links.on("click" + namespace, linkSelect(data));
+            data.links.on("keydown" + namespace, handleLinkKeydown(data));
+            var $link = data.links.filter("." + linkCurrent);
+            var tab = $link.attr(tabAttr);
+            tab && changeTab(data, {
+              tab,
+              immediate: true
+            });
+          }
+        }
+        function configure(data) {
+          var config = {};
+          config.easing = data.el.attr("data-easing") || "ease";
+          var intro = parseInt(data.el.attr("data-duration-in"), 10);
+          intro = config.intro = intro === intro ? intro : 0;
+          var outro = parseInt(data.el.attr("data-duration-out"), 10);
+          outro = config.outro = outro === outro ? outro : 0;
+          config.immediate = !intro && !outro;
+          data.config = config;
+        }
+        function getActiveTabIdx(data) {
+          var tab = data.current;
+          return Array.prototype.findIndex.call(data.links, (t) => {
+            return t.getAttribute(tabAttr) === tab;
+          }, null);
+        }
+        function linkSelect(data) {
+          return function(evt) {
+            evt.preventDefault();
+            var tab = evt.currentTarget.getAttribute(tabAttr);
+            tab && changeTab(data, {
+              tab
+            });
+          };
+        }
+        function handleLinkKeydown(data) {
+          return function(evt) {
+            var currentIdx = getActiveTabIdx(data);
+            var keyName = evt.key;
+            var keyMap = {
+              ArrowLeft: currentIdx - 1,
+              ArrowUp: currentIdx - 1,
+              ArrowRight: currentIdx + 1,
+              ArrowDown: currentIdx + 1,
+              End: data.links.length - 1,
+              Home: 0
+            };
+            if (!(keyName in keyMap))
+              return;
+            evt.preventDefault();
+            var nextIdx = keyMap[keyName];
+            if (nextIdx === -1) {
+              nextIdx = data.links.length - 1;
+            }
+            if (nextIdx === data.links.length) {
+              nextIdx = 0;
+            }
+            var tabEl = data.links[nextIdx];
+            var tab = tabEl.getAttribute(tabAttr);
+            tab && changeTab(data, {
+              tab
+            });
+          };
+        }
+        function changeTab(data, options) {
+          options = options || {};
+          var config = data.config;
+          var easing = config.easing;
+          var tab = options.tab;
+          if (tab === data.current) {
+            return;
+          }
+          data.current = tab;
+          var currentTab;
+          data.links.each(function(i, el) {
+            var $el = $2(el);
+            if (options.immediate || config.immediate) {
+              var pane = data.panes[i];
+              if (!el.id) {
+                el.id = data.tabIdentifier + "-" + i;
+              }
+              if (!pane.id) {
+                pane.id = data.paneIdentifier + "-" + i;
+              }
+              el.href = "#" + pane.id;
+              el.setAttribute("role", "tab");
+              el.setAttribute("aria-controls", pane.id);
+              el.setAttribute("aria-selected", "false");
+              pane.setAttribute("role", "tabpanel");
+              pane.setAttribute("aria-labelledby", el.id);
+            }
+            if (el.getAttribute(tabAttr) === tab) {
+              currentTab = el;
+              $el.addClass(linkCurrent).removeAttr("tabindex").attr({
+                "aria-selected": "true"
+              }).each(ix.intro);
+            } else if ($el.hasClass(linkCurrent)) {
+              $el.removeClass(linkCurrent).attr({
+                tabindex: "-1",
+                "aria-selected": "false"
+              }).each(ix.outro);
+            }
+          });
+          var targets = [];
+          var previous = [];
+          data.panes.each(function(i, el) {
+            var $el = $2(el);
+            if (el.getAttribute(tabAttr) === tab) {
+              targets.push(el);
+            } else if ($el.hasClass(tabActive)) {
+              previous.push(el);
+            }
+          });
+          var $targets = $2(targets);
+          var $previous = $2(previous);
+          if (options.immediate || config.immediate) {
+            $targets.addClass(tabActive).each(ix.intro);
+            $previous.removeClass(tabActive);
+            if (!inRedraw) {
+              Webflow2.redraw.up();
+            }
+            return;
+          } else {
+            var x = window.scrollX;
+            var y = window.scrollY;
+            currentTab.focus();
+            window.scrollTo(x, y);
+          }
+          if ($previous.length && config.outro) {
+            $previous.each(ix.outro);
+            tram($previous).add("opacity " + config.outro + "ms " + easing, {
+              fallback: safari
+            }).start({
+              opacity: 0
+            }).then(() => fadeIn(config, $previous, $targets));
+          } else {
+            fadeIn(config, $previous, $targets);
+          }
+        }
+        function fadeIn(config, $previous, $targets) {
+          $previous.removeClass(tabActive).css({
+            opacity: "",
+            transition: "",
+            transform: "",
+            width: "",
+            height: ""
+          });
+          $targets.addClass(tabActive).each(ix.intro);
+          Webflow2.redraw.up();
+          if (!config.intro) {
+            return tram($targets).set({
+              opacity: 1
+            });
+          }
+          tram($targets).set({
+            opacity: 0
+          }).redraw().add("opacity " + config.intro + "ms " + config.easing, {
+            fallback: safari
+          }).start({
+            opacity: 1
+          });
+        }
+        return api;
+      });
+    }
+  });
+
   // node_modules/promise-polyfill/src/finally.js
   function finally_default(callback) {
     var constructor = this.constructor;
@@ -13794,10 +15158,10 @@
           reject2(value);
         });
       };
-      Promise2.race = function(values) {
+      Promise2.race = function(values2) {
         return new Promise2(function(resolve2, reject2) {
-          for (var i = 0, len = values.length; i < len; i++) {
-            values[i].then(resolve2, reject2);
+          for (var i = 0, len = values2.length; i < len; i++) {
+            values2[i].then(resolve2, reject2);
           }
         });
       };
@@ -13912,7 +15276,7 @@
   var require_object_get_prototype_of = __commonJS({
     "node_modules/core-js/internals/object-get-prototype-of.js"(exports, module) {
       var global2 = require_global();
-      var hasOwn3 = require_has_own_property();
+      var hasOwn4 = require_has_own_property();
       var isCallable = require_is_callable();
       var toObject = require_to_object();
       var sharedKey = require_shared_key();
@@ -13922,7 +15286,7 @@
       var ObjectPrototype = Object2.prototype;
       module.exports = CORRECT_PROTOTYPE_GETTER ? Object2.getPrototypeOf : function(O) {
         var object = toObject(O);
-        if (hasOwn3(object, IE_PROTO))
+        if (hasOwn4(object, IE_PROTO))
           return object[IE_PROTO];
         var constructor = object.constructor;
         if (isCallable(constructor) && object instanceof constructor) {
@@ -13939,7 +15303,7 @@
       "use strict";
       var fails = require_fails();
       var isCallable = require_is_callable();
-      var create2 = require_object_create();
+      var create5 = require_object_create();
       var getPrototypeOf = require_object_get_prototype_of();
       var redefine = require_redefine();
       var wellKnownSymbol = require_well_known_symbol();
@@ -13960,13 +15324,13 @@
         }
       }
       var NEW_ITERATOR_PROTOTYPE = IteratorPrototype == void 0 || fails(function() {
-        var test = {};
-        return IteratorPrototype[ITERATOR].call(test) !== test;
+        var test2 = {};
+        return IteratorPrototype[ITERATOR].call(test2) !== test2;
       });
       if (NEW_ITERATOR_PROTOTYPE)
         IteratorPrototype = {};
       else if (IS_PURE)
-        IteratorPrototype = create2(IteratorPrototype);
+        IteratorPrototype = create5(IteratorPrototype);
       if (!isCallable(IteratorPrototype[ITERATOR])) {
         redefine(IteratorPrototype, ITERATOR, function() {
           return this;
@@ -13983,11 +15347,11 @@
   var require_set_to_string_tag = __commonJS({
     "node_modules/core-js/internals/set-to-string-tag.js"(exports, module) {
       var defineProperty = require_object_define_property().f;
-      var hasOwn3 = require_has_own_property();
+      var hasOwn4 = require_has_own_property();
       var wellKnownSymbol = require_well_known_symbol();
       var TO_STRING_TAG = wellKnownSymbol("toStringTag");
       module.exports = function(it, TAG, STATIC) {
-        if (it && !hasOwn3(it = STATIC ? it : it.prototype, TO_STRING_TAG)) {
+        if (it && !hasOwn4(it = STATIC ? it : it.prototype, TO_STRING_TAG)) {
           defineProperty(it, TO_STRING_TAG, { configurable: true, value: TAG });
         }
       };
@@ -13999,18 +15363,18 @@
     "node_modules/core-js/internals/create-iterator-constructor.js"(exports, module) {
       "use strict";
       var IteratorPrototype = require_iterators_core().IteratorPrototype;
-      var create2 = require_object_create();
+      var create5 = require_object_create();
       var createPropertyDescriptor = require_create_property_descriptor();
       var setToStringTag = require_set_to_string_tag();
       var Iterators = require_iterators();
-      var returnThis2 = function() {
+      var returnThis3 = function() {
         return this;
       };
       module.exports = function(IteratorConstructor, NAME, next) {
         var TO_STRING_TAG = NAME + " Iterator";
-        IteratorConstructor.prototype = create2(IteratorPrototype, { next: createPropertyDescriptor(1, next) });
+        IteratorConstructor.prototype = create5(IteratorPrototype, { next: createPropertyDescriptor(1, next) });
         setToStringTag(IteratorConstructor, TO_STRING_TAG, false, true);
-        Iterators[TO_STRING_TAG] = returnThis2;
+        Iterators[TO_STRING_TAG] = returnThis3;
         return IteratorConstructor;
       };
     }
@@ -14039,12 +15403,12 @@
       var aPossiblePrototype = require_a_possible_prototype();
       module.exports = Object.setPrototypeOf || ("__proto__" in {} ? function() {
         var CORRECT_SETTER = false;
-        var test = {};
+        var test2 = {};
         var setter;
         try {
           setter = uncurryThis(Object.getOwnPropertyDescriptor(Object.prototype, "__proto__").set);
-          setter(test, []);
-          CORRECT_SETTER = test instanceof Array;
+          setter(test2, []);
+          CORRECT_SETTER = test2 instanceof Array;
         } catch (error) {
         }
         return function setPrototypeOf2(O, proto) {
@@ -14086,7 +15450,7 @@
       var KEYS = "keys";
       var VALUES = "values";
       var ENTRIES = "entries";
-      var returnThis2 = function() {
+      var returnThis3 = function() {
         return this;
       };
       module.exports = function(Iterable, NAME, IteratorConstructor, next, DEFAULT, IS_SET, FORCED) {
@@ -14102,11 +15466,11 @@
                 return new IteratorConstructor(this, KIND);
               };
             case VALUES:
-              return function values() {
+              return function values2() {
                 return new IteratorConstructor(this, KIND);
               };
             case ENTRIES:
-              return function entries() {
+              return function entries2() {
                 return new IteratorConstructor(this, KIND);
               };
           }
@@ -14128,12 +15492,12 @@
               if (setPrototypeOf2) {
                 setPrototypeOf2(CurrentIteratorPrototype, IteratorPrototype);
               } else if (!isCallable(CurrentIteratorPrototype[ITERATOR])) {
-                redefine(CurrentIteratorPrototype, ITERATOR, returnThis2);
+                redefine(CurrentIteratorPrototype, ITERATOR, returnThis3);
               }
             }
             setToStringTag(CurrentIteratorPrototype, TO_STRING_TAG, true, true);
             if (IS_PURE)
-              Iterators[TO_STRING_TAG] = returnThis2;
+              Iterators[TO_STRING_TAG] = returnThis3;
           }
         }
         if (PROPER_FUNCTION_NAME && DEFAULT == VALUES && nativeIterator && nativeIterator.name !== VALUES) {
@@ -14141,7 +15505,7 @@
             createNonEnumerableProperty(IterablePrototype, "name", VALUES);
           } else {
             INCORRECT_VALUES_NAME = true;
-            defaultIterator = function values() {
+            defaultIterator = function values2() {
               return call(nativeIterator, this);
             };
           }
@@ -14281,9 +15645,9 @@
     "node_modules/core-js/internals/to-string-tag-support.js"(exports, module) {
       var wellKnownSymbol = require_well_known_symbol();
       var TO_STRING_TAG = wellKnownSymbol("toStringTag");
-      var test = {};
-      test[TO_STRING_TAG] = "z";
-      module.exports = String(test) === "[object z]";
+      var test2 = {};
+      test2[TO_STRING_TAG] = "z";
+      module.exports = String(test2) === "[object z]";
     }
   });
 
@@ -14375,9 +15739,9 @@
       var arraySlice = require_array_slice();
       var floor = Math.floor;
       var mergeSort = function(array, comparefn) {
-        var length = array.length;
-        var middle = floor(length / 2);
-        return length < 8 ? insertionSort(array, comparefn) : merge2(
+        var length2 = array.length;
+        var middle = floor(length2 / 2);
+        return length2 < 8 ? insertionSort(array, comparefn) : merge2(
           array,
           mergeSort(arraySlice(array, 0, middle), comparefn),
           mergeSort(arraySlice(array, middle), comparefn),
@@ -14385,10 +15749,10 @@
         );
       };
       var insertionSort = function(array, comparefn) {
-        var length = array.length;
+        var length2 = array.length;
         var i = 1;
         var element, j;
-        while (i < length) {
+        while (i < length2) {
           j = i;
           element = array[i];
           while (j && comparefn(array[j - 1], element) > 0) {
@@ -14431,13 +15795,13 @@
       var InternalStateModule = require_internal_state();
       var anInstance = require_an_instance();
       var isCallable = require_is_callable();
-      var hasOwn3 = require_has_own_property();
+      var hasOwn4 = require_has_own_property();
       var bind2 = require_function_bind_context();
       var classof = require_classof();
       var anObject = require_an_object();
       var isObject2 = require_is_object();
       var $toString = require_to_string();
-      var create2 = require_object_create();
+      var create5 = require_object_create();
       var createPropertyDescriptor = require_create_property_descriptor();
       var getIterator = require_get_iterator();
       var getIteratorMethod = require_get_iterator_method();
@@ -14461,10 +15825,10 @@
       var charAt = uncurryThis("".charAt);
       var join = uncurryThis([].join);
       var push = uncurryThis([].push);
-      var replace = uncurryThis("".replace);
+      var replace2 = uncurryThis("".replace);
       var shift = uncurryThis([].shift);
       var splice = uncurryThis([].splice);
-      var split4 = uncurryThis("".split);
+      var split5 = uncurryThis("".split);
       var stringSlice = uncurryThis("".slice);
       var plus = /\+/g;
       var sequences = Array(4);
@@ -14479,18 +15843,18 @@
         }
       };
       var deserialize = function(it) {
-        var result = replace(it, plus, " ");
+        var result = replace2(it, plus, " ");
         var bytes = 4;
         try {
           return decodeURIComponent2(result);
         } catch (error) {
           while (bytes) {
-            result = replace(result, percentSequence(bytes--), percentDecode);
+            result = replace2(result, percentSequence(bytes--), percentDecode);
           }
           return result;
         }
       };
-      var find = /[!'()~]|%20/g;
+      var find2 = /[!'()~]|%20/g;
       var replacements = {
         "!": "%21",
         "'": "%27",
@@ -14499,21 +15863,21 @@
         "~": "%7E",
         "%20": "+"
       };
-      var replacer = function(match) {
-        return replacements[match];
+      var replacer = function(match2) {
+        return replacements[match2];
       };
       var serialize = function(it) {
-        return replace(encodeURIComponent2(it), find, replacer);
+        return replace2(encodeURIComponent2(it), find2, replacer);
       };
       var parseSearchParams = function(result, query) {
         if (query) {
-          var attributes = split4(query, "&");
+          var attributes = split5(query, "&");
           var index = 0;
           var attribute, entry;
           while (index < attributes.length) {
             attribute = attributes[index++];
             if (attribute.length) {
-              entry = split4(attribute, "=");
+              entry = split5(attribute, "=");
               push(result, {
                 key: deserialize(shift(entry)),
                 value: deserialize(join(entry, "="))
@@ -14550,11 +15914,11 @@
         anInstance(this, URLSearchParamsPrototype);
         var init = arguments.length > 0 ? arguments[0] : void 0;
         var that = this;
-        var entries = [];
+        var entries2 = [];
         var iteratorMethod, iterator, next, step, entryIterator, entryNext, first2, second, key;
         setInternalState(that, {
           type: URL_SEARCH_PARAMS,
-          entries,
+          entries: entries2,
           updateURL: function() {
           },
           updateSearchParams
@@ -14570,15 +15934,15 @@
                 entryNext = entryIterator.next;
                 if ((first2 = call(entryNext, entryIterator)).done || (second = call(entryNext, entryIterator)).done || !call(entryNext, entryIterator).done)
                   throw TypeError2("Expected sequence with length 2");
-                push(entries, { key: $toString(first2.value), value: $toString(second.value) });
+                push(entries2, { key: $toString(first2.value), value: $toString(second.value) });
               }
             } else
               for (key in init)
-                if (hasOwn3(init, key))
-                  push(entries, { key, value: $toString(init[key]) });
+                if (hasOwn4(init, key))
+                  push(entries2, { key, value: $toString(init[key]) });
           } else {
             parseSearchParams(
-              entries,
+              entries2,
               typeof init == "string" ? charAt(init, 0) === "?" ? stringSlice(init, 1) : init : $toString(init)
             );
           }
@@ -14588,7 +15952,7 @@
       redefineAll(URLSearchParamsPrototype, {
         // `URLSearchParams.prototype.append` method
         // https://url.spec.whatwg.org/#dom-urlsearchparams-append
-        append: function append(name, value) {
+        append: function append2(name, value) {
           validateArgumentsLength(arguments.length, 2);
           var state = getInternalParamsState(this);
           push(state.entries, { key: $toString(name), value: $toString(value) });
@@ -14599,12 +15963,12 @@
         "delete": function(name) {
           validateArgumentsLength(arguments.length, 1);
           var state = getInternalParamsState(this);
-          var entries = state.entries;
+          var entries2 = state.entries;
           var key = $toString(name);
           var index = 0;
-          while (index < entries.length) {
-            if (entries[index].key === key)
-              splice(entries, index, 1);
+          while (index < entries2.length) {
+            if (entries2[index].key === key)
+              splice(entries2, index, 1);
             else
               index++;
           }
@@ -14614,12 +15978,12 @@
         // https://url.spec.whatwg.org/#dom-urlsearchparams-get
         get: function get(name) {
           validateArgumentsLength(arguments.length, 1);
-          var entries = getInternalParamsState(this).entries;
+          var entries2 = getInternalParamsState(this).entries;
           var key = $toString(name);
           var index = 0;
-          for (; index < entries.length; index++) {
-            if (entries[index].key === key)
-              return entries[index].value;
+          for (; index < entries2.length; index++) {
+            if (entries2[index].key === key)
+              return entries2[index].value;
           }
           return null;
         },
@@ -14627,45 +15991,45 @@
         // https://url.spec.whatwg.org/#dom-urlsearchparams-getall
         getAll: function getAll(name) {
           validateArgumentsLength(arguments.length, 1);
-          var entries = getInternalParamsState(this).entries;
+          var entries2 = getInternalParamsState(this).entries;
           var key = $toString(name);
           var result = [];
           var index = 0;
-          for (; index < entries.length; index++) {
-            if (entries[index].key === key)
-              push(result, entries[index].value);
+          for (; index < entries2.length; index++) {
+            if (entries2[index].key === key)
+              push(result, entries2[index].value);
           }
           return result;
         },
         // `URLSearchParams.prototype.has` method
         // https://url.spec.whatwg.org/#dom-urlsearchparams-has
-        has: function has(name) {
+        has: function has2(name) {
           validateArgumentsLength(arguments.length, 1);
-          var entries = getInternalParamsState(this).entries;
+          var entries2 = getInternalParamsState(this).entries;
           var key = $toString(name);
           var index = 0;
-          while (index < entries.length) {
-            if (entries[index++].key === key)
+          while (index < entries2.length) {
+            if (entries2[index++].key === key)
               return true;
           }
           return false;
         },
         // `URLSearchParams.prototype.set` method
         // https://url.spec.whatwg.org/#dom-urlsearchparams-set
-        set: function set(name, value) {
+        set: function set2(name, value) {
           validateArgumentsLength(arguments.length, 1);
           var state = getInternalParamsState(this);
-          var entries = state.entries;
+          var entries2 = state.entries;
           var found = false;
           var key = $toString(name);
           var val = $toString(value);
           var index = 0;
           var entry;
-          for (; index < entries.length; index++) {
-            entry = entries[index];
+          for (; index < entries2.length; index++) {
+            entry = entries2[index];
             if (entry.key === key) {
               if (found)
-                splice(entries, index--, 1);
+                splice(entries2, index--, 1);
               else {
                 found = true;
                 entry.value = val;
@@ -14673,7 +16037,7 @@
             }
           }
           if (!found)
-            push(entries, { key, value: val });
+            push(entries2, { key, value: val });
           state.updateURL();
         },
         // `URLSearchParams.prototype.sort` method
@@ -14687,12 +16051,12 @@
         },
         // `URLSearchParams.prototype.forEach` method
         forEach: function forEach(callback) {
-          var entries = getInternalParamsState(this).entries;
+          var entries2 = getInternalParamsState(this).entries;
           var boundFunction = bind2(callback, arguments.length > 1 ? arguments[1] : void 0);
           var index = 0;
           var entry;
-          while (index < entries.length) {
-            entry = entries[index++];
+          while (index < entries2.length) {
+            entry = entries2[index++];
             boundFunction(entry.value, entry.key, this);
           }
         },
@@ -14701,22 +16065,22 @@
           return new URLSearchParamsIterator(this, "keys");
         },
         // `URLSearchParams.prototype.values` method
-        values: function values() {
+        values: function values2() {
           return new URLSearchParamsIterator(this, "values");
         },
         // `URLSearchParams.prototype.entries` method
-        entries: function entries() {
+        entries: function entries2() {
           return new URLSearchParamsIterator(this, "entries");
         }
       }, { enumerable: true });
       redefine(URLSearchParamsPrototype, ITERATOR, URLSearchParamsPrototype.entries, { name: "entries" });
       redefine(URLSearchParamsPrototype, "toString", function toString4() {
-        var entries = getInternalParamsState(this).entries;
+        var entries2 = getInternalParamsState(this).entries;
         var result = [];
         var index = 0;
         var entry;
-        while (index < entries.length) {
-          entry = entries[index++];
+        while (index < entries2.length) {
+          entry = entries2[index++];
           push(result, serialize(entry.key) + "=" + serialize(entry.value));
         }
         return join(result, "&");
@@ -14737,7 +16101,7 @@
               if (!headersHas(headers, "content-type")) {
                 headersSet(headers, "content-type", "application/x-www-form-urlencoded;charset=UTF-8");
               }
-              return create2(init, {
+              return create5(init, {
                 body: createPropertyDescriptor(0, $toString(body)),
                 headers: createPropertyDescriptor(0, headers)
               });
@@ -14940,7 +16304,7 @@
           mapfn = bind2(mapfn, argumentsLength > 2 ? arguments[2] : void 0);
         var iteratorMethod = getIteratorMethod(O);
         var index = 0;
-        var length, result, step, iterator, next, value;
+        var length2, result, step, iterator, next, value;
         if (iteratorMethod && !(this == Array2 && isArrayIteratorMethod(iteratorMethod))) {
           iterator = getIterator(O, iteratorMethod);
           next = iterator.next;
@@ -14950,9 +16314,9 @@
             createProperty(result, index, value);
           }
         } else {
-          length = lengthOfArrayLike(O);
-          result = IS_CONSTRUCTOR ? new this(length) : Array2(length);
-          for (; length > index; index++) {
+          length2 = lengthOfArrayLike(O);
+          result = IS_CONSTRUCTOR ? new this(length2) : Array2(length2);
+          for (; length2 > index; index++) {
             value = mapping ? mapfn(O[index], index) : O[index];
             createProperty(result, index, value);
           }
@@ -15062,7 +16426,7 @@
         return !(Array2.of.call(F) instanceof F);
       });
       $2({ target: "Array", stat: true, forced: ISNT_GENERIC }, {
-        of: function of2() {
+        of: function of() {
           var index = 0;
           var argumentsLength = arguments.length;
           var result = new (isConstructor(this) ? this : Array2)(argumentsLength);
@@ -15128,8 +16492,8 @@
   var require_array_species_create = __commonJS({
     "node_modules/core-js/internals/array-species-create.js"(exports, module) {
       var arraySpeciesConstructor = require_array_species_constructor();
-      module.exports = function(originalArray, length) {
-        return new (arraySpeciesConstructor(originalArray))(length === 0 ? 0 : length);
+      module.exports = function(originalArray, length2) {
+        return new (arraySpeciesConstructor(originalArray))(length2 === 0 ? 0 : length2);
       };
     }
   });
@@ -15189,12 +16553,12 @@
       var FORCED = !IS_CONCAT_SPREADABLE_SUPPORT || !SPECIES_SUPPORT;
       $2({ target: "Array", proto: true, forced: FORCED }, {
         // eslint-disable-next-line no-unused-vars -- required for `.length`
-        concat: function concat4(arg) {
+        concat: function concat5(arg) {
           var O = toObject(this);
           var A = arraySpeciesCreate(O, 0);
           var n = 0;
-          var i, k, length, len, E;
-          for (i = -1, length = arguments.length; i < length; i++) {
+          var i, k, length2, len, E;
+          for (i = -1, length2 = arguments.length; i < length2; i++) {
             E = i === -1 ? O : arguments[i];
             if (isConcatSpreadable(E)) {
               len = lengthOfArrayLike(E);
@@ -15231,9 +16595,9 @@
         var from4 = toAbsoluteIndex(start, len);
         var end = arguments.length > 2 ? arguments[2] : void 0;
         var count = min((end === void 0 ? len : toAbsoluteIndex(end, len)) - from4, len - to);
-        var inc = 1;
+        var inc2 = 1;
         if (from4 < to && to < from4 + count) {
-          inc = -1;
+          inc2 = -1;
           from4 += count - 1;
           to += count - 1;
         }
@@ -15242,8 +16606,8 @@
             O[to] = O[from4];
           else
             delete O[to];
-          to += inc;
-          from4 += inc;
+          to += inc2;
+          from4 += inc2;
         }
         return O;
       };
@@ -15285,12 +16649,12 @@
           var O = toObject($this);
           var self2 = IndexedObject(O);
           var boundFunction = bind2(callbackfn, that);
-          var length = lengthOfArrayLike(self2);
+          var length2 = lengthOfArrayLike(self2);
           var index = 0;
-          var create2 = specificCreate || arraySpeciesCreate;
-          var target = IS_MAP ? create2($this, length) : IS_FILTER || IS_FILTER_REJECT ? create2($this, 0) : void 0;
+          var create5 = specificCreate || arraySpeciesCreate;
+          var target = IS_MAP ? create5($this, length2) : IS_FILTER || IS_FILTER_REJECT ? create5($this, 0) : void 0;
           var value, result;
-          for (; length > index; index++)
+          for (; length2 > index; index++)
             if (NO_HOLES || index in self2) {
               value = self2[index];
               result = boundFunction(value, index, O);
@@ -15390,11 +16754,11 @@
       var lengthOfArrayLike = require_length_of_array_like();
       module.exports = function fill(value) {
         var O = toObject(this);
-        var length = lengthOfArrayLike(O);
+        var length2 = lengthOfArrayLike(O);
         var argumentsLength = arguments.length;
-        var index = toAbsoluteIndex(argumentsLength > 1 ? arguments[1] : void 0, length);
+        var index = toAbsoluteIndex(argumentsLength > 1 ? arguments[1] : void 0, length2);
         var end = argumentsLength > 2 ? arguments[2] : void 0;
-        var endPos = end === void 0 ? length : toAbsoluteIndex(end, length);
+        var endPos = end === void 0 ? length2 : toAbsoluteIndex(end, length2);
         while (endPos > index)
           O[index++] = value;
         return O;
@@ -15424,7 +16788,7 @@
       var arrayMethodHasSpeciesSupport = require_array_method_has_species_support();
       var HAS_SPECIES_SUPPORT = arrayMethodHasSpeciesSupport("filter");
       $2({ target: "Array", proto: true, forced: !HAS_SPECIES_SUPPORT }, {
-        filter: function filter(callbackfn) {
+        filter: function filter2(callbackfn) {
           return $filter(this, callbackfn, arguments.length > 1 ? arguments[1] : void 0);
         }
       });
@@ -15445,7 +16809,7 @@
           SKIPS_HOLES = false;
         });
       $2({ target: "Array", proto: true, forced: SKIPS_HOLES }, {
-        find: function find(callbackfn) {
+        find: function find2(callbackfn) {
           return $find(this, callbackfn, arguments.length > 1 ? arguments[1] : void 0);
         }
       });
@@ -15521,7 +16885,7 @@
       var toIntegerOrInfinity = require_to_integer_or_infinity();
       var arraySpeciesCreate = require_array_species_create();
       $2({ target: "Array", proto: true }, {
-        flat: function flat() {
+        flat: function flat2() {
           var depthArg = arguments.length ? arguments[0] : void 0;
           var O = toObject(this);
           var sourceLen = lengthOfArrayLike(O);
@@ -15544,7 +16908,7 @@
       var lengthOfArrayLike = require_length_of_array_like();
       var arraySpeciesCreate = require_array_species_create();
       $2({ target: "Array", proto: true }, {
-        flatMap: function flatMap(callbackfn) {
+        flatMap: function flatMap2(callbackfn) {
           var O = toObject(this);
           var sourceLen = lengthOfArrayLike(O);
           var A;
@@ -15653,12 +17017,12 @@
         if (NEGATIVE_ZERO)
           return apply($lastIndexOf, this, arguments) || 0;
         var O = toIndexedObject(this);
-        var length = lengthOfArrayLike(O);
-        var index = length - 1;
+        var length2 = lengthOfArrayLike(O);
+        var index = length2 - 1;
         if (arguments.length > 1)
           index = min(index, toIntegerOrInfinity(arguments[1]));
         if (index < 0)
-          index = length + index;
+          index = length2 + index;
         for (; index >= 0; index--)
           if (index in O && O[index] === searchElement)
             return index || 0;
@@ -15687,7 +17051,7 @@
       var arrayMethodHasSpeciesSupport = require_array_method_has_species_support();
       var HAS_SPECIES_SUPPORT = arrayMethodHasSpeciesSupport("map");
       $2({ target: "Array", proto: true, forced: !HAS_SPECIES_SUPPORT }, {
-        map: function map(callbackfn) {
+        map: function map2(callbackfn) {
           return $map(this, callbackfn, arguments.length > 1 ? arguments[1] : void 0);
         }
       });
@@ -15708,8 +17072,8 @@
           aCallable(callbackfn);
           var O = toObject(that);
           var self2 = IndexedObject(O);
-          var length = lengthOfArrayLike(O);
-          var index = IS_RIGHT ? length - 1 : 0;
+          var length2 = lengthOfArrayLike(O);
+          var index = IS_RIGHT ? length2 - 1 : 0;
           var i = IS_RIGHT ? -1 : 1;
           if (argumentsLength < 2)
             while (true) {
@@ -15719,11 +17083,11 @@
                 break;
               }
               index += i;
-              if (IS_RIGHT ? index < 0 : length <= index) {
+              if (IS_RIGHT ? index < 0 : length2 <= index) {
                 throw TypeError2("Reduce of empty array with no initial value");
               }
             }
-          for (; IS_RIGHT ? index >= 0 : length > index; index += i)
+          for (; IS_RIGHT ? index >= 0 : length2 > index; index += i)
             if (index in self2) {
               memo = callbackfn(memo, self2[index], index, O);
             }
@@ -15762,9 +17126,9 @@
       var STRICT_METHOD = arrayMethodIsStrict("reduce");
       var CHROME_BUG = !IS_NODE && CHROME_VERSION > 79 && CHROME_VERSION < 83;
       $2({ target: "Array", proto: true, forced: !STRICT_METHOD || CHROME_BUG }, {
-        reduce: function reduce(callbackfn) {
-          var length = arguments.length;
-          return $reduce(this, callbackfn, length, length > 1 ? arguments[1] : void 0);
+        reduce: function reduce2(callbackfn) {
+          var length2 = arguments.length;
+          return $reduce(this, callbackfn, length2, length2 > 1 ? arguments[1] : void 0);
         }
       });
     }
@@ -15797,8 +17161,8 @@
       var uncurryThis = require_function_uncurry_this();
       var isArray = require_is_array();
       var un$Reverse = uncurryThis([].reverse);
-      var test = [1, 2];
-      $2({ target: "Array", proto: true, forced: String(test) === String(test.reverse()) }, {
+      var test2 = [1, 2];
+      $2({ target: "Array", proto: true, forced: String(test2) === String(test2.reverse()) }, {
         reverse: function reverse() {
           if (isArray(this))
             this.length = this.length;
@@ -15827,13 +17191,13 @@
       var HAS_SPECIES_SUPPORT = arrayMethodHasSpeciesSupport("slice");
       var SPECIES = wellKnownSymbol("species");
       var Array2 = global2.Array;
-      var max = Math.max;
+      var max2 = Math.max;
       $2({ target: "Array", proto: true, forced: !HAS_SPECIES_SUPPORT }, {
         slice: function slice(start, end) {
           var O = toIndexedObject(this);
-          var length = lengthOfArrayLike(O);
-          var k = toAbsoluteIndex(start, length);
-          var fin = toAbsoluteIndex(end === void 0 ? length : end, length);
+          var length2 = lengthOfArrayLike(O);
+          var k = toAbsoluteIndex(start, length2);
+          var fin = toAbsoluteIndex(end === void 0 ? length2 : end, length2);
           var Constructor, result, n;
           if (isArray(O)) {
             Constructor = O.constructor;
@@ -15848,7 +17212,7 @@
               return un$Slice(O, k, fin);
             }
           }
-          result = new (Constructor === void 0 ? Array2 : Constructor)(max(fin - k, 0));
+          result = new (Constructor === void 0 ? Array2 : Constructor)(max2(fin - k, 0));
           for (n = 0; k < fin; k++, n++)
             if (k in O)
               createProperty(result, n, O[k]);
@@ -15918,14 +17282,14 @@
       var IE_OR_EDGE = require_engine_is_ie_or_edge();
       var V8 = require_engine_v8_version();
       var WEBKIT = require_engine_webkit_version();
-      var test = [];
-      var un$Sort = uncurryThis(test.sort);
-      var push = uncurryThis(test.push);
+      var test2 = [];
+      var un$Sort = uncurryThis(test2.sort);
+      var push = uncurryThis(test2.push);
       var FAILS_ON_UNDEFINED = fails(function() {
-        test.sort(void 0);
+        test2.sort(void 0);
       });
       var FAILS_ON_NULL = fails(function() {
-        test.sort(null);
+        test2.sort(null);
       });
       var STRICT_METHOD = arrayMethodIsStrict("sort");
       var STABLE_SORT = !fails(function() {
@@ -15956,14 +17320,14 @@
               value = 2;
           }
           for (index = 0; index < 47; index++) {
-            test.push({ k: chr + index, v: value });
+            test2.push({ k: chr + index, v: value });
           }
         }
-        test.sort(function(a, b) {
+        test2.sort(function(a, b) {
           return b.v - a.v;
         });
-        for (index = 0; index < test.length; index++) {
-          chr = test[index].k.charAt(0);
+        for (index = 0; index < test2.length; index++) {
+          chr = test2[index].k.charAt(0);
           if (result.charAt(result.length - 1) !== chr)
             result += chr;
         }
@@ -16055,7 +17419,7 @@
       var arrayMethodHasSpeciesSupport = require_array_method_has_species_support();
       var HAS_SPECIES_SUPPORT = arrayMethodHasSpeciesSupport("splice");
       var TypeError2 = global2.TypeError;
-      var max = Math.max;
+      var max2 = Math.max;
       var min = Math.min;
       var MAX_SAFE_INTEGER = 9007199254740991;
       var MAXIMUM_ALLOWED_LENGTH_EXCEEDED = "Maximum allowed length exceeded";
@@ -16073,7 +17437,7 @@
             actualDeleteCount = len - actualStart;
           } else {
             insertCount = argumentsLength - 2;
-            actualDeleteCount = min(max(toIntegerOrInfinity(deleteCount), 0), len - actualStart);
+            actualDeleteCount = min(max2(toIntegerOrInfinity(deleteCount), 0), len - actualStart);
           }
           if (len + insertCount - actualDeleteCount > MAX_SAFE_INTEGER) {
             throw TypeError2(MAXIMUM_ALLOWED_LENGTH_EXCEEDED);
@@ -16306,7 +17670,7 @@
       var uncurryThis = require_function_uncurry_this();
       var hiddenKeys = require_hidden_keys();
       var isObject2 = require_is_object();
-      var hasOwn3 = require_has_own_property();
+      var hasOwn4 = require_has_own_property();
       var defineProperty = require_object_define_property().f;
       var getOwnPropertyNamesModule = require_object_get_own_property_names();
       var getOwnPropertyNamesExternalModule = require_object_get_own_property_names_external();
@@ -16326,30 +17690,30 @@
           // weak collections IDs
         } });
       };
-      var fastKey = function(it, create2) {
+      var fastKey = function(it, create5) {
         if (!isObject2(it))
           return typeof it == "symbol" ? it : (typeof it == "string" ? "S" : "P") + it;
-        if (!hasOwn3(it, METADATA)) {
+        if (!hasOwn4(it, METADATA)) {
           if (!isExtensible(it))
             return "F";
-          if (!create2)
+          if (!create5)
             return "E";
           setMetadata(it);
         }
         return it[METADATA].objectID;
       };
-      var getWeakData = function(it, create2) {
-        if (!hasOwn3(it, METADATA)) {
+      var getWeakData = function(it, create5) {
+        if (!hasOwn4(it, METADATA)) {
           if (!isExtensible(it))
             return true;
-          if (!create2)
+          if (!create5)
             return false;
           setMetadata(it);
         }
         return it[METADATA].weakData;
       };
       var onFreeze = function(it) {
-        if (FREEZING && REQUIRED && isExtensible(it) && !hasOwn3(it, METADATA))
+        if (FREEZING && REQUIRED && isExtensible(it) && !hasOwn4(it, METADATA))
           setMetadata(it);
         return it;
       };
@@ -16359,12 +17723,12 @@
         REQUIRED = true;
         var getOwnPropertyNames = getOwnPropertyNamesModule.f;
         var splice = uncurryThis([].splice);
-        var test = {};
-        test[METADATA] = 1;
-        if (getOwnPropertyNames(test).length) {
+        var test2 = {};
+        test2[METADATA] = 1;
+        if (getOwnPropertyNames(test2).length) {
           getOwnPropertyNamesModule.f = function(it) {
             var result = getOwnPropertyNames(it);
-            for (var i = 0, length = result.length; i < length; i++) {
+            for (var i = 0, length2 = result.length; i < length2; i++) {
               if (result[i] === METADATA) {
                 splice(result, i, 1);
                 break;
@@ -16413,7 +17777,7 @@
         var IS_ITERATOR = !!(options && options.IS_ITERATOR);
         var INTERRUPTED = !!(options && options.INTERRUPTED);
         var fn = bind2(unboundFunction, that);
-        var iterator, iterFn, index, length, result, next, step;
+        var iterator, iterFn, index, length2, result, next, step;
         var stop = function(condition) {
           if (iterator)
             iteratorClose(iterator, "normal", condition);
@@ -16433,7 +17797,7 @@
           if (!iterFn)
             throw TypeError2(tryToString(iterable) + " is not iterable");
           if (isArrayIteratorMethod(iterFn)) {
-            for (index = 0, length = lengthOfArrayLike(iterable); length > index; index++) {
+            for (index = 0, length2 = lengthOfArrayLike(iterable); length2 > index; index++) {
               result = callFn(iterable[index]);
               if (result && isPrototypeOf(ResultPrototype, result))
                 return result;
@@ -16507,16 +17871,16 @@
           redefine(
             NativePrototype,
             KEY,
-            KEY == "add" ? function add(value) {
+            KEY == "add" ? function add2(value) {
               uncurriedNativeMethod(this, value === 0 ? 0 : value);
               return this;
             } : KEY == "delete" ? function(key) {
               return IS_WEAK && !isObject2(key) ? false : uncurriedNativeMethod(this, key === 0 ? 0 : key);
             } : KEY == "get" ? function get(key) {
               return IS_WEAK && !isObject2(key) ? void 0 : uncurriedNativeMethod(this, key === 0 ? 0 : key);
-            } : KEY == "has" ? function has(key) {
+            } : KEY == "has" ? function has2(key) {
               return IS_WEAK && !isObject2(key) ? false : uncurriedNativeMethod(this, key === 0 ? 0 : key);
-            } : function set(key, value) {
+            } : function set2(key, value) {
               uncurriedNativeMethod(this, key === 0 ? 0 : key, value);
               return this;
             }
@@ -16583,7 +17947,7 @@
     "node_modules/core-js/internals/collection-strong.js"(exports, module) {
       "use strict";
       var defineProperty = require_object_define_property().f;
-      var create2 = require_object_create();
+      var create5 = require_object_create();
       var redefineAll = require_redefine_all();
       var bind2 = require_function_bind_context();
       var anInstance = require_an_instance();
@@ -16601,7 +17965,7 @@
             anInstance(that, Prototype);
             setInternalState(that, {
               type: CONSTRUCTOR_NAME,
-              index: create2(null),
+              index: create5(null),
               first: void 0,
               last: void 0,
               size: 0
@@ -16717,7 +18081,7 @@
             // `{ Map, Set}.prototype.has(key)` methods
             // https://tc39.es/ecma262/#sec-map.prototype.has
             // https://tc39.es/ecma262/#sec-set.prototype.has
-            has: function has(key) {
+            has: function has2(key) {
               return !!getEntry(this, key);
             }
           });
@@ -16730,13 +18094,13 @@
             },
             // `Map.prototype.set(key, value)` method
             // https://tc39.es/ecma262/#sec-map.prototype.set
-            set: function set(key, value) {
+            set: function set2(key, value) {
               return define2(this, key === 0 ? 0 : key, value);
             }
           } : {
             // `Set.prototype.add(value)` method
             // https://tc39.es/ecma262/#sec-set.prototype.add
-            add: function add(value) {
+            add: function add2(value) {
               return define2(this, value = value === 0 ? 0 : value, value);
             }
           });
@@ -16849,14 +18213,14 @@
       var apply = require_function_apply();
       var bind2 = require_function_bind_context();
       var isCallable = require_is_callable();
-      var hasOwn3 = require_has_own_property();
+      var hasOwn4 = require_has_own_property();
       var fails = require_fails();
       var html = require_html();
       var arraySlice = require_array_slice();
       var createElement = require_document_create_element();
       var IS_IOS = require_engine_is_ios();
       var IS_NODE = require_engine_is_node();
-      var set = global2.setImmediate;
+      var set2 = global2.setImmediate;
       var clear = global2.clearImmediate;
       var process2 = global2.process;
       var Dispatch = global2.Dispatch;
@@ -16875,7 +18239,7 @@
       } catch (error) {
       }
       var run = function(id) {
-        if (hasOwn3(queue, id)) {
+        if (hasOwn4(queue, id)) {
           var fn = queue[id];
           delete queue[id];
           fn();
@@ -16892,8 +18256,8 @@
       var post = function(id) {
         global2.postMessage(String2(id), location.protocol + "//" + location.host);
       };
-      if (!set || !clear) {
-        set = function setImmediate2(fn) {
+      if (!set2 || !clear) {
+        set2 = function setImmediate2(fn) {
           var args = arraySlice(arguments, 1);
           queue[++counter] = function() {
             apply(isCallable(fn) ? fn : Function2(fn), void 0, args);
@@ -16934,7 +18298,7 @@
         }
       }
       module.exports = {
-        set,
+        set: set2,
         clear
       };
     }
@@ -16975,8 +18339,8 @@
       var queueMicrotaskDescriptor = getOwnPropertyDescriptor(global2, "queueMicrotask");
       var queueMicrotask = queueMicrotaskDescriptor && queueMicrotaskDescriptor.value;
       var flush;
-      var head;
-      var last2;
+      var head2;
+      var last3;
       var notify;
       var toggle;
       var node;
@@ -16987,20 +18351,20 @@
           var parent, fn;
           if (IS_NODE && (parent = process2.domain))
             parent.exit();
-          while (head) {
-            fn = head.fn;
-            head = head.next;
+          while (head2) {
+            fn = head2.fn;
+            head2 = head2.next;
             try {
               fn();
             } catch (error) {
-              if (head)
+              if (head2)
                 notify();
               else
-                last2 = void 0;
+                last3 = void 0;
               throw error;
             }
           }
-          last2 = void 0;
+          last3 = void 0;
           if (parent)
             parent.enter();
         };
@@ -17031,13 +18395,13 @@
       }
       module.exports = queueMicrotask || function(fn) {
         var task = { fn, next: void 0 };
-        if (last2)
-          last2.next = task;
-        if (!head) {
-          head = task;
+        if (last3)
+          last3.next = task;
+        if (!head2) {
+          head2 = task;
           notify();
         }
-        last2 = task;
+        last3 = task;
       };
     }
   });
@@ -17467,7 +18831,7 @@
           var reject2 = capability.reject;
           var result = perform(function() {
             var $promiseResolve = aCallable(C.resolve);
-            var values = [];
+            var values2 = [];
             var counter = 0;
             var remaining = 1;
             iterate(iterable, function(promise) {
@@ -17478,11 +18842,11 @@
                 if (alreadyCalled)
                   return;
                 alreadyCalled = true;
-                values[index] = value;
-                --remaining || resolve2(values);
+                values2[index] = value;
+                --remaining || resolve2(values2);
               }, reject2);
             });
-            --remaining || resolve2(values);
+            --remaining || resolve2(values2);
           });
           if (result.error)
             reject2(result.value);
@@ -17514,7 +18878,7 @@
       var global2 = require_global();
       var shared = require_shared_store();
       var isCallable = require_is_callable();
-      var create2 = require_object_create();
+      var create5 = require_object_create();
       var getPrototypeOf = require_object_get_prototype_of();
       var redefine = require_redefine();
       var wellKnownSymbol = require_well_known_symbol();
@@ -17524,23 +18888,23 @@
       var AsyncIterator = global2.AsyncIterator;
       var PassedAsyncIteratorPrototype = shared.AsyncIteratorPrototype;
       var AsyncIteratorPrototype;
-      var prototype;
+      var prototype3;
       if (PassedAsyncIteratorPrototype) {
         AsyncIteratorPrototype = PassedAsyncIteratorPrototype;
       } else if (isCallable(AsyncIterator)) {
         AsyncIteratorPrototype = AsyncIterator.prototype;
       } else if (shared[USE_FUNCTION_CONSTRUCTOR] || global2[USE_FUNCTION_CONSTRUCTOR]) {
         try {
-          prototype = getPrototypeOf(getPrototypeOf(getPrototypeOf(Function("return async function*(){}()")())));
-          if (getPrototypeOf(prototype) === Object.prototype)
-            AsyncIteratorPrototype = prototype;
+          prototype3 = getPrototypeOf(getPrototypeOf(getPrototypeOf(Function("return async function*(){}()")())));
+          if (getPrototypeOf(prototype3) === Object.prototype)
+            AsyncIteratorPrototype = prototype3;
         } catch (error) {
         }
       }
       if (!AsyncIteratorPrototype)
         AsyncIteratorPrototype = {};
       else if (IS_PURE)
-        AsyncIteratorPrototype = create2(AsyncIteratorPrototype);
+        AsyncIteratorPrototype = create5(AsyncIteratorPrototype);
       if (!isCallable(AsyncIteratorPrototype[ASYNC_ITERATOR])) {
         redefine(AsyncIteratorPrototype, ASYNC_ITERATOR, function() {
           return this;
@@ -17556,7 +18920,7 @@
       "use strict";
       var apply = require_function_apply();
       var anObject = require_an_object();
-      var create2 = require_object_create();
+      var create5 = require_object_create();
       var getMethod = require_get_method();
       var redefineAll = require_redefine_all();
       var InternalStateModule = require_internal_state();
@@ -17577,7 +18941,7 @@
           next: iterator.next
         });
       };
-      AsyncFromSyncIterator.prototype = redefineAll(create2(AsyncIteratorPrototype), {
+      AsyncFromSyncIterator.prototype = redefineAll(create5(AsyncIteratorPrototype), {
         next: function next(arg) {
           var state = getInternalState(this);
           var hasArg = !!arguments.length;
@@ -17903,9 +19267,9 @@
     "node_modules/core-js/internals/array-from-constructor-and-list.js"(exports, module) {
       module.exports = function(Constructor, list) {
         var index = 0;
-        var length = list.length;
-        var result = new Constructor(length);
-        while (length > index)
+        var length2 = list.length;
+        var result = new Constructor(length2);
+        while (length2 > index)
           result[index] = list[index++];
         return result;
       };
@@ -17931,10 +19295,10 @@
         var self2 = IndexedObject(O);
         var boundFunction = bind2(callbackfn, that);
         var target = objectCreate(null);
-        var length = lengthOfArrayLike(self2);
+        var length2 = lengthOfArrayLike(self2);
         var index = 0;
         var Constructor, key, value;
-        for (; length > index; index++) {
+        for (; length2 > index; index++) {
           value = self2[index];
           key = toPropertyKey(boundFunction(value, index, O));
           if (key in target)
@@ -17982,15 +19346,15 @@
         if (!isFrozen || !isArray(array) || !isFrozen(array))
           return false;
         var index = 0;
-        var length = array.length;
+        var length2 = array.length;
         var element;
-        while (index < length) {
+        while (index < length2) {
           element = array[index++];
           if (!(typeof element == "string" || allowUndefined && typeof element == "undefined")) {
             return false;
           }
         }
-        return length !== 0;
+        return length2 !== 0;
       };
       $2({ target: "Array", stat: true }, {
         isTemplateObject: function isTemplateObject(value) {
@@ -18074,20 +19438,20 @@
       var push = uncurryThis([].push);
       module.exports = function uniqueBy(resolver) {
         var that = toObject(this);
-        var length = lengthOfArrayLike(that);
+        var length2 = lengthOfArrayLike(that);
         var result = arraySpeciesCreate(that, 0);
-        var map = new Map2();
+        var map2 = new Map2();
         var resolverFunction = resolver != null ? aCallable(resolver) : function(value) {
           return value;
         };
         var index, item, key;
-        for (index = 0; index < length; index++) {
+        for (index = 0; index < length2; index++) {
           item = that[index];
           key = resolverFunction(item);
-          if (!mapHas(map, key))
-            mapSet(map, key, item);
+          if (!mapHas(map2, key))
+            mapSet(map2, key, item);
         }
-        mapForEach(map, function(value) {
+        mapForEach(map2, function(value) {
           push(result, value);
         });
         return result;
@@ -18512,8 +19876,8 @@
           return value;
         },
         ListValue: function ListValue(_ref13) {
-          var values = _ref13.values;
-          return "[" + join(values, ", ") + "]";
+          var values2 = _ref13.values;
+          return "[" + join(values2, ", ") + "]";
         },
         ObjectValue: function ObjectValue(_ref14) {
           var fields = _ref14.fields;
@@ -18575,8 +19939,8 @@
           return join(["union", name, join(directives, " "), types && types.length !== 0 ? "= " + join(types, " | ") : ""], " ");
         }),
         EnumTypeDefinition: addDescription(function(_ref28) {
-          var name = _ref28.name, directives = _ref28.directives, values = _ref28.values;
-          return join(["enum", name, join(directives, " "), block(values)], " ");
+          var name = _ref28.name, directives = _ref28.directives, values2 = _ref28.values;
+          return join(["enum", name, join(directives, " "), block(values2)], " ");
         }),
         EnumValueDefinition: addDescription(function(_ref29) {
           var name = _ref29.name, directives = _ref29.directives;
@@ -18603,8 +19967,8 @@
           return join(["extend union", name, join(directives, " "), types && types.length !== 0 ? "= " + join(types, " | ") : ""], " ");
         },
         EnumTypeExtension: function EnumTypeExtension(_ref35) {
-          var name = _ref35.name, directives = _ref35.directives, values = _ref35.values;
-          return join(["extend enum", name, join(directives, " "), block(values)], " ");
+          var name = _ref35.name, directives = _ref35.directives, values2 = _ref35.values;
+          return join(["extend enum", name, join(directives, " "), block(values2)], " ");
         },
         InputObjectTypeExtension: function InputObjectTypeExtension(_ref36) {
           var name = _ref36.name, directives = _ref36.directives, fields = _ref36.fields;
@@ -19108,9 +20472,9 @@
   // node_modules/apollo-utilities/lib/util/maybeDeepFreeze.js
   function deepFreeze(o) {
     Object.freeze(o);
-    Object.getOwnPropertyNames(o).forEach(function(prop) {
-      if (o[prop] !== null && (typeof o[prop] === "object" || typeof o[prop] === "function") && !Object.isFrozen(o[prop])) {
-        deepFreeze(o[prop]);
+    Object.getOwnPropertyNames(o).forEach(function(prop2) {
+      if (o[prop2] !== null && (typeof o[prop2] === "object" || typeof o[prop2] === "function") && !Object.isFrozen(o[prop2])) {
+        deepFreeze(o[prop2]);
       }
     });
     return o;
@@ -19459,7 +20823,7 @@
           }
         }, {
           key: "map",
-          value: function map(fn) {
+          value: function map2(fn) {
             var _this2 = this;
             if (typeof fn !== "function")
               throw new TypeError(fn + " is not a function");
@@ -19485,7 +20849,7 @@
           }
         }, {
           key: "filter",
-          value: function filter(fn) {
+          value: function filter2(fn) {
             var _this3 = this;
             if (typeof fn !== "function")
               throw new TypeError(fn + " is not a function");
@@ -19512,7 +20876,7 @@
           }
         }, {
           key: "reduce",
-          value: function reduce(fn) {
+          value: function reduce2(fn) {
             var _this4 = this;
             if (typeof fn !== "function")
               throw new TypeError(fn + " is not a function");
@@ -19550,7 +20914,7 @@
           }
         }, {
           key: "concat",
-          value: function concat4() {
+          value: function concat5() {
             var _this5 = this;
             for (var _len = arguments.length, sources = Array(_len), _key = 0; _key < _len; _key++) {
               sources[_key] = arguments[_key];
@@ -19587,7 +20951,7 @@
           }
         }, {
           key: "flatMap",
-          value: function flatMap(fn) {
+          value: function flatMap2(fn) {
             var _this6 = this;
             if (typeof fn !== "function")
               throw new TypeError(fn + " is not a function");
@@ -19714,7 +21078,7 @@
           }
         }, {
           key: "of",
-          value: function of2() {
+          value: function of() {
             for (var _len2 = arguments.length, items = Array(_len2), _key2 = 0; _key2 < _len2; _key2++) {
               items[_key2] = arguments[_key2];
             }
@@ -19917,7 +21281,7 @@
           return x.concat(y);
         });
       };
-      split = function(test, left, right) {
+      split = function(test2, left, right) {
         if (right === void 0) {
           right = new ApolloLink(passthrough);
         }
@@ -19925,11 +21289,11 @@
         var rightLink = toLink(right);
         if (isTerminating(leftLink) && isTerminating(rightLink)) {
           return new ApolloLink(function(operation) {
-            return test(operation) ? leftLink.request(operation) || lib_default.of() : rightLink.request(operation) || lib_default.of();
+            return test2(operation) ? leftLink.request(operation) || lib_default.of() : rightLink.request(operation) || lib_default.of();
           });
         } else {
           return new ApolloLink(function(operation, forward) {
-            return test(operation) ? leftLink.request(operation, forward) || lib_default.of() : rightLink.request(operation, forward) || lib_default.of();
+            return test2(operation) ? leftLink.request(operation, forward) || lib_default.of() : rightLink.request(operation, forward) || lib_default.of();
           });
         }
       };
@@ -19960,11 +21324,11 @@
           if (request)
             this.request = request;
         }
-        ApolloLink4.prototype.split = function(test, left, right) {
+        ApolloLink4.prototype.split = function(test2, left, right) {
           if (right === void 0) {
             right = new ApolloLink4(passthrough);
           }
-          return this.concat(split(test, left, right));
+          return this.concat(split(test2, left, right));
         };
         ApolloLink4.prototype.concat = function(next) {
           return concat(this, next);
@@ -23512,12 +24876,12 @@
         this.data = null;
       };
       UniversalWeakMap.prototype.get = function get(key) {
-        var map = this._getMap(key, false);
-        if (map) {
-          return map.get(key);
+        var map2 = this._getMap(key, false);
+        if (map2) {
+          return map2.get(key);
         }
       };
-      UniversalWeakMap.prototype.set = function set(key, value) {
+      UniversalWeakMap.prototype.set = function set2(key, value) {
         this._getMap(key, true).set(key, value);
         return value;
       };
@@ -23583,7 +24947,7 @@
         call(useSymbol && Symbol.iterator || "@@iterator");
       }
       var root = Array[globalKey] || def(Array, globalKey, new UniversalWeakMap(), false);
-      function lookup() {
+      function lookup2() {
         var arguments$1 = arguments;
         var node = root;
         var argc = arguments.length;
@@ -23595,7 +24959,7 @@
       }
       function tuple() {
         var arguments$1 = arguments;
-        var node = lookup.apply(null, arguments);
+        var node = lookup2.apply(null, arguments);
         if (node.tuple) {
           return node.tuple;
         }
@@ -23637,12 +25001,12 @@
         }
       });
       var ref = Array.prototype;
-      var concat4 = ref.concat;
+      var concat5 = ref.concat;
       tuple.prototype.concat = function() {
         var args = [], len = arguments.length;
         while (len--)
           args[len] = arguments[len];
-        return tuple.apply(void 0, concat4.apply(toArray(this), args.map(
+        return tuple.apply(void 0, concat5.apply(toArray(this), args.map(
           function(item) {
             return isTuple(item) ? toArray(item) : item;
           }
@@ -23650,7 +25014,7 @@
       };
       exports.default = tuple;
       exports.tuple = tuple;
-      exports.lookup = lookup;
+      exports.lookup = lookup2;
     }
   });
 
@@ -24023,10 +25387,10 @@
           return node.key || (node.key = /* @__PURE__ */ Object.create(null));
         };
         CacheKeyNode2.prototype.getOrCreate = function(value) {
-          var map = this.children || (this.children = /* @__PURE__ */ new Map());
-          var node = map.get(value);
+          var map2 = this.children || (this.children = /* @__PURE__ */ new Map());
+          var node = map2.get(value);
           if (!node) {
-            map.set(value, node = new CacheKeyNode2());
+            map2.set(value, node = new CacheKeyNode2());
           }
           return node;
         };
@@ -24220,10 +25584,10 @@
         PerQueryKeyMaker2.prototype.lookupObject = function(object) {
           var _this = this;
           var keys = safeSortedKeys(object);
-          var values = keys.map(function(key) {
+          var values2 = keys.map(function(key) {
             return _this.lookupAny(object[key]);
           });
-          return this.cacheKeyRoot.lookup(objToStr.call(object), this.cacheKeyRoot.lookupArray(keys), this.cacheKeyRoot.lookupArray(values));
+          return this.cacheKeyRoot.lookup(objToStr.call(object), this.cacheKeyRoot.lookupArray(keys), this.cacheKeyRoot.lookupArray(values2));
         };
         return PerQueryKeyMaker2;
       }();
@@ -24481,14 +25845,14 @@
                 }
               }
               var typeCondition = fragment.typeCondition.name.value;
-              var match = execContext.fragmentMatcher(rootValue, typeCondition, contextValue);
-              if (match) {
+              var match2 = execContext.fragmentMatcher(rootValue, typeCondition, contextValue);
+              if (match2) {
                 var fragmentExecResult = _this.executeSelectionSet({
                   selectionSet: fragment.selectionSet,
                   rootValue,
                   execContext
                 });
-                if (match === "heuristic" && fragmentExecResult.missing) {
+                if (match2 === "heuristic" && fragmentExecResult.missing) {
                   fragmentExecResult = __assign12({}, fragmentExecResult, { missing: fragmentExecResult.missing.map(function(info) {
                     return __assign12({}, info, { tolerable: true });
                   }) });
@@ -24786,11 +26150,11 @@
                   store: new ObjectCache({ self: result }),
                   cacheRedirects: {}
                 };
-                var match = context.fragmentMatcherFunction(idValue, fragment.typeCondition.name.value, fakeContext);
-                if (!isProduction2() && match === "heuristic") {
+                var match2 = context.fragmentMatcherFunction(idValue, fragment.typeCondition.name.value, fakeContext);
+                if (!isProduction2() && match2 === "heuristic") {
                   console.error("WARNING: heuristic fragment matching going on!");
                 }
-                matches = !!match;
+                matches = !!match2;
               }
               if (matches) {
                 _this.writeSelectionSetToStore({
@@ -25508,16 +26872,16 @@
       return x.concat(y);
     });
   }
-  function split2(test, left, right) {
+  function split2(test2, left, right) {
     var leftLink = toLink2(left);
     var rightLink = toLink2(right || new ApolloLink2(passthrough2));
     if (isTerminating2(leftLink) && isTerminating2(rightLink)) {
       return new ApolloLink2(function(operation) {
-        return test(operation) ? leftLink.request(operation) || bundle_esm_default.of() : rightLink.request(operation) || bundle_esm_default.of();
+        return test2(operation) ? leftLink.request(operation) || bundle_esm_default.of() : rightLink.request(operation) || bundle_esm_default.of();
       });
     } else {
       return new ApolloLink2(function(operation, forward) {
-        return test(operation) ? leftLink.request(operation, forward) || bundle_esm_default.of() : rightLink.request(operation, forward) || bundle_esm_default.of();
+        return test2(operation) ? leftLink.request(operation, forward) || bundle_esm_default.of() : rightLink.request(operation, forward) || bundle_esm_default.of();
       });
     }
   }
@@ -25566,8 +26930,8 @@
           if (request)
             this.request = request;
         }
-        ApolloLink4.prototype.split = function(test, left, right) {
-          return this.concat(split2(test, left, right || new ApolloLink4(passthrough2)));
+        ApolloLink4.prototype.split = function(test2, left, right) {
+          return this.concat(split2(test2, left, right || new ApolloLink4(passthrough2)));
         };
         ApolloLink4.prototype.concat = function(next) {
           return concat2(this, next);
@@ -25987,16 +27351,16 @@
       return x.concat(y);
     });
   }
-  function split3(test, left, right) {
+  function split3(test2, left, right) {
     var leftLink = toLink3(left);
     var rightLink = toLink3(right || new ApolloLink3(passthrough3));
     if (isTerminating3(leftLink) && isTerminating3(rightLink)) {
       return new ApolloLink3(function(operation) {
-        return test(operation) ? leftLink.request(operation) || bundle_esm_default2.of() : rightLink.request(operation) || bundle_esm_default2.of();
+        return test2(operation) ? leftLink.request(operation) || bundle_esm_default2.of() : rightLink.request(operation) || bundle_esm_default2.of();
       });
     } else {
       return new ApolloLink3(function(operation, forward) {
-        return test(operation) ? leftLink.request(operation, forward) || bundle_esm_default2.of() : rightLink.request(operation, forward) || bundle_esm_default2.of();
+        return test2(operation) ? leftLink.request(operation, forward) || bundle_esm_default2.of() : rightLink.request(operation, forward) || bundle_esm_default2.of();
       });
     }
   }
@@ -26045,8 +27409,8 @@
           if (request)
             this.request = request;
         }
-        ApolloLink4.prototype.split = function(test, left, right) {
-          return this.concat(split3(test, left, right || new ApolloLink4(passthrough3)));
+        ApolloLink4.prototype.split = function(test2, left, right) {
+          return this.concat(split3(test2, left, right || new ApolloLink4(passthrough3)));
         };
         ApolloLink4.prototype.concat = function(next) {
           return concat3(this, next);
@@ -26065,10 +27429,10 @@
 
   // node_modules/apollo-link-retry/lib/bundle.esm.js
   function buildDelayFunction(delayOptions) {
-    var _a4 = delayOptions || {}, _b = _a4.initial, initial = _b === void 0 ? 300 : _b, _c = _a4.jitter, jitter = _c === void 0 ? true : _c, _d = _a4.max, max = _d === void 0 ? Infinity : _d;
+    var _a4 = delayOptions || {}, _b = _a4.initial, initial = _b === void 0 ? 300 : _b, _c = _a4.jitter, jitter = _c === void 0 ? true : _c, _d = _a4.max, max2 = _d === void 0 ? Infinity : _d;
     var baseDelay = jitter ? initial : initial / 2;
     return function delayFunction(count) {
-      var delay = Math.min(max, baseDelay * Math.pow(2, count));
+      var delay = Math.min(max2, baseDelay * Math.pow(2, count));
       if (jitter) {
         delay = Math.random() * delay;
       }
@@ -26076,9 +27440,9 @@
     };
   }
   function buildRetryFunction(retryOptions) {
-    var _a4 = retryOptions || {}, retryIf = _a4.retryIf, _b = _a4.max, max = _b === void 0 ? 5 : _b;
+    var _a4 = retryOptions || {}, retryIf = _a4.retryIf, _b = _a4.max, max2 = _b === void 0 ? 5 : _b;
     return function retryFunction(count, operation, error) {
-      if (count >= max)
+      if (count >= max2)
         return false;
       return retryIf ? retryIf(error, operation) : !!error;
     };
@@ -26375,97 +27739,61 @@
     }
   });
 
-  // packages/utilities/fp/utils/Const.js
-  var require_Const = __commonJS({
-    "packages/utilities/fp/utils/Const.js"(exports) {
+  // packages/utilities/fp/utils/Const.ts
+  var create, VALUE, prototype, Const, getConst;
+  var init_Const = __esm({
+    "packages/utilities/fp/utils/Const.ts"() {
       "use strict";
-      Object.defineProperty(exports, "__esModule", {
-        value: true
-      });
-      exports.of = exports.getConst = exports.ConstType = exports.Const = void 0;
-      var {
-        create: create2
-      } = Object;
-      var VALUE2 = "@webflow/Const/value";
-      var ConstType = class {
-      };
-      exports.ConstType = ConstType;
-      var prototype = {
+      ({ create } = Object);
+      VALUE = "@webflow/Const/value";
+      prototype = {
         // map(f) { // eslint-disable-line no-unused-vars
         map() {
           return this;
         }
       };
-      var Const = (value) => {
-        const object = create2(prototype);
-        object[VALUE2] = value;
+      Const = (value) => {
+        const object = create(prototype);
+        object[VALUE] = value;
         return object;
       };
-      exports.Const = Const;
-      var of2 = Const;
-      exports.of = of2;
-      var getConst = (con) => (
-        // $FlowFixMe
-        con[VALUE2]
-      );
-      exports.getConst = getConst;
+      getConst = (con) => con[VALUE];
     }
   });
 
-  // packages/utilities/fp/utils/Identity.js
-  var require_Identity = __commonJS({
-    "packages/utilities/fp/utils/Identity.js"(exports) {
+  // packages/utilities/fp/utils/Identity.ts
+  var create2, VALUE2, prototype2, Identity, runIdentity;
+  var init_Identity = __esm({
+    "packages/utilities/fp/utils/Identity.ts"() {
       "use strict";
-      Object.defineProperty(exports, "__esModule", {
-        value: true
-      });
-      exports.runIdentity = exports.of = exports.IdentityType = exports.Identity = void 0;
-      var {
-        create: create2
-      } = Object;
-      var VALUE2 = "@webflow/Identity/value";
-      var IdentityType = class {
-      };
-      exports.IdentityType = IdentityType;
-      var prototype = {
+      ({ create: create2 } = Object);
+      VALUE2 = "@webflow/Identity/value";
+      prototype2 = {
+        // @ts-expect-error - TS7023 - 'map' implicitly has return type 'any' because it does not have a return type annotation and is referenced directly or indirectly in one of its return expressions.
         map(f) {
           return Identity(f(this[VALUE2]));
         }
       };
-      var Identity = (value) => {
-        const object = create2(prototype);
+      Identity = (value) => {
+        const object = create2(prototype2);
         object[VALUE2] = value;
         return object;
       };
-      exports.Identity = Identity;
-      var of2 = Identity;
-      exports.of = of2;
-      var runIdentity = (object) => (
-        // $FlowFixMe
-        object[VALUE2]
-      );
-      exports.runIdentity = runIdentity;
+      runIdentity = (object) => object[VALUE2];
     }
   });
 
   // packages/utilities/fp/option/index.ts
-  var option_exports = {};
-  __export(option_exports, {
-    None: () => None,
-    Some: () => Some,
-    fromNullable: () => fromNullable,
-    maybe: () => maybe,
-    of: () => of
-  });
-  var create, returnThis, VALUE, None, Some, SomePrototype, fromNullable, maybe, of;
+  var create3, returnThis, VALUE3, None, Some, SomePrototype, maybe;
   var init_option = __esm({
     "packages/utilities/fp/option/index.ts"() {
-      ({ create } = Object);
+      "use strict";
+      ({ create: create3 } = Object);
       returnThis = function() {
         return this;
       };
-      VALUE = "@webflow/Option";
-      None = create({
+      VALUE3 = "@webflow/Option";
+      None = create3({
         map: returnThis,
         chain: returnThis,
         alt: (alternativeOption) => alternativeOption,
@@ -26477,8 +27805,8 @@
         foldOption: (fallback) => fallback
       });
       Some = (value) => {
-        const object = create(SomePrototype);
-        object[VALUE] = value;
+        const object = create3(SomePrototype);
+        object[VALUE3] = value;
         return object;
       };
       SomePrototype = {
@@ -26486,14 +27814,14 @@
          * Transform the value inside of a `Option` by applying a unary function to it.
          */
         map(f) {
-          return Some(f(this[VALUE]));
+          return Some(f(this[VALUE3]));
         },
         /**
          * Sequence computations by applying a function to the value
          * contained in the `Option`. The function must return an `Option`.
          */
         chain(f) {
-          return f(this[VALUE]);
+          return f(this[VALUE3]);
         },
         /**
          * Provide an alternative option that will be returned if this option is None.
@@ -26504,14 +27832,14 @@
          * returning another Option.
          */
         ap(m) {
-          return m.map(this[VALUE]);
+          return m.map(this[VALUE3]);
         },
         concat(other) {
           return other.foldOption(
             this,
             (otherValue) => (
               // @ts-expect-error - TS7053 - Element implicitly has an 'any' type because expression of type '"@webflow/Option"' can't be used to index type '{ readonly map: (f: any) => any; readonly chain: (f: any) => any; readonly alt: () => any; readonly ap: (m: any) => any; readonly concat: (other: any) => any; readonly foldOption: (fallback: any, mapValue: any) => any; }'.
-              Some(this[VALUE].concat(otherValue))
+              Some(this[VALUE3].concat(otherValue))
             )
           );
         },
@@ -26520,164 +27848,259 @@
          * if the `Option` is a `Some`.
          */
         foldOption(fallback, mapValue) {
-          return mapValue(this[VALUE]);
+          return mapValue(this[VALUE3]);
         }
       };
-      fromNullable = (value) => value == null ? None : Some(value);
       maybe = (fallback) => (mapValue) => (option) => (
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-ignore private foldOption
         option.foldOption(fallback, mapValue)
       );
-      of = Some;
     }
   });
 
-  // packages/utilities/fp/result/index.js
-  var require_result = __commonJS({
-    "packages/utilities/fp/result/index.js"(exports) {
+  // packages/utilities/fp/result/index.ts
+  var create4, returnThis2, VALUE4, ERROR, Err, Ok, ErrPrototype, OkPrototype, either;
+  var init_result = __esm({
+    "packages/utilities/fp/result/index.ts"() {
       "use strict";
-      Object.defineProperty(exports, "__esModule", {
-        value: true
-      });
-      exports.of = exports.either = exports.Result = exports.Ok = exports.Err = void 0;
-      var {
-        create: create2
-      } = Object;
-      var returnThis2 = function() {
+      ({ create: create4 } = Object);
+      returnThis2 = function() {
         return this;
       };
-      var VALUE2 = "@webflow/Result/value";
-      var ERROR = "@webflow/Result/error";
-      var Result = class {
-      };
-      exports.Result = Result;
-      var Err = (error) => {
-        const object = create2(ErrPrototype);
+      VALUE4 = "@webflow/Result/value";
+      ERROR = "@webflow/Result/error";
+      Err = (error) => {
+        const object = create4(ErrPrototype);
         object[ERROR] = error;
         return object;
       };
-      exports.Err = Err;
-      var Ok = (value) => {
-        const object = create2(OkPrototype);
-        object[VALUE2] = value;
+      Ok = (value) => {
+        const object = create4(OkPrototype);
+        object[VALUE4] = value;
         return object;
       };
-      exports.Ok = Ok;
-      var ErrPrototype = {};
-      var OkPrototype = {};
+      ErrPrototype = {};
+      OkPrototype = {};
       ErrPrototype.map = returnThis2;
       OkPrototype.map = function(f) {
-        return Ok(f(this[VALUE2]));
+        return Ok(f(this[VALUE4]));
       };
       ErrPrototype.chain = returnThis2;
       OkPrototype.chain = function(f) {
-        return f(this[VALUE2]);
+        return f(this[VALUE4]);
       };
       ErrPrototype.ap = returnThis2;
       OkPrototype.ap = function(m) {
-        return m.map(this[VALUE2]);
+        return m.map(this[VALUE4]);
       };
       ErrPrototype.foldResult = function(errorHandler) {
         return errorHandler(this[ERROR]);
       };
       OkPrototype.foldResult = function(errorHandler, valueHandler) {
-        return valueHandler(this[VALUE2]);
+        return valueHandler(this[VALUE4]);
       };
-      var either = (mapErr) => (mapVal) => (result) => (
-        // $FlowIgnore private foldResult
+      either = (mapErr) => (mapVal) => (result) => (
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore private foldResult
         result.foldResult(mapErr, mapVal)
       );
-      exports.either = either;
-      var of2 = Ok;
-      exports.of = of2;
     }
   });
 
-  // packages/utilities/fp/utils/index.js
-  var require_utils = __commonJS({
-    "packages/utilities/fp/utils/index.js"(exports) {
-      "use strict";
-      Object.defineProperty(exports, "__esModule", {
-        value: true
-      });
-      exports.zip = exports.when = exports.view = exports.values = exports.unionWith = exports.unionTo = exports.union = exports.traverseResults = exports.traverseOptions = exports.traverseObjectResults = exports.thrush = exports.test = exports.tap = exports.tail = exports.substitution = exports.split = exports.set = exports.resultToBool = exports.replace = exports.reduceObject = exports.reduce = exports.prop = exports.pipe = exports.pickBy = exports.pick = exports.parseIntWithRadix = exports.parseInt = exports.over = exports.optionToBool = exports.optionToArray = exports.omit = exports.okToOption = exports.objectKeys = exports.objOf = exports.nth = exports.notNil = exports.notEqual = exports.not = exports.noneToErr = exports.max = exports.match = exports.mapValues = exports.mapArray = exports.map = exports.lookupWithDefault = exports.lookup = exports.lensProp = exports.lens = exports.length = exports.last = exports.isNil = exports.inc = exports.identity = exports.head = exports.has = exports.getDeepestValues = exports.flip = exports.flatMap = exports.flat = exports.find = exports.filter = exports.extractFunctionFromResult = exports.extractFunctionFromOption = exports.extractBool = exports.extractArray = exports.errToOption = exports.equals = exports.entries = exports.emptyObject = exports.emptyArray = exports.either = exports.dissoc = exports.constantTrue = exports.constantNone = exports.constantIdentity = exports.constantFalse = exports.constant = exports.concatTo = exports.concat = exports.compose = exports.complement = exports.both = exports.blackbird = exports.assoc = exports.append = exports.anyPass = exports.allPass = exports.adjust = exports.add = void 0;
-      exports.zipCat = zipCat;
-      exports.zipWith = void 0;
-      var _Const = require_Const();
-      var _Identity = require_Identity();
-      var _option = (init_option(), __toCommonJS(option_exports));
-      var _result = require_result();
-      var hasOwn3 = Object.prototype.hasOwnProperty;
-      var objectKeys = Object.keys;
-      exports.objectKeys = objectKeys;
-      var emptyArray = [];
-      exports.emptyArray = emptyArray;
-      var emptyObject = {};
-      exports.emptyObject = emptyObject;
+  // packages/utilities/fp/utils/index.ts
+  var utils_exports = {};
+  __export(utils_exports, {
+    add: () => add,
+    adjust: () => adjust,
+    allPass: () => allPass,
+    anyPass: () => anyPass,
+    append: () => append,
+    assoc: () => assoc,
+    blackbird: () => blackbird,
+    both: () => both,
+    complement: () => complement,
+    compose: () => compose,
+    concat: () => concat4,
+    concatTo: () => concatTo,
+    constant: () => constant,
+    constantFalse: () => constantFalse,
+    constantIdentity: () => constantIdentity,
+    constantNone: () => constantNone,
+    constantTrue: () => constantTrue,
+    dissoc: () => dissoc,
+    either: () => either2,
+    emptyArray: () => emptyArray,
+    emptyObject: () => emptyObject,
+    entries: () => entries,
+    equals: () => equals,
+    errToOption: () => errToOption,
+    extractArray: () => extractArray,
+    extractBool: () => extractBool,
+    extractFunctionFromOption: () => extractFunctionFromOption,
+    extractFunctionFromResult: () => extractFunctionFromResult,
+    filter: () => filter,
+    find: () => find,
+    flat: () => flat,
+    flatMap: () => flatMap,
+    flip: () => flip,
+    getDeepestValues: () => getDeepestValues,
+    has: () => has,
+    head: () => head,
+    identity: () => identity,
+    inc: () => inc,
+    isNil: () => isNil,
+    last: () => last,
+    length: () => length,
+    lens: () => lens,
+    lensProp: () => lensProp,
+    lookup: () => lookup,
+    lookupWithDefault: () => lookupWithDefault,
+    map: () => map,
+    mapArray: () => mapArray,
+    mapValues: () => mapValues,
+    match: () => match,
+    max: () => max,
+    noneToErr: () => noneToErr,
+    not: () => not,
+    notEqual: () => notEqual,
+    notNil: () => notNil,
+    nth: () => nth,
+    objOf: () => objOf,
+    objectKeys: () => objectKeys,
+    okToOption: () => okToOption,
+    omit: () => omit,
+    optionToArray: () => optionToArray,
+    optionToBool: () => optionToBool,
+    over: () => over,
+    parseIntWithRadix: () => parseIntWithRadix,
+    pick: () => pick,
+    pickBy: () => pickBy,
+    pipe: () => pipe,
+    prop: () => prop,
+    reduce: () => reduce,
+    reduceObject: () => reduceObject,
+    replace: () => replace,
+    resultToBool: () => resultToBool,
+    safeParseInt: () => safeParseInt,
+    set: () => set,
+    split: () => split4,
+    substitution: () => substitution,
+    tail: () => tail,
+    tap: () => tap,
+    test: () => test,
+    thrush: () => thrush,
+    traverseObjectResults: () => traverseObjectResults,
+    traverseOptions: () => traverseOptions,
+    traverseResults: () => traverseResults,
+    union: () => union,
+    unionTo: () => unionTo,
+    unionWith: () => unionWith,
+    values: () => values,
+    view: () => view,
+    when: () => when,
+    zip: () => zip,
+    zipCat: () => zipCat,
+    zipWith: () => zipWith
+  });
+  function getMinLength(arrays) {
+    if (arrays.length === 0)
+      return 0;
+    if (arrays.length === 1)
+      return arrays[0].length;
+    let min = arrays[0].length;
+    for (let i = 1, len = arrays.length; i < len; i++) {
+      const arr_len = arrays[i].length;
+      if (arr_len < min)
+        min = arr_len;
+    }
+    return min;
+  }
+  function zipCat(fn) {
+    return function zipCat_inner(arrays) {
+      const zipLength = getMinLength(arrays);
+      const rv = [];
+      for (let i = 0, len = arrays.length; i < len; i++) {
+        const array = arrays[i];
+        for (let j = 0, array_len = array.length; j < array_len; j++) {
+          const item = array[j];
+          if (j < zipLength) {
+            const existing = rv[j];
+            if (typeof existing !== "undefined") {
+              rv[j] = fn(existing)(item);
+            } else {
+              rv[j] = item;
+            }
+          } else {
+            rv.push(item);
+          }
+        }
+      }
+      return rv;
+    };
+  }
+  var hasOwn3, objectKeys, emptyArray, emptyObject, identity, constant, compose, blackbird, flip, thrush, substitution, constantFalse, constantTrue, not, complement, anyPass, allPass, optionToBool, resultToBool, equals, notEqual, isNil, notNil, either2, both, when, has, prop, assocReducer, assoc, dissocReducer, dissoc, adjust, unionWith, union, unionTo, omitReducer, omit, pickReducer, pick, pickByReducer, pickBy, lookup, lookupWithDefault, find, binaryThrush, pipe, zipWith, zip, map, mapArray, filter, reduce, reduceObject, objOf, concat4, concatTo, append, constantIdentity, add, inc, max, parseIntWithRadix, safeParseInt, head, last, tail, length, flatMap, flat, test, match, replace, split4, lens, lensProp, view, over, set, constantNone, noneToErr, okToOption, errToOption, tap, extractBool, extractArray, extractFunctionFromOption, extractFunctionFromResult, optionToArray, optionOfEmptyArray, traverseOptions, resultOfEmptyArray, traverseResults, resultOfEmptyObject, traverseObjectResults, mapValues, values, entries, getDeepestValues, nth;
+  var init_utils2 = __esm({
+    "packages/utilities/fp/utils/index.ts"() {
+      init_Const();
+      init_Identity();
+      init_option();
+      init_result();
+      hasOwn3 = Object.prototype.hasOwnProperty;
+      objectKeys = Object.keys;
+      emptyArray = [];
+      emptyObject = {};
       if (false) {
         const proxy = (sharedConstantName) => ({
+          // @ts-expect-error - TS7006 - Parameter 'target' implicitly has an 'any' type. | TS7006 - Parameter 'prop' implicitly has an 'any' type. | TS7006 - Parameter 'value' implicitly has an 'any' type.
           set: (target, prop2, value) => {
-            console.error('Invalid mutation of shared constant. Property "%s" was set on "%s".', prop2, sharedConstantName);
+            console.error(
+              'Invalid mutation of shared constant. Property "%s" was set on "%s".',
+              prop2,
+              sharedConstantName
+            );
             target[prop2] = value;
           }
         });
-        exports.emptyArray = emptyArray = new Proxy(emptyArray, proxy("emptyArray"));
-        exports.emptyObject = emptyObject = new Proxy(emptyObject, proxy("emptyObject"));
+        emptyArray = new Proxy(emptyArray, proxy("emptyArray"));
+        emptyObject = new Proxy(
+          emptyObject,
+          // @ts-expect-error - TS2345 - Argument of type '{ set: (target: any, prop: any, value: any) => void; }' is not assignable to parameter of type 'ProxyHandler<any>'.
+          proxy("emptyObject")
+        );
       }
-      var identity = (x) => x;
-      exports.identity = identity;
-      var constant = (x) => (y) => x;
-      exports.constant = constant;
-      var compose = (f) => (g) => (x) => f(g(x));
-      exports.compose = compose;
-      var blackbird = (f) => (g) => (x) => (y) => f(g(x)(y));
-      exports.blackbird = blackbird;
-      var flip = (f) => (x) => (y) => f(y)(x);
-      exports.flip = flip;
-      var thrush = (x) => (f) => f(x);
-      exports.thrush = thrush;
-      var substitution = (f) => (g) => (x) => f(x)(g(x));
-      exports.substitution = substitution;
-      var constantFalse = constant(false);
-      exports.constantFalse = constantFalse;
-      var constantTrue = constant(true);
-      exports.constantTrue = constantTrue;
-      var not = (x) => !x;
-      exports.not = not;
-      var complement = compose(not);
-      exports.complement = complement;
-      var anyPass = (preds) => (value) => preds.some(thrush(value));
-      exports.anyPass = anyPass;
-      var allPass = (preds) => (value) => preds.every(thrush(value));
-      exports.allPass = allPass;
-      var optionToBool = (0, _option.maybe)(false)(constantTrue);
-      exports.optionToBool = optionToBool;
-      var resultToBool = (0, _result.either)(constantFalse)(constantTrue);
-      exports.resultToBool = resultToBool;
-      var equals = (a) => (b) => a === b;
-      exports.equals = equals;
-      var notEqual = (a) => (b) => a !== b;
-      exports.notEqual = notEqual;
-      var isNil = (value) => value == null;
-      exports.isNil = isNil;
-      var notNil = complement(isNil);
-      exports.notNil = notNil;
-      var either = (predicateA, predicateB) => (...args) => predicateA(...args) || predicateB(...args);
-      exports.either = either;
-      var both = (predicateA, predicateB) => (...args) => predicateA(...args) && predicateB(...args);
-      exports.both = both;
-      var when = (predicate) => (whenTrueFn) => (value) => predicate(value) ? whenTrueFn(value) : value;
-      exports.when = when;
-      var has = (key) => (object) => hasOwn3.call(object, key);
-      exports.has = has;
-      var prop = (key) => (object) => object[key];
-      exports.prop = prop;
-      var assocReducer = (acc, key) => {
+      identity = (x) => x;
+      constant = (x) => (
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
+        (y) => x
+      );
+      compose = (f) => (g) => (x) => f(g(x));
+      blackbird = (f) => (g) => (x) => (y) => f(g(x)(y));
+      flip = (f) => (x) => (y) => f(y)(x);
+      thrush = (x) => (f) => f(x);
+      substitution = (f) => (g) => (x) => f(x)(g(x));
+      constantFalse = constant(false);
+      constantTrue = constant(true);
+      not = (x) => !x;
+      complement = compose(not);
+      anyPass = (preds) => (value) => preds.some(thrush(value));
+      allPass = (preds) => (value) => preds.every(thrush(value));
+      optionToBool = maybe(false)(constantTrue);
+      resultToBool = either(constantFalse)(constantTrue);
+      equals = (a) => (b) => a === b;
+      notEqual = (a) => (b) => a !== b;
+      isNil = (value) => value == null;
+      notNil = complement(isNil);
+      either2 = (predicateA, predicateB) => (...args) => predicateA(...args) || predicateB(...args);
+      both = (predicateA, predicateB) => (...args) => predicateA(...args) && predicateB(...args);
+      when = (predicate) => (whenTrueFn) => (value) => predicate(value) ? whenTrueFn(value) : value;
+      has = (key) => (object) => hasOwn3.call(object, key);
+      prop = (key) => (object) => object[key];
+      assocReducer = (acc, key) => {
         acc.result[key] = acc.source[key];
         return acc;
       };
-      var assoc = (key) => {
+      assoc = (key) => {
         const hasKey = has(key);
         return (value) => (object) => {
           if (hasKey(object) && object[key] === value) {
@@ -26691,14 +28114,13 @@
           return result;
         };
       };
-      exports.assoc = assoc;
-      var dissocReducer = (acc, key) => {
+      dissocReducer = (acc, key) => {
         if (acc.exclude !== key) {
           acc.result[key] = acc.source[key];
         }
         return acc;
       };
-      var dissoc = (key) => {
+      dissoc = (key) => {
         const hasKey = has(key);
         return (object) => hasKey(object) ? objectKeys(object).reduce(dissocReducer, {
           source: object,
@@ -26706,13 +28128,14 @@
           exclude: key
         }).result : object;
       };
-      exports.dissoc = dissoc;
-      var adjust = (f) => (key) => {
+      adjust = (f) => (key) => {
         const hasKey = has(key);
-        return (obj) => hasKey(obj) ? assoc(key)(f(obj[key]))(obj) : obj;
+        return (obj) => (
+          // @ts-expect-error - TS2345 - Argument of type 'a | undefined' is not assignable to parameter of type 'a'.
+          hasKey(obj) ? assoc(key)(f(obj[key]))(obj) : obj
+        );
       };
-      exports.adjust = adjust;
-      var unionWith = (combine) => (first2) => first2 === emptyObject ? identity : (second) => {
+      unionWith = (combine) => (first2) => first2 === emptyObject ? identity : (second) => {
         if (second === emptyObject)
           return first2;
         let changedFromFirst = false;
@@ -26747,12 +28170,11 @@
           return second;
         return result;
       };
-      exports.unionWith = unionWith;
-      var union = unionWith(constant);
-      exports.union = union;
-      var unionTo = flip(union);
-      exports.unionTo = unionTo;
-      var omitReducer = (acc, key) => {
+      union = unionWith(
+        constant
+      );
+      unionTo = flip(union);
+      omitReducer = (acc, key) => {
         if (acc.exclude.includes(key)) {
           acc.changed = true;
         } else {
@@ -26760,7 +28182,7 @@
         }
         return acc;
       };
-      var omit = (keys) => {
+      omit = (keys) => {
         const len = keys.length;
         if (len === 0) {
           return identity;
@@ -26769,10 +28191,7 @@
           return dissoc(keys[0]);
         }
         return (object) => {
-          const {
-            result,
-            changed
-          } = objectKeys(object).reduce(omitReducer, {
+          const { result, changed } = objectKeys(object).reduce(omitReducer, {
             source: object,
             exclude: keys,
             changed: false,
@@ -26781,19 +28200,14 @@
           return changed ? result : object;
         };
       };
-      exports.omit = omit;
-      var pickReducer = (acc, key) => {
+      pickReducer = (acc, key) => {
         if (hasOwn3.call(acc.source, key)) {
           acc.result[key] = acc.source[key];
         }
         return acc;
       };
-      var pick = (keys) => (source) => keys.reduce(pickReducer, {
-        source,
-        result: {}
-      }).result;
-      exports.pick = pick;
-      var pickByReducer = (acc, key) => {
+      pick = (keys) => (source) => keys.reduce(pickReducer, { source, result: {} }).result;
+      pickByReducer = (acc, key) => {
         const value = acc.source[key];
         if (acc.predicate(value)) {
           acc.result[key] = value;
@@ -26802,11 +28216,8 @@
         }
         return acc;
       };
-      var pickBy = (predicate) => (object) => {
-        const {
-          result,
-          changed
-        } = objectKeys(object).reduce(pickByReducer, {
+      pickBy = (predicate) => (object) => {
+        const { result, changed } = objectKeys(object).reduce(pickByReducer, {
           source: object,
           predicate,
           changed: false,
@@ -26814,26 +28225,24 @@
         });
         return changed ? result : object;
       };
-      exports.pickBy = pickBy;
-      var lookup = (key) => {
+      lookup = (key) => {
         const hasKey = has(key);
-        return (object) => hasKey(object) ? (0, _option.Some)(object[key]) : _option.None;
+        return (object) => (
+          // @ts-expect-error - TS2322 - Type 'Option<a> | Option<Partial<Record<k, a>>[k]>' is not assignable to type 'Option<a>'.
+          hasKey(object) ? Some(object[key]) : None
+        );
       };
-      exports.lookup = lookup;
-      var lookupWithDefault = (defaultValue) => (key) => {
+      lookupWithDefault = (defaultValue) => (key) => {
         const hasKey = has(key);
         return (object) => hasKey(object) ? object[key] : defaultValue;
       };
-      exports.lookupWithDefault = lookupWithDefault;
-      var find = (pred) => (array) => {
+      find = (pred) => (array) => {
         const index = array.findIndex(pred);
-        return index === -1 ? _option.None : (0, _option.Some)(array[index]);
+        return index === -1 ? None : Some(array[index]);
       };
-      exports.find = find;
-      var binaryThrush = (v, f) => f(v);
-      var pipe = (fns) => (value) => fns.reduce(binaryThrush, value);
-      exports.pipe = pipe;
-      var zipWith = (f) => (xs) => (ys) => {
+      binaryThrush = (v, f) => f(v);
+      pipe = (fns) => (value) => fns.reduce(binaryThrush, value);
+      zipWith = (f) => (xs) => (ys) => {
         const rv = [];
         let idx = 0;
         const len = Math.min(xs.length, ys.length);
@@ -26843,48 +28252,9 @@
         }
         return rv;
       };
-      exports.zipWith = zipWith;
-      var zip = zipWith((x) => (y) => [x, y]);
-      exports.zip = zip;
-      function getMinLength(arrays) {
-        if (arrays.length === 0)
-          return 0;
-        if (arrays.length === 1)
-          return arrays[0].length;
-        let min = arrays[0].length;
-        for (let i = 1, len = arrays.length; i < len; i++) {
-          const arr_len = arrays[i].length;
-          if (arr_len < min)
-            min = arr_len;
-        }
-        return min;
-      }
-      function zipCat(fn) {
-        return function zipCat_inner(arrays) {
-          const zipLength = getMinLength(arrays);
-          const rv = [];
-          for (let i = 0, len = arrays.length; i < len; i++) {
-            const array = arrays[i];
-            for (let j = 0, array_len = array.length; j < array_len; j++) {
-              const item = array[j];
-              if (j < zipLength) {
-                const existing = rv[j];
-                if (typeof existing !== "undefined") {
-                  rv[j] = fn(existing)(item);
-                } else {
-                  rv[j] = item;
-                }
-              } else {
-                rv.push(item);
-              }
-            }
-          }
-          return rv;
-        };
-      }
-      var map = (f) => (xs) => xs.map(f);
-      exports.map = map;
-      var mapArray = (f) => (xs) => {
+      zip = zipWith((x) => (y) => [x, y]);
+      map = (f) => (xs) => xs.map(f);
+      mapArray = (f) => (xs) => {
         let changed = false;
         const ys = xs.reduce((res, x) => {
           const newX = f(x);
@@ -26896,154 +28266,128 @@
         }, []);
         return changed ? ys : xs;
       };
-      exports.mapArray = mapArray;
-      var filter = (f) => (xs) => xs.filter(f);
-      exports.filter = filter;
-      var reduce = (reducer) => (init) => (xs) => xs.reduce(reducer, init);
-      exports.reduce = reduce;
-      var reduceObject = (reducer) => (init) => (obj) => objectKeys(obj).reduce((result, key) => reducer(result)(obj[key]), init);
-      exports.reduceObject = reduceObject;
-      var objOf = (key) => (value) => ({
-        [key]: value
-      });
-      exports.objOf = objOf;
-      var concat4 = (ys) => ys.length ? (xs) => xs.length ? xs.concat(ys) : ys : identity;
-      exports.concat = concat4;
-      var concatTo = flip(concat4);
-      exports.concatTo = concatTo;
-      var append = (value) => concat4([value]);
-      exports.append = append;
-      var constantIdentity = constant(identity);
-      exports.constantIdentity = constantIdentity;
-      var add = (x) => (y) => x + y;
-      exports.add = add;
-      var inc = (x) => x + 1;
-      exports.inc = inc;
-      var max = (x) => (y) => x > y ? x : y;
-      exports.max = max;
-      var parseIntWithRadix = (radix) => (num) => {
+      filter = (f) => (xs) => xs.filter(f);
+      reduce = (reducer) => (init) => (xs) => xs.reduce(reducer, init);
+      reduceObject = (reducer) => (init) => (obj) => (
+        // @ts-expect-error - TS2345 - Argument of type 'a | undefined' is not assignable to parameter of type 'a'.
+        objectKeys(obj).reduce((result, key) => reducer(result)(obj[key]), init)
+      );
+      objOf = (key) => (value) => ({ [key]: value });
+      concat4 = (ys) => ys.length ? (xs) => xs.length ? xs.concat(ys) : ys : identity;
+      concatTo = flip(concat4);
+      append = (value) => concat4([value]);
+      constantIdentity = constant(identity);
+      add = (x) => (y) => x + y;
+      inc = (x) => x + 1;
+      max = (x) => (y) => x > y ? x : y;
+      parseIntWithRadix = (radix) => (num) => {
         const parsed = parseInt(num, radix);
-        return isNaN(parsed) ? _option.None : (0, _option.Some)(parsed);
+        return isNaN(parsed) ? None : Some(parsed);
       };
-      exports.parseIntWithRadix = parseIntWithRadix;
-      var safeParseInt = parseIntWithRadix(10);
-      exports.parseInt = safeParseInt;
-      var head = (xs) => xs.length ? (0, _option.Some)(xs[0]) : _option.None;
-      exports.head = head;
-      var last2 = (xs) => xs.length ? (0, _option.Some)(xs[xs.length - 1]) : _option.None;
-      exports.last = last2;
-      var tail = (xs) => xs.slice(1);
-      exports.tail = tail;
-      var length = (xs) => xs.length;
-      exports.length = length;
-      var flatMap = (f) => reduce((result, item) => {
-        const ys = f(item);
-        if (!ys.length) {
-          return result;
-        }
-        const nextResult = result.length ? result : [];
-        nextResult.push.apply(nextResult, ys);
-        return nextResult;
-      })(emptyArray);
-      exports.flatMap = flatMap;
-      var flat = flatMap(identity);
-      exports.flat = flat;
-      var test = (regex) => (string) => {
+      safeParseInt = parseIntWithRadix(10);
+      head = (xs) => xs.length ? Some(xs[0]) : None;
+      last = (xs) => xs.length ? Some(xs[xs.length - 1]) : None;
+      tail = (xs) => xs.slice(1);
+      length = (xs) => xs.length;
+      flatMap = (f) => (
+        // @ts-expect-error - TS2322 - Type '(arg1: unknown[]) => unknown' is not assignable to type '(arg1: a[]) => b[]'.
+        reduce((result, item) => {
+          const ys = f(item);
+          if (!ys.length) {
+            return result;
+          }
+          const nextResult = result.length ? result : [];
+          nextResult.push.apply(nextResult, ys);
+          return nextResult;
+        })(emptyArray)
+      );
+      flat = flatMap(
+        identity
+      );
+      test = (regex) => (string) => {
         regex.lastIndex = 0;
         const result = regex.test(string);
         regex.lastIndex = 0;
         return result;
       };
-      exports.test = test;
-      var match = (regex) => (string) => {
+      match = (regex) => (string) => {
         const result = string.match(regex);
-        return result ? (0, _option.Some)(result[0]) : _option.None;
+        return result ? Some(result[0]) : None;
       };
-      exports.match = match;
-      var replace = (pattern) => (replacement) => (string) => string.replace(pattern, replacement);
-      exports.replace = replace;
-      var split4 = (pattern) => (string) => string.split(pattern);
-      exports.split = split4;
-      var lens = (getter) => (setter) => (toFunctor) => (target) => toFunctor(getter(target)).map((focus) => setter(focus)(target));
-      exports.lens = lens;
-      var lensProp = (key) => lens(prop(key))(assoc(key));
-      exports.lensProp = lensProp;
-      var view = (
-        // $FlowIgnore
-        compose(compose(_Const.getConst))(thrush(_Const.Const))
-      );
-      exports.view = view;
-      var over = (l) => (f) => {
-        const toFunctor = compose(_Identity.Identity)(f);
-        return compose(_Identity.runIdentity)(l(toFunctor));
+      replace = (pattern) => (replacement) => (string) => string.replace(pattern, replacement);
+      split4 = (pattern) => (string) => string.split(pattern);
+      lens = (getter) => (setter) => (toFunctor) => (target) => toFunctor(getter(target)).map((focus) => setter(focus)(target));
+      lensProp = (key) => lens(prop(key))(assoc(key));
+      view = // @ts-expect-error Argument of type '<A>(arg1: (arg2: A) => unknown) => (arg3: A) => unknown' is not assignable to parameter of type '(arg1: unknown) => (arg3: unknown) => unknown'.  Types of parameters 'arg1' and 'arg1' are incompatible.  Type 'unknown' is not assignable to type '(arg2: unknown) => unknown'.
+      compose(compose(getConst))(thrush(Const));
+      over = (l) => (f) => {
+        const toFunctor = compose(Identity)(f);
+        return compose(runIdentity)(l(toFunctor));
       };
-      exports.over = over;
-      var set = (l) => compose(over(l))(constant);
-      exports.set = set;
-      var constantNone = constant(_option.None);
-      exports.constantNone = constantNone;
-      var noneToErr = (error) => (0, _option.maybe)((0, _result.Err)(error))(_result.Ok);
-      exports.noneToErr = noneToErr;
-      var okToOption = (0, _result.either)(constantNone)(_option.Some);
-      exports.okToOption = okToOption;
-      var errToOption = (0, _result.either)(_option.Some)(constantNone);
-      exports.errToOption = errToOption;
-      var tap = (unsafeFn) => (value) => {
+      set = (l) => compose(over(l))(constant);
+      constantNone = constant(None);
+      noneToErr = (error) => maybe(Err(error))(Ok);
+      okToOption = either(constantNone)(Some);
+      errToOption = either(Some)(constantNone);
+      tap = (unsafeFn) => (value) => {
         unsafeFn(value);
         return value;
       };
-      exports.tap = tap;
-      var extractBool = (0, _option.maybe)(false)(identity);
-      exports.extractBool = extractBool;
-      var extractArray = (0, _option.maybe)(emptyArray)(identity);
-      exports.extractArray = extractArray;
-      var extractFunctionFromOption = (0, _option.maybe)(identity)(identity);
-      exports.extractFunctionFromOption = extractFunctionFromOption;
-      var extractFunctionFromResult = (0, _result.either)(constantIdentity)(identity);
-      exports.extractFunctionFromResult = extractFunctionFromResult;
-      var optionToArray = (0, _option.maybe)(emptyArray)(Array.of);
-      exports.optionToArray = optionToArray;
-      var optionOfEmptyArray = (0, _option.Some)(emptyArray);
-      var traverseOptions = (f) => (xs) => xs.reduce(
-        // $FlowFixMe
+      extractBool = maybe(false)(identity);
+      extractArray = maybe(emptyArray)(identity);
+      extractFunctionFromOption = maybe(identity)(identity);
+      extractFunctionFromResult = either(constantIdentity)(identity);
+      optionToArray = maybe(
+        emptyArray
+      )(Array.of);
+      optionOfEmptyArray = Some(emptyArray);
+      traverseOptions = (f) => (xs) => xs.reduce(
         (option, x) => f(x).map(append).ap(option),
-        // $FlowFixMe
         optionOfEmptyArray
       );
-      exports.traverseOptions = traverseOptions;
-      var resultOfEmptyArray = (0, _result.Ok)(emptyArray);
-      var traverseResults = (f) => (xs) => xs.reduce((result, x) => f(x).map(append).ap(result), resultOfEmptyArray);
-      exports.traverseResults = traverseResults;
-      var resultOfEmptyObject = (0, _result.Ok)(emptyObject);
-      var traverseObjectResults = (f) => (obj) => objectKeys(obj).reduce((result, key) => f(obj[key]).map(assoc(key)).ap(result), resultOfEmptyObject);
-      exports.traverseObjectResults = traverseObjectResults;
-      var mapValues = (f) => (obj) => {
+      resultOfEmptyArray = Ok(emptyArray);
+      traverseResults = (f) => (xs) => xs.reduce(
+        (result, x) => f(x).map(append).ap(result),
+        resultOfEmptyArray
+      );
+      resultOfEmptyObject = Ok(emptyObject);
+      traverseObjectResults = (f) => (obj) => objectKeys(obj).reduce(
+        // @ts-expect-error - TS2345 - Argument of type 'a | undefined' is not assignable to parameter of type 'a'.
+        (result, key) => f(obj[key]).map(assoc(key)).ap(result),
+        resultOfEmptyObject
+      );
+      mapValues = (f) => (obj) => {
         let changed = false;
-        const newObj = objectKeys(obj).reduce((result, key) => {
-          const oldVal = obj[key];
-          const newVal = f(oldVal);
-          if (oldVal !== newVal) {
-            changed = true;
-          }
-          result[key] = newVal;
-          return result;
-        }, {});
-        return changed ? newObj : obj;
+        const newObj = objectKeys(obj).reduce(
+          (result, key) => {
+            const oldVal = obj[key];
+            const newVal = f(oldVal);
+            if (oldVal !== newVal) {
+              changed = true;
+            }
+            result[key] = newVal;
+            return result;
+          },
+          {}
+        );
+        return changed ? newObj : (
+          // @ts-expect-error - TS2352 - Conversion of type '{ [key: string]: a; }' to type '{ [key: string]: b; }' may be a mistake because neither type sufficiently overlaps with the other. If this was intentional, convert the expression to 'unknown' first.
+          obj
+        );
       };
-      exports.mapValues = mapValues;
-      var values = (obj) => Object.keys(obj).map((k) => obj[k]);
-      exports.values = values;
-      var entries = (obj) => {
+      values = (obj) => Object.keys(obj).map((k) => obj[k]);
+      entries = (obj) => {
         const keys = Object.keys(obj);
         return keys.map((key) => [key, obj[key]]);
       };
-      exports.entries = entries;
-      var getDeepestValues = (obj) => {
-        return Object.keys(obj).flatMap((k) => obj[k] && typeof obj[k] === "object" ? getDeepestValues(obj[k]) : [obj[k]]);
+      getDeepestValues = (obj) => {
+        return Object.keys(obj).flatMap(
+          (k) => obj[k] && typeof obj[k] === "object" ? getDeepestValues(
+            obj[k]
+          ) : [obj[k]]
+        );
       };
-      exports.getDeepestValues = getDeepestValues;
-      var nth = (index) => (a) => index < 0 || index >= a.length ? _option.None : (0, _option.Some)(a[index]);
-      exports.nth = nth;
+      nth = (index) => (a) => index < 0 || index >= a.length ? None : Some(a[index]);
     }
   });
 
@@ -27451,7 +28795,7 @@
       };
       exports.USYS_UTILITY_KEYS = exports.USYS_USER_STATES = exports.USYS_TOKEN_TYPES = exports.USYS_RESERVED_SLUGS = exports.USYS_PAGE_UTIL_KEYS = exports.USYS_PAGE_SETTINGS = exports.USYS_INPUT_TYPES = exports.USYS_INPUT_SIGN_UP_IDS = exports.USYS_FORM_TYPES = exports.USYS_FIELD_PATH = exports.USYS_DOM_CLASS_NAMES = exports.USYS_DATA_ATTRS = exports.USYS_CONTEXT_PATH = exports.USER_STATUSES = exports.USER_PAGE_SIZE = exports.USER_FIELD_FORM_ID = exports.USER_FIELD_DEFAULTS = exports.USER_CSV_IMPORT_STATUS_POLLING_INTERVAL = exports.USER_CSV_IMPORT_STATUS_MAX_TRIES = exports.USER_ACCESS_META_OPTIONS = exports.TEXT_INPUT_TYPE_TO_FIELD_TYPE = exports.TEMP_STATE_PATH = exports.SUBSCRIPTION_USER_LIMITS = exports.SUBSCRIPTION_EMAIL_TYPES = exports.STARTER_MAX_NUM_USERS = exports.SETUP_GUIDE_KEYS = exports.SETUP_GUIDE_ALL_KEYS = exports.SESSION_COOKIE_NAME = exports.RESERVED_USER_PREFIX = exports.RESERVED_USER_FIELDS = exports.PASSWORD_MIN_LENGTH = exports.PASSWORD_MAX_LENGTH = exports.NO_REQUIRED_ATTRIBUTE = exports.NEW_USER_FIELD_ID = exports.NAMES_FROM_USER_FIELDS = exports.MIN_GROUP_ID_LENGTH = exports.MEMBERSHIPS_EMAIL_KEYS = exports.MAX_USER_DATA_FIELDS = exports.MAX_UPDATE_USER_DATA_FIELDS = exports.MAX_NUM_GROUPS = exports.MAX_GROUP_ID_LENGTH = exports.LOGGEDIN_COOKIE_NAME = exports.KEY_FROM_RESERVED_USER_FIELD = exports.HARD_LIMIT_MAX_NUM_USERS = exports.EXCEEDS_MAX_IMAGE_SIZE_ERROR = exports.EXCEEDS_MAX_FILE_SIZE_ERROR = exports.EMAIL_TEMPLATE_TYPES = exports.ECOMM_STANDARD_MAX_NUM_USERS = exports.ECOMM_PLUS_MAX_NUM_USERS = exports.DEFAULT_USER_FIELDS = exports.DEFAULT_TOKEN_AGE_MS = exports.DEFAULT_STYLES = exports.DEFAULT_SESSION_TOKEN_DURATION_IN_MS = exports.DEFAULT_SESSION_DURATION_IN_MS = exports.CONFIRM_UNSAVED_CHANGES_COPY = exports.BUSINESS_MAX_NUM_USERS = exports.BASIC_MAX_NUM_USERS = exports.ACCESS_GROUP_INLINE_PRODUCT_FIELD_SLUG = exports.ACCESS_GROUP_FREE_TYPE = exports.ACCESS_GROUP_ADMISSION_TYPE = void 0;
       var _extends2 = _interopRequireDefault(require_extends());
-      var _utils = require_utils();
+      var _utils = (init_utils2(), __toCommonJS(utils_exports));
       var _types = require_types();
       Object.keys(_types).forEach(function(key) {
         if (key === "default" || key === "__esModule")
@@ -27699,7 +29043,8 @@
       var SUBSCRIPTION_EMAIL_TYPES = {
         PAYMENT_FAILED: "paymentFailed",
         PAYMENT_SUCCESSFUL: "paymentSuccessful",
-        SUBSCRIPTION_CANCELED: "subscriptionCanceled"
+        SUBSCRIPTION_CANCELED: "subscriptionCanceled",
+        VERIFY_PAYMENT: "verifyPayment"
       };
       exports.SUBSCRIPTION_EMAIL_TYPES = SUBSCRIPTION_EMAIL_TYPES;
       var MEMBERSHIPS_EMAIL_KEYS = {
@@ -27917,7 +29262,7 @@
   });
 
   // packages/systems/users/siteBundles/utils.js
-  var require_utils2 = __commonJS({
+  var require_utils = __commonJS({
     "packages/systems/users/siteBundles/utils.js"(exports) {
       "use strict";
       Object.defineProperty(exports, "__esModule", {
@@ -28193,10 +29538,10 @@
         var lineRegexp = /\r\n|[\n\r]/g;
         var line = 1;
         var column = position + 1;
-        var match = void 0;
-        while ((match = lineRegexp.exec(source.body)) && match.index < position) {
+        var match2 = void 0;
+        while ((match2 = lineRegexp.exec(source.body)) && match2.index < position) {
           line += 1;
-          column = position + 1 - (match.index + match[0].length);
+          column = position + 1 - (match2.index + match2[0].length);
         }
         return { line, column };
       }
@@ -29667,13 +31012,13 @@
         expectKeyword(lexer, "enum");
         var name = parseName(lexer);
         var directives = parseDirectives(lexer, true);
-        var values = parseEnumValuesDefinition(lexer);
+        var values2 = parseEnumValuesDefinition(lexer);
         return {
           kind: _kinds.Kind.ENUM_TYPE_DEFINITION,
           description,
           name,
           directives,
-          values,
+          values: values2,
           loc: loc(lexer, start)
         };
       }
@@ -29810,15 +31155,15 @@
         expectKeyword(lexer, "enum");
         var name = parseName(lexer);
         var directives = parseDirectives(lexer, true);
-        var values = parseEnumValuesDefinition(lexer);
-        if (directives.length === 0 && values.length === 0) {
+        var values2 = parseEnumValuesDefinition(lexer);
+        if (directives.length === 0 && values2.length === 0) {
           throw unexpected(lexer);
         }
         return {
           kind: _kinds.Kind.ENUM_TYPE_EXTENSION,
           name,
           directives,
-          values,
+          values: values2,
           loc: loc(lexer, start)
         };
       }
@@ -29893,11 +31238,11 @@
         return lexer.token.kind === kind;
       }
       function skip(lexer, kind) {
-        var match = lexer.token.kind === kind;
-        if (match) {
+        var match2 = lexer.token.kind === kind;
+        if (match2) {
           lexer.advance();
         }
-        return match;
+        return match2;
       }
       function expect(lexer, kind) {
         var token = lexer.token;
@@ -30216,7 +31561,7 @@
       exports.asyncLogInUser = asyncLogInUser;
       exports.handleLogInForms = handleLogInForms;
       exports.handleLoginRedirects = handleLoginRedirects;
-      var _utils = require_utils2();
+      var _utils = require_utils();
       var _constants = require_constants2();
       var _mutations = require_mutations();
       function getLoginLinks() {
@@ -30505,10 +31850,10 @@
       };
       exports.getFieldsForFetch = getFieldsForFetch;
       function getFieldValueById(id, fieldsArray) {
-        const match = fieldsArray.find((field) => field.id === id);
-        if (!match)
+        const match2 = fieldsArray.find((field) => field.id === id);
+        if (!match2)
           return null;
-        return match.value;
+        return match2.value;
       }
       function getFieldsAsTypeKeys(fieldsArray) {
         const memo = {};
@@ -30539,7 +31884,7 @@
       });
       exports.asyncSignUpUser = asyncSignUpUser;
       exports.handleSignUpForms = handleSignUpForms;
-      var _utils = require_utils2();
+      var _utils = require_utils();
       var _constants = require_constants2();
       var _mutations = require_mutations();
       var _fields = require_fields();
@@ -30654,7 +31999,7 @@
       });
       exports.asyncLogOutUser = asyncLogOutUser;
       exports.handleLogInLogOutButton = handleLogInLogOutButton;
-      var _utils = require_utils2();
+      var _utils = require_utils();
       var _constants = require_constants2();
       var _mutations = require_mutations();
       var logoutButtonQuerySelector = `[${_constants.USYS_DATA_ATTRS.logout}]`;
@@ -30704,7 +32049,7 @@
       });
       exports.asyncRequestResetPassword = asyncRequestResetPassword;
       exports.handleResetPasswordForms = handleResetPasswordForms;
-      var _utils = require_utils2();
+      var _utils = require_utils();
       var _constants = require_constants2();
       var _mutations = require_mutations();
       var resetPasswordFormQuerySelector = `form[${_constants.USYS_DATA_ATTRS.formType}="${_constants.USYS_FORM_TYPES.resetPassword}"]`;
@@ -30771,7 +32116,7 @@
       });
       exports.asyncRequestUpdatePassword = asyncRequestUpdatePassword;
       exports.handleUpdatePasswordForms = handleUpdatePasswordForms;
-      var _utils = require_utils2();
+      var _utils = require_utils();
       var _constants = require_constants2();
       var _mutations = require_mutations();
       var updatePasswordFormQuerySelector = `form[${_constants.USYS_DATA_ATTRS.formType}="${_constants.USYS_FORM_TYPES.updatePassword}"]`;
@@ -30840,18 +32185,18 @@
   var require_baseSlice = __commonJS({
     "node_modules/lodash/_baseSlice.js"(exports, module) {
       function baseSlice(array, start, end) {
-        var index = -1, length = array.length;
+        var index = -1, length2 = array.length;
         if (start < 0) {
-          start = -start > length ? 0 : length + start;
+          start = -start > length2 ? 0 : length2 + start;
         }
-        end = end > length ? length : end;
+        end = end > length2 ? length2 : end;
         if (end < 0) {
-          end += length;
+          end += length2;
         }
-        length = start > end ? 0 : end - start >>> 0;
+        length2 = start > end ? 0 : end - start >>> 0;
         start >>>= 0;
-        var result = Array(length);
-        while (++index < length) {
+        var result = Array(length2);
+        while (++index < length2) {
           result[index] = array[index + start];
         }
         return result;
@@ -30865,9 +32210,9 @@
     "node_modules/lodash/_castSlice.js"(exports, module) {
       var baseSlice = require_baseSlice();
       function castSlice(array, start, end) {
-        var length = array.length;
-        end = end === void 0 ? length : end;
-        return !start && end >= length ? array : baseSlice(array, start, end);
+        var length2 = array.length;
+        end = end === void 0 ? length2 : end;
+        return !start && end >= length2 ? array : baseSlice(array, start, end);
       }
       module.exports = castSlice;
     }
@@ -33903,7 +35248,7 @@
         function isDate(input) {
           return input instanceof Date || Object.prototype.toString.call(input) === "[object Date]";
         }
-        function map(arr, fn) {
+        function map2(arr, fn) {
           var res = [], i;
           for (i = 0; i < arr.length; ++i) {
             res.push(fn(arr[i], i));
@@ -33998,7 +35343,7 @@
         }
         var momentProperties = hooks.momentProperties = [];
         function copyConfig(to2, from5) {
-          var i, prop, val;
+          var i, prop2, val;
           if (!isUndefined(from5._isAMomentObject)) {
             to2._isAMomentObject = from5._isAMomentObject;
           }
@@ -34031,10 +35376,10 @@
           }
           if (momentProperties.length > 0) {
             for (i = 0; i < momentProperties.length; i++) {
-              prop = momentProperties[i];
-              val = from5[prop];
+              prop2 = momentProperties[i];
+              val = from5[prop2];
               if (!isUndefined(val)) {
-                to2[prop] = val;
+                to2[prop2] = val;
               }
             }
           }
@@ -34127,14 +35472,14 @@
         function isFunction2(input) {
           return input instanceof Function || Object.prototype.toString.call(input) === "[object Function]";
         }
-        function set(config) {
-          var prop, i;
+        function set2(config) {
+          var prop2, i;
           for (i in config) {
-            prop = config[i];
-            if (isFunction2(prop)) {
-              this[i] = prop;
+            prop2 = config[i];
+            if (isFunction2(prop2)) {
+              this[i] = prop2;
             } else {
-              this["_" + i] = prop;
+              this["_" + i] = prop2;
             }
           }
           this._config = config;
@@ -34143,23 +35488,23 @@
           );
         }
         function mergeConfigs(parentConfig, childConfig) {
-          var res = extend({}, parentConfig), prop;
-          for (prop in childConfig) {
-            if (hasOwnProp(childConfig, prop)) {
-              if (isObject2(parentConfig[prop]) && isObject2(childConfig[prop])) {
-                res[prop] = {};
-                extend(res[prop], parentConfig[prop]);
-                extend(res[prop], childConfig[prop]);
-              } else if (childConfig[prop] != null) {
-                res[prop] = childConfig[prop];
+          var res = extend({}, parentConfig), prop2;
+          for (prop2 in childConfig) {
+            if (hasOwnProp(childConfig, prop2)) {
+              if (isObject2(parentConfig[prop2]) && isObject2(childConfig[prop2])) {
+                res[prop2] = {};
+                extend(res[prop2], parentConfig[prop2]);
+                extend(res[prop2], childConfig[prop2]);
+              } else if (childConfig[prop2] != null) {
+                res[prop2] = childConfig[prop2];
               } else {
-                delete res[prop];
+                delete res[prop2];
               }
             }
           }
-          for (prop in parentConfig) {
-            if (hasOwnProp(parentConfig, prop) && !hasOwnProp(childConfig, prop) && isObject2(parentConfig[prop])) {
-              res[prop] = extend({}, res[prop]);
+          for (prop2 in parentConfig) {
+            if (hasOwnProp(parentConfig, prop2) && !hasOwnProp(childConfig, prop2) && isObject2(parentConfig[prop2])) {
+              res[prop2] = extend({}, res[prop2]);
             }
           }
           return res;
@@ -34255,12 +35600,12 @@
           return typeof units === "string" ? aliases[units] || aliases[units.toLowerCase()] : void 0;
         }
         function normalizeObjectUnits(inputObject) {
-          var normalizedInput = {}, normalizedProp, prop;
-          for (prop in inputObject) {
-            if (hasOwnProp(inputObject, prop)) {
-              normalizedProp = normalizeUnits(prop);
+          var normalizedInput = {}, normalizedProp, prop2;
+          for (prop2 in inputObject) {
+            if (hasOwnProp(inputObject, prop2)) {
+              normalizedProp = normalizeUnits(prop2);
               if (normalizedProp) {
-                normalizedInput[normalizedProp] = inputObject[prop];
+                normalizedInput[normalizedProp] = inputObject[prop2];
               }
             }
           }
@@ -34316,8 +35661,8 @@
           return input.replace(/\\/g, "");
         }
         function makeFormatFunction(format2) {
-          var array = format2.match(formattingTokens), i, length;
-          for (i = 0, length = array.length; i < length; i++) {
+          var array = format2.match(formattingTokens), i, length2;
+          for (i = 0, length2 = array.length; i < length2; i++) {
             if (formatTokenFunctions[array[i]]) {
               array[i] = formatTokenFunctions[array[i]];
             } else {
@@ -34326,7 +35671,7 @@
           }
           return function(mom) {
             var output = "", i2;
-            for (i2 = 0; i2 < length; i2++) {
+            for (i2 = 0; i2 < length2; i2++) {
               output += isFunction2(array[i2]) ? array[i2].call(mom, format2) : array[i2];
             }
             return output;
@@ -35237,18 +36582,18 @@
           return key ? key.toLowerCase().replace("_", "-") : key;
         }
         function chooseLocale(names) {
-          var i = 0, j, next, locale2, split4;
+          var i = 0, j, next, locale2, split5;
           while (i < names.length) {
-            split4 = normalizeLocale(names[i]).split("-");
-            j = split4.length;
+            split5 = normalizeLocale(names[i]).split("-");
+            j = split5.length;
             next = normalizeLocale(names[i + 1]);
             next = next ? next.split("-") : null;
             while (j > 0) {
-              locale2 = loadLocale(split4.slice(0, j).join("-"));
+              locale2 = loadLocale(split5.slice(0, j).join("-"));
               if (locale2) {
                 return locale2;
               }
-              if (next && next.length >= j && compareArrays(split4, next, true) >= j - 1) {
+              if (next && next.length >= j && compareArrays(split5, next, true) >= j - 1) {
                 break;
               }
               j--;
@@ -35270,13 +36615,13 @@
           }
           return locales[name];
         }
-        function getSetGlobalLocale(key, values) {
+        function getSetGlobalLocale(key, values2) {
           var data;
           if (key) {
-            if (isUndefined(values)) {
+            if (isUndefined(values2)) {
               data = getLocale(key);
             } else {
-              data = defineLocale(key, values);
+              data = defineLocale(key, values2);
             }
             if (data) {
               globalLocale = data;
@@ -35519,11 +36864,11 @@
         ];
         var aspNetJsonRegex = /^\/?Date\((\-?\d+)/i;
         function configFromISO(config) {
-          var i, l, string = config._i, match = extendedIsoRegex.exec(string) || basicIsoRegex.exec(string), allowTime, dateFormat, timeFormat, tzFormat;
-          if (match) {
+          var i, l, string = config._i, match5 = extendedIsoRegex.exec(string) || basicIsoRegex.exec(string), allowTime, dateFormat, timeFormat, tzFormat;
+          if (match5) {
             getParsingFlags(config).iso = true;
             for (i = 0, l = isoDates.length; i < l; i++) {
-              if (isoDates[i][1].exec(match[1])) {
+              if (isoDates[i][1].exec(match5[1])) {
                 dateFormat = isoDates[i][0];
                 allowTime = isoDates[i][2] !== false;
                 break;
@@ -35533,10 +36878,10 @@
               config._isValid = false;
               return;
             }
-            if (match[3]) {
+            if (match5[3]) {
               for (i = 0, l = isoTimes.length; i < l; i++) {
-                if (isoTimes[i][1].exec(match[3])) {
-                  timeFormat = (match[2] || " ") + isoTimes[i][0];
+                if (isoTimes[i][1].exec(match5[3])) {
+                  timeFormat = (match5[2] || " ") + isoTimes[i][0];
                   break;
                 }
               }
@@ -35549,8 +36894,8 @@
               config._isValid = false;
               return;
             }
-            if (match[4]) {
-              if (tzRegex.exec(match[4])) {
+            if (match5[4]) {
+              if (tzRegex.exec(match5[4])) {
                 tzFormat = "Z";
               } else {
                 config._isValid = false;
@@ -35624,14 +36969,14 @@
           }
         }
         function configFromRFC2822(config) {
-          var match = rfc2822.exec(preprocessRFC2822(config._i));
-          if (match) {
-            var parsedArray = extractFromRFC2822Strings(match[4], match[3], match[2], match[5], match[6], match[7]);
-            if (!checkWeekday(match[1], parsedArray, config)) {
+          var match5 = rfc2822.exec(preprocessRFC2822(config._i));
+          if (match5) {
+            var parsedArray = extractFromRFC2822Strings(match5[4], match5[3], match5[2], match5[5], match5[6], match5[7]);
+            if (!checkWeekday(match5[1], parsedArray, config)) {
               return;
             }
             config._a = parsedArray;
-            config._tzm = calculateOffset(match[8], match[9], match[10]);
+            config._tzm = calculateOffset(match5[8], match5[9], match5[10]);
             config._d = createUTCDate.apply(null, config._a);
             config._d.setUTCMinutes(config._d.getUTCMinutes() - config._tzm);
             getParsingFlags(config).rfc2822 = true;
@@ -35770,7 +37115,7 @@
             return;
           }
           var i = normalizeObjectUnits(config._i);
-          config._a = map([i.year, i.month, i.day || i.date, i.hour, i.minute, i.second, i.millisecond], function(obj) {
+          config._a = map2([i.year, i.month, i.day || i.date, i.hour, i.minute, i.second, i.millisecond], function(obj) {
             return obj && parseInt(obj, 10);
           });
           configFromArray(config);
@@ -35817,7 +37162,7 @@
           } else if (typeof input === "string") {
             configFromString(config);
           } else if (isArray(input)) {
-            config._a = map(input.slice(0), function(obj) {
+            config._a = map2(input.slice(0), function(obj) {
               return parseInt(obj, 10);
             });
             configFromArray(config);
@@ -35871,7 +37216,7 @@
             }
           }
         );
-        function pickBy(fn, moments) {
+        function pickBy2(fn, moments) {
           var res, i;
           if (moments.length === 1 && isArray(moments[0])) {
             moments = moments[0];
@@ -35889,11 +37234,11 @@
         }
         function min() {
           var args = [].slice.call(arguments, 0);
-          return pickBy("isBefore", args);
+          return pickBy2("isBefore", args);
         }
-        function max() {
+        function max2() {
           var args = [].slice.call(arguments, 0);
-          return pickBy("isAfter", args);
+          return pickBy2("isAfter", args);
         }
         var now = function() {
           return Date.now ? Date.now() : +/* @__PURE__ */ new Date();
@@ -36103,7 +37448,7 @@
         var aspNetRegex = /^(\-|\+)?(?:(\d*)[. ])?(\d+)\:(\d+)(?:\:(\d+)(\.\d*)?)?$/;
         var isoRegex = /^(-|\+)?P(?:([-+]?[0-9,.]*)Y)?(?:([-+]?[0-9,.]*)M)?(?:([-+]?[0-9,.]*)W)?(?:([-+]?[0-9,.]*)D)?(?:T(?:([-+]?[0-9,.]*)H)?(?:([-+]?[0-9,.]*)M)?(?:([-+]?[0-9,.]*)S)?)?$/;
         function createDuration(input, key) {
-          var duration = input, match = null, sign2, ret, diffRes;
+          var duration = input, match5 = null, sign2, ret, diffRes;
           if (isDuration(input)) {
             duration = {
               ms: input._milliseconds,
@@ -36117,27 +37462,27 @@
             } else {
               duration.milliseconds = input;
             }
-          } else if (!!(match = aspNetRegex.exec(input))) {
-            sign2 = match[1] === "-" ? -1 : 1;
+          } else if (!!(match5 = aspNetRegex.exec(input))) {
+            sign2 = match5[1] === "-" ? -1 : 1;
             duration = {
               y: 0,
-              d: toInt(match[DATE]) * sign2,
-              h: toInt(match[HOUR2]) * sign2,
-              m: toInt(match[MINUTE2]) * sign2,
-              s: toInt(match[SECOND2]) * sign2,
-              ms: toInt(absRound(match[MILLISECOND] * 1e3)) * sign2
+              d: toInt(match5[DATE]) * sign2,
+              h: toInt(match5[HOUR2]) * sign2,
+              m: toInt(match5[MINUTE2]) * sign2,
+              s: toInt(match5[SECOND2]) * sign2,
+              ms: toInt(absRound(match5[MILLISECOND] * 1e3)) * sign2
               // the millisecond decimal point is included in the match
             };
-          } else if (!!(match = isoRegex.exec(input))) {
-            sign2 = match[1] === "-" ? -1 : match[1] === "+" ? 1 : 1;
+          } else if (!!(match5 = isoRegex.exec(input))) {
+            sign2 = match5[1] === "-" ? -1 : match5[1] === "+" ? 1 : 1;
             duration = {
-              y: parseIso(match[2], sign2),
-              M: parseIso(match[3], sign2),
-              w: parseIso(match[4], sign2),
-              d: parseIso(match[5], sign2),
-              h: parseIso(match[6], sign2),
-              m: parseIso(match[7], sign2),
-              s: parseIso(match[8], sign2)
+              y: parseIso(match5[2], sign2),
+              M: parseIso(match5[3], sign2),
+              w: parseIso(match5[4], sign2),
+              d: parseIso(match5[5], sign2),
+              h: parseIso(match5[6], sign2),
+              m: parseIso(match5[7], sign2),
+              s: parseIso(match5[8], sign2)
             };
           } else if (duration == null) {
             duration = {};
@@ -36217,7 +37562,7 @@
             hooks.updateOffset(mom, days2 || months2);
           }
         }
-        var add = createAdder(1, "add");
+        var add2 = createAdder(1, "add");
         var subtract = createAdder(-1, "subtract");
         function getCalendarFormat(myMoment, now2) {
           var diff2 = myMoment.diff(now2, "days", true);
@@ -36320,15 +37665,15 @@
           return asFloat ? output : absFloor(output);
         }
         function monthDiff(a, b) {
-          var wholeMonthDiff = (b.year() - a.year()) * 12 + (b.month() - a.month()), anchor = a.clone().add(wholeMonthDiff, "months"), anchor2, adjust;
+          var wholeMonthDiff = (b.year() - a.year()) * 12 + (b.month() - a.month()), anchor = a.clone().add(wholeMonthDiff, "months"), anchor2, adjust2;
           if (b - anchor < 0) {
             anchor2 = a.clone().add(wholeMonthDiff - 1, "months");
-            adjust = (b - anchor) / (anchor - anchor2);
+            adjust2 = (b - anchor) / (anchor - anchor2);
           } else {
             anchor2 = a.clone().add(wholeMonthDiff + 1, "months");
-            adjust = (b - anchor) / (anchor2 - anchor);
+            adjust2 = (b - anchor) / (anchor2 - anchor);
           }
-          return -(wholeMonthDiff + adjust) || 0;
+          return -(wholeMonthDiff + adjust2) || 0;
         }
         hooks.defaultFormat = "YYYY-MM-DDTHH:mm:ssZ";
         hooks.defaultFormatUtc = "YYYY-MM-DDTHH:mm:ss[Z]";
@@ -36684,7 +38029,7 @@
           return this._isUTC ? "Coordinated Universal Time" : "";
         }
         var proto = Moment.prototype;
-        proto.add = add;
+        proto.add = add2;
         proto.calendar = calendar$1;
         proto.clone = clone;
         proto.diff = diff;
@@ -36777,7 +38122,7 @@
         proto$1.postformat = preParsePostFormat;
         proto$1.relativeTime = relativeTime;
         proto$1.pastFuture = pastFuture;
-        proto$1.set = set;
+        proto$1.set = set2;
         proto$1.months = localeMonths;
         proto$1.monthsShort = localeMonthsShort;
         proto$1.monthsParse = localeMonthsParse;
@@ -37158,7 +38503,7 @@
         setHookCallback(createLocal);
         hooks.fn = proto;
         hooks.min = min;
-        hooks.max = max;
+        hooks.max = max2;
         hooks.now = now;
         hooks.utc = createUTC;
         hooks.unix = createUnix;
@@ -37263,11 +38608,11 @@
             array[i] = unpackBase60(array[i]);
           }
         }
-        function intToUntil(array, length) {
-          for (var i = 0; i < length; i++) {
+        function intToUntil(array, length2) {
+          for (var i = 0; i < length2; i++) {
             array[i] = Math.round((array[i - 1] || 0) + array[i] * 6e4);
           }
-          array[length - 1] = Infinity;
+          array[length2 - 1] = Infinity;
         }
         function mapIndices(source, indices) {
           var out = [], i;
@@ -37318,8 +38663,8 @@
             });
           },
           parse: function(timestamp) {
-            var target = +timestamp, offsets = this.offsets, untils = this.untils, max = untils.length - 1, offset, offsetNext, offsetPrev, i;
-            for (i = 0; i < max; i++) {
+            var target = +timestamp, offsets = this.offsets, untils = this.untils, max2 = untils.length - 1, offset, offsetNext, offsetPrev, i;
+            for (i = 0; i < max2; i++) {
               offset = offsets[i];
               offsetNext = offsets[i + 1];
               offsetPrev = offsets[i ? i - 1 : i];
@@ -37332,7 +38677,7 @@
                 return offsets[i];
               }
             }
-            return offsets[max];
+            return offsets[max2];
           },
           abbr: function(mom) {
             return this.abbrs[this._index(mom)];
@@ -37390,15 +38735,15 @@
           return low;
         }
         function userOffsets() {
-          var startYear = (/* @__PURE__ */ new Date()).getFullYear() - 2, last2 = new OffsetAt(new Date(startYear, 0, 1)), offsets = [last2], change, next, i;
+          var startYear = (/* @__PURE__ */ new Date()).getFullYear() - 2, last3 = new OffsetAt(new Date(startYear, 0, 1)), offsets = [last3], change, next, i;
           for (i = 1; i < 48; i++) {
             next = new OffsetAt(new Date(startYear, i, 1));
-            if (next.offset !== last2.offset) {
-              change = findChange(last2, next);
+            if (next.offset !== last3.offset) {
+              change = findChange(last3, next);
               offsets.push(change);
               offsets.push(new OffsetAt(new Date(change.at + 6e4)));
             }
-            last2 = next;
+            last3 = next;
           }
           for (i = 0; i < 4; i++) {
             offsets.push(new OffsetAt(new Date(startYear + i, 0, 1)));
@@ -37477,17 +38822,17 @@
           return (name || "").toLowerCase().replace(/\//g, "_");
         }
         function addZone(packed) {
-          var i, name, split4, normalized;
+          var i, name, split5, normalized;
           if (typeof packed === "string") {
             packed = [packed];
           }
           for (i = 0; i < packed.length; i++) {
-            split4 = packed[i].split("|");
-            name = split4[0];
+            split5 = packed[i].split("|");
+            name = split5[0];
             normalized = normalizeName(name);
             zones[normalized] = packed[i];
             names[normalized] = name;
-            addToGuesses(normalized, split4[2].split(" "));
+            addToGuesses(normalized, split5[2].split(" "));
           }
         }
         function getZone(name, caller) {
@@ -37538,13 +38883,13 @@
           }
         }
         function addCountries(data) {
-          var i, country_code, country_zones, split4;
+          var i, country_code, country_zones, split5;
           if (!data || !data.length)
             return;
           for (i = 0; i < data.length; i++) {
-            split4 = data[i].split("|");
-            country_code = split4[0].toUpperCase();
-            country_zones = split4[1].split(" ");
+            split5 = data[i].split("|");
+            country_code = split5[0].toUpperCase();
+            country_zones = split5[1].split(" ");
             countries[country_code] = new Country(
               country_code,
               country_zones
@@ -38577,10 +39922,10 @@
   // node_modules/lodash/head.js
   var require_head = __commonJS({
     "node_modules/lodash/head.js"(exports, module) {
-      function head(array) {
+      function head2(array) {
         return array && array.length ? array[0] : void 0;
       }
-      module.exports = head;
+      module.exports = head2;
     }
   });
 
@@ -38594,11 +39939,11 @@
   // node_modules/lodash/last.js
   var require_last = __commonJS({
     "node_modules/lodash/last.js"(exports, module) {
-      function last2(array) {
-        var length = array == null ? 0 : array.length;
-        return length ? array[length - 1] : void 0;
+      function last3(array) {
+        var length2 = array == null ? 0 : array.length;
+        return length2 ? array[length2 - 1] : void 0;
       }
-      module.exports = last2;
+      module.exports = last3;
     }
   });
 
@@ -38644,7 +39989,7 @@
         value: true
       });
       exports.normalizeConditionFields = exports.convertConditionFieldsFromObjectToArray = void 0;
-      var _utils = require_utils();
+      var _utils = (init_utils2(), __toCommonJS(utils_exports));
       var convertConditionFieldsFromObjectToArray = (fields) => {
         const mapper = (fieldPath) => {
           const type = fields[fieldPath].type;
@@ -38710,7 +40055,7 @@
       exports.castItemValue = castItemValue;
       exports.getItemFieldValue = getItemFieldValue;
       exports.parseDate = parseDate;
-      exports.test = test;
+      exports.test = test2;
       var _momentTimezone = _interopRequireDefault(require_moment_timezone2());
       var _ParamFieldPathUtils = (init_ParamFieldPathUtils(), __toCommonJS(ParamFieldPathUtils_exports));
       var _FilterUtils = require_FilterUtils2();
@@ -38779,7 +40124,7 @@
         }
         return false;
       };
-      function test(itemData, conditionData, timezone) {
+      function test2(itemData, conditionData, timezone) {
         const conditionFields = (0, _FilterUtils.normalizeConditionFields)(conditionData.fields);
         for (const conditionField of conditionFields) {
           const result = testSingleCondition({
@@ -38895,7 +40240,7 @@
         }
         const complexResults = value.match(DEPRECATED_RELATIVE_TIME_COMPLEX_REGEX);
         if (complexResults) {
-          const [, values, mode, endOf, relativeDate] = complexResults;
+          const [, values2, mode, endOf, relativeDate] = complexResults;
           const getStart = endOf ? getEndOfToday : getToday;
           let time;
           switch (relativeDate) {
@@ -38912,14 +40257,14 @@
               time = getNow();
               break;
           }
-          const timeLengthIntervalItems = values.match(FULL_TIME_LENGTH_INTERVAL_STRING_REGEX);
+          const timeLengthIntervalItems = values2.match(FULL_TIME_LENGTH_INTERVAL_STRING_REGEX);
           if (!timeLengthIntervalItems) {
             return null;
           }
           const method = mode === "from now" ? "add" : "subtract";
           timeLengthIntervalItems.forEach((item) => {
-            const [length, interval] = item.split(" ");
-            time[method](parseInt(length, 10), interval);
+            const [length2, interval] = item.split(" ");
+            time[method](parseInt(length2, 10), interval);
           });
           return time.toDate();
         }
@@ -38971,8 +40316,8 @@
           };
           const tenseMethod = TENSE_METHODS_MAP[tense];
           const reducedDateTime = timeLengthIntervalItems.reduce((accumulatedMoment, item) => {
-            const [length, interval] = item.split(" ");
-            return accumulatedMoment[tenseMethod](parseInt(length, 10), interval);
+            const [length2, interval] = item.split(" ");
+            return accumulatedMoment[tenseMethod](parseInt(length2, 10), interval);
           }, getStart());
           return reducedDateTime.toDate();
         }
@@ -39107,33 +40452,39 @@
   // node_modules/lodash/invert.js
   var require_invert = __commonJS({
     "node_modules/lodash/invert.js"(exports, module) {
-      var constant = require_constant();
+      var constant2 = require_constant();
       var createInverter = require_createInverter();
-      var identity = require_identity();
+      var identity2 = require_identity();
       var objectProto = Object.prototype;
       var nativeObjectToString = objectProto.toString;
-      var invert = createInverter(function(result, value, key) {
+      var invert2 = createInverter(function(result, value, key) {
         if (value != null && typeof value.toString != "function") {
           value = nativeObjectToString.call(value);
         }
         result[value] = key;
-      }, constant(identity));
-      module.exports = invert;
+      }, constant2(identity2));
+      module.exports = invert2;
     }
   });
 
-  // packages/systems/dynamo/utils/SchemaEncoder/SchemaEncoder.js
-  var require_SchemaEncoder = __commonJS({
-    "packages/systems/dynamo/utils/SchemaEncoder/SchemaEncoder.js"(exports) {
+  // packages/systems/dynamo/utils/SchemaEncoder/SchemaEncoder.ts
+  function _crapCode(str) {
+    str = String(str);
+    const right = [];
+    const left = str.replace(/[^a-z0-9]/gi, (substr, idx) => {
+      const hex = substr.charCodeAt(0).toString(16);
+      const letters = hex.replace(/./g, (ch) => hex_lookup[ch]);
+      right.push(String(idx) + letters);
+      return "_";
+    });
+    return left + "_" + right.join("");
+  }
+  var import_invert, hex_lookup, reverse_hex_lookup, collSlug, fieldSlug, _test, restoreSlug;
+  var init_SchemaEncoder = __esm({
+    "packages/systems/dynamo/utils/SchemaEncoder/SchemaEncoder.ts"() {
       "use strict";
-      var _interopRequireDefault = require_interopRequireDefault().default;
-      Object.defineProperty(exports, "__esModule", {
-        value: true
-      });
-      exports._crapCode = _crapCode;
-      exports.restoreSlug = exports.fieldSlug = exports.collSlug = exports._test = void 0;
-      var _invert = _interopRequireDefault(require_invert());
-      var hex_lookup = {
+      import_invert = __toESM(require_invert());
+      hex_lookup = {
         "0": "b",
         "1": "c",
         "2": "d",
@@ -39151,28 +40502,14 @@
         e: "s",
         f: "t"
       };
-      var reverse_hex_lookup = (0, _invert.default)(hex_lookup);
-      function _crapCode(str) {
-        str = String(str);
-        const right = [];
-        const left = str.replace(/[^a-z0-9]/gi, (substr, idx) => {
-          const hex = substr.charCodeAt(0).toString(16);
-          const letters = hex.replace(/./g, (ch) => hex_lookup[ch]);
-          right.push(String(idx) + letters);
-          return "_";
-        });
-        return left + "_" + right.join("");
-      }
-      var collSlug = (coll) => "c_" + _crapCode(coll.slug);
-      exports.collSlug = collSlug;
-      var fieldSlug = (field) => "f_" + _crapCode(field.slug);
-      exports.fieldSlug = fieldSlug;
-      var _test = {
-        _crapCode
-      };
-      exports._test = _test;
-      var restoreSlug = (slugWithPrefixAndCrapCode) => {
-        const results = slugWithPrefixAndCrapCode.match(/^[fc]_([_A-Za-z0-9]+)_([0-9bcdfghjklmnpqrst]*)$/);
+      reverse_hex_lookup = (0, import_invert.default)(hex_lookup);
+      collSlug = (coll) => "c_" + _crapCode(coll.slug);
+      fieldSlug = (field) => "f_" + _crapCode(field.slug);
+      _test = { _crapCode };
+      restoreSlug = (slugWithPrefixAndCrapCode) => {
+        const results = slugWithPrefixAndCrapCode.match(
+          /^[fc]_([_A-Za-z0-9]+)_([0-9bcdfghjklmnpqrst]*)$/
+        );
         if (!results || results.length < 3) {
           return slugWithPrefixAndCrapCode;
         }
@@ -39194,30 +40531,21 @@
         }
         return decrapified.join("");
       };
-      exports.restoreSlug = restoreSlug;
     }
   });
 
-  // packages/systems/dynamo/utils/SchemaEncoder/index.js
-  var require_SchemaEncoder2 = __commonJS({
-    "packages/systems/dynamo/utils/SchemaEncoder/index.js"(exports) {
-      "use strict";
-      Object.defineProperty(exports, "__esModule", {
-        value: true
-      });
-      var _SchemaEncoder = require_SchemaEncoder();
-      Object.keys(_SchemaEncoder).forEach(function(key) {
-        if (key === "default" || key === "__esModule")
-          return;
-        if (key in exports && exports[key] === _SchemaEncoder[key])
-          return;
-        Object.defineProperty(exports, key, {
-          enumerable: true,
-          get: function() {
-            return _SchemaEncoder[key];
-          }
-        });
-      });
+  // packages/systems/dynamo/utils/SchemaEncoder/index.ts
+  var SchemaEncoder_exports = {};
+  __export(SchemaEncoder_exports, {
+    _crapCode: () => _crapCode,
+    _test: () => _test,
+    collSlug: () => collSlug,
+    fieldSlug: () => fieldSlug,
+    restoreSlug: () => restoreSlug
+  });
+  var init_SchemaEncoder2 = __esm({
+    "packages/systems/dynamo/utils/SchemaEncoder/index.ts"() {
+      init_SchemaEncoder();
     }
   });
 
@@ -39235,11 +40563,11 @@
           return _SchemaEncoder.restoreSlug;
         }
       });
-      var _SchemaEncoder = require_SchemaEncoder2();
-      var fieldSlug = (slug) => (0, _SchemaEncoder.fieldSlug)({
+      var _SchemaEncoder = (init_SchemaEncoder2(), __toCommonJS(SchemaEncoder_exports));
+      var fieldSlug2 = (slug) => (0, _SchemaEncoder.fieldSlug)({
         slug
       });
-      exports.fieldSlug = fieldSlug;
+      exports.fieldSlug = fieldSlug2;
       var DYNAMO_GQL_FIELD_SLUG = "f_";
       var isDynamoGraphQLFieldSlug = (str) => str.startsWith(DYNAMO_GQL_FIELD_SLUG);
       exports.isDynamoGraphQLFieldSlug = isDynamoGraphQLFieldSlug;
@@ -39365,15 +40693,15 @@
         if (typeof selectors !== "object") {
           throw new Error("createStructuredSelector expects first argument to be an object " + ("where each property is a selector, instead received a " + typeof selectors));
         }
-        var objectKeys = Object.keys(selectors);
-        return selectorCreator(objectKeys.map(function(key) {
+        var objectKeys2 = Object.keys(selectors);
+        return selectorCreator(objectKeys2.map(function(key) {
           return selectors[key];
         }), function() {
-          for (var _len5 = arguments.length, values = Array(_len5), _key5 = 0; _key5 < _len5; _key5++) {
-            values[_key5] = arguments[_key5];
+          for (var _len5 = arguments.length, values2 = Array(_len5), _key5 = 0; _key5 < _len5; _key5++) {
+            values2[_key5] = arguments[_key5];
           }
-          return values.reduce(function(composition, value, index) {
-            composition[objectKeys[index]] = value;
+          return values2.reduce(function(composition, value, index) {
+            composition[objectKeys2[index]] = value;
             return composition;
           }, {});
         });
@@ -39452,11 +40780,11 @@
         if (node.list) {
           node.list.removeNode(node);
         }
-        var head = this.head;
+        var head2 = this.head;
         node.list = this;
-        node.next = head;
-        if (head) {
-          head.prev = node;
+        node.next = head2;
+        if (head2) {
+          head2.prev = node;
         }
         this.head = node;
         if (!this.tail) {
@@ -39471,11 +40799,11 @@
         if (node.list) {
           node.list.removeNode(node);
         }
-        var tail = this.tail;
+        var tail2 = this.tail;
         node.list = this;
-        node.prev = tail;
-        if (tail) {
-          tail.next = node;
+        node.prev = tail2;
+        if (tail2) {
+          tail2.next = node;
         }
         this.tail = node;
         if (!this.head) {
@@ -39702,15 +41030,15 @@
         return ret;
       };
       Yallist.prototype.reverse = function() {
-        var head = this.head;
-        var tail = this.tail;
-        for (var walker = head; walker !== null; walker = walker.prev) {
+        var head2 = this.head;
+        var tail2 = this.tail;
+        for (var walker = head2; walker !== null; walker = walker.prev) {
           var p = walker.prev;
           walker.prev = walker.next;
           walker.next = p;
         }
-        this.head = tail;
-        this.tail = head;
+        this.head = tail2;
+        this.tail = head2;
         return this;
       };
       function insert(self2, node, value) {
@@ -39788,7 +41116,7 @@
             options = {};
           if (options.max && (typeof options.max !== "number" || options.max < 0))
             throw new TypeError("max must be a non-negative number");
-          const max = this[MAX] = options.max || Infinity;
+          const max2 = this[MAX] = options.max || Infinity;
           const lc = options.length || naiveLength;
           this[LENGTH_CALCULATOR] = typeof lc !== "function" ? naiveLength : lc;
           this[ALLOW_STALE] = options.stale || false;
@@ -40012,10 +41340,10 @@
         }
       };
       var Entry = class {
-        constructor(key, value, length, now, maxAge) {
+        constructor(key, value, length2, now, maxAge) {
           this.key = key;
           this.value = value;
-          this.length = length;
+          this.length = length2;
           this.now = now;
           this.maxAge = maxAge || 0;
         }
@@ -40057,7 +41385,39 @@
     singleMemo: () => singleMemo,
     weakMemo: () => weakMemo
   });
-  var import_reselect, import_lru_cache, import_isBoolean, import_isFunction, import_isObject, True, False, is, isEqual3, memoize, weakMemo, cacheMemo, defaultLastArg, singleMemo, once;
+  function memoize(fn) {
+    return (0, import_reselect.defaultMemoize)(fn, isEqual3);
+  }
+  function weakMemo(fn) {
+    if (false) {
+      if (!isFunction(fn)) {
+        console.error(
+          `Expected a function as argument to weakMemo but got ${fn}.`
+        );
+      }
+    }
+    const map2 = /* @__PURE__ */ new WeakMap();
+    const memFn = (arg) => {
+      if (!(0, import_isObject.default)(arg) && !(0, import_isBoolean.default)(arg)) {
+        throw new TypeError(
+          `weakMemo: Expected an object or boolean as an argument to ${// @ts-expect-error - TS2339 - Property 'displayName' does not exist on type 'F'.
+          memFn.displayName} but got ${String(arg)}`
+        );
+      }
+      const key = typeof arg === "boolean" ? arg && True || False : arg;
+      if (!map2.has(key)) {
+        map2.set(key, fn(arg));
+      }
+      const result = map2.get(key);
+      return result;
+    };
+    if (false) {
+      memFn.displayName = // @ts-expect-error - TS2339 - Property 'displayName' does not exist on type 'F'. | TS2339 - Property 'name' does not exist on type 'F'. | TS2339 - Property 'toString' does not exist on type 'F'.
+      "weakMemo(" + (fn.displayName || fn.name || fn.toString()) + ")";
+    }
+    return memFn;
+  }
+  var import_reselect, import_lru_cache, import_isBoolean, import_isFunction, import_isObject, True, False, is, isEqual3, cacheMemo, defaultLastArg, singleMemo, once;
   var init_memo = __esm({
     "packages/utilities/memo/index.ts"() {
       import_reselect = __toESM(require_lib4());
@@ -40102,36 +41462,6 @@
           }
         }
         return Object.keys(a).length === Object.keys(b).length;
-      };
-      memoize = (fn) => (0, import_reselect.defaultMemoize)(fn, isEqual3);
-      weakMemo = (fn) => {
-        if (false) {
-          if (!isFunction(fn)) {
-            console.error(
-              `Expected a function as argument to weakMemo but got ${fn}.`
-            );
-          }
-        }
-        const map = /* @__PURE__ */ new WeakMap();
-        const memFn = (arg) => {
-          if (!(0, import_isObject.default)(arg) && !(0, import_isBoolean.default)(arg)) {
-            throw new TypeError(
-              `weakMemo: Expected an object or boolean as an argument to ${// @ts-expect-error - TS2339 - Property 'displayName' does not exist on type 'F'.
-              memFn.displayName} but got ${String(arg)}`
-            );
-          }
-          const key = typeof arg === "boolean" ? arg && True || False : arg;
-          if (!map.has(key)) {
-            map.set(key, fn(arg));
-          }
-          const result = map.get(key);
-          return result;
-        };
-        if (false) {
-          memFn.displayName = // @ts-expect-error - TS2339 - Property 'displayName' does not exist on type 'F'. | TS2339 - Property 'name' does not exist on type 'F'. | TS2339 - Property 'toString' does not exist on type 'F'.
-          "weakMemo(" + (fn.displayName || fn.name || fn.toString()) + ")";
-        }
-        return memFn;
       };
       cacheMemo = (depth) => {
         const memoizeFn = (fn) => {
@@ -40584,8 +41914,8 @@
   var require_arrayAggregator = __commonJS({
     "node_modules/lodash/_arrayAggregator.js"(exports, module) {
       function arrayAggregator(array, setter, iteratee, accumulator) {
-        var index = -1, length = array == null ? 0 : array.length;
-        while (++index < length) {
+        var index = -1, length2 = array == null ? 0 : array.length;
+        while (++index < length2) {
           var value = array[index];
           setter(accumulator, value, iteratee(value), array);
         }
@@ -40962,7 +42292,7 @@
           }
           return object;
         }
-        function map(obj, iterator, context) {
+        function map2(obj, iterator, context) {
           var results = [], i, j;
           if (!obj)
             return results;
@@ -40998,7 +42328,7 @@
         }
         var unformat = lib.unformat = lib.parse = function(value, decimal) {
           if (isArray(value)) {
-            return map(value, function(val) {
+            return map2(value, function(val) {
               return unformat(val, decimal);
             });
           }
@@ -41019,7 +42349,7 @@
         };
         var formatNumber2 = lib.formatNumber = lib.format = function(number, precision, thousand, decimal) {
           if (isArray(number)) {
-            return map(number, function(val) {
+            return map2(number, function(val) {
               return formatNumber2(val, precision, thousand, decimal);
             });
           }
@@ -41036,7 +42366,7 @@
         };
         var formatMoney = lib.formatMoney = function(number, symbol, precision, thousand, decimal, format) {
           if (isArray(number)) {
-            return map(number, function(val) {
+            return map2(number, function(val) {
               return formatMoney(val, symbol, precision, thousand, decimal, format);
             });
           }
@@ -41065,7 +42395,7 @@
               format
             },
             lib.settings.currency
-          ), formats = checkCurrencyFormat(opts.format), padAfterSymbol = formats.pos.indexOf("%s") < formats.pos.indexOf("%v") ? true : false, maxLength = 0, formatted = map(list, function(val, i) {
+          ), formats = checkCurrencyFormat(opts.format), padAfterSymbol = formats.pos.indexOf("%s") < formats.pos.indexOf("%v") ? true : false, maxLength = 0, formatted = map2(list, function(val, i) {
             if (isArray(val)) {
               return lib.formatColumn(val, opts);
             } else {
@@ -41076,7 +42406,7 @@
               return fVal;
             }
           });
-          return map(formatted, function(val, i) {
+          return map2(formatted, function(val, i) {
             if (isString(val) && val.length < maxLength) {
               return padAfterSymbol ? val.replace(opts.symbol, opts.symbol + new Array(maxLength - val.length + 1).join(" ")) : new Array(maxLength - val.length + 1).join(" ") + val;
             }
@@ -41167,7 +42497,7 @@
   function extractToken(string, {
     shortHand
   } = {}) {
-    return shortHand ? string.replace(getCatchAllTokenPattern(), (match, subMatch) => {
+    return shortHand ? string.replace(getCatchAllTokenPattern(), (match2, subMatch) => {
       return stripLegacyShorthandSuffix(subMatch);
     }) : string.replace(getWfTokenPattern(), "$1");
   }
@@ -41203,8 +42533,8 @@
       var _get = _interopRequireDefault(require_get());
       var _shared = (init_shared(), __toCommonJS(shared_exports));
       function simpleReplaceTokens(replaceable, item) {
-        return replaceable.replace((0, _shared.getWfTokenPattern)(), function(match) {
-          const token = (0, _shared.parseTokenJson)(match) || {};
+        return replaceable.replace((0, _shared.getWfTokenPattern)(), function(match2) {
+          const token = (0, _shared.parseTokenJson)(match2) || {};
           const path = token.path.split(".");
           return (0, _isFunction.default)(item.getIn) ? item.getIn(path, "") : (0, _get.default)(item, path, "");
         });
@@ -41443,7 +42773,7 @@
           const needsPrefix = pageLinkHrefPrefix && isPageLink;
           const collectionIdMatch = isPageLink && /\sdata-rt-link-collectionid="([a-z0-9]{24})"/.exec(linkString);
           if (needsPrefix || collectionIdMatch) {
-            return linkString.replace(/(\shref=")([^"]+)/, (match, begin, href) => {
+            return linkString.replace(/(\shref=")([^"]+)/, (match2, begin, href) => {
               const end = collectionIdMatch ? replaceDetailPageHrefCollectionSlug(href, collectionIdMatch[1], collectionSlugMap) : href;
               const prefix = pageLinkHrefPrefix ? (0, _escape.default)(pageLinkHrefPrefix) : "";
               return `${begin}${prefix}${end}`;
@@ -41480,11 +42810,11 @@
         rich,
         price
       };
-      var transformers = (value, filter, context) => {
+      var transformers = (value, filter2, context) => {
         const {
           type: key,
           params
-        } = filter;
+        } = filter2;
         const fn = transformerIndex[key];
         return fn ? fn(value, params, context) : value;
       };
@@ -41533,7 +42863,7 @@
       var _constants2 = require_constants3();
       var _constants3 = require_constants2();
       var _universalUtils = require_universalUtils();
-      var _utils = require_utils2();
+      var _utils = require_utils();
       var getPropertyMutator = (bindingProperty) => {
         if (typeof mutators[bindingProperty] === "function") {
           return mutators[bindingProperty];
@@ -41565,12 +42895,12 @@
             const bindingValue = binding[bindingProperty];
             const {
               dataPath,
-              filter,
+              filter: filter2,
               timezone,
               type
             } = bindingValue;
             const rawValue = (0, _get.default)(data, dataPath);
-            const transformedValue = (0, _Transformers.transformers)(rawValue, filter, {
+            const transformedValue = (0, _Transformers.transformers)(rawValue, filter2, {
               timezone,
               collectionSlugMap: {},
               currencySettings: window.__WEBFLOW_CURRENCY_SETTINGS
@@ -41669,7 +42999,7 @@
       var _constants = require_constants2();
       var _constants2 = require_constants3();
       var _RenderingUtils = require_RenderingUtils2();
-      var _utils = require_utils2();
+      var _utils = require_utils();
       var _queries = require_queries();
       var _mutations = require_mutations();
       var _rendering = require_rendering();
@@ -41859,7 +43189,7 @@
         value: true
       });
       exports.handleFields = handleFields;
-      var _utils = require_utils2();
+      var _utils = require_utils();
       var _queries = require_queries();
       var _constants = require_constants2();
       var _universalUtils = require_universalUtils();
@@ -42219,7 +43549,7 @@
       var _resetPassword = require_resetPassword();
       var _updatePassword = require_updatePassword();
       var _account = require_account();
-      var _utils = require_utils2();
+      var _utils = require_utils();
       Object.keys(_utils).forEach(function(key) {
         if (key === "default" || key === "__esModule")
           return;
@@ -42321,7 +43651,10 @@
   require_webflow_scroll();
   require_webflow_touch();
   require_webflow_dropdown();
+  require_webflow_forms();
   require_webflow_navbar();
+  require_webflow_slider();
+  require_webflow_tabs();
   require_webflow_usys_form();
   require_webflow_usys();
 })();
@@ -42472,5 +43805,5 @@ accounting/accounting.js:
  * Webflow: Interactions 2.0: Init
  */
 Webflow.require('ix2').init(
-{"events":{"e":{"id":"e","name":"","animationType":"custom","eventTypeId":"PAGE_START","action":{"id":"","actionTypeId":"GENERAL_START_ACTION","config":{"delay":0,"easing":"","duration":0,"actionListId":"a-2","affectedElements":{},"playInReverse":false,"autoStopEventId":"e-42"}},"mediaQueries":["main","medium","small","tiny"],"target":{"id":"64b989a0f55ae22f8e1ea63f","appliesTo":"PAGE","styleBlockIds":[]},"targets":[{"id":"64b989a0f55ae22f8e1ea63f","appliesTo":"PAGE","styleBlockIds":[]}],"config":{"loop":false,"playInReverse":false,"scrollOffsetValue":null,"scrollOffsetUnit":null,"delay":null,"direction":null,"effectIn":null},"createdOn":1672433027005},"e-3":{"id":"e-3","name":"","animationType":"custom","eventTypeId":"PAGE_START","action":{"id":"","actionTypeId":"GENERAL_START_ACTION","config":{"delay":0,"easing":"","duration":0,"actionListId":"a-3","affectedElements":{},"playInReverse":false,"autoStopEventId":"e-79"}},"mediaQueries":["main","medium","small","tiny"],"target":{"id":"64b989a0f55ae22f8e1ea63f","appliesTo":"PAGE","styleBlockIds":[]},"targets":[{"id":"64b989a0f55ae22f8e1ea63f","appliesTo":"PAGE","styleBlockIds":[]}],"config":{"loop":false,"playInReverse":false,"scrollOffsetValue":null,"scrollOffsetUnit":null,"delay":null,"direction":null,"effectIn":null},"createdOn":1672663121446},"e-7":{"id":"e-7","name":"","animationType":"custom","eventTypeId":"SCROLLING_IN_VIEW","action":{"id":"","actionTypeId":"GENERAL_CONTINUOUS_ACTION","config":{"actionListId":"a-4","affectedElements":{},"duration":0}},"mediaQueries":["main","medium","small","tiny"],"target":{"id":"64b989a0f55ae22f8e1ea63f|8e8c10bb-320c-2bbf-80ec-92cfacec8eaa","appliesTo":"ELEMENT","styleBlockIds":[]},"targets":[{"id":"64b989a0f55ae22f8e1ea63f|8e8c10bb-320c-2bbf-80ec-92cfacec8eaa","appliesTo":"ELEMENT","styleBlockIds":[]}],"config":[{"continuousParameterGroupId":"a-4-p","smoothing":84,"startsEntering":false,"addStartOffset":false,"addOffsetValue":50,"startsExiting":false,"addEndOffset":false,"endOffsetValue":50}],"createdOn":1673527196808},"e-8":{"id":"e-8","name":"","animationType":"custom","eventTypeId":"SCROLLING_IN_VIEW","action":{"id":"","actionTypeId":"GENERAL_CONTINUOUS_ACTION","config":{"actionListId":"a-6","affectedElements":{},"duration":0}},"mediaQueries":["main","medium"],"target":{"selector":".has-parallax-effect","originalId":"64b989a0f55ae22f8e1ea63f|f87c7ebf-f173-8315-67c8-433218514118","appliesTo":"CLASS"},"targets":[{"selector":".has-parallax-effect","originalId":"64b989a0f55ae22f8e1ea63f|f87c7ebf-f173-8315-67c8-433218514118","appliesTo":"CLASS"}],"config":[{"continuousParameterGroupId":"a-6-p","smoothing":82,"startsEntering":true,"addStartOffset":false,"addOffsetValue":50,"startsExiting":false,"addEndOffset":false,"endOffsetValue":50}],"createdOn":1673861553614},"e-9":{"id":"e-9","name":"","animationType":"custom","eventTypeId":"SCROLLING_IN_VIEW","action":{"id":"","actionTypeId":"GENERAL_CONTINUOUS_ACTION","config":{"actionListId":"a-7","affectedElements":{},"duration":0}},"mediaQueries":["main","medium","small","tiny"],"target":{"selector":".specs-divider-inner","originalId":"64b989a0f55ae22f8e1ea63f|5f09188f-6ca9-cea9-ed10-75565be12f4c","appliesTo":"CLASS"},"targets":[{"selector":".specs-divider-inner","originalId":"64b989a0f55ae22f8e1ea63f|5f09188f-6ca9-cea9-ed10-75565be12f4c","appliesTo":"CLASS"}],"config":[{"continuousParameterGroupId":"a-7-p","smoothing":85,"startsEntering":true,"addStartOffset":false,"addOffsetValue":50,"startsExiting":false,"addEndOffset":false,"endOffsetValue":50}],"createdOn":1673954516013},"e-10":{"id":"e-10","name":"","animationType":"custom","eventTypeId":"SCROLLING_IN_VIEW","action":{"id":"","actionTypeId":"GENERAL_CONTINUOUS_ACTION","config":{"actionListId":"a-8","affectedElements":{},"duration":0}},"mediaQueries":["small","tiny"],"target":{"selector":".has-parallax-effect","originalId":"64b989a0f55ae22f8e1ea63f|f87c7ebf-f173-8315-67c8-433218514118","appliesTo":"CLASS"},"targets":[{"selector":".has-parallax-effect","originalId":"64b989a0f55ae22f8e1ea63f|f87c7ebf-f173-8315-67c8-433218514118","appliesTo":"CLASS"}],"config":[{"continuousParameterGroupId":"a-8-p","smoothing":85,"startsEntering":true,"addStartOffset":false,"addOffsetValue":50,"startsExiting":false,"addEndOffset":false,"endOffsetValue":50}],"createdOn":1674035772616},"e-20":{"id":"e-20","name":"","animationType":"custom","eventTypeId":"SCROLLING_IN_VIEW","action":{"id":"","actionTypeId":"GENERAL_CONTINUOUS_ACTION","config":{"actionListId":"a-11","affectedElements":{},"duration":0}},"mediaQueries":["main","medium","small","tiny"],"target":{"selector":".hero-gallery-item","originalId":"64b989a0f55ae22f8e1ea63f|13f6706c-58d1-4ab7-5b93-1a17cd3285ce","appliesTo":"CLASS"},"targets":[{"selector":".hero-gallery-item","originalId":"64b989a0f55ae22f8e1ea63f|13f6706c-58d1-4ab7-5b93-1a17cd3285ce","appliesTo":"CLASS"}],"config":[{"continuousParameterGroupId":"a-11-p","smoothing":93,"startsEntering":true,"addStartOffset":false,"addOffsetValue":50,"startsExiting":false,"addEndOffset":false,"endOffsetValue":50}],"createdOn":1674250626921},"e-26":{"id":"e-26","name":"","animationType":"custom","eventTypeId":"MOUSE_CLICK","action":{"id":"","actionTypeId":"GENERAL_START_ACTION","config":{"delay":0,"easing":"","duration":0,"actionListId":"a-23","affectedElements":{},"playInReverse":false,"autoStopEventId":"e-27"}},"mediaQueries":["main","medium","small","tiny"],"target":{"selector":".popup-toggle","originalId":"64b989a0f55ae22f8e1ea63f|d1d14ab4-a124-1029-7612-123dd1d0fce2","appliesTo":"CLASS"},"targets":[{"selector":".popup-toggle","originalId":"64b989a0f55ae22f8e1ea63f|d1d14ab4-a124-1029-7612-123dd1d0fce2","appliesTo":"CLASS"}],"config":{"loop":false,"playInReverse":false,"scrollOffsetValue":null,"scrollOffsetUnit":null,"delay":null,"direction":null,"effectIn":null},"createdOn":1637075261953},"e-28":{"id":"e-28","name":"","animationType":"custom","eventTypeId":"MOUSE_CLICK","action":{"id":"","actionTypeId":"GENERAL_START_ACTION","config":{"delay":0,"easing":"","duration":0,"actionListId":"a-24","affectedElements":{},"playInReverse":false,"autoStopEventId":"e-29"}},"mediaQueries":["main","medium","small","tiny"],"target":{"selector":".popup-close","originalId":"64b989a0f55ae22f8e1ea63f|d1d14ab4-a124-1029-7612-123dd1d0fce7","appliesTo":"CLASS"},"targets":[{"selector":".popup-close","originalId":"64b989a0f55ae22f8e1ea63f|d1d14ab4-a124-1029-7612-123dd1d0fce7","appliesTo":"CLASS"}],"config":{"loop":false,"playInReverse":false,"scrollOffsetValue":null,"scrollOffsetUnit":null,"delay":null,"direction":null,"effectIn":null},"createdOn":1637075418661},"e-30":{"id":"e-30","name":"","animationType":"custom","eventTypeId":"MOUSE_CLICK","action":{"id":"","actionTypeId":"GENERAL_START_ACTION","config":{"delay":0,"easing":"","duration":0,"actionListId":"a-24","affectedElements":{},"playInReverse":false,"autoStopEventId":"e-31"}},"mediaQueries":["main","medium","small","tiny"],"target":{"selector":".popup-background","originalId":"64b989a0f55ae22f8e1ea63f|d1d14ab4-a124-1029-7612-123dd1d0fcf6","appliesTo":"CLASS"},"targets":[{"selector":".popup-background","originalId":"64b989a0f55ae22f8e1ea63f|d1d14ab4-a124-1029-7612-123dd1d0fcf6","appliesTo":"CLASS"}],"config":{"loop":false,"playInReverse":false,"scrollOffsetValue":null,"scrollOffsetUnit":null,"delay":null,"direction":null,"effectIn":null},"createdOn":1637075523074},"e-32":{"id":"e-32","name":"","animationType":"custom","eventTypeId":"SCROLLING_IN_VIEW","action":{"id":"","actionTypeId":"GENERAL_CONTINUOUS_ACTION","config":{"actionListId":"a-25","affectedElements":{},"duration":0}},"mediaQueries":["main","medium","small","tiny"],"target":{"id":"64b989a0f55ae22f8e1ea63f|74320b95-20be-d5c9-4dd4-ccde3dc609ed","appliesTo":"ELEMENT","styleBlockIds":[]},"targets":[{"id":"64b989a0f55ae22f8e1ea63f|74320b95-20be-d5c9-4dd4-ccde3dc609ed","appliesTo":"ELEMENT","styleBlockIds":[]}],"config":[{"continuousParameterGroupId":"a-25-p","smoothing":85,"startsEntering":true,"addStartOffset":false,"addOffsetValue":50,"startsExiting":false,"addEndOffset":false,"endOffsetValue":50}],"createdOn":1674655256819},"e-33":{"id":"e-33","name":"","animationType":"custom","eventTypeId":"SCROLL_INTO_VIEW","action":{"id":"","actionTypeId":"GENERAL_START_ACTION","config":{"delay":0,"easing":"","duration":0,"actionListId":"a-26","affectedElements":{},"playInReverse":false,"autoStopEventId":"e-34"}},"mediaQueries":["small","tiny"],"target":{"id":"64b989a0f55ae22f8e1ea63f|8e8c10bb-320c-2bbf-80ec-92cfacec8eaa","appliesTo":"ELEMENT","styleBlockIds":[]},"targets":[{"id":"64b989a0f55ae22f8e1ea63f|8e8c10bb-320c-2bbf-80ec-92cfacec8eaa","appliesTo":"ELEMENT","styleBlockIds":[]}],"config":{"loop":false,"playInReverse":false,"scrollOffsetValue":0,"scrollOffsetUnit":"%","delay":null,"direction":null,"effectIn":null},"createdOn":1675244667887},"e-34":{"id":"e-34","name":"","animationType":"custom","eventTypeId":"SCROLL_OUT_OF_VIEW","action":{"id":"","actionTypeId":"GENERAL_START_ACTION","config":{"delay":0,"easing":"","duration":0,"actionListId":"a-27","affectedElements":{},"playInReverse":false,"autoStopEventId":"e-33"}},"mediaQueries":["small","tiny"],"target":{"id":"64b989a0f55ae22f8e1ea63f|8e8c10bb-320c-2bbf-80ec-92cfacec8eaa","appliesTo":"ELEMENT","styleBlockIds":[]},"targets":[{"id":"64b989a0f55ae22f8e1ea63f|8e8c10bb-320c-2bbf-80ec-92cfacec8eaa","appliesTo":"ELEMENT","styleBlockIds":[]}],"config":{"loop":false,"playInReverse":false,"scrollOffsetValue":0,"scrollOffsetUnit":"%","delay":null,"direction":null,"effectIn":null},"createdOn":1675244667936},"e-35":{"id":"e-35","name":"","animationType":"preset","eventTypeId":"MOUSE_OVER","action":{"id":"","actionTypeId":"GENERAL_START_ACTION","config":{"delay":0,"easing":"","duration":0,"actionListId":"a-54","affectedElements":{},"playInReverse":false,"autoStopEventId":"e-36"}},"mediaQueries":["main","medium","small","tiny"],"target":{"id":"64b989a0f55ae22f8e1ea63f|5e58e86a-8378-2c81-4976-bf99edb97b47","appliesTo":"ELEMENT","styleBlockIds":[]},"targets":[{"id":"64b989a0f55ae22f8e1ea63f|5e58e86a-8378-2c81-4976-bf99edb97b47","appliesTo":"ELEMENT","styleBlockIds":[]}],"config":{"loop":false,"playInReverse":false,"scrollOffsetValue":null,"scrollOffsetUnit":null,"delay":null,"direction":null,"effectIn":null},"createdOn":1657347797341},"e-36":{"id":"e-36","name":"","animationType":"preset","eventTypeId":"MOUSE_OUT","action":{"id":"","actionTypeId":"GENERAL_START_ACTION","config":{"delay":0,"easing":"","duration":0,"actionListId":"a-57","affectedElements":{},"playInReverse":false,"autoStopEventId":"e-35"}},"mediaQueries":["main","medium","small","tiny"],"target":{"id":"64b989a0f55ae22f8e1ea63f|5e58e86a-8378-2c81-4976-bf99edb97b47","appliesTo":"ELEMENT","styleBlockIds":[]},"targets":[{"id":"64b989a0f55ae22f8e1ea63f|5e58e86a-8378-2c81-4976-bf99edb97b47","appliesTo":"ELEMENT","styleBlockIds":[]}],"config":{"loop":false,"playInReverse":false,"scrollOffsetValue":null,"scrollOffsetUnit":null,"delay":null,"direction":null,"effectIn":null},"createdOn":1657347797341},"e-37":{"id":"e-37","name":"","animationType":"preset","eventTypeId":"MOUSE_OVER","action":{"id":"","actionTypeId":"GENERAL_START_ACTION","config":{"delay":0,"easing":"","duration":0,"actionListId":"a-54","affectedElements":{},"playInReverse":false,"autoStopEventId":"e-38"}},"mediaQueries":["main","medium","small","tiny"],"target":{"id":"64b989a0f55ae22f8e1ea63f|5e58e86a-8378-2c81-4976-bf99edb97b55","appliesTo":"ELEMENT","styleBlockIds":[]},"targets":[{"id":"64b989a0f55ae22f8e1ea63f|5e58e86a-8378-2c81-4976-bf99edb97b55","appliesTo":"ELEMENT","styleBlockIds":[]}],"config":{"loop":false,"playInReverse":false,"scrollOffsetValue":null,"scrollOffsetUnit":null,"delay":null,"direction":null,"effectIn":null},"createdOn":1657347798535},"e-38":{"id":"e-38","name":"","animationType":"preset","eventTypeId":"MOUSE_OUT","action":{"id":"","actionTypeId":"GENERAL_START_ACTION","config":{"delay":0,"easing":"","duration":0,"actionListId":"a-57","affectedElements":{},"playInReverse":false,"autoStopEventId":"e-37"}},"mediaQueries":["main","medium","small","tiny"],"target":{"id":"64b989a0f55ae22f8e1ea63f|5e58e86a-8378-2c81-4976-bf99edb97b55","appliesTo":"ELEMENT","styleBlockIds":[]},"targets":[{"id":"64b989a0f55ae22f8e1ea63f|5e58e86a-8378-2c81-4976-bf99edb97b55","appliesTo":"ELEMENT","styleBlockIds":[]}],"config":{"loop":false,"playInReverse":false,"scrollOffsetValue":null,"scrollOffsetUnit":null,"delay":null,"direction":null,"effectIn":null},"createdOn":1657347798535},"e-39":{"id":"e-39","name":"","animationType":"preset","eventTypeId":"MOUSE_OVER","action":{"id":"","actionTypeId":"GENERAL_START_ACTION","config":{"delay":0,"easing":"","duration":0,"actionListId":"a-54","affectedElements":{},"playInReverse":false,"autoStopEventId":"e-40"}},"mediaQueries":["main","medium","small","tiny"],"target":{"id":"64b989a0f55ae22f8e1ea63f|5e58e86a-8378-2c81-4976-bf99edb97b63","appliesTo":"ELEMENT","styleBlockIds":[]},"targets":[{"id":"64b989a0f55ae22f8e1ea63f|5e58e86a-8378-2c81-4976-bf99edb97b63","appliesTo":"ELEMENT","styleBlockIds":[]}],"config":{"loop":false,"playInReverse":false,"scrollOffsetValue":null,"scrollOffsetUnit":null,"delay":null,"direction":null,"effectIn":null},"createdOn":1657347800259},"e-40":{"id":"e-40","name":"","animationType":"preset","eventTypeId":"MOUSE_OUT","action":{"id":"","actionTypeId":"GENERAL_START_ACTION","config":{"delay":0,"easing":"","duration":0,"actionListId":"a-57","affectedElements":{},"playInReverse":false,"autoStopEventId":"e-39"}},"mediaQueries":["main","medium","small","tiny"],"target":{"id":"64b989a0f55ae22f8e1ea63f|5e58e86a-8378-2c81-4976-bf99edb97b63","appliesTo":"ELEMENT","styleBlockIds":[]},"targets":[{"id":"64b989a0f55ae22f8e1ea63f|5e58e86a-8378-2c81-4976-bf99edb97b63","appliesTo":"ELEMENT","styleBlockIds":[]}],"config":{"loop":false,"playInReverse":false,"scrollOffsetValue":null,"scrollOffsetUnit":null,"delay":null,"direction":null,"effectIn":null},"createdOn":1657347800259},"e-41":{"id":"e-41","name":"","animationType":"custom","eventTypeId":"SCROLL_INTO_VIEW","action":{"id":"","actionTypeId":"GENERAL_START_ACTION","config":{"delay":0,"easing":"","duration":0,"actionListId":"a-61","affectedElements":{},"playInReverse":false,"autoStopEventId":"e-12"}},"mediaQueries":["main","medium","small","tiny"],"target":{"id":"64b989a0f55ae22f8e1ea63f|fa86782a-de80-5240-a3dc-50fd31c8c151","appliesTo":"ELEMENT","styleBlockIds":[]},"targets":[{"id":"64b989a0f55ae22f8e1ea63f|fa86782a-de80-5240-a3dc-50fd31c8c151","appliesTo":"ELEMENT","styleBlockIds":[]}],"config":{"loop":true,"playInReverse":false,"scrollOffsetValue":0,"scrollOffsetUnit":"%","delay":null,"direction":null,"effectIn":null},"createdOn":1656336106207},"e-43":{"id":"e-43","name":"","animationType":"custom","eventTypeId":"SCROLL_INTO_VIEW","action":{"id":"","actionTypeId":"GENERAL_START_ACTION","config":{"delay":0,"easing":"","duration":0,"actionListId":"a-62","affectedElements":{},"playInReverse":false,"autoStopEventId":"e-44"}},"mediaQueries":["main","medium","small","tiny"],"target":{"selector":".step-block","originalId":"64be8056f46991cc7bfe15e1|fa12a6c7-af36-2ad9-3c2a-5ef12af2009f","appliesTo":"CLASS"},"targets":[{"selector":".step-block","originalId":"64be8056f46991cc7bfe15e1|fa12a6c7-af36-2ad9-3c2a-5ef12af2009f","appliesTo":"CLASS"}],"config":{"loop":false,"playInReverse":false,"scrollOffsetValue":50,"scrollOffsetUnit":"%","delay":null,"direction":null,"effectIn":null},"createdOn":1611337298036},"e-45":{"id":"e-45","name":"","animationType":"preset","eventTypeId":"SCROLL_INTO_VIEW","action":{"id":"","actionTypeId":"GENERAL_START_ACTION","config":{"delay":0,"easing":"","duration":0,"actionListId":"a-63","affectedElements":{},"playInReverse":false,"autoStopEventId":"e-46"}},"mediaQueries":["main","medium","small","tiny"],"target":{"selector":".step-block","originalId":"64be8056f46991cc7bfe15e1|fa12a6c7-af36-2ad9-3c2a-5ef12af200c2","appliesTo":"CLASS"},"targets":[{"selector":".step-block","originalId":"64be8056f46991cc7bfe15e1|fa12a6c7-af36-2ad9-3c2a-5ef12af200c2","appliesTo":"CLASS"}],"config":{"loop":false,"playInReverse":false,"scrollOffsetValue":50,"scrollOffsetUnit":"%","delay":null,"direction":null,"effectIn":null},"createdOn":1611755066275},"e-47":{"id":"e-47","name":"","animationType":"preset","eventTypeId":"PAGE_START","action":{"id":"","actionTypeId":"GENERAL_START_ACTION","config":{"delay":0,"easing":"","duration":0,"actionListId":"a-2","affectedElements":{},"playInReverse":false,"autoStopEventId":"e-48"}},"mediaQueries":["main","medium","small","tiny"],"target":{"id":"64c7c6599a6df8af863da028","appliesTo":"PAGE","styleBlockIds":[]},"targets":[{"id":"64c7c6599a6df8af863da028","appliesTo":"PAGE","styleBlockIds":[]}],"config":{"loop":false,"playInReverse":false,"scrollOffsetValue":null,"scrollOffsetUnit":null,"delay":null,"direction":null,"effectIn":null},"createdOn":1690814041530},"e-49":{"id":"e-49","name":"","animationType":"preset","eventTypeId":"PAGE_START","action":{"id":"","actionTypeId":"GENERAL_START_ACTION","config":{"delay":0,"easing":"","duration":0,"actionListId":"a-3","affectedElements":{},"playInReverse":false,"autoStopEventId":"e-50"}},"mediaQueries":["main","medium","small","tiny"],"target":{"id":"64c7c6599a6df8af863da028","appliesTo":"PAGE","styleBlockIds":[]},"targets":[{"id":"64c7c6599a6df8af863da028","appliesTo":"PAGE","styleBlockIds":[]}],"config":{"loop":false,"playInReverse":false,"scrollOffsetValue":null,"scrollOffsetUnit":null,"delay":null,"direction":null,"effectIn":null},"createdOn":1690814041530},"e-51":{"id":"e-51","name":"","animationType":"preset","eventTypeId":"SCROLLING_IN_VIEW","action":{"id":"","actionTypeId":"GENERAL_CONTINUOUS_ACTION","config":{"actionListId":"a-4","affectedElements":{},"duration":0}},"mediaQueries":["main","medium","small","tiny"],"target":{"id":"64c7c6599a6df8af863da028|8e8c10bb-320c-2bbf-80ec-92cfacec8eaa","appliesTo":"ELEMENT","styleBlockIds":[]},"targets":[{"id":"64c7c6599a6df8af863da028|8e8c10bb-320c-2bbf-80ec-92cfacec8eaa","appliesTo":"ELEMENT","styleBlockIds":[]}],"config":[{"continuousParameterGroupId":"a-4-p","smoothing":84,"startsEntering":false,"addStartOffset":false,"addOffsetValue":50,"startsExiting":false,"addEndOffset":false,"endOffsetValue":50}],"createdOn":1690814041530},"e-52":{"id":"e-52","name":"","animationType":"preset","eventTypeId":"SCROLLING_IN_VIEW","action":{"id":"","actionTypeId":"GENERAL_CONTINUOUS_ACTION","config":{"actionListId":"a-25","affectedElements":{},"duration":0}},"mediaQueries":["main","medium","small","tiny"],"target":{"id":"64c7c6599a6df8af863da028|74320b95-20be-d5c9-4dd4-ccde3dc609ed","appliesTo":"ELEMENT","styleBlockIds":[]},"targets":[{"id":"64c7c6599a6df8af863da028|74320b95-20be-d5c9-4dd4-ccde3dc609ed","appliesTo":"ELEMENT","styleBlockIds":[]}],"config":[{"continuousParameterGroupId":"a-25-p","smoothing":85,"startsEntering":true,"addStartOffset":false,"addOffsetValue":50,"startsExiting":false,"addEndOffset":false,"endOffsetValue":50}],"createdOn":1690814041530},"e-53":{"id":"e-53","name":"","animationType":"preset","eventTypeId":"SCROLL_INTO_VIEW","action":{"id":"","actionTypeId":"GENERAL_START_ACTION","config":{"delay":0,"easing":"","duration":0,"actionListId":"a-26","affectedElements":{},"playInReverse":false,"autoStopEventId":"e-54"}},"mediaQueries":["small","tiny"],"target":{"id":"64c7c6599a6df8af863da028|8e8c10bb-320c-2bbf-80ec-92cfacec8eaa","appliesTo":"ELEMENT","styleBlockIds":[]},"targets":[{"id":"64c7c6599a6df8af863da028|8e8c10bb-320c-2bbf-80ec-92cfacec8eaa","appliesTo":"ELEMENT","styleBlockIds":[]}],"config":{"loop":false,"playInReverse":false,"scrollOffsetValue":0,"scrollOffsetUnit":"%","delay":null,"direction":null,"effectIn":null},"createdOn":1690814041530},"e-54":{"id":"e-54","name":"","animationType":"preset","eventTypeId":"SCROLL_OUT_OF_VIEW","action":{"id":"","actionTypeId":"GENERAL_START_ACTION","config":{"delay":0,"easing":"","duration":0,"actionListId":"a-27","affectedElements":{},"playInReverse":false,"autoStopEventId":"e-53"}},"mediaQueries":["small","tiny"],"target":{"id":"64c7c6599a6df8af863da028|8e8c10bb-320c-2bbf-80ec-92cfacec8eaa","appliesTo":"ELEMENT","styleBlockIds":[]},"targets":[{"id":"64c7c6599a6df8af863da028|8e8c10bb-320c-2bbf-80ec-92cfacec8eaa","appliesTo":"ELEMENT","styleBlockIds":[]}],"config":{"loop":false,"playInReverse":false,"scrollOffsetValue":0,"scrollOffsetUnit":"%","delay":null,"direction":null,"effectIn":null},"createdOn":1690814041530},"e-55":{"id":"e-55","name":"","animationType":"preset","eventTypeId":"MOUSE_OVER","action":{"id":"","actionTypeId":"GENERAL_START_ACTION","config":{"delay":0,"easing":"","duration":0,"actionListId":"a-54","affectedElements":{},"playInReverse":false,"autoStopEventId":"e-56"}},"mediaQueries":["main","medium","small","tiny"],"target":{"id":"64c7c6599a6df8af863da028|5e58e86a-8378-2c81-4976-bf99edb97b47","appliesTo":"ELEMENT","styleBlockIds":[]},"targets":[{"id":"64c7c6599a6df8af863da028|5e58e86a-8378-2c81-4976-bf99edb97b47","appliesTo":"ELEMENT","styleBlockIds":[]}],"config":{"loop":false,"playInReverse":false,"scrollOffsetValue":null,"scrollOffsetUnit":null,"delay":null,"direction":null,"effectIn":null},"createdOn":1690814041530},"e-56":{"id":"e-56","name":"","animationType":"preset","eventTypeId":"MOUSE_OUT","action":{"id":"","actionTypeId":"GENERAL_START_ACTION","config":{"delay":0,"easing":"","duration":0,"actionListId":"a-57","affectedElements":{},"playInReverse":false,"autoStopEventId":"e-55"}},"mediaQueries":["main","medium","small","tiny"],"target":{"id":"64c7c6599a6df8af863da028|5e58e86a-8378-2c81-4976-bf99edb97b47","appliesTo":"ELEMENT","styleBlockIds":[]},"targets":[{"id":"64c7c6599a6df8af863da028|5e58e86a-8378-2c81-4976-bf99edb97b47","appliesTo":"ELEMENT","styleBlockIds":[]}],"config":{"loop":false,"playInReverse":false,"scrollOffsetValue":null,"scrollOffsetUnit":null,"delay":null,"direction":null,"effectIn":null},"createdOn":1690814041530},"e-57":{"id":"e-57","name":"","animationType":"preset","eventTypeId":"MOUSE_OVER","action":{"id":"","actionTypeId":"GENERAL_START_ACTION","config":{"delay":0,"easing":"","duration":0,"actionListId":"a-54","affectedElements":{},"playInReverse":false,"autoStopEventId":"e-58"}},"mediaQueries":["main","medium","small","tiny"],"target":{"id":"64c7c6599a6df8af863da028|5e58e86a-8378-2c81-4976-bf99edb97b55","appliesTo":"ELEMENT","styleBlockIds":[]},"targets":[{"id":"64c7c6599a6df8af863da028|5e58e86a-8378-2c81-4976-bf99edb97b55","appliesTo":"ELEMENT","styleBlockIds":[]}],"config":{"loop":false,"playInReverse":false,"scrollOffsetValue":null,"scrollOffsetUnit":null,"delay":null,"direction":null,"effectIn":null},"createdOn":1690814041530},"e-58":{"id":"e-58","name":"","animationType":"preset","eventTypeId":"MOUSE_OUT","action":{"id":"","actionTypeId":"GENERAL_START_ACTION","config":{"delay":0,"easing":"","duration":0,"actionListId":"a-57","affectedElements":{},"playInReverse":false,"autoStopEventId":"e-57"}},"mediaQueries":["main","medium","small","tiny"],"target":{"id":"64c7c6599a6df8af863da028|5e58e86a-8378-2c81-4976-bf99edb97b55","appliesTo":"ELEMENT","styleBlockIds":[]},"targets":[{"id":"64c7c6599a6df8af863da028|5e58e86a-8378-2c81-4976-bf99edb97b55","appliesTo":"ELEMENT","styleBlockIds":[]}],"config":{"loop":false,"playInReverse":false,"scrollOffsetValue":null,"scrollOffsetUnit":null,"delay":null,"direction":null,"effectIn":null},"createdOn":1690814041530},"e-59":{"id":"e-59","name":"","animationType":"preset","eventTypeId":"MOUSE_OVER","action":{"id":"","actionTypeId":"GENERAL_START_ACTION","config":{"delay":0,"easing":"","duration":0,"actionListId":"a-54","affectedElements":{},"playInReverse":false,"autoStopEventId":"e-60"}},"mediaQueries":["main","medium","small","tiny"],"target":{"id":"64c7c6599a6df8af863da028|5e58e86a-8378-2c81-4976-bf99edb97b63","appliesTo":"ELEMENT","styleBlockIds":[]},"targets":[{"id":"64c7c6599a6df8af863da028|5e58e86a-8378-2c81-4976-bf99edb97b63","appliesTo":"ELEMENT","styleBlockIds":[]}],"config":{"loop":false,"playInReverse":false,"scrollOffsetValue":null,"scrollOffsetUnit":null,"delay":null,"direction":null,"effectIn":null},"createdOn":1690814041530},"e-60":{"id":"e-60","name":"","animationType":"preset","eventTypeId":"MOUSE_OUT","action":{"id":"","actionTypeId":"GENERAL_START_ACTION","config":{"delay":0,"easing":"","duration":0,"actionListId":"a-57","affectedElements":{},"playInReverse":false,"autoStopEventId":"e-59"}},"mediaQueries":["main","medium","small","tiny"],"target":{"id":"64c7c6599a6df8af863da028|5e58e86a-8378-2c81-4976-bf99edb97b63","appliesTo":"ELEMENT","styleBlockIds":[]},"targets":[{"id":"64c7c6599a6df8af863da028|5e58e86a-8378-2c81-4976-bf99edb97b63","appliesTo":"ELEMENT","styleBlockIds":[]}],"config":{"loop":false,"playInReverse":false,"scrollOffsetValue":null,"scrollOffsetUnit":null,"delay":null,"direction":null,"effectIn":null},"createdOn":1690814041530},"e-61":{"id":"e-61","name":"","animationType":"preset","eventTypeId":"SCROLL_INTO_VIEW","action":{"id":"","actionTypeId":"GENERAL_START_ACTION","config":{"delay":0,"easing":"","duration":0,"actionListId":"a-65","affectedElements":{},"playInReverse":false,"autoStopEventId":"e-62"}},"mediaQueries":["main","medium","small","tiny"],"target":{"id":"64c7c6599a6df8af863da028|fa86782a-de80-5240-a3dc-50fd31c8c151","appliesTo":"ELEMENT","styleBlockIds":[]},"targets":[{"id":"64c7c6599a6df8af863da028|fa86782a-de80-5240-a3dc-50fd31c8c151","appliesTo":"ELEMENT","styleBlockIds":[]}],"config":{"loop":true,"playInReverse":false,"scrollOffsetValue":0,"scrollOffsetUnit":"%","delay":null,"direction":null,"effectIn":null},"createdOn":1690814041530},"e-63":{"id":"e-63","name":"","animationType":"preset","eventTypeId":"PAGE_START","action":{"id":"","actionTypeId":"GENERAL_START_ACTION","config":{"delay":0,"easing":"","duration":0,"actionListId":"a-2","affectedElements":{},"playInReverse":false,"autoStopEventId":"e-64"}},"mediaQueries":["main","medium","small","tiny"],"target":{"id":"64c941624f1f7b05d032d1f9","appliesTo":"PAGE","styleBlockIds":[]},"targets":[{"id":"64c941624f1f7b05d032d1f9","appliesTo":"PAGE","styleBlockIds":[]}],"config":{"loop":false,"playInReverse":false,"scrollOffsetValue":null,"scrollOffsetUnit":null,"delay":null,"direction":null,"effectIn":null},"createdOn":1690911075019},"e-65":{"id":"e-65","name":"","animationType":"preset","eventTypeId":"PAGE_START","action":{"id":"","actionTypeId":"GENERAL_START_ACTION","config":{"delay":0,"easing":"","duration":0,"actionListId":"a-3","affectedElements":{},"playInReverse":false,"autoStopEventId":"e-66"}},"mediaQueries":["main","medium","small","tiny"],"target":{"id":"64c941624f1f7b05d032d1f9","appliesTo":"PAGE","styleBlockIds":[]},"targets":[{"id":"64c941624f1f7b05d032d1f9","appliesTo":"PAGE","styleBlockIds":[]}],"config":{"loop":false,"playInReverse":false,"scrollOffsetValue":null,"scrollOffsetUnit":null,"delay":null,"direction":null,"effectIn":null},"createdOn":1690911075019},"e-67":{"id":"e-67","name":"","animationType":"preset","eventTypeId":"SCROLLING_IN_VIEW","action":{"id":"","actionTypeId":"GENERAL_CONTINUOUS_ACTION","config":{"actionListId":"a-4","affectedElements":{},"duration":0}},"mediaQueries":["main","medium","small","tiny"],"target":{"id":"64c941624f1f7b05d032d1f9|8e8c10bb-320c-2bbf-80ec-92cfacec8eaa","appliesTo":"ELEMENT","styleBlockIds":[]},"targets":[{"id":"64c941624f1f7b05d032d1f9|8e8c10bb-320c-2bbf-80ec-92cfacec8eaa","appliesTo":"ELEMENT","styleBlockIds":[]}],"config":[{"continuousParameterGroupId":"a-4-p","smoothing":84,"startsEntering":false,"addStartOffset":false,"addOffsetValue":50,"startsExiting":false,"addEndOffset":false,"endOffsetValue":50}],"createdOn":1690911075019},"e-68":{"id":"e-68","name":"","animationType":"preset","eventTypeId":"SCROLLING_IN_VIEW","action":{"id":"","actionTypeId":"GENERAL_CONTINUOUS_ACTION","config":{"actionListId":"a-25","affectedElements":{},"duration":0}},"mediaQueries":["main","medium","small","tiny"],"target":{"id":"64c941624f1f7b05d032d1f9|74320b95-20be-d5c9-4dd4-ccde3dc609ed","appliesTo":"ELEMENT","styleBlockIds":[]},"targets":[{"id":"64c941624f1f7b05d032d1f9|74320b95-20be-d5c9-4dd4-ccde3dc609ed","appliesTo":"ELEMENT","styleBlockIds":[]}],"config":[{"continuousParameterGroupId":"a-25-p","smoothing":85,"startsEntering":true,"addStartOffset":false,"addOffsetValue":50,"startsExiting":false,"addEndOffset":false,"endOffsetValue":50}],"createdOn":1690911075019},"e-69":{"id":"e-69","name":"","animationType":"preset","eventTypeId":"SCROLL_INTO_VIEW","action":{"id":"","actionTypeId":"GENERAL_START_ACTION","config":{"delay":0,"easing":"","duration":0,"actionListId":"a-26","affectedElements":{},"playInReverse":false,"autoStopEventId":"e-80"}},"mediaQueries":["small","tiny"],"target":{"id":"64c941624f1f7b05d032d1f9|8e8c10bb-320c-2bbf-80ec-92cfacec8eaa","appliesTo":"ELEMENT","styleBlockIds":[]},"targets":[{"id":"64c941624f1f7b05d032d1f9|8e8c10bb-320c-2bbf-80ec-92cfacec8eaa","appliesTo":"ELEMENT","styleBlockIds":[]}],"config":{"loop":false,"playInReverse":false,"scrollOffsetValue":0,"scrollOffsetUnit":"%","delay":null,"direction":null,"effectIn":null},"createdOn":1690911075019},"e-70":{"id":"e-70","name":"","animationType":"preset","eventTypeId":"SCROLL_OUT_OF_VIEW","action":{"id":"","actionTypeId":"GENERAL_START_ACTION","config":{"delay":0,"easing":"","duration":0,"actionListId":"a-27","affectedElements":{},"playInReverse":false,"autoStopEventId":"e-79"}},"mediaQueries":["small","tiny"],"target":{"id":"64c941624f1f7b05d032d1f9|8e8c10bb-320c-2bbf-80ec-92cfacec8eaa","appliesTo":"ELEMENT","styleBlockIds":[]},"targets":[{"id":"64c941624f1f7b05d032d1f9|8e8c10bb-320c-2bbf-80ec-92cfacec8eaa","appliesTo":"ELEMENT","styleBlockIds":[]}],"config":{"loop":false,"playInReverse":false,"scrollOffsetValue":0,"scrollOffsetUnit":"%","delay":null,"direction":null,"effectIn":null},"createdOn":1690911075019},"e-71":{"id":"e-71","name":"","animationType":"preset","eventTypeId":"MOUSE_OVER","action":{"id":"","actionTypeId":"GENERAL_START_ACTION","config":{"delay":0,"easing":"","duration":0,"actionListId":"a-54","affectedElements":{},"playInReverse":false,"autoStopEventId":"e-72"}},"mediaQueries":["main","medium","small","tiny"],"target":{"id":"64c941624f1f7b05d032d1f9|5e58e86a-8378-2c81-4976-bf99edb97b47","appliesTo":"ELEMENT","styleBlockIds":[]},"targets":[{"id":"64c941624f1f7b05d032d1f9|5e58e86a-8378-2c81-4976-bf99edb97b47","appliesTo":"ELEMENT","styleBlockIds":[]}],"config":{"loop":false,"playInReverse":false,"scrollOffsetValue":null,"scrollOffsetUnit":null,"delay":null,"direction":null,"effectIn":null},"createdOn":1690911075019},"e-72":{"id":"e-72","name":"","animationType":"preset","eventTypeId":"MOUSE_OUT","action":{"id":"","actionTypeId":"GENERAL_START_ACTION","config":{"delay":0,"easing":"","duration":0,"actionListId":"a-57","affectedElements":{},"playInReverse":false,"autoStopEventId":"e-71"}},"mediaQueries":["main","medium","small","tiny"],"target":{"id":"64c941624f1f7b05d032d1f9|5e58e86a-8378-2c81-4976-bf99edb97b47","appliesTo":"ELEMENT","styleBlockIds":[]},"targets":[{"id":"64c941624f1f7b05d032d1f9|5e58e86a-8378-2c81-4976-bf99edb97b47","appliesTo":"ELEMENT","styleBlockIds":[]}],"config":{"loop":false,"playInReverse":false,"scrollOffsetValue":null,"scrollOffsetUnit":null,"delay":null,"direction":null,"effectIn":null},"createdOn":1690911075019},"e-73":{"id":"e-73","name":"","animationType":"preset","eventTypeId":"MOUSE_OVER","action":{"id":"","actionTypeId":"GENERAL_START_ACTION","config":{"delay":0,"easing":"","duration":0,"actionListId":"a-54","affectedElements":{},"playInReverse":false,"autoStopEventId":"e-80"}},"mediaQueries":["main","medium","small","tiny"],"target":{"id":"64c941624f1f7b05d032d1f9|5e58e86a-8378-2c81-4976-bf99edb97b55","appliesTo":"ELEMENT","styleBlockIds":[]},"targets":[{"id":"64c941624f1f7b05d032d1f9|5e58e86a-8378-2c81-4976-bf99edb97b55","appliesTo":"ELEMENT","styleBlockIds":[]}],"config":{"loop":false,"playInReverse":false,"scrollOffsetValue":null,"scrollOffsetUnit":null,"delay":null,"direction":null,"effectIn":null},"createdOn":1690911075019},"e-74":{"id":"e-74","name":"","animationType":"preset","eventTypeId":"MOUSE_OUT","action":{"id":"","actionTypeId":"GENERAL_START_ACTION","config":{"delay":0,"easing":"","duration":0,"actionListId":"a-57","affectedElements":{},"playInReverse":false,"autoStopEventId":"e-79"}},"mediaQueries":["main","medium","small","tiny"],"target":{"id":"64c941624f1f7b05d032d1f9|5e58e86a-8378-2c81-4976-bf99edb97b55","appliesTo":"ELEMENT","styleBlockIds":[]},"targets":[{"id":"64c941624f1f7b05d032d1f9|5e58e86a-8378-2c81-4976-bf99edb97b55","appliesTo":"ELEMENT","styleBlockIds":[]}],"config":{"loop":false,"playInReverse":false,"scrollOffsetValue":null,"scrollOffsetUnit":null,"delay":null,"direction":null,"effectIn":null},"createdOn":1690911075019},"e-75":{"id":"e-75","name":"","animationType":"preset","eventTypeId":"MOUSE_OVER","action":{"id":"","actionTypeId":"GENERAL_START_ACTION","config":{"delay":0,"easing":"","duration":0,"actionListId":"a-54","affectedElements":{},"playInReverse":false,"autoStopEventId":"e-76"}},"mediaQueries":["main","medium","small","tiny"],"target":{"id":"64c941624f1f7b05d032d1f9|5e58e86a-8378-2c81-4976-bf99edb97b63","appliesTo":"ELEMENT","styleBlockIds":[]},"targets":[{"id":"64c941624f1f7b05d032d1f9|5e58e86a-8378-2c81-4976-bf99edb97b63","appliesTo":"ELEMENT","styleBlockIds":[]}],"config":{"loop":false,"playInReverse":false,"scrollOffsetValue":null,"scrollOffsetUnit":null,"delay":null,"direction":null,"effectIn":null},"createdOn":1690911075019},"e-76":{"id":"e-76","name":"","animationType":"preset","eventTypeId":"MOUSE_OUT","action":{"id":"","actionTypeId":"GENERAL_START_ACTION","config":{"delay":0,"easing":"","duration":0,"actionListId":"a-57","affectedElements":{},"playInReverse":false,"autoStopEventId":"e-75"}},"mediaQueries":["main","medium","small","tiny"],"target":{"id":"64c941624f1f7b05d032d1f9|5e58e86a-8378-2c81-4976-bf99edb97b63","appliesTo":"ELEMENT","styleBlockIds":[]},"targets":[{"id":"64c941624f1f7b05d032d1f9|5e58e86a-8378-2c81-4976-bf99edb97b63","appliesTo":"ELEMENT","styleBlockIds":[]}],"config":{"loop":false,"playInReverse":false,"scrollOffsetValue":null,"scrollOffsetUnit":null,"delay":null,"direction":null,"effectIn":null},"createdOn":1690911075019},"e-77":{"id":"e-77","name":"","animationType":"preset","eventTypeId":"SCROLL_INTO_VIEW","action":{"id":"","actionTypeId":"GENERAL_START_ACTION","config":{"delay":0,"easing":"","duration":0,"actionListId":"a-67","affectedElements":{},"playInReverse":false,"autoStopEventId":"e-78"}},"mediaQueries":["main","medium","small","tiny"],"target":{"id":"64c941624f1f7b05d032d1f9|fa86782a-de80-5240-a3dc-50fd31c8c151","appliesTo":"ELEMENT","styleBlockIds":[]},"targets":[{"id":"64c941624f1f7b05d032d1f9|fa86782a-de80-5240-a3dc-50fd31c8c151","appliesTo":"ELEMENT","styleBlockIds":[]}],"config":{"loop":true,"playInReverse":false,"scrollOffsetValue":0,"scrollOffsetUnit":"%","delay":null,"direction":null,"effectIn":null},"createdOn":1690911075019},"e-79":{"id":"e-79","name":"","animationType":"preset","eventTypeId":"MOUSE_OVER","action":{"id":"","actionTypeId":"GENERAL_START_ACTION","config":{"delay":0,"easing":"","duration":0,"actionListId":"a-76","affectedElements":{},"playInReverse":false,"autoStopEventId":"e-80"}},"mediaQueries":["main","medium","small","tiny"],"target":{"id":"64b989a0f55ae22f8e1ea63f|4d087a95-7f8e-224c-61d2-3c38c822ac82","appliesTo":"ELEMENT","styleBlockIds":[]},"targets":[{"id":"64b989a0f55ae22f8e1ea63f|4d087a95-7f8e-224c-61d2-3c38c822ac82","appliesTo":"ELEMENT","styleBlockIds":[]}],"config":{"loop":false,"playInReverse":false,"scrollOffsetValue":null,"scrollOffsetUnit":null,"delay":null,"direction":null,"effectIn":null},"createdOn":1683100092474},"e-80":{"id":"e-80","name":"","animationType":"preset","eventTypeId":"MOUSE_OUT","action":{"id":"","actionTypeId":"GENERAL_START_ACTION","config":{"delay":0,"easing":"","duration":0,"actionListId":"a-77","affectedElements":{},"playInReverse":false,"autoStopEventId":"e-79"}},"mediaQueries":["main","medium","small","tiny"],"target":{"id":"64b989a0f55ae22f8e1ea63f|4d087a95-7f8e-224c-61d2-3c38c822ac82","appliesTo":"ELEMENT","styleBlockIds":[]},"targets":[{"id":"64b989a0f55ae22f8e1ea63f|4d087a95-7f8e-224c-61d2-3c38c822ac82","appliesTo":"ELEMENT","styleBlockIds":[]}],"config":{"loop":false,"playInReverse":false,"scrollOffsetValue":null,"scrollOffsetUnit":null,"delay":null,"direction":null,"effectIn":null},"createdOn":1683100092474},"e-81":{"id":"e-81","name":"","animationType":"preset","eventTypeId":"MOUSE_OVER","action":{"id":"","actionTypeId":"GENERAL_START_ACTION","config":{"delay":0,"easing":"","duration":0,"actionListId":"a-76","affectedElements":{},"playInReverse":false,"autoStopEventId":"e-82"}},"mediaQueries":["main","medium","small","tiny"],"target":{"id":"64c941624f1f7b05d032d1f9|56d5d52d-2f42-5c44-0bdb-aab26149f585","appliesTo":"ELEMENT","styleBlockIds":[]},"targets":[{"id":"64c941624f1f7b05d032d1f9|56d5d52d-2f42-5c44-0bdb-aab26149f585","appliesTo":"ELEMENT","styleBlockIds":[]}],"config":{"loop":false,"playInReverse":false,"scrollOffsetValue":null,"scrollOffsetUnit":null,"delay":null,"direction":null,"effectIn":null},"createdOn":1690992355061},"e-82":{"id":"e-82","name":"","animationType":"preset","eventTypeId":"MOUSE_OUT","action":{"id":"","actionTypeId":"GENERAL_START_ACTION","config":{"delay":0,"easing":"","duration":0,"actionListId":"a-77","affectedElements":{},"playInReverse":false,"autoStopEventId":"e-81"}},"mediaQueries":["main","medium","small","tiny"],"target":{"id":"64c941624f1f7b05d032d1f9|56d5d52d-2f42-5c44-0bdb-aab26149f585","appliesTo":"ELEMENT","styleBlockIds":[]},"targets":[{"id":"64c941624f1f7b05d032d1f9|56d5d52d-2f42-5c44-0bdb-aab26149f585","appliesTo":"ELEMENT","styleBlockIds":[]}],"config":{"loop":false,"playInReverse":false,"scrollOffsetValue":null,"scrollOffsetUnit":null,"delay":null,"direction":null,"effectIn":null},"createdOn":1690992355061}},"actionLists":{"a-2":{"id":"a-2","title":"Stage Page load 1","actionItemGroups":[{"actionItems":[{"id":"a-2-n-16","actionTypeId":"STYLE_SIZE","config":{"delay":0,"easing":"","duration":500,"target":{"selector":".sun-page-load","selectorGuids":["d1df031a-ece9-eecd-aafe-d8005f63cd41"]},"widthValue":100,"heightValue":100,"widthUnit":"%","heightUnit":"%","locked":false}},{"id":"a-2-n-25","actionTypeId":"STYLE_OPACITY","config":{"delay":0,"easing":"","duration":500,"target":{"selector":".sun-page-load","selectorGuids":["d1df031a-ece9-eecd-aafe-d8005f63cd41"]},"value":0,"unit":""}},{"id":"a-2-n-9","actionTypeId":"TRANSFORM_MOVE","config":{"delay":0,"easing":"","duration":500,"target":{"selector":".sun-page-load","selectorGuids":["d1df031a-ece9-eecd-aafe-d8005f63cd41"]},"xValue":2,"yValue":10,"xUnit":"em","yUnit":"em","zUnit":"PX"}},{"id":"a-2-n-10","actionTypeId":"STYLE_SIZE","config":{"delay":0,"easing":"","duration":500,"target":{"selector":".savesion-wrapper","selectorGuids":["1edc069d-fc8d-fd1c-0680-04331e3c82ba"]},"widthValue":100,"heightValue":100,"widthUnit":"%","heightUnit":"vh","locked":false}},{"id":"a-2-n-11","actionTypeId":"TRANSFORM_MOVE","config":{"delay":0,"easing":"","duration":500,"target":{"selector":".savesion-wrapper","selectorGuids":["1edc069d-fc8d-fd1c-0680-04331e3c82ba"]},"yValue":-5,"xUnit":"PX","yUnit":"em","zUnit":"PX"}},{"id":"a-2-n-7","actionTypeId":"STYLE_SIZE","config":{"delay":0,"easing":"","duration":500,"target":{"selector":".stage-sun-wrapper","selectorGuids":["7d7a4295-7f7a-147a-cdc9-e60810069c11"]},"widthValue":100,"heightValue":100,"widthUnit":"vw","heightUnit":"vh","locked":false}},{"id":"a-2-n-14","actionTypeId":"TRANSFORM_SCALE","config":{"delay":0,"easing":"","duration":500,"target":{"selector":".savesion-type-wrapper","selectorGuids":["cdeb16eb-eb2e-c737-f862-cad0def45c01"]},"xValue":2.75,"yValue":2.75,"locked":true}},{"id":"a-2-n-19","actionTypeId":"TRANSFORM_MOVE","config":{"delay":0,"easing":"","duration":500,"target":{"selector":".save-sion-1","selectorGuids":["2d17e741-644a-de61-206e-aec32929015f"]},"yValue":110,"xUnit":"PX","yUnit":"%","zUnit":"PX"}},{"id":"a-2-n-21","actionTypeId":"TRANSFORM_MOVE","config":{"delay":0,"easing":"","duration":500,"target":{"selector":".save-sion-2","selectorGuids":["3b7e65e2-62c3-ace2-bd5c-401d28fa160e"]},"yValue":110,"xUnit":"PX","yUnit":"%","zUnit":"PX"}},{"id":"a-2-n-22","actionTypeId":"TRANSFORM_MOVE","config":{"delay":0,"easing":"","duration":500,"target":{"selector":".save-sion-3","selectorGuids":["b74e1143-fcae-6573-d879-ad8d8984ae91"]},"yValue":110,"xUnit":"PX","yUnit":"%","zUnit":"PX"}},{"id":"a-2-n-27","actionTypeId":"GENERAL_DISPLAY","config":{"delay":0,"easing":"","duration":0,"target":{"selector":".sun-page-load-overlay","selectorGuids":["f07bc460-5d79-910b-0921-3db316e352b0"]},"value":"block"}},{"id":"a-2-n-29","actionTypeId":"STYLE_OPACITY","config":{"delay":0,"easing":"","duration":500,"target":{"selector":".sun-page-load-overlay","selectorGuids":["f07bc460-5d79-910b-0921-3db316e352b0"]},"value":1,"unit":""}}]},{"actionItems":[{"id":"a-2-n-26","actionTypeId":"STYLE_OPACITY","config":{"delay":200,"easing":"ease","duration":800,"target":{"selector":".sun-page-load","selectorGuids":["d1df031a-ece9-eecd-aafe-d8005f63cd41"]},"value":1,"unit":""}},{"id":"a-2-n-20","actionTypeId":"TRANSFORM_MOVE","config":{"delay":500,"easing":"outQuart","duration":1000,"target":{"selector":".save-sion-1","selectorGuids":["2d17e741-644a-de61-206e-aec32929015f"]},"yValue":0,"xUnit":"PX","yUnit":"%","zUnit":"PX"}},{"id":"a-2-n-23","actionTypeId":"TRANSFORM_MOVE","config":{"delay":600,"easing":"outQuart","duration":1000,"target":{"selector":".save-sion-2","selectorGuids":["3b7e65e2-62c3-ace2-bd5c-401d28fa160e"]},"yValue":0,"xUnit":"PX","yUnit":"%","zUnit":"PX"}},{"id":"a-2-n-24","actionTypeId":"TRANSFORM_MOVE","config":{"delay":700,"easing":"outQuart","duration":1000,"target":{"selector":".save-sion-3","selectorGuids":["b74e1143-fcae-6573-d879-ad8d8984ae91"]},"yValue":0,"xUnit":"PX","yUnit":"%","zUnit":"PX"}},{"id":"a-2-n-13","actionTypeId":"TRANSFORM_MOVE","config":{"delay":1800,"easing":"inOutQuart","duration":1800,"target":{"selector":".savesion-wrapper","selectorGuids":["1edc069d-fc8d-fd1c-0680-04331e3c82ba"]},"yValue":0,"xUnit":"PX","yUnit":"em","zUnit":"PX"}},{"id":"a-2-n-15","actionTypeId":"TRANSFORM_SCALE","config":{"delay":1800,"easing":"inOutQuart","duration":1800,"target":{"selector":".savesion-type-wrapper","selectorGuids":["cdeb16eb-eb2e-c737-f862-cad0def45c01"]},"xValue":1,"yValue":1,"locked":true}},{"id":"a-2-n-12","actionTypeId":"STYLE_SIZE","config":{"delay":1800,"easing":"inOutQuart","duration":1800,"target":{"selector":".savesion-wrapper","selectorGuids":["1edc069d-fc8d-fd1c-0680-04331e3c82ba"]},"widthUnit":"AUTO","heightUnit":"AUTO","locked":false}},{"id":"a-2-n-8","actionTypeId":"STYLE_SIZE","config":{"delay":1800,"easing":"inOutQuart","duration":2000,"target":{"selector":".stage-sun-wrapper","selectorGuids":["7d7a4295-7f7a-147a-cdc9-e60810069c11"]},"widthUnit":"AUTO","heightUnit":"AUTO","locked":false}},{"id":"a-2-n-18","actionTypeId":"TRANSFORM_MOVE","config":{"delay":1800,"easing":"inOutQuart","duration":2000,"target":{"selector":".sun-page-load","selectorGuids":["d1df031a-ece9-eecd-aafe-d8005f63cd41"]},"xValue":0,"yValue":0,"xUnit":"em","yUnit":"em","zUnit":"PX"}},{"id":"a-2-n-17","actionTypeId":"STYLE_SIZE","config":{"delay":1800,"easing":"inOutQuart","duration":2000,"target":{"selector":".sun-page-load","selectorGuids":["d1df031a-ece9-eecd-aafe-d8005f63cd41"]},"widthUnit":"AUTO","heightUnit":"AUTO","locked":false}},{"id":"a-2-n-30","actionTypeId":"STYLE_OPACITY","config":{"delay":2300,"easing":"ease","duration":3000,"target":{"selector":".sun-page-load-overlay","selectorGuids":["f07bc460-5d79-910b-0921-3db316e352b0"]},"value":0,"unit":""}}]},{"actionItems":[{"id":"a-2-n-28","actionTypeId":"GENERAL_DISPLAY","config":{"delay":1500,"easing":"","duration":0,"target":{"selector":".sun-page-load-overlay","selectorGuids":["f07bc460-5d79-910b-0921-3db316e352b0"]},"value":"none"}}]}],"useFirstGroupAsInitialState":true,"createdOn":1672434926191},"a-3":{"id":"a-3","title":"Stage Page load 2","actionItemGroups":[{"actionItems":[{"id":"a-3-n-10","actionTypeId":"STYLE_OPACITY","config":{"delay":0,"easing":"","duration":500,"target":{"selector":".stage-copy-inner","selectorGuids":["8d518431-8cd4-084c-0213-58035377901f"]},"value":0,"unit":""}},{"id":"a-3-n-16","actionTypeId":"STYLE_OPACITY","config":{"delay":0,"easing":"","duration":500,"target":{"selector":".stage-car-floor","selectorGuids":["cf3570f1-5774-1b06-a55c-c70c52753e43"]},"value":0,"unit":""}},{"id":"a-3-n-18","actionTypeId":"TRANSFORM_SCALE","config":{"delay":0,"easing":"","duration":500,"target":{"selector":".stage-car-shadow-wrapper","selectorGuids":["1f1dacfe-f227-1731-65c3-448cba86c89c"]},"xValue":0.8,"yValue":0.8,"locked":true}},{"id":"a-3-n-20","actionTypeId":"STYLE_FILTER","config":{"delay":0,"easing":"","duration":500,"target":{"selector":".stage-car-shadow-wrapper","selectorGuids":["1f1dacfe-f227-1731-65c3-448cba86c89c"]},"filters":[{"type":"blur","filterId":"6d7d","value":0.4,"unit":"em"}]}},{"id":"a-3-n-6","actionTypeId":"TRANSFORM_SCALE","config":{"delay":0,"easing":"","duration":500,"target":{"selector":".stage-car-wrapper","selectorGuids":["648e2b6a-2df6-208c-74a3-798b739b2463"]},"xValue":1.4,"yValue":1.4,"locked":true}},{"id":"a-3-n-12","actionTypeId":"TRANSFORM_ROTATE","config":{"delay":0,"easing":"","duration":500,"target":{"selector":".stage-objects-wrapper","selectorGuids":["e54b9a32-ce09-1b7d-8cd7-1dc70ea0a7c8"]},"yValue":13,"xUnit":"DEG","yUnit":"deg","zUnit":"DEG"}},{"id":"a-3-n-3","actionTypeId":"TRANSFORM_SCALE","config":{"delay":0,"easing":"","duration":500,"target":{"selector":".stage-shapes-wrapper","selectorGuids":["69e6b8c9-cd54-1fd4-0e83-9a4e91971696"]},"xValue":1.5,"yValue":1.5,"locked":true}},{"id":"a-3-n-22","actionTypeId":"TRANSFORM_MOVE","config":{"delay":0,"easing":"","duration":500,"target":{"selector":".stage-shapes-wrapper","selectorGuids":["69e6b8c9-cd54-1fd4-0e83-9a4e91971696"]},"xValue":-10,"xUnit":"%","yUnit":"PX","zUnit":"PX"}},{"id":"a-3-n-24","actionTypeId":"TRANSFORM_ROTATE","config":{"delay":0,"easing":"","duration":500,"target":{"selector":".stage-shape-right","selectorGuids":["0db5c932-ab7b-5017-304b-33f226380891"]},"yValue":0,"xUnit":"DEG","yUnit":"deg","zUnit":"DEG"}},{"id":"a-3-n-26","actionTypeId":"STYLE_OPACITY","config":{"delay":0,"easing":"","duration":500,"target":{"selector":".why-this-site-wrapper","selectorGuids":["e4b625d6-1bd4-c57f-30db-87f8906177ad"]},"value":0,"unit":""}}]},{"actionItems":[{"id":"a-3-n-17","actionTypeId":"STYLE_OPACITY","config":{"delay":2300,"easing":"ease","duration":4000,"target":{"selector":".stage-car-floor","selectorGuids":["cf3570f1-5774-1b06-a55c-c70c52753e43"]},"value":1,"unit":""}},{"id":"a-3-n-19","actionTypeId":"TRANSFORM_SCALE","config":{"delay":2300,"easing":"outQuart","duration":2500,"target":{"selector":".stage-car-shadow-wrapper","selectorGuids":["1f1dacfe-f227-1731-65c3-448cba86c89c"]},"xValue":1,"yValue":1,"locked":true}},{"id":"a-3-n-21","actionTypeId":"STYLE_FILTER","config":{"delay":2300,"easing":"outQuart","duration":2500,"target":{"selector":".stage-car-shadow-wrapper","selectorGuids":["1f1dacfe-f227-1731-65c3-448cba86c89c"]},"filters":[{"type":"blur","filterId":"6d7d","value":0,"unit":"em"}]}},{"id":"a-3-n-7","actionTypeId":"TRANSFORM_SCALE","config":{"delay":2300,"easing":"outQuart","duration":2500,"target":{"selector":".stage-car-wrapper","selectorGuids":["648e2b6a-2df6-208c-74a3-798b739b2463"]},"xValue":1,"yValue":1,"locked":true}},{"id":"a-3-n-4","actionTypeId":"TRANSFORM_SCALE","config":{"delay":2300,"easing":"outQuart","duration":4000,"target":{"selector":".stage-shapes-wrapper","selectorGuids":["69e6b8c9-cd54-1fd4-0e83-9a4e91971696"]},"xValue":1,"yValue":1,"locked":true}},{"id":"a-3-n-13","actionTypeId":"TRANSFORM_ROTATE","config":{"delay":2300,"easing":"outQuart","duration":4000,"target":{"selector":".stage-objects-wrapper","selectorGuids":["e54b9a32-ce09-1b7d-8cd7-1dc70ea0a7c8"]},"yValue":0,"xUnit":"DEG","yUnit":"deg","zUnit":"DEG"}},{"id":"a-3-n-23","actionTypeId":"TRANSFORM_MOVE","config":{"delay":2300,"easing":"outQuart","duration":4000,"target":{"selector":".stage-shapes-wrapper","selectorGuids":["69e6b8c9-cd54-1fd4-0e83-9a4e91971696"]},"xValue":0,"xUnit":"%","yUnit":"PX","zUnit":"PX"}},{"id":"a-3-n-25","actionTypeId":"TRANSFORM_ROTATE","config":{"delay":2300,"easing":"outQuart","duration":4000,"target":{"selector":".stage-shape-right","selectorGuids":["0db5c932-ab7b-5017-304b-33f226380891"]},"yValue":-11,"xUnit":"DEG","yUnit":"deg","zUnit":"DEG"}},{"id":"a-3-n-11","actionTypeId":"STYLE_OPACITY","config":{"delay":3000,"easing":"ease","duration":2000,"target":{"selector":".stage-copy-inner","selectorGuids":["8d518431-8cd4-084c-0213-58035377901f"]},"value":1,"unit":""}},{"id":"a-3-n-27","actionTypeId":"STYLE_OPACITY","config":{"delay":3000,"easing":"ease","duration":2000,"target":{"selector":".why-this-site-wrapper","selectorGuids":["e4b625d6-1bd4-c57f-30db-87f8906177ad"]},"value":1,"unit":""}}]}],"useFirstGroupAsInitialState":true,"createdOn":1672663124830},"a-4":{"id":"a-4","title":"Stage Scroll Animation","continuousParameterGroups":[{"id":"a-4-p","type":"SCROLL_PROGRESS","parameterLabel":"Scroll","continuousActionGroups":[{"keyframe":0,"actionItems":[{"id":"a-4-n-11","actionTypeId":"TRANSFORM_SCALE","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".sun-scroll-animation","selectorGuids":["4692d3e6-766a-f518-17f1-a75fd77866d1"]},"xValue":1,"yValue":1,"locked":true}},{"id":"a-4-n-13","actionTypeId":"STYLE_OPACITY","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".sun-page-load-wrapper","selectorGuids":["44c9bc4a-5f74-3e47-17ee-0258cd10b7bf"]},"value":1,"unit":""}},{"id":"a-4-n-16","actionTypeId":"STYLE_FILTER","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".sun-scroll-animation","selectorGuids":["4692d3e6-766a-f518-17f1-a75fd77866d1"]},"filters":[{"type":"blur","filterId":"b0b5","value":0,"unit":"em"}]}},{"id":"a-4-n-31","actionTypeId":"STYLE_OPACITY","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".sun-scroll-animation","selectorGuids":["4692d3e6-766a-f518-17f1-a75fd77866d1"]},"value":0,"unit":""}},{"id":"a-4-n-37","actionTypeId":"TRANSFORM_MOVE","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".stage-car-shine","selectorGuids":["3b7b0047-25c4-add3-53c4-bb34c557b012"]},"xValue":-22,"zValue":4,"xUnit":"%","yUnit":"PX","zUnit":"px"}},{"id":"a-4-n-39","actionTypeId":"STYLE_OPACITY","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".stage-car-shine","selectorGuids":["3b7b0047-25c4-add3-53c4-bb34c557b012"]},"value":0.1,"unit":""}},{"id":"a-4-n-42","actionTypeId":"TRANSFORM_ROTATE","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".stage-object-inner","selectorGuids":["279fd0cc-680a-f7ac-5128-85dd8eb80e40"]},"yValue":0,"xUnit":"DEG","yUnit":"deg","zUnit":"DEG"}},{"id":"a-4-n-44","actionTypeId":"TRANSFORM_MOVE","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".stage-shape-right","selectorGuids":["0db5c932-ab7b-5017-304b-33f226380891"]},"xValue":0,"xUnit":"%","yUnit":"PX","zUnit":"PX"}},{"id":"a-4-n-21","actionTypeId":"TRANSFORM_SCALE","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".stage-car-shadow","selectorGuids":["ee710cf1-f90c-b38c-b9b6-3630729436e0"]},"xValue":1,"yValue":1,"locked":true}},{"id":"a-4-n-23","actionTypeId":"STYLE_FILTER","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".stage-car-shadow","selectorGuids":["ee710cf1-f90c-b38c-b9b6-3630729436e0"]},"filters":[{"type":"blur","filterId":"3ccc","value":0,"unit":"em"}]}},{"id":"a-4-n-35","actionTypeId":"STYLE_OPACITY","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".stage-car-shadow","selectorGuids":["ee710cf1-f90c-b38c-b9b6-3630729436e0"]},"value":1,"unit":""}},{"id":"a-4-n-7","actionTypeId":"TRANSFORM_MOVE","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".stage-car-wrapper","selectorGuids":["648e2b6a-2df6-208c-74a3-798b739b2463"]},"xValue":0,"yValue":0,"zValue":2,"xUnit":"%","yUnit":"%","zUnit":"px"}},{"id":"a-4-n-9","actionTypeId":"TRANSFORM_MOVE","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".sun-scroll-animation","selectorGuids":["4692d3e6-766a-f518-17f1-a75fd77866d1"]},"xValue":0,"yValue":0,"xUnit":"vw","yUnit":"vh","zUnit":"PX"}},{"id":"a-4-n-5","actionTypeId":"TRANSFORM_MOVE","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".stage-copy-wrapper","selectorGuids":["66dc1515-3af0-7f48-a18d-80592c3417d4"]},"yValue":0,"zValue":null,"xUnit":"PX","yUnit":"%","zUnit":"px"}}]},{"keyframe":5,"actionItems":[{"id":"a-4-n-15","actionTypeId":"STYLE_OPACITY","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".sun-page-load-wrapper","selectorGuids":["44c9bc4a-5f74-3e47-17ee-0258cd10b7bf"]},"value":1,"unit":""}},{"id":"a-4-n-32","actionTypeId":"STYLE_OPACITY","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".sun-scroll-animation","selectorGuids":["4692d3e6-766a-f518-17f1-a75fd77866d1"]},"value":1,"unit":""}}]},{"keyframe":10,"actionItems":[{"id":"a-4-n-14","actionTypeId":"STYLE_OPACITY","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".sun-page-load-wrapper","selectorGuids":["44c9bc4a-5f74-3e47-17ee-0258cd10b7bf"]},"value":0,"unit":""}}]},{"keyframe":15,"actionItems":[{"id":"a-4-n-41","actionTypeId":"TRANSFORM_MOVE","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".stage-car-shine","selectorGuids":["3b7b0047-25c4-add3-53c4-bb34c557b012"]},"xValue":-22,"zValue":4,"xUnit":"%","yUnit":"PX","zUnit":"px"}}]},{"keyframe":40,"actionItems":[{"id":"a-4-n-40","actionTypeId":"STYLE_OPACITY","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".stage-car-shine","selectorGuids":["3b7b0047-25c4-add3-53c4-bb34c557b012"]},"value":0.75,"unit":""}}]},{"keyframe":50,"actionItems":[{"id":"a-4-n-17","actionTypeId":"STYLE_FILTER","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".sun-scroll-animation","selectorGuids":["4692d3e6-766a-f518-17f1-a75fd77866d1"]},"filters":[{"type":"blur","filterId":"b0b5","value":0,"unit":"em"}]}}]},{"keyframe":70,"actionItems":[{"id":"a-4-n-38","actionTypeId":"TRANSFORM_MOVE","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".stage-car-shine","selectorGuids":["3b7b0047-25c4-add3-53c4-bb34c557b012"]},"xValue":25,"zValue":4,"xUnit":"%","yUnit":"PX","zUnit":"px"}}]},{"keyframe":100,"actionItems":[{"id":"a-4-n-8","actionTypeId":"TRANSFORM_MOVE","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".stage-car-wrapper","selectorGuids":["648e2b6a-2df6-208c-74a3-798b739b2463"]},"xValue":-5,"yValue":0,"zValue":2,"xUnit":"%","yUnit":"%","zUnit":"px"}},{"id":"a-4-n-12","actionTypeId":"TRANSFORM_SCALE","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".sun-scroll-animation","selectorGuids":["4692d3e6-766a-f518-17f1-a75fd77866d1"]},"xValue":2.2,"yValue":2.2,"locked":true}},{"id":"a-4-n-10","actionTypeId":"TRANSFORM_MOVE","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".sun-scroll-animation","selectorGuids":["4692d3e6-766a-f518-17f1-a75fd77866d1"]},"xValue":57,"yValue":37,"xUnit":"vw","yUnit":"vh","zUnit":"PX"}},{"id":"a-4-n-18","actionTypeId":"STYLE_FILTER","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".sun-scroll-animation","selectorGuids":["4692d3e6-766a-f518-17f1-a75fd77866d1"]},"filters":[{"type":"blur","filterId":"b0b5","value":2,"unit":"em"}]}},{"id":"a-4-n-22","actionTypeId":"TRANSFORM_SCALE","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".stage-car-shadow","selectorGuids":["ee710cf1-f90c-b38c-b9b6-3630729436e0"]},"xValue":0.8,"yValue":0.8,"locked":true}},{"id":"a-4-n-24","actionTypeId":"STYLE_FILTER","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".stage-car-shadow","selectorGuids":["ee710cf1-f90c-b38c-b9b6-3630729436e0"]},"filters":[{"type":"blur","filterId":"3ccc","value":0.8,"unit":"em"}]}},{"id":"a-4-n-36","actionTypeId":"STYLE_OPACITY","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".stage-car-shadow","selectorGuids":["ee710cf1-f90c-b38c-b9b6-3630729436e0"]},"value":0.8,"unit":""}},{"id":"a-4-n-43","actionTypeId":"TRANSFORM_ROTATE","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".stage-object-inner","selectorGuids":["279fd0cc-680a-f7ac-5128-85dd8eb80e40"]},"yValue":-10,"xUnit":"DEG","yUnit":"deg","zUnit":"DEG"}},{"id":"a-4-n-45","actionTypeId":"TRANSFORM_MOVE","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".stage-shape-right","selectorGuids":["0db5c932-ab7b-5017-304b-33f226380891"]},"xValue":13,"xUnit":"%","yUnit":"PX","zUnit":"PX"}},{"id":"a-4-n-6","actionTypeId":"TRANSFORM_MOVE","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".stage-copy-wrapper","selectorGuids":["66dc1515-3af0-7f48-a18d-80592c3417d4"]},"yValue":-70,"zValue":null,"xUnit":"PX","yUnit":"%","zUnit":"px"}}]}]}],"createdOn":1672664126023},"a-6":{"id":"a-6","title":"Hero Image Scroll Effect – DESKTOP","continuousParameterGroups":[{"id":"a-6-p","type":"SCROLL_PROGRESS","parameterLabel":"Scroll","continuousActionGroups":[{"keyframe":0,"actionItems":[{"id":"a-6-n","actionTypeId":"TRANSFORM_SCALE","config":{"delay":0,"easing":"","duration":500,"target":{"selector":".has-parallax-effect","selectorGuids":["5b5f0e59-e6e9-58dc-752e-f4f17176a086"]},"xValue":1.25,"yValue":1.25,"locked":true}},{"id":"a-6-n-5","actionTypeId":"STYLE_OPACITY","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".hero-image-inner","selectorGuids":["39d1cdb1-0a9d-b6fa-bf35-54fe20fb20b8"]},"value":0.05,"unit":""}},{"id":"a-6-n-3","actionTypeId":"TRANSFORM_MOVE","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".hero-image-inner","selectorGuids":["39d1cdb1-0a9d-b6fa-bf35-54fe20fb20b8"]},"yValue":-15,"xUnit":"PX","yUnit":"vh","zUnit":"PX"}}]},{"keyframe":40,"actionItems":[{"id":"a-6-n-6","actionTypeId":"STYLE_OPACITY","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".hero-image-inner","selectorGuids":["39d1cdb1-0a9d-b6fa-bf35-54fe20fb20b8"]},"value":1,"unit":""}}]},{"keyframe":100,"actionItems":[{"id":"a-6-n-4","actionTypeId":"TRANSFORM_MOVE","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".hero-image-inner","selectorGuids":["39d1cdb1-0a9d-b6fa-bf35-54fe20fb20b8"]},"yValue":15,"xUnit":"PX","yUnit":"vh","zUnit":"PX"}},{"id":"a-6-n-2","actionTypeId":"TRANSFORM_SCALE","config":{"delay":0,"easing":"","duration":500,"target":{"selector":".has-parallax-effect","selectorGuids":["5b5f0e59-e6e9-58dc-752e-f4f17176a086"]},"xValue":1,"yValue":1,"locked":true}}]}]}],"createdOn":1673861557167},"a-7":{"id":"a-7","title":"Specs Divider Scroll Animation","continuousParameterGroups":[{"id":"a-7-p","type":"SCROLL_PROGRESS","parameterLabel":"Scroll","continuousActionGroups":[{"keyframe":0,"actionItems":[{"id":"a-7-n","actionTypeId":"STYLE_SIZE","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":true,"id":"64b989a0f55ae22f8e1ea63f|5f09188f-6ca9-cea9-ed10-75565be12f4c"},"widthValue":0,"widthUnit":"%","heightUnit":"PX","locked":false}}]},{"keyframe":28,"actionItems":[{"id":"a-7-n-2","actionTypeId":"STYLE_SIZE","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":true,"id":"64b989a0f55ae22f8e1ea63f|5f09188f-6ca9-cea9-ed10-75565be12f4c"},"widthValue":100,"widthUnit":"%","heightUnit":"PX","locked":false}}]}]}],"createdOn":1673954436998},"a-8":{"id":"a-8","title":"Hero Image Scroll Effect – MOBILE","continuousParameterGroups":[{"id":"a-8-p","type":"SCROLL_PROGRESS","parameterLabel":"Scroll","continuousActionGroups":[{"keyframe":0,"actionItems":[{"id":"a-8-n","actionTypeId":"TRANSFORM_SCALE","config":{"delay":0,"easing":"","duration":500,"target":{"selector":".has-parallax-effect","selectorGuids":["5b5f0e59-e6e9-58dc-752e-f4f17176a086"]},"xValue":1.5,"yValue":1.5,"locked":true}},{"id":"a-8-n-2","actionTypeId":"STYLE_OPACITY","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".hero-image-inner","selectorGuids":["39d1cdb1-0a9d-b6fa-bf35-54fe20fb20b8"]},"value":0.05,"unit":""}}]},{"keyframe":40,"actionItems":[{"id":"a-8-n-4","actionTypeId":"STYLE_OPACITY","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".hero-image-inner","selectorGuids":["39d1cdb1-0a9d-b6fa-bf35-54fe20fb20b8"]},"value":1,"unit":""}}]},{"keyframe":100,"actionItems":[{"id":"a-8-n-6","actionTypeId":"TRANSFORM_SCALE","config":{"delay":0,"easing":"","duration":500,"target":{"selector":".has-parallax-effect","selectorGuids":["5b5f0e59-e6e9-58dc-752e-f4f17176a086"]},"xValue":1,"yValue":1,"locked":true}}]}]}],"createdOn":1673861557167},"a-11":{"id":"a-11","title":"Feature Gallery Scroll Animation","continuousParameterGroups":[{"id":"a-11-p","type":"SCROLL_PROGRESS","parameterLabel":"Scroll","continuousActionGroups":[{"keyframe":0,"actionItems":[{"id":"a-11-n-4","actionTypeId":"TRANSFORM_SCALE","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".gallery-item-content-inner","selectorGuids":["1de2e5f9-90c0-8080-06d4-7b00f05a38db"]},"xValue":1.2,"yValue":1.2,"locked":true}},{"id":"a-11-n-5","actionTypeId":"STYLE_OPACITY","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".gallery-item-content-inner","selectorGuids":["1de2e5f9-90c0-8080-06d4-7b00f05a38db"]},"value":0,"unit":""}},{"id":"a-11-n-3","actionTypeId":"TRANSFORM_MOVE","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".gallery-item-content-inner","selectorGuids":["1de2e5f9-90c0-8080-06d4-7b00f05a38db"]},"yValue":0,"xUnit":"PX","yUnit":"vh","zUnit":"PX"}},{"id":"a-11-n","actionTypeId":"TRANSFORM_SCALE","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".gallery-item-media","selectorGuids":["5d1d3369-546f-b24f-f4a7-a04da6c0298c"]},"xValue":1.5,"yValue":1.5,"locked":true}},{"id":"a-11-n-14","actionTypeId":"TRANSFORM_MOVE","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".gallery-item-media","selectorGuids":["5d1d3369-546f-b24f-f4a7-a04da6c0298c"]},"yValue":20,"xUnit":"PX","yUnit":"vh","zUnit":"PX"}},{"id":"a-11-n-6","actionTypeId":"STYLE_OPACITY","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".gallery-item-media","selectorGuids":["5d1d3369-546f-b24f-f4a7-a04da6c0298c"]},"value":0,"unit":""}}]},{"keyframe":10,"actionItems":[{"id":"a-11-n-17","actionTypeId":"STYLE_OPACITY","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".gallery-item-content-inner","selectorGuids":["1de2e5f9-90c0-8080-06d4-7b00f05a38db"]},"value":0,"unit":""}}]},{"keyframe":20,"actionItems":[{"id":"a-11-n-7","actionTypeId":"STYLE_OPACITY","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".gallery-item-media","selectorGuids":["5d1d3369-546f-b24f-f4a7-a04da6c0298c"]},"value":1,"unit":""}}]},{"keyframe":25,"actionItems":[{"id":"a-11-n-12","actionTypeId":"TRANSFORM_SCALE","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".gallery-item-content-inner","selectorGuids":["1de2e5f9-90c0-8080-06d4-7b00f05a38db"]},"xValue":1,"yValue":1,"locked":true}},{"id":"a-11-n-8","actionTypeId":"STYLE_OPACITY","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".gallery-item-content-inner","selectorGuids":["1de2e5f9-90c0-8080-06d4-7b00f05a38db"]},"value":1,"unit":""}}]},{"keyframe":60,"actionItems":[{"id":"a-11-n-13","actionTypeId":"TRANSFORM_SCALE","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".gallery-item-media","selectorGuids":["5d1d3369-546f-b24f-f4a7-a04da6c0298c"]},"xValue":1,"yValue":1,"locked":true}}]},{"keyframe":85,"actionItems":[{"id":"a-11-n-15","actionTypeId":"TRANSFORM_MOVE","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".gallery-item-media","selectorGuids":["5d1d3369-546f-b24f-f4a7-a04da6c0298c"]},"yValue":-25,"xUnit":"PX","yUnit":"vh","zUnit":"PX"}},{"id":"a-11-n-16","actionTypeId":"TRANSFORM_SCALE","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".gallery-item-content-inner","selectorGuids":["1de2e5f9-90c0-8080-06d4-7b00f05a38db"]},"xValue":0.7,"yValue":0.7,"locked":true}}]},{"keyframe":100,"actionItems":[{"id":"a-11-n-11","actionTypeId":"TRANSFORM_MOVE","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".gallery-item-content-inner","selectorGuids":["1de2e5f9-90c0-8080-06d4-7b00f05a38db"]},"yValue":-40,"xUnit":"PX","yUnit":"vh","zUnit":"PX"}}]}]}],"createdOn":1673362020185},"a-23":{"id":"a-23","title":"Popup open","actionItemGroups":[{"actionItems":[{"id":"a-23-n","actionTypeId":"TRANSFORM_MOVE","config":{"delay":0,"easing":"","duration":500,"target":{"selector":".popup-content-wrapper","selectorGuids":["fb64883e-d804-dacd-44a8-519a4a332d0b"]},"yValue":3,"xUnit":"PX","yUnit":"em","zUnit":"PX"}},{"id":"a-23-n-2","actionTypeId":"GENERAL_DISPLAY","config":{"delay":0,"easing":"","duration":0,"target":{"useEventTarget":"SIBLINGS","selector":".popup-wrapper","selectorGuids":["fb64883e-d804-dacd-44a8-519a4a332d12"]},"value":"none"}},{"id":"a-23-n-3","actionTypeId":"STYLE_OPACITY","config":{"delay":0,"easing":"","duration":500,"target":{"selector":".popup-inner","selectorGuids":["fb64883e-d804-dacd-44a8-519a4a332d0d"]},"value":0,"unit":""}}]},{"actionItems":[{"id":"a-23-n-4","actionTypeId":"GENERAL_DISPLAY","config":{"delay":0,"easing":"","duration":0,"target":{"useEventTarget":"SIBLINGS","selector":".popup-wrapper","selectorGuids":["fb64883e-d804-dacd-44a8-519a4a332d12"]},"value":"block"}},{"id":"a-23-n-5","actionTypeId":"TRANSFORM_MOVE","config":{"delay":0,"easing":"outQuart","duration":500,"target":{"selector":".popup-content-wrapper","selectorGuids":["fb64883e-d804-dacd-44a8-519a4a332d0b"]},"yValue":0,"xUnit":"PX","yUnit":"em","zUnit":"PX"}},{"id":"a-23-n-6","actionTypeId":"STYLE_OPACITY","config":{"delay":0,"easing":"ease","duration":500,"target":{"selector":".popup-inner","selectorGuids":["fb64883e-d804-dacd-44a8-519a4a332d0d"]},"value":1,"unit":""}}]}],"useFirstGroupAsInitialState":true,"createdOn":1637075271621},"a-24":{"id":"a-24","title":"Popup close","actionItemGroups":[{"actionItems":[{"id":"a-24-n","actionTypeId":"TRANSFORM_MOVE","config":{"delay":0,"easing":"outQuart","duration":500,"target":{"selector":".popup-content-wrapper","selectorGuids":["fb64883e-d804-dacd-44a8-519a4a332d0b"]},"yValue":3,"xUnit":"PX","yUnit":"em","zUnit":"PX"}},{"id":"a-24-n-2","actionTypeId":"STYLE_OPACITY","config":{"delay":0,"easing":"ease","duration":500,"target":{"selector":".popup-inner","selectorGuids":["fb64883e-d804-dacd-44a8-519a4a332d0d"]},"value":0,"unit":""}}]},{"actionItems":[{"id":"a-24-n-3","actionTypeId":"GENERAL_DISPLAY","config":{"delay":0,"easing":"","duration":0,"target":{"selector":".popup-wrapper","selectorGuids":["fb64883e-d804-dacd-44a8-519a4a332d12"]},"value":"none"}}]}],"useFirstGroupAsInitialState":false,"createdOn":1637075271621},"a-25":{"id":"a-25","title":"Sunset Scroll Animation","continuousParameterGroups":[{"id":"a-25-p","type":"SCROLL_PROGRESS","parameterLabel":"Scroll","continuousActionGroups":[{"keyframe":0,"actionItems":[{"id":"a-25-n","actionTypeId":"TRANSFORM_SCALE","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".sunset-image-wrap","selectorGuids":["4678e772-e01f-8075-a38b-723f28d4776f"]},"xValue":3,"yValue":3,"locked":true}},{"id":"a-25-n-3","actionTypeId":"TRANSFORM_MOVE","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".sunset-image-wrap","selectorGuids":["4678e772-e01f-8075-a38b-723f28d4776f"]},"xValue":90,"yValue":-80,"xUnit":"vw","yUnit":"vh","zUnit":"PX"}},{"id":"a-25-n-2","actionTypeId":"STYLE_OPACITY","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".sunset-image","selectorGuids":["4678e772-e01f-8075-a38b-723f28d47770"]},"value":0,"unit":""}},{"id":"a-25-n-4","actionTypeId":"TRANSFORM_SCALE","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".sunset-sun","selectorGuids":["4678e772-e01f-8075-a38b-723f28d4776c"]},"xValue":5,"yValue":5,"locked":true}},{"id":"a-25-n-5","actionTypeId":"STYLE_OPACITY","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".sunset-sun","selectorGuids":["4678e772-e01f-8075-a38b-723f28d4776c"]},"value":0,"unit":""}},{"id":"a-25-n-6","actionTypeId":"TRANSFORM_MOVE","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".sunset-title","selectorGuids":["4678e772-e01f-8075-a38b-723f28d4776a"]},"yValue":-15,"xUnit":"PX","yUnit":"vh","zUnit":"PX"}}]},{"keyframe":5,"actionItems":[{"id":"a-25-n-7","actionTypeId":"STYLE_OPACITY","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".sunset-title._1","selectorGuids":["4678e772-e01f-8075-a38b-723f28d4776a","4678e772-e01f-8075-a38b-723f28d47775"]},"value":0,"unit":""}},{"id":"a-25-n-8","actionTypeId":"STYLE_OPACITY","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".sunset-title._2","selectorGuids":["4678e772-e01f-8075-a38b-723f28d4776a","4678e772-e01f-8075-a38b-723f28d47776"]},"value":0,"unit":""}}]},{"keyframe":10,"actionItems":[{"id":"a-25-n-9","actionTypeId":"STYLE_OPACITY","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".sunset-sun","selectorGuids":["4678e772-e01f-8075-a38b-723f28d4776c"]},"value":1,"unit":""}}]},{"keyframe":12,"actionItems":[{"id":"a-25-n-10","actionTypeId":"STYLE_OPACITY","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".sunset-title._1","selectorGuids":["4678e772-e01f-8075-a38b-723f28d4776a","4678e772-e01f-8075-a38b-723f28d47775"]},"value":1,"unit":""}}]},{"keyframe":30,"actionItems":[{"id":"a-25-n-11","actionTypeId":"STYLE_OPACITY","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".sunset-title._1","selectorGuids":["4678e772-e01f-8075-a38b-723f28d4776a","4678e772-e01f-8075-a38b-723f28d47775"]},"value":1,"unit":""}}]},{"keyframe":33,"actionItems":[{"id":"a-25-n-12","actionTypeId":"STYLE_OPACITY","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".sunset-title._1","selectorGuids":["4678e772-e01f-8075-a38b-723f28d4776a","4678e772-e01f-8075-a38b-723f28d47775"]},"value":0,"unit":""}}]},{"keyframe":36,"actionItems":[{"id":"a-25-n-13","actionTypeId":"STYLE_OPACITY","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".sunset-title._2","selectorGuids":["4678e772-e01f-8075-a38b-723f28d4776a","4678e772-e01f-8075-a38b-723f28d47776"]},"value":0,"unit":""}}]},{"keyframe":41,"actionItems":[{"id":"a-25-n-14","actionTypeId":"STYLE_OPACITY","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".sunset-title._2","selectorGuids":["4678e772-e01f-8075-a38b-723f28d4776a","4678e772-e01f-8075-a38b-723f28d47776"]},"value":1,"unit":""}}]},{"keyframe":59,"actionItems":[{"id":"a-25-n-15","actionTypeId":"STYLE_OPACITY","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".sunset-title._2","selectorGuids":["4678e772-e01f-8075-a38b-723f28d4776a","4678e772-e01f-8075-a38b-723f28d47776"]},"value":1,"unit":""}}]},{"keyframe":65,"actionItems":[{"id":"a-25-n-16","actionTypeId":"STYLE_OPACITY","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".sunset-title._2","selectorGuids":["4678e772-e01f-8075-a38b-723f28d4776a","4678e772-e01f-8075-a38b-723f28d47776"]},"value":0,"unit":""}},{"id":"a-25-n-17","actionTypeId":"STYLE_OPACITY","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".sunset-image","selectorGuids":["4678e772-e01f-8075-a38b-723f28d47770"]},"value":0,"unit":""}},{"id":"a-25-n-19","actionTypeId":"TRANSFORM_SCALE","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".sunset-sun","selectorGuids":["4678e772-e01f-8075-a38b-723f28d4776c"]},"xValue":6,"yValue":6,"locked":true}},{"id":"a-25-n-20","actionTypeId":"TRANSFORM_MOVE","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".sunset-title","selectorGuids":["4678e772-e01f-8075-a38b-723f28d4776a"]},"yValue":5,"xUnit":"PX","yUnit":"vh","zUnit":"PX"}},{"id":"a-25-n-29","actionTypeId":"TRANSFORM_MOVE","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".sunset-image-wrap","selectorGuids":["4678e772-e01f-8075-a38b-723f28d4776f"]},"xValue":10,"yValue":0,"xUnit":"vw","yUnit":"vh","zUnit":"PX"}}]},{"keyframe":70,"actionItems":[{"id":"a-25-n-21","actionTypeId":"STYLE_OPACITY","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".sunset-savesion-text","selectorGuids":["4678e772-e01f-8075-a38b-723f28d47772"]},"value":0,"unit":""}}]},{"keyframe":80,"actionItems":[{"id":"a-25-n-22","actionTypeId":"STYLE_OPACITY","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".sunset-image","selectorGuids":["4678e772-e01f-8075-a38b-723f28d47770"]},"value":1,"unit":""}},{"id":"a-25-n-23","actionTypeId":"STYLE_OPACITY","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".sunset-sun","selectorGuids":["4678e772-e01f-8075-a38b-723f28d4776c"]},"value":1,"unit":""}},{"id":"a-25-n-24","actionTypeId":"STYLE_OPACITY","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".sunset-savesion-text","selectorGuids":["4678e772-e01f-8075-a38b-723f28d47772"]},"value":1,"unit":""}}]},{"keyframe":83,"actionItems":[{"id":"a-25-n-25","actionTypeId":"TRANSFORM_SCALE","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".sunset-image-wrap","selectorGuids":["4678e772-e01f-8075-a38b-723f28d4776f"]},"xValue":1,"yValue":1,"locked":true}},{"id":"a-25-n-26","actionTypeId":"TRANSFORM_MOVE","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".sunset-image-wrap","selectorGuids":["4678e772-e01f-8075-a38b-723f28d4776f"]},"xValue":0,"yValue":0,"xUnit":"vw","yUnit":"vh","zUnit":"PX"}},{"id":"a-25-n-27","actionTypeId":"TRANSFORM_SCALE","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".sunset-sun","selectorGuids":["4678e772-e01f-8075-a38b-723f28d4776c"]},"xValue":0,"yValue":0,"locked":true}},{"id":"a-25-n-28","actionTypeId":"STYLE_OPACITY","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".sunset-sun","selectorGuids":["4678e772-e01f-8075-a38b-723f28d4776c"]},"value":0,"unit":""}}]}]}],"createdOn":1674655398426},"a-26":{"id":"a-26","title":"Hide my Nav","actionItemGroups":[{"actionItems":[{"id":"a-26-n","actionTypeId":"STYLE_OPACITY","config":{"delay":0,"easing":"ease","duration":200,"target":{"useEventTarget":"SIBLINGS","selector":".nav","selectorGuids":["7d5ce405-b305-6754-325d-ec11a0180616"]},"value":0,"unit":""}},{"id":"a-26-n-2","actionTypeId":"TRANSFORM_MOVE","config":{"delay":0,"easing":"outQuart","duration":200,"target":{"useEventTarget":"SIBLINGS","selector":".nav","selectorGuids":["7d5ce405-b305-6754-325d-ec11a0180616"]},"yValue":110,"xUnit":"PX","yUnit":"%","zUnit":"PX"}}]}],"useFirstGroupAsInitialState":false,"createdOn":1675244672208},"a-27":{"id":"a-27","title":"Show my Nav","actionItemGroups":[{"actionItems":[{"id":"a-27-n","actionTypeId":"STYLE_OPACITY","config":{"delay":0,"easing":"ease","duration":200,"target":{"useEventTarget":"SIBLINGS","selector":".nav","selectorGuids":["7d5ce405-b305-6754-325d-ec11a0180616"]},"value":1,"unit":""}},{"id":"a-27-n-2","actionTypeId":"TRANSFORM_MOVE","config":{"delay":0,"easing":"outQuart","duration":200,"target":{"useEventTarget":"SIBLINGS","selector":".nav","selectorGuids":["7d5ce405-b305-6754-325d-ec11a0180616"]},"yValue":0,"xUnit":"PX","yUnit":"%","zUnit":"PX"}}]}],"useFirstGroupAsInitialState":false,"createdOn":1675244672208},"a-54":{"id":"a-54","title":"Button (arrow right) -> HOVER IN","actionItemGroups":[{"actionItems":[{"id":"a-54-n","actionTypeId":"TRANSFORM_MOVE","config":{"delay":0,"easing":"ease","duration":300,"target":{"useEventTarget":"CHILDREN","selector":".uui-button-icon","selectorGuids":["ee5c8eed-6156-7d32-b29c-6ee6dea5cc99"]},"xValue":0.25,"xUnit":"rem","yUnit":"PX","zUnit":"PX"}}]}],"useFirstGroupAsInitialState":false,"createdOn":1645232367525},"a-57":{"id":"a-57","title":"Button (arrow right) -> HOVER OUT","actionItemGroups":[{"actionItems":[{"id":"a-57-n","actionTypeId":"TRANSFORM_MOVE","config":{"delay":0,"easing":"ease","duration":300,"target":{"useEventTarget":"CHILDREN","selector":".uui-button-icon","selectorGuids":["ee5c8eed-6156-7d32-b29c-6ee6dea5cc99"]},"xValue":0,"xUnit":"rem","yUnit":"PX","zUnit":"PX"}}]}],"useFirstGroupAsInitialState":false,"createdOn":1645232367525},"a-61":{"id":"a-61","title":"Infinite Slide","actionItemGroups":[{"actionItems":[{"id":"a-61-n","actionTypeId":"TRANSFORM_MOVE","config":{"delay":0,"easing":"","duration":30000,"target":{"id":"64b989a0f55ae22f8e1ea63f|fa86782a-de80-5240-a3dc-50fd31c8c151"},"xValue":-2184,"xUnit":"PX","yUnit":"PX","zUnit":"PX"}}]},{"actionItems":[{"id":"a-61-n-2","actionTypeId":"TRANSFORM_MOVE","config":{"delay":0,"easing":"","duration":0,"target":{"id":"64b989a0f55ae22f8e1ea63f|fa86782a-de80-5240-a3dc-50fd31c8c151"},"xValue":0,"xUnit":"PX","yUnit":"PX","zUnit":"PX"}}]}],"useFirstGroupAsInitialState":false,"createdOn":1568617555051},"a-62":{"id":"a-62","title":"Scroll-Content","actionItemGroups":[{"actionItems":[{"id":"a-62-n","actionTypeId":"GENERAL_DISPLAY","config":{"delay":0,"easing":"","duration":0,"target":{"useEventTarget":"CHILDREN","selector":".bg-shadow","selectorGuids":["d592a4dc-47c0-ba3e-71fd-24f70f3ecac1"]},"value":"none"}},{"id":"a-62-n-2","actionTypeId":"STYLE_BACKGROUND_COLOR","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".dot","selectorGuids":["63bbda3e-1fbd-4f7a-790a-bb7d992d1100"]},"globalSwatchId":"1730333e","rValue":238,"bValue":244,"gValue":239,"aValue":1}},{"id":"a-62-n-3","actionTypeId":"STYLE_SIZE","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".dot","selectorGuids":["63bbda3e-1fbd-4f7a-790a-bb7d992d1100"]},"widthValue":12,"heightValue":12,"widthUnit":"px","heightUnit":"px","locked":false}},{"id":"a-62-n-4","actionTypeId":"STYLE_OPACITY","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".img-block","selectorGuids":["63bbda3e-1fbd-4f7a-790a-bb7d992d10f8"]},"value":0.4,"unit":""}},{"id":"a-62-n-5","actionTypeId":"STYLE_TEXT_COLOR","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".content","selectorGuids":["63bbda3e-1fbd-4f7a-790a-bb7d992d10fe"]},"globalSwatchId":"1f0d510e","rValue":71,"bValue":87,"gValue":74,"aValue":1}},{"id":"a-62-n-6","actionTypeId":"STYLE_TEXT_COLOR","config":{"delay":0,"easing":"","duration":500,"target":{},"globalSwatchId":"","rValue":173,"bValue":194,"gValue":180,"aValue":1}},{"id":"a-62-n-7","actionTypeId":"STYLE_TEXT_COLOR","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".label","selectorGuids":["d592a4dc-47c0-ba3e-71fd-24f70f3ecac5"]},"globalSwatchId":"1f0d510e","rValue":71,"bValue":87,"gValue":74,"aValue":1}},{"id":"a-62-n-8","actionTypeId":"STYLE_BACKGROUND_COLOR","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".step","selectorGuids":["63bbda3e-1fbd-4f7a-790a-bb7d992d1102"]},"globalSwatchId":"1730333e","rValue":238,"bValue":244,"gValue":239,"aValue":1}}]},{"actionItems":[{"id":"a-62-n-9","actionTypeId":"STYLE_TEXT_COLOR","config":{"delay":600,"easing":"","duration":200,"target":{"useEventTarget":"CHILDREN","selector":".content","selectorGuids":["63bbda3e-1fbd-4f7a-790a-bb7d992d10fe"]},"globalSwatchId":"0b375fce","rValue":18,"bValue":18,"gValue":18,"aValue":1}},{"id":"a-62-n-10","actionTypeId":"STYLE_BACKGROUND_COLOR","config":{"delay":600,"easing":"","duration":200,"target":{"useEventTarget":"CHILDREN","selector":".dot","selectorGuids":["63bbda3e-1fbd-4f7a-790a-bb7d992d1100"]},"globalSwatchId":"6126b98f","rValue":0,"bValue":208,"gValue":108,"aValue":1}},{"id":"a-62-n-11","actionTypeId":"STYLE_SIZE","config":{"delay":600,"easing":"","duration":200,"target":{"useEventTarget":"CHILDREN","selector":".dot","selectorGuids":["63bbda3e-1fbd-4f7a-790a-bb7d992d1100"]},"widthValue":24,"heightValue":24,"widthUnit":"px","heightUnit":"px","locked":false}},{"id":"a-62-n-12","actionTypeId":"STYLE_OPACITY","config":{"delay":600,"easing":"","duration":400,"target":{"useEventTarget":"CHILDREN","selector":".img-block","selectorGuids":["63bbda3e-1fbd-4f7a-790a-bb7d992d10f8"]},"value":1,"unit":""}},{"id":"a-62-n-13","actionTypeId":"STYLE_BACKGROUND_COLOR","config":{"delay":600,"easing":"","duration":200,"target":{"useEventTarget":"CHILDREN","selector":".step","selectorGuids":["63bbda3e-1fbd-4f7a-790a-bb7d992d1102"]},"globalSwatchId":"50035ee0","rValue":255,"bValue":255,"gValue":255,"aValue":1}},{"id":"a-62-n-14","actionTypeId":"GENERAL_DISPLAY","config":{"delay":600,"easing":"","duration":0,"target":{"useEventTarget":"CHILDREN","selector":".bg-shadow","selectorGuids":["d592a4dc-47c0-ba3e-71fd-24f70f3ecac1"]},"value":"block"}},{"id":"a-62-n-15","actionTypeId":"STYLE_TEXT_COLOR","config":{"delay":600,"easing":"","duration":200,"target":{"useEventTarget":"CHILDREN","selector":".label","selectorGuids":["d592a4dc-47c0-ba3e-71fd-24f70f3ecac5"]},"globalSwatchId":"6126b98f","rValue":0,"bValue":208,"gValue":108,"aValue":1}},{"id":"a-62-n-16","actionTypeId":"STYLE_TEXT_COLOR","config":{"delay":600,"easing":"","duration":200,"target":{},"globalSwatchId":"e5674d92","rValue":112,"bValue":138,"gValue":118,"aValue":1}}]}],"useFirstGroupAsInitialState":true,"createdOn":1611336400626},"a-63":{"id":"a-63","title":"Scroll Line","actionItemGroups":[{"actionItems":[{"id":"a-63-n","actionTypeId":"TRANSFORM_SCALE","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".scroll-animate","selectorGuids":["d592a4dc-47c0-ba3e-71fd-24f70f3ecac8"]},"xValue":1,"yValue":0,"locked":false}}]},{"actionItems":[{"id":"a-63-n-2","actionTypeId":"TRANSFORM_SCALE","config":{"delay":0,"easing":"","duration":600,"target":{"useEventTarget":"CHILDREN","selector":".scroll-animate","selectorGuids":["d592a4dc-47c0-ba3e-71fd-24f70f3ecac8"]},"xValue":1,"yValue":1,"locked":false}}]}],"useFirstGroupAsInitialState":true,"createdOn":1611752162523},"a-65":{"id":"a-65","title":"Infinite Slide 3","actionItemGroups":[{"actionItems":[{"id":"a-65-n","actionTypeId":"TRANSFORM_MOVE","config":{"delay":0,"easing":"","duration":30000,"target":{"id":"64c7c6599a6df8af863da028|fa86782a-de80-5240-a3dc-50fd31c8c151"},"xValue":-2184,"xUnit":"PX","yUnit":"PX","zUnit":"PX"}}]},{"actionItems":[{"id":"a-65-n-2","actionTypeId":"TRANSFORM_MOVE","config":{"delay":0,"easing":"","duration":0,"target":{"id":"64c7c6599a6df8af863da028|fa86782a-de80-5240-a3dc-50fd31c8c151"},"xValue":0,"xUnit":"PX","yUnit":"PX","zUnit":"PX"}}]}],"useFirstGroupAsInitialState":false,"createdOn":1568617555051},"a-67":{"id":"a-67","title":"Infinite Slide 5","actionItemGroups":[{"actionItems":[{"id":"a-67-n","actionTypeId":"TRANSFORM_MOVE","config":{"delay":0,"easing":"","duration":30000,"target":{"id":"64c941624f1f7b05d032d1f9|fa86782a-de80-5240-a3dc-50fd31c8c151"},"xValue":-2184,"xUnit":"PX","yUnit":"PX","zUnit":"PX"}}]},{"actionItems":[{"id":"a-67-n-2","actionTypeId":"TRANSFORM_MOVE","config":{"delay":0,"easing":"","duration":0,"target":{"id":"64c941624f1f7b05d032d1f9|fa86782a-de80-5240-a3dc-50fd31c8c151"},"xValue":0,"xUnit":"PX","yUnit":"PX","zUnit":"PX"}}]}],"useFirstGroupAsInitialState":false,"createdOn":1568617555051},"a-76":{"id":"a-76","title":"Dropdown [Open] 4","actionItemGroups":[{"actionItems":[{"id":"a-76-n","actionTypeId":"TRANSFORM_MOVE","config":{"delay":0,"easing":"","duration":300,"target":{"useEventTarget":"CHILDREN","selector":".wbs-dropdown-list-2","selectorGuids":["feface77-d56d-4fcc-1140-596dc56c6745"]},"yValue":0,"xUnit":"PX","yUnit":"px","zUnit":"PX"}},{"id":"a-76-n-2","actionTypeId":"STYLE_OPACITY","config":{"delay":0,"easing":"","duration":300,"target":{"useEventTarget":"CHILDREN","selector":".wbs-dropdown-list-2","selectorGuids":["feface77-d56d-4fcc-1140-596dc56c6745"]},"value":0,"unit":""}},{"id":"a-76-n-3","actionTypeId":"STYLE_OPACITY","config":{"delay":0,"easing":"","duration":300,"target":{"useEventTarget":"CHILDREN","selector":".wbs-dropdown-list-2","selectorGuids":["feface77-d56d-4fcc-1140-596dc56c6745"]},"value":1,"unit":""}},{"id":"a-76-n-4","actionTypeId":"TRANSFORM_MOVE","config":{"delay":0,"easing":"","duration":300,"target":{"useEventTarget":"CHILDREN","selector":".wbs-dropdown-list-2","selectorGuids":["feface77-d56d-4fcc-1140-596dc56c6745"]},"yValue":-5,"xUnit":"PX","yUnit":"px","zUnit":"PX"}}]}],"useFirstGroupAsInitialState":false,"createdOn":1678939764953},"a-77":{"id":"a-77","title":"Dropdown [Close] 4","actionItemGroups":[{"actionItems":[{"id":"a-77-n","actionTypeId":"TRANSFORM_MOVE","config":{"delay":0,"easing":"","duration":300,"target":{"useEventTarget":"CHILDREN","selector":".wbs-dropdown-list-2","selectorGuids":["feface77-d56d-4fcc-1140-596dc56c6745"]},"yValue":15,"xUnit":"PX","yUnit":"px","zUnit":"PX"}},{"id":"a-77-n-2","actionTypeId":"STYLE_OPACITY","config":{"delay":0,"easing":"","duration":300,"target":{"useEventTarget":"CHILDREN","selector":".wbs-dropdown-list-2","selectorGuids":["feface77-d56d-4fcc-1140-596dc56c6745"]},"value":0,"unit":""}}]}],"useFirstGroupAsInitialState":false,"createdOn":1678939764953}},"site":{"mediaQueries":[{"key":"main","min":992,"max":10000},{"key":"medium","min":768,"max":991},{"key":"small","min":480,"max":767},{"key":"tiny","min":0,"max":479}]}}
+{"events":{"e":{"id":"e","name":"","animationType":"custom","eventTypeId":"PAGE_START","action":{"id":"","actionTypeId":"GENERAL_START_ACTION","config":{"delay":0,"easing":"","duration":0,"actionListId":"a-2","affectedElements":{},"playInReverse":false,"autoStopEventId":"e-231"}},"mediaQueries":["main","medium","small","tiny"],"target":{"id":"64b989a0f55ae22f8e1ea63f","appliesTo":"PAGE","styleBlockIds":[]},"targets":[{"id":"64b989a0f55ae22f8e1ea63f","appliesTo":"PAGE","styleBlockIds":[]}],"config":{"loop":false,"playInReverse":false,"scrollOffsetValue":null,"scrollOffsetUnit":null,"delay":null,"direction":null,"effectIn":null},"createdOn":1672433027005},"e-3":{"id":"e-3","name":"","animationType":"custom","eventTypeId":"PAGE_START","action":{"id":"","actionTypeId":"GENERAL_START_ACTION","config":{"delay":0,"easing":"","duration":0,"actionListId":"a-3","affectedElements":{},"playInReverse":false,"autoStopEventId":"e-136"}},"mediaQueries":["main","medium","small","tiny"],"target":{"id":"64b989a0f55ae22f8e1ea63f","appliesTo":"PAGE","styleBlockIds":[]},"targets":[{"id":"64b989a0f55ae22f8e1ea63f","appliesTo":"PAGE","styleBlockIds":[]}],"config":{"loop":false,"playInReverse":false,"scrollOffsetValue":null,"scrollOffsetUnit":null,"delay":null,"direction":null,"effectIn":null},"createdOn":1672663121446},"e-7":{"id":"e-7","name":"","animationType":"custom","eventTypeId":"SCROLLING_IN_VIEW","action":{"id":"","actionTypeId":"GENERAL_CONTINUOUS_ACTION","config":{"actionListId":"a-4","affectedElements":{},"duration":0}},"mediaQueries":["main","medium","small","tiny"],"target":{"id":"64b989a0f55ae22f8e1ea63f|8e8c10bb-320c-2bbf-80ec-92cfacec8eaa","appliesTo":"ELEMENT","styleBlockIds":[]},"targets":[{"id":"64b989a0f55ae22f8e1ea63f|8e8c10bb-320c-2bbf-80ec-92cfacec8eaa","appliesTo":"ELEMENT","styleBlockIds":[]}],"config":[{"continuousParameterGroupId":"a-4-p","smoothing":84,"startsEntering":false,"addStartOffset":false,"addOffsetValue":50,"startsExiting":false,"addEndOffset":false,"endOffsetValue":50}],"createdOn":1673527196808},"e-8":{"id":"e-8","name":"","animationType":"custom","eventTypeId":"SCROLLING_IN_VIEW","action":{"id":"","actionTypeId":"GENERAL_CONTINUOUS_ACTION","config":{"actionListId":"a-6","affectedElements":{},"duration":0}},"mediaQueries":["main","medium"],"target":{"selector":".has-parallax-effect","originalId":"64b989a0f55ae22f8e1ea63f|f87c7ebf-f173-8315-67c8-433218514118","appliesTo":"CLASS"},"targets":[{"selector":".has-parallax-effect","originalId":"64b989a0f55ae22f8e1ea63f|f87c7ebf-f173-8315-67c8-433218514118","appliesTo":"CLASS"}],"config":[{"continuousParameterGroupId":"a-6-p","smoothing":82,"startsEntering":true,"addStartOffset":false,"addOffsetValue":50,"startsExiting":false,"addEndOffset":false,"endOffsetValue":50}],"createdOn":1673861553614},"e-9":{"id":"e-9","name":"","animationType":"custom","eventTypeId":"SCROLLING_IN_VIEW","action":{"id":"","actionTypeId":"GENERAL_CONTINUOUS_ACTION","config":{"actionListId":"a-7","affectedElements":{},"duration":0}},"mediaQueries":["main","medium","small","tiny"],"target":{"selector":".specs-divider-inner","originalId":"64b989a0f55ae22f8e1ea63f|5f09188f-6ca9-cea9-ed10-75565be12f4c","appliesTo":"CLASS"},"targets":[{"selector":".specs-divider-inner","originalId":"64b989a0f55ae22f8e1ea63f|5f09188f-6ca9-cea9-ed10-75565be12f4c","appliesTo":"CLASS"}],"config":[{"continuousParameterGroupId":"a-7-p","smoothing":85,"startsEntering":true,"addStartOffset":false,"addOffsetValue":50,"startsExiting":false,"addEndOffset":false,"endOffsetValue":50}],"createdOn":1673954516013},"e-10":{"id":"e-10","name":"","animationType":"custom","eventTypeId":"SCROLLING_IN_VIEW","action":{"id":"","actionTypeId":"GENERAL_CONTINUOUS_ACTION","config":{"actionListId":"a-8","affectedElements":{},"duration":0}},"mediaQueries":["small","tiny"],"target":{"selector":".has-parallax-effect","originalId":"64b989a0f55ae22f8e1ea63f|f87c7ebf-f173-8315-67c8-433218514118","appliesTo":"CLASS"},"targets":[{"selector":".has-parallax-effect","originalId":"64b989a0f55ae22f8e1ea63f|f87c7ebf-f173-8315-67c8-433218514118","appliesTo":"CLASS"}],"config":[{"continuousParameterGroupId":"a-8-p","smoothing":85,"startsEntering":true,"addStartOffset":false,"addOffsetValue":50,"startsExiting":false,"addEndOffset":false,"endOffsetValue":50}],"createdOn":1674035772616},"e-20":{"id":"e-20","name":"","animationType":"custom","eventTypeId":"SCROLLING_IN_VIEW","action":{"id":"","actionTypeId":"GENERAL_CONTINUOUS_ACTION","config":{"actionListId":"a-11","affectedElements":{},"duration":0}},"mediaQueries":["main","medium","small","tiny"],"target":{"selector":".hero-gallery-item","originalId":"64b989a0f55ae22f8e1ea63f|13f6706c-58d1-4ab7-5b93-1a17cd3285ce","appliesTo":"CLASS"},"targets":[{"selector":".hero-gallery-item","originalId":"64b989a0f55ae22f8e1ea63f|13f6706c-58d1-4ab7-5b93-1a17cd3285ce","appliesTo":"CLASS"}],"config":[{"continuousParameterGroupId":"a-11-p","smoothing":93,"startsEntering":true,"addStartOffset":false,"addOffsetValue":50,"startsExiting":false,"addEndOffset":false,"endOffsetValue":50}],"createdOn":1674250626921},"e-26":{"id":"e-26","name":"","animationType":"custom","eventTypeId":"MOUSE_CLICK","action":{"id":"","actionTypeId":"GENERAL_START_ACTION","config":{"delay":0,"easing":"","duration":0,"actionListId":"a-23","affectedElements":{},"playInReverse":false,"autoStopEventId":"e-161"}},"mediaQueries":["main","medium","small","tiny"],"target":{"selector":".popup-toggle","originalId":"64b989a0f55ae22f8e1ea63f|d1d14ab4-a124-1029-7612-123dd1d0fce2","appliesTo":"CLASS"},"targets":[{"selector":".popup-toggle","originalId":"64b989a0f55ae22f8e1ea63f|d1d14ab4-a124-1029-7612-123dd1d0fce2","appliesTo":"CLASS"}],"config":{"loop":false,"playInReverse":false,"scrollOffsetValue":null,"scrollOffsetUnit":null,"delay":null,"direction":null,"effectIn":null},"createdOn":1637075261953},"e-28":{"id":"e-28","name":"","animationType":"custom","eventTypeId":"MOUSE_CLICK","action":{"id":"","actionTypeId":"GENERAL_START_ACTION","config":{"delay":0,"easing":"","duration":0,"actionListId":"a-24","affectedElements":{},"playInReverse":false,"autoStopEventId":"e-182"}},"mediaQueries":["main","medium","small","tiny"],"target":{"selector":".popup-close","originalId":"64b989a0f55ae22f8e1ea63f|d1d14ab4-a124-1029-7612-123dd1d0fce7","appliesTo":"CLASS"},"targets":[{"selector":".popup-close","originalId":"64b989a0f55ae22f8e1ea63f|d1d14ab4-a124-1029-7612-123dd1d0fce7","appliesTo":"CLASS"}],"config":{"loop":false,"playInReverse":false,"scrollOffsetValue":null,"scrollOffsetUnit":null,"delay":null,"direction":null,"effectIn":null},"createdOn":1637075418661},"e-30":{"id":"e-30","name":"","animationType":"custom","eventTypeId":"MOUSE_CLICK","action":{"id":"","actionTypeId":"GENERAL_START_ACTION","config":{"delay":0,"easing":"","duration":0,"actionListId":"a-24","affectedElements":{},"playInReverse":false,"autoStopEventId":"e-235"}},"mediaQueries":["main","medium","small","tiny"],"target":{"selector":".popup-background","originalId":"64b989a0f55ae22f8e1ea63f|d1d14ab4-a124-1029-7612-123dd1d0fcf6","appliesTo":"CLASS"},"targets":[{"selector":".popup-background","originalId":"64b989a0f55ae22f8e1ea63f|d1d14ab4-a124-1029-7612-123dd1d0fcf6","appliesTo":"CLASS"}],"config":{"loop":false,"playInReverse":false,"scrollOffsetValue":null,"scrollOffsetUnit":null,"delay":null,"direction":null,"effectIn":null},"createdOn":1637075523074},"e-32":{"id":"e-32","name":"","animationType":"custom","eventTypeId":"SCROLLING_IN_VIEW","action":{"id":"","actionTypeId":"GENERAL_CONTINUOUS_ACTION","config":{"actionListId":"a-25","affectedElements":{},"duration":0}},"mediaQueries":["main","medium","small","tiny"],"target":{"id":"64b989a0f55ae22f8e1ea63f|74320b95-20be-d5c9-4dd4-ccde3dc609ed","appliesTo":"ELEMENT","styleBlockIds":[]},"targets":[{"id":"64b989a0f55ae22f8e1ea63f|74320b95-20be-d5c9-4dd4-ccde3dc609ed","appliesTo":"ELEMENT","styleBlockIds":[]}],"config":[{"continuousParameterGroupId":"a-25-p","smoothing":85,"startsEntering":true,"addStartOffset":false,"addOffsetValue":50,"startsExiting":false,"addEndOffset":false,"endOffsetValue":50}],"createdOn":1674655256819},"e-33":{"id":"e-33","name":"","animationType":"custom","eventTypeId":"SCROLL_INTO_VIEW","action":{"id":"","actionTypeId":"GENERAL_START_ACTION","config":{"delay":0,"easing":"","duration":0,"actionListId":"a-26","affectedElements":{},"playInReverse":false,"autoStopEventId":"e-173"}},"mediaQueries":["small","tiny"],"target":{"id":"64b989a0f55ae22f8e1ea63f|8e8c10bb-320c-2bbf-80ec-92cfacec8eaa","appliesTo":"ELEMENT","styleBlockIds":[]},"targets":[{"id":"64b989a0f55ae22f8e1ea63f|8e8c10bb-320c-2bbf-80ec-92cfacec8eaa","appliesTo":"ELEMENT","styleBlockIds":[]}],"config":{"loop":false,"playInReverse":false,"scrollOffsetValue":0,"scrollOffsetUnit":"%","delay":null,"direction":null,"effectIn":null},"createdOn":1675244667887},"e-34":{"id":"e-34","name":"","animationType":"custom","eventTypeId":"SCROLL_OUT_OF_VIEW","action":{"id":"","actionTypeId":"GENERAL_START_ACTION","config":{"delay":0,"easing":"","duration":0,"actionListId":"a-27","affectedElements":{},"playInReverse":false,"autoStopEventId":"e-193"}},"mediaQueries":["small","tiny"],"target":{"id":"64b989a0f55ae22f8e1ea63f|8e8c10bb-320c-2bbf-80ec-92cfacec8eaa","appliesTo":"ELEMENT","styleBlockIds":[]},"targets":[{"id":"64b989a0f55ae22f8e1ea63f|8e8c10bb-320c-2bbf-80ec-92cfacec8eaa","appliesTo":"ELEMENT","styleBlockIds":[]}],"config":{"loop":false,"playInReverse":false,"scrollOffsetValue":0,"scrollOffsetUnit":"%","delay":null,"direction":null,"effectIn":null},"createdOn":1675244667936},"e-35":{"id":"e-35","name":"","animationType":"preset","eventTypeId":"MOUSE_OVER","action":{"id":"","actionTypeId":"GENERAL_START_ACTION","config":{"delay":0,"easing":"","duration":0,"actionListId":"a-54","affectedElements":{},"playInReverse":false,"autoStopEventId":"e-155"}},"mediaQueries":["main","medium","small","tiny"],"target":{"id":"64b989a0f55ae22f8e1ea63f|5e58e86a-8378-2c81-4976-bf99edb97b47","appliesTo":"ELEMENT","styleBlockIds":[]},"targets":[{"id":"64b989a0f55ae22f8e1ea63f|5e58e86a-8378-2c81-4976-bf99edb97b47","appliesTo":"ELEMENT","styleBlockIds":[]}],"config":{"loop":false,"playInReverse":false,"scrollOffsetValue":null,"scrollOffsetUnit":null,"delay":null,"direction":null,"effectIn":null},"createdOn":1657347797341},"e-36":{"id":"e-36","name":"","animationType":"preset","eventTypeId":"MOUSE_OUT","action":{"id":"","actionTypeId":"GENERAL_START_ACTION","config":{"delay":0,"easing":"","duration":0,"actionListId":"a-57","affectedElements":{},"playInReverse":false,"autoStopEventId":"e-153"}},"mediaQueries":["main","medium","small","tiny"],"target":{"id":"64b989a0f55ae22f8e1ea63f|5e58e86a-8378-2c81-4976-bf99edb97b47","appliesTo":"ELEMENT","styleBlockIds":[]},"targets":[{"id":"64b989a0f55ae22f8e1ea63f|5e58e86a-8378-2c81-4976-bf99edb97b47","appliesTo":"ELEMENT","styleBlockIds":[]}],"config":{"loop":false,"playInReverse":false,"scrollOffsetValue":null,"scrollOffsetUnit":null,"delay":null,"direction":null,"effectIn":null},"createdOn":1657347797341},"e-37":{"id":"e-37","name":"","animationType":"preset","eventTypeId":"MOUSE_OVER","action":{"id":"","actionTypeId":"GENERAL_START_ACTION","config":{"delay":0,"easing":"","duration":0,"actionListId":"a-54","affectedElements":{},"playInReverse":false,"autoStopEventId":"e-189"}},"mediaQueries":["main","medium","small","tiny"],"target":{"id":"64b989a0f55ae22f8e1ea63f|5e58e86a-8378-2c81-4976-bf99edb97b55","appliesTo":"ELEMENT","styleBlockIds":[]},"targets":[{"id":"64b989a0f55ae22f8e1ea63f|5e58e86a-8378-2c81-4976-bf99edb97b55","appliesTo":"ELEMENT","styleBlockIds":[]}],"config":{"loop":false,"playInReverse":false,"scrollOffsetValue":null,"scrollOffsetUnit":null,"delay":null,"direction":null,"effectIn":null},"createdOn":1657347798535},"e-38":{"id":"e-38","name":"","animationType":"preset","eventTypeId":"MOUSE_OUT","action":{"id":"","actionTypeId":"GENERAL_START_ACTION","config":{"delay":0,"easing":"","duration":0,"actionListId":"a-57","affectedElements":{},"playInReverse":false,"autoStopEventId":"e-175"}},"mediaQueries":["main","medium","small","tiny"],"target":{"id":"64b989a0f55ae22f8e1ea63f|5e58e86a-8378-2c81-4976-bf99edb97b55","appliesTo":"ELEMENT","styleBlockIds":[]},"targets":[{"id":"64b989a0f55ae22f8e1ea63f|5e58e86a-8378-2c81-4976-bf99edb97b55","appliesTo":"ELEMENT","styleBlockIds":[]}],"config":{"loop":false,"playInReverse":false,"scrollOffsetValue":null,"scrollOffsetUnit":null,"delay":null,"direction":null,"effectIn":null},"createdOn":1657347798535},"e-39":{"id":"e-39","name":"","animationType":"preset","eventTypeId":"MOUSE_OVER","action":{"id":"","actionTypeId":"GENERAL_START_ACTION","config":{"delay":0,"easing":"","duration":0,"actionListId":"a-54","affectedElements":{},"playInReverse":false,"autoStopEventId":"e-160"}},"mediaQueries":["main","medium","small","tiny"],"target":{"id":"64b989a0f55ae22f8e1ea63f|5e58e86a-8378-2c81-4976-bf99edb97b63","appliesTo":"ELEMENT","styleBlockIds":[]},"targets":[{"id":"64b989a0f55ae22f8e1ea63f|5e58e86a-8378-2c81-4976-bf99edb97b63","appliesTo":"ELEMENT","styleBlockIds":[]}],"config":{"loop":false,"playInReverse":false,"scrollOffsetValue":null,"scrollOffsetUnit":null,"delay":null,"direction":null,"effectIn":null},"createdOn":1657347800259},"e-40":{"id":"e-40","name":"","animationType":"preset","eventTypeId":"MOUSE_OUT","action":{"id":"","actionTypeId":"GENERAL_START_ACTION","config":{"delay":0,"easing":"","duration":0,"actionListId":"a-57","affectedElements":{},"playInReverse":false,"autoStopEventId":"e-223"}},"mediaQueries":["main","medium","small","tiny"],"target":{"id":"64b989a0f55ae22f8e1ea63f|5e58e86a-8378-2c81-4976-bf99edb97b63","appliesTo":"ELEMENT","styleBlockIds":[]},"targets":[{"id":"64b989a0f55ae22f8e1ea63f|5e58e86a-8378-2c81-4976-bf99edb97b63","appliesTo":"ELEMENT","styleBlockIds":[]}],"config":{"loop":false,"playInReverse":false,"scrollOffsetValue":null,"scrollOffsetUnit":null,"delay":null,"direction":null,"effectIn":null},"createdOn":1657347800259},"e-43":{"id":"e-43","name":"","animationType":"custom","eventTypeId":"SCROLL_INTO_VIEW","action":{"id":"","actionTypeId":"GENERAL_START_ACTION","config":{"delay":0,"easing":"","duration":0,"actionListId":"a-62","affectedElements":{},"playInReverse":false,"autoStopEventId":"e-106"}},"mediaQueries":["main","medium","small","tiny"],"target":{"selector":".step-block","originalId":"64be8056f46991cc7bfe15e1|fa12a6c7-af36-2ad9-3c2a-5ef12af2009f","appliesTo":"CLASS"},"targets":[{"selector":".step-block","originalId":"64be8056f46991cc7bfe15e1|fa12a6c7-af36-2ad9-3c2a-5ef12af2009f","appliesTo":"CLASS"}],"config":{"loop":false,"playInReverse":false,"scrollOffsetValue":50,"scrollOffsetUnit":"%","delay":null,"direction":null,"effectIn":null},"createdOn":1611337298036},"e-45":{"id":"e-45","name":"","animationType":"preset","eventTypeId":"SCROLL_INTO_VIEW","action":{"id":"","actionTypeId":"GENERAL_START_ACTION","config":{"delay":0,"easing":"","duration":0,"actionListId":"a-63","affectedElements":{},"playInReverse":false,"autoStopEventId":"e-108"}},"mediaQueries":["main","medium","small","tiny"],"target":{"selector":".step-block","originalId":"64be8056f46991cc7bfe15e1|fa12a6c7-af36-2ad9-3c2a-5ef12af200c2","appliesTo":"CLASS"},"targets":[{"selector":".step-block","originalId":"64be8056f46991cc7bfe15e1|fa12a6c7-af36-2ad9-3c2a-5ef12af200c2","appliesTo":"CLASS"}],"config":{"loop":false,"playInReverse":false,"scrollOffsetValue":50,"scrollOffsetUnit":"%","delay":null,"direction":null,"effectIn":null},"createdOn":1611755066275},"e-47":{"id":"e-47","name":"","animationType":"preset","eventTypeId":"PAGE_START","action":{"id":"","actionTypeId":"GENERAL_START_ACTION","config":{"delay":0,"easing":"","duration":0,"actionListId":"a-2","affectedElements":{},"playInReverse":false,"autoStopEventId":"e-48"}},"mediaQueries":["main","medium","small","tiny"],"target":{"id":"64c7c6599a6df8af863da028","appliesTo":"PAGE","styleBlockIds":[]},"targets":[{"id":"64c7c6599a6df8af863da028","appliesTo":"PAGE","styleBlockIds":[]}],"config":{"loop":false,"playInReverse":false,"scrollOffsetValue":null,"scrollOffsetUnit":null,"delay":null,"direction":null,"effectIn":null},"createdOn":1690814041530},"e-49":{"id":"e-49","name":"","animationType":"preset","eventTypeId":"PAGE_START","action":{"id":"","actionTypeId":"GENERAL_START_ACTION","config":{"delay":0,"easing":"","duration":0,"actionListId":"a-3","affectedElements":{},"playInReverse":false,"autoStopEventId":"e-50"}},"mediaQueries":["main","medium","small","tiny"],"target":{"id":"64c7c6599a6df8af863da028","appliesTo":"PAGE","styleBlockIds":[]},"targets":[{"id":"64c7c6599a6df8af863da028","appliesTo":"PAGE","styleBlockIds":[]}],"config":{"loop":false,"playInReverse":false,"scrollOffsetValue":null,"scrollOffsetUnit":null,"delay":null,"direction":null,"effectIn":null},"createdOn":1690814041530},"e-51":{"id":"e-51","name":"","animationType":"preset","eventTypeId":"SCROLLING_IN_VIEW","action":{"id":"","actionTypeId":"GENERAL_CONTINUOUS_ACTION","config":{"actionListId":"a-4","affectedElements":{},"duration":0}},"mediaQueries":["main","medium","small","tiny"],"target":{"id":"64c7c6599a6df8af863da028|8e8c10bb-320c-2bbf-80ec-92cfacec8eaa","appliesTo":"ELEMENT","styleBlockIds":[]},"targets":[{"id":"64c7c6599a6df8af863da028|8e8c10bb-320c-2bbf-80ec-92cfacec8eaa","appliesTo":"ELEMENT","styleBlockIds":[]}],"config":[{"continuousParameterGroupId":"a-4-p","smoothing":84,"startsEntering":false,"addStartOffset":false,"addOffsetValue":50,"startsExiting":false,"addEndOffset":false,"endOffsetValue":50}],"createdOn":1690814041530},"e-52":{"id":"e-52","name":"","animationType":"preset","eventTypeId":"SCROLLING_IN_VIEW","action":{"id":"","actionTypeId":"GENERAL_CONTINUOUS_ACTION","config":{"actionListId":"a-25","affectedElements":{},"duration":0}},"mediaQueries":["main","medium","small","tiny"],"target":{"id":"64c7c6599a6df8af863da028|74320b95-20be-d5c9-4dd4-ccde3dc609ed","appliesTo":"ELEMENT","styleBlockIds":[]},"targets":[{"id":"64c7c6599a6df8af863da028|74320b95-20be-d5c9-4dd4-ccde3dc609ed","appliesTo":"ELEMENT","styleBlockIds":[]}],"config":[{"continuousParameterGroupId":"a-25-p","smoothing":85,"startsEntering":true,"addStartOffset":false,"addOffsetValue":50,"startsExiting":false,"addEndOffset":false,"endOffsetValue":50}],"createdOn":1690814041530},"e-53":{"id":"e-53","name":"","animationType":"preset","eventTypeId":"SCROLL_INTO_VIEW","action":{"id":"","actionTypeId":"GENERAL_START_ACTION","config":{"delay":0,"easing":"","duration":0,"actionListId":"a-26","affectedElements":{},"playInReverse":false,"autoStopEventId":"e-125"}},"mediaQueries":["small","tiny"],"target":{"id":"64c7c6599a6df8af863da028|8e8c10bb-320c-2bbf-80ec-92cfacec8eaa","appliesTo":"ELEMENT","styleBlockIds":[]},"targets":[{"id":"64c7c6599a6df8af863da028|8e8c10bb-320c-2bbf-80ec-92cfacec8eaa","appliesTo":"ELEMENT","styleBlockIds":[]}],"config":{"loop":false,"playInReverse":false,"scrollOffsetValue":0,"scrollOffsetUnit":"%","delay":null,"direction":null,"effectIn":null},"createdOn":1690814041530},"e-54":{"id":"e-54","name":"","animationType":"preset","eventTypeId":"SCROLL_OUT_OF_VIEW","action":{"id":"","actionTypeId":"GENERAL_START_ACTION","config":{"delay":0,"easing":"","duration":0,"actionListId":"a-27","affectedElements":{},"playInReverse":false,"autoStopEventId":"e-215"}},"mediaQueries":["small","tiny"],"target":{"id":"64c7c6599a6df8af863da028|8e8c10bb-320c-2bbf-80ec-92cfacec8eaa","appliesTo":"ELEMENT","styleBlockIds":[]},"targets":[{"id":"64c7c6599a6df8af863da028|8e8c10bb-320c-2bbf-80ec-92cfacec8eaa","appliesTo":"ELEMENT","styleBlockIds":[]}],"config":{"loop":false,"playInReverse":false,"scrollOffsetValue":0,"scrollOffsetUnit":"%","delay":null,"direction":null,"effectIn":null},"createdOn":1690814041530},"e-55":{"id":"e-55","name":"","animationType":"preset","eventTypeId":"MOUSE_OVER","action":{"id":"","actionTypeId":"GENERAL_START_ACTION","config":{"delay":0,"easing":"","duration":0,"actionListId":"a-54","affectedElements":{},"playInReverse":false,"autoStopEventId":"e-185"}},"mediaQueries":["main","medium","small","tiny"],"target":{"id":"64c7c6599a6df8af863da028|5e58e86a-8378-2c81-4976-bf99edb97b47","appliesTo":"ELEMENT","styleBlockIds":[]},"targets":[{"id":"64c7c6599a6df8af863da028|5e58e86a-8378-2c81-4976-bf99edb97b47","appliesTo":"ELEMENT","styleBlockIds":[]}],"config":{"loop":false,"playInReverse":false,"scrollOffsetValue":null,"scrollOffsetUnit":null,"delay":null,"direction":null,"effectIn":null},"createdOn":1690814041530},"e-56":{"id":"e-56","name":"","animationType":"preset","eventTypeId":"MOUSE_OUT","action":{"id":"","actionTypeId":"GENERAL_START_ACTION","config":{"delay":0,"easing":"","duration":0,"actionListId":"a-57","affectedElements":{},"playInReverse":false,"autoStopEventId":"e-186"}},"mediaQueries":["main","medium","small","tiny"],"target":{"id":"64c7c6599a6df8af863da028|5e58e86a-8378-2c81-4976-bf99edb97b47","appliesTo":"ELEMENT","styleBlockIds":[]},"targets":[{"id":"64c7c6599a6df8af863da028|5e58e86a-8378-2c81-4976-bf99edb97b47","appliesTo":"ELEMENT","styleBlockIds":[]}],"config":{"loop":false,"playInReverse":false,"scrollOffsetValue":null,"scrollOffsetUnit":null,"delay":null,"direction":null,"effectIn":null},"createdOn":1690814041530},"e-57":{"id":"e-57","name":"","animationType":"preset","eventTypeId":"MOUSE_OVER","action":{"id":"","actionTypeId":"GENERAL_START_ACTION","config":{"delay":0,"easing":"","duration":0,"actionListId":"a-54","affectedElements":{},"playInReverse":false,"autoStopEventId":"e-197"}},"mediaQueries":["main","medium","small","tiny"],"target":{"id":"64c7c6599a6df8af863da028|5e58e86a-8378-2c81-4976-bf99edb97b55","appliesTo":"ELEMENT","styleBlockIds":[]},"targets":[{"id":"64c7c6599a6df8af863da028|5e58e86a-8378-2c81-4976-bf99edb97b55","appliesTo":"ELEMENT","styleBlockIds":[]}],"config":{"loop":false,"playInReverse":false,"scrollOffsetValue":null,"scrollOffsetUnit":null,"delay":null,"direction":null,"effectIn":null},"createdOn":1690814041530},"e-58":{"id":"e-58","name":"","animationType":"preset","eventTypeId":"MOUSE_OUT","action":{"id":"","actionTypeId":"GENERAL_START_ACTION","config":{"delay":0,"easing":"","duration":0,"actionListId":"a-57","affectedElements":{},"playInReverse":false,"autoStopEventId":"e-158"}},"mediaQueries":["main","medium","small","tiny"],"target":{"id":"64c7c6599a6df8af863da028|5e58e86a-8378-2c81-4976-bf99edb97b55","appliesTo":"ELEMENT","styleBlockIds":[]},"targets":[{"id":"64c7c6599a6df8af863da028|5e58e86a-8378-2c81-4976-bf99edb97b55","appliesTo":"ELEMENT","styleBlockIds":[]}],"config":{"loop":false,"playInReverse":false,"scrollOffsetValue":null,"scrollOffsetUnit":null,"delay":null,"direction":null,"effectIn":null},"createdOn":1690814041530},"e-59":{"id":"e-59","name":"","animationType":"preset","eventTypeId":"MOUSE_OVER","action":{"id":"","actionTypeId":"GENERAL_START_ACTION","config":{"delay":0,"easing":"","duration":0,"actionListId":"a-54","affectedElements":{},"playInReverse":false,"autoStopEventId":"e-210"}},"mediaQueries":["main","medium","small","tiny"],"target":{"id":"64c7c6599a6df8af863da028|5e58e86a-8378-2c81-4976-bf99edb97b63","appliesTo":"ELEMENT","styleBlockIds":[]},"targets":[{"id":"64c7c6599a6df8af863da028|5e58e86a-8378-2c81-4976-bf99edb97b63","appliesTo":"ELEMENT","styleBlockIds":[]}],"config":{"loop":false,"playInReverse":false,"scrollOffsetValue":null,"scrollOffsetUnit":null,"delay":null,"direction":null,"effectIn":null},"createdOn":1690814041530},"e-60":{"id":"e-60","name":"","animationType":"preset","eventTypeId":"MOUSE_OUT","action":{"id":"","actionTypeId":"GENERAL_START_ACTION","config":{"delay":0,"easing":"","duration":0,"actionListId":"a-57","affectedElements":{},"playInReverse":false,"autoStopEventId":"e-59"}},"mediaQueries":["main","medium","small","tiny"],"target":{"id":"64c7c6599a6df8af863da028|5e58e86a-8378-2c81-4976-bf99edb97b63","appliesTo":"ELEMENT","styleBlockIds":[]},"targets":[{"id":"64c7c6599a6df8af863da028|5e58e86a-8378-2c81-4976-bf99edb97b63","appliesTo":"ELEMENT","styleBlockIds":[]}],"config":{"loop":false,"playInReverse":false,"scrollOffsetValue":null,"scrollOffsetUnit":null,"delay":null,"direction":null,"effectIn":null},"createdOn":1690814041530},"e-61":{"id":"e-61","name":"","animationType":"preset","eventTypeId":"SCROLL_INTO_VIEW","action":{"id":"","actionTypeId":"GENERAL_START_ACTION","config":{"delay":0,"easing":"","duration":0,"actionListId":"a-65","affectedElements":{},"playInReverse":false,"autoStopEventId":"e-157"}},"mediaQueries":["main","medium","small","tiny"],"target":{"id":"64c7c6599a6df8af863da028|fa86782a-de80-5240-a3dc-50fd31c8c151","appliesTo":"ELEMENT","styleBlockIds":[]},"targets":[{"id":"64c7c6599a6df8af863da028|fa86782a-de80-5240-a3dc-50fd31c8c151","appliesTo":"ELEMENT","styleBlockIds":[]}],"config":{"loop":true,"playInReverse":false,"scrollOffsetValue":0,"scrollOffsetUnit":"%","delay":null,"direction":null,"effectIn":null},"createdOn":1690814041530},"e-63":{"id":"e-63","name":"","animationType":"preset","eventTypeId":"PAGE_START","action":{"id":"","actionTypeId":"GENERAL_START_ACTION","config":{"delay":0,"easing":"","duration":0,"actionListId":"a-2","affectedElements":{},"playInReverse":false,"autoStopEventId":"e-204"}},"mediaQueries":["main","medium","small","tiny"],"target":{"id":"64c941624f1f7b05d032d1f9","appliesTo":"PAGE","styleBlockIds":[]},"targets":[{"id":"64c941624f1f7b05d032d1f9","appliesTo":"PAGE","styleBlockIds":[]}],"config":{"loop":false,"playInReverse":false,"scrollOffsetValue":null,"scrollOffsetUnit":null,"delay":null,"direction":null,"effectIn":null},"createdOn":1690911075019},"e-65":{"id":"e-65","name":"","animationType":"preset","eventTypeId":"PAGE_START","action":{"id":"","actionTypeId":"GENERAL_START_ACTION","config":{"delay":0,"easing":"","duration":0,"actionListId":"a-3","affectedElements":{},"playInReverse":false,"autoStopEventId":"e-129"}},"mediaQueries":["main","medium","small","tiny"],"target":{"id":"64c941624f1f7b05d032d1f9","appliesTo":"PAGE","styleBlockIds":[]},"targets":[{"id":"64c941624f1f7b05d032d1f9","appliesTo":"PAGE","styleBlockIds":[]}],"config":{"loop":false,"playInReverse":false,"scrollOffsetValue":null,"scrollOffsetUnit":null,"delay":null,"direction":null,"effectIn":null},"createdOn":1690911075019},"e-67":{"id":"e-67","name":"","animationType":"preset","eventTypeId":"SCROLLING_IN_VIEW","action":{"id":"","actionTypeId":"GENERAL_CONTINUOUS_ACTION","config":{"actionListId":"a-4","affectedElements":{},"duration":0}},"mediaQueries":["main","medium","small","tiny"],"target":{"id":"64c941624f1f7b05d032d1f9|8e8c10bb-320c-2bbf-80ec-92cfacec8eaa","appliesTo":"ELEMENT","styleBlockIds":[]},"targets":[{"id":"64c941624f1f7b05d032d1f9|8e8c10bb-320c-2bbf-80ec-92cfacec8eaa","appliesTo":"ELEMENT","styleBlockIds":[]}],"config":[{"continuousParameterGroupId":"a-4-p","smoothing":84,"startsEntering":false,"addStartOffset":false,"addOffsetValue":50,"startsExiting":false,"addEndOffset":false,"endOffsetValue":50}],"createdOn":1690911075019},"e-68":{"id":"e-68","name":"","animationType":"preset","eventTypeId":"SCROLLING_IN_VIEW","action":{"id":"","actionTypeId":"GENERAL_CONTINUOUS_ACTION","config":{"actionListId":"a-25","affectedElements":{},"duration":0}},"mediaQueries":["main","medium","small","tiny"],"target":{"id":"64c941624f1f7b05d032d1f9|74320b95-20be-d5c9-4dd4-ccde3dc609ed","appliesTo":"ELEMENT","styleBlockIds":[]},"targets":[{"id":"64c941624f1f7b05d032d1f9|74320b95-20be-d5c9-4dd4-ccde3dc609ed","appliesTo":"ELEMENT","styleBlockIds":[]}],"config":[{"continuousParameterGroupId":"a-25-p","smoothing":85,"startsEntering":true,"addStartOffset":false,"addOffsetValue":50,"startsExiting":false,"addEndOffset":false,"endOffsetValue":50}],"createdOn":1690911075019},"e-69":{"id":"e-69","name":"","animationType":"preset","eventTypeId":"SCROLL_INTO_VIEW","action":{"id":"","actionTypeId":"GENERAL_START_ACTION","config":{"delay":0,"easing":"","duration":0,"actionListId":"a-26","affectedElements":{},"playInReverse":false,"autoStopEventId":"e-128"}},"mediaQueries":["small","tiny"],"target":{"id":"64c941624f1f7b05d032d1f9|8e8c10bb-320c-2bbf-80ec-92cfacec8eaa","appliesTo":"ELEMENT","styleBlockIds":[]},"targets":[{"id":"64c941624f1f7b05d032d1f9|8e8c10bb-320c-2bbf-80ec-92cfacec8eaa","appliesTo":"ELEMENT","styleBlockIds":[]}],"config":{"loop":false,"playInReverse":false,"scrollOffsetValue":0,"scrollOffsetUnit":"%","delay":null,"direction":null,"effectIn":null},"createdOn":1690911075019},"e-70":{"id":"e-70","name":"","animationType":"preset","eventTypeId":"SCROLL_OUT_OF_VIEW","action":{"id":"","actionTypeId":"GENERAL_START_ACTION","config":{"delay":0,"easing":"","duration":0,"actionListId":"a-27","affectedElements":{},"playInReverse":false,"autoStopEventId":"e-136"}},"mediaQueries":["small","tiny"],"target":{"id":"64c941624f1f7b05d032d1f9|8e8c10bb-320c-2bbf-80ec-92cfacec8eaa","appliesTo":"ELEMENT","styleBlockIds":[]},"targets":[{"id":"64c941624f1f7b05d032d1f9|8e8c10bb-320c-2bbf-80ec-92cfacec8eaa","appliesTo":"ELEMENT","styleBlockIds":[]}],"config":{"loop":false,"playInReverse":false,"scrollOffsetValue":0,"scrollOffsetUnit":"%","delay":null,"direction":null,"effectIn":null},"createdOn":1690911075019},"e-71":{"id":"e-71","name":"","animationType":"preset","eventTypeId":"MOUSE_OVER","action":{"id":"","actionTypeId":"GENERAL_START_ACTION","config":{"delay":0,"easing":"","duration":0,"actionListId":"a-54","affectedElements":{},"playInReverse":false,"autoStopEventId":"e-138"}},"mediaQueries":["main","medium","small","tiny"],"target":{"id":"64c941624f1f7b05d032d1f9|5e58e86a-8378-2c81-4976-bf99edb97b47","appliesTo":"ELEMENT","styleBlockIds":[]},"targets":[{"id":"64c941624f1f7b05d032d1f9|5e58e86a-8378-2c81-4976-bf99edb97b47","appliesTo":"ELEMENT","styleBlockIds":[]}],"config":{"loop":false,"playInReverse":false,"scrollOffsetValue":null,"scrollOffsetUnit":null,"delay":null,"direction":null,"effectIn":null},"createdOn":1690911075019},"e-72":{"id":"e-72","name":"","animationType":"preset","eventTypeId":"MOUSE_OUT","action":{"id":"","actionTypeId":"GENERAL_START_ACTION","config":{"delay":0,"easing":"","duration":0,"actionListId":"a-57","affectedElements":{},"playInReverse":false,"autoStopEventId":"e-126"}},"mediaQueries":["main","medium","small","tiny"],"target":{"id":"64c941624f1f7b05d032d1f9|5e58e86a-8378-2c81-4976-bf99edb97b47","appliesTo":"ELEMENT","styleBlockIds":[]},"targets":[{"id":"64c941624f1f7b05d032d1f9|5e58e86a-8378-2c81-4976-bf99edb97b47","appliesTo":"ELEMENT","styleBlockIds":[]}],"config":{"loop":false,"playInReverse":false,"scrollOffsetValue":null,"scrollOffsetUnit":null,"delay":null,"direction":null,"effectIn":null},"createdOn":1690911075019},"e-73":{"id":"e-73","name":"","animationType":"preset","eventTypeId":"MOUSE_OVER","action":{"id":"","actionTypeId":"GENERAL_START_ACTION","config":{"delay":0,"easing":"","duration":0,"actionListId":"a-54","affectedElements":{},"playInReverse":false,"autoStopEventId":"e-128"}},"mediaQueries":["main","medium","small","tiny"],"target":{"id":"64c941624f1f7b05d032d1f9|5e58e86a-8378-2c81-4976-bf99edb97b55","appliesTo":"ELEMENT","styleBlockIds":[]},"targets":[{"id":"64c941624f1f7b05d032d1f9|5e58e86a-8378-2c81-4976-bf99edb97b55","appliesTo":"ELEMENT","styleBlockIds":[]}],"config":{"loop":false,"playInReverse":false,"scrollOffsetValue":null,"scrollOffsetUnit":null,"delay":null,"direction":null,"effectIn":null},"createdOn":1690911075019},"e-74":{"id":"e-74","name":"","animationType":"preset","eventTypeId":"MOUSE_OUT","action":{"id":"","actionTypeId":"GENERAL_START_ACTION","config":{"delay":0,"easing":"","duration":0,"actionListId":"a-57","affectedElements":{},"playInReverse":false,"autoStopEventId":"e-136"}},"mediaQueries":["main","medium","small","tiny"],"target":{"id":"64c941624f1f7b05d032d1f9|5e58e86a-8378-2c81-4976-bf99edb97b55","appliesTo":"ELEMENT","styleBlockIds":[]},"targets":[{"id":"64c941624f1f7b05d032d1f9|5e58e86a-8378-2c81-4976-bf99edb97b55","appliesTo":"ELEMENT","styleBlockIds":[]}],"config":{"loop":false,"playInReverse":false,"scrollOffsetValue":null,"scrollOffsetUnit":null,"delay":null,"direction":null,"effectIn":null},"createdOn":1690911075019},"e-75":{"id":"e-75","name":"","animationType":"preset","eventTypeId":"MOUSE_OVER","action":{"id":"","actionTypeId":"GENERAL_START_ACTION","config":{"delay":0,"easing":"","duration":0,"actionListId":"a-54","affectedElements":{},"playInReverse":false,"autoStopEventId":"e-76"}},"mediaQueries":["main","medium","small","tiny"],"target":{"id":"64c941624f1f7b05d032d1f9|5e58e86a-8378-2c81-4976-bf99edb97b63","appliesTo":"ELEMENT","styleBlockIds":[]},"targets":[{"id":"64c941624f1f7b05d032d1f9|5e58e86a-8378-2c81-4976-bf99edb97b63","appliesTo":"ELEMENT","styleBlockIds":[]}],"config":{"loop":false,"playInReverse":false,"scrollOffsetValue":null,"scrollOffsetUnit":null,"delay":null,"direction":null,"effectIn":null},"createdOn":1690911075019},"e-76":{"id":"e-76","name":"","animationType":"preset","eventTypeId":"MOUSE_OUT","action":{"id":"","actionTypeId":"GENERAL_START_ACTION","config":{"delay":0,"easing":"","duration":0,"actionListId":"a-57","affectedElements":{},"playInReverse":false,"autoStopEventId":"e-236"}},"mediaQueries":["main","medium","small","tiny"],"target":{"id":"64c941624f1f7b05d032d1f9|5e58e86a-8378-2c81-4976-bf99edb97b63","appliesTo":"ELEMENT","styleBlockIds":[]},"targets":[{"id":"64c941624f1f7b05d032d1f9|5e58e86a-8378-2c81-4976-bf99edb97b63","appliesTo":"ELEMENT","styleBlockIds":[]}],"config":{"loop":false,"playInReverse":false,"scrollOffsetValue":null,"scrollOffsetUnit":null,"delay":null,"direction":null,"effectIn":null},"createdOn":1690911075019},"e-84":{"id":"e-84","name":"","animationType":"custom","eventTypeId":"MOUSE_OUT","action":{"id":"","actionTypeId":"GENERAL_START_ACTION","config":{"delay":0,"easing":"","duration":0,"actionListId":"a-84","affectedElements":{},"playInReverse":false,"autoStopEventId":"e-101"}},"mediaQueries":["main","medium","small","tiny"],"target":{"selector":".cta-button","originalId":"64cd505cf47cd9cfb4c98f02|d7af0842-d580-1aa8-c735-6a77d80368ce","appliesTo":"CLASS"},"targets":[{"selector":".cta-button","originalId":"64cd505cf47cd9cfb4c98f02|d7af0842-d580-1aa8-c735-6a77d80368ce","appliesTo":"CLASS"}],"config":{"loop":false,"playInReverse":false,"scrollOffsetValue":null,"scrollOffsetUnit":null,"delay":null,"direction":null,"effectIn":null},"createdOn":1653224259471},"e-86":{"id":"e-86","name":"","animationType":"custom","eventTypeId":"MOUSE_OVER","action":{"id":"","actionTypeId":"GENERAL_START_ACTION","config":{"delay":0,"easing":"","duration":0,"actionListId":"a-85","affectedElements":{},"playInReverse":false,"autoStopEventId":"e-94"}},"mediaQueries":["main","medium","small","tiny"],"target":{"selector":".cta-button","originalId":"64cd505cf47cd9cfb4c98f02|d7af0842-d580-1aa8-c735-6a77d80368ce","appliesTo":"CLASS"},"targets":[{"selector":".cta-button","originalId":"64cd505cf47cd9cfb4c98f02|d7af0842-d580-1aa8-c735-6a77d80368ce","appliesTo":"CLASS"}],"config":{"loop":false,"playInReverse":false,"scrollOffsetValue":null,"scrollOffsetUnit":null,"delay":null,"direction":null,"effectIn":null},"createdOn":1653224924083},"e-88":{"id":"e-88","name":"","animationType":"custom","eventTypeId":"MOUSE_OVER","action":{"id":"","actionTypeId":"GENERAL_START_ACTION","config":{"delay":0,"easing":"","duration":0,"actionListId":"a-83","affectedElements":{},"playInReverse":false,"autoStopEventId":"e-181"}},"mediaQueries":["main","medium","small","tiny"],"target":{"selector":".social-icon","originalId":"64cd505cf47cd9cfb4c98f02|916cac22-bc56-3838-1b4d-1d67efad333c","appliesTo":"CLASS"},"targets":[{"selector":".social-icon","originalId":"64cd505cf47cd9cfb4c98f02|916cac22-bc56-3838-1b4d-1d67efad333c","appliesTo":"CLASS"}],"config":{"loop":false,"playInReverse":false,"scrollOffsetValue":null,"scrollOffsetUnit":null,"delay":null,"direction":null,"effectIn":null},"createdOn":1653224315761},"e-90":{"id":"e-90","name":"","animationType":"custom","eventTypeId":"MOUSE_OUT","action":{"id":"","actionTypeId":"GENERAL_START_ACTION","config":{"delay":0,"easing":"","duration":0,"actionListId":"a-84","affectedElements":{},"playInReverse":false,"autoStopEventId":"e-187"}},"mediaQueries":["main","medium","small","tiny"],"target":{"selector":".social-icon","originalId":"64cd505cf47cd9cfb4c98f02|916cac22-bc56-3838-1b4d-1d67efad333c","appliesTo":"CLASS"},"targets":[{"selector":".social-icon","originalId":"64cd505cf47cd9cfb4c98f02|916cac22-bc56-3838-1b4d-1d67efad333c","appliesTo":"CLASS"}],"config":{"loop":false,"playInReverse":false,"scrollOffsetValue":null,"scrollOffsetUnit":null,"delay":null,"direction":null,"effectIn":null},"createdOn":1653224315808},"e-92":{"id":"e-92","name":"","animationType":"custom","eventTypeId":"MOUSE_OUT","action":{"id":"","actionTypeId":"GENERAL_START_ACTION","config":{"delay":0,"easing":"","duration":0,"actionListId":"a-84","affectedElements":{},"playInReverse":false,"autoStopEventId":"e-98"}},"mediaQueries":["main","medium","small","tiny"],"target":{"selector":".back-bottun-desktop","originalId":"64be8056f46991cc7bfe15e1|07935c3b-3a5e-3053-fad9-3f5120577292","appliesTo":"CLASS"},"targets":[{"selector":".back-bottun-desktop","originalId":"64be8056f46991cc7bfe15e1|07935c3b-3a5e-3053-fad9-3f5120577292","appliesTo":"CLASS"}],"config":{"loop":false,"playInReverse":false,"scrollOffsetValue":null,"scrollOffsetUnit":null,"delay":null,"direction":null,"effectIn":null},"createdOn":1653226066276},"e-94":{"id":"e-94","name":"","animationType":"custom","eventTypeId":"MOUSE_OUT","action":{"id":"","actionTypeId":"GENERAL_START_ACTION","config":{"delay":0,"easing":"","duration":0,"actionListId":"a-86","affectedElements":{},"playInReverse":false,"autoStopEventId":"e-234"}},"mediaQueries":["main","medium","small","tiny"],"target":{"selector":".cta-button","originalId":"64cd505cf47cd9cfb4c98f02|d7af0842-d580-1aa8-c735-6a77d80368ce","appliesTo":"CLASS"},"targets":[{"selector":".cta-button","originalId":"64cd505cf47cd9cfb4c98f02|d7af0842-d580-1aa8-c735-6a77d80368ce","appliesTo":"CLASS"}],"config":{"loop":false,"playInReverse":false,"scrollOffsetValue":null,"scrollOffsetUnit":null,"delay":null,"direction":null,"effectIn":null},"createdOn":1653224924087},"e-96":{"id":"e-96","name":"","animationType":"preset","eventTypeId":"MOUSE_OUT","action":{"id":"","actionTypeId":"GENERAL_START_ACTION","config":{"delay":0,"easing":"","duration":0,"actionListId":"a-80","affectedElements":{},"playInReverse":false,"autoStopEventId":"e-99"}},"mediaQueries":["main","medium","small","tiny"],"target":{"selector":".nav-button-copy-2","originalId":"64cd505cf47cd9cfb4c98f02|3135ca1a-09e6-6123-3efb-4f0dc4be0af1","appliesTo":"CLASS"},"targets":[{"selector":".nav-button-copy-2","originalId":"64cd505cf47cd9cfb4c98f02|3135ca1a-09e6-6123-3efb-4f0dc4be0af1","appliesTo":"CLASS"}],"config":{"loop":false,"playInReverse":false,"scrollOffsetValue":null,"scrollOffsetUnit":null,"delay":null,"direction":null,"effectIn":null},"createdOn":1653657620557},"e-97":{"id":"e-97","name":"","animationType":"custom","eventTypeId":"MOUSE_OUT","action":{"id":"","actionTypeId":"GENERAL_START_ACTION","config":{"delay":0,"easing":"","duration":0,"actionListId":"a-80","affectedElements":{},"playInReverse":false,"autoStopEventId":"e-100"}},"mediaQueries":["main","medium","small","tiny"],"target":{"selector":".nav-button-copy-2","originalId":"cd99032d-c0c8-1228-7af1-4e3528f20b97","appliesTo":"CLASS"},"targets":[{"selector":".nav-button-copy-2","originalId":"cd99032d-c0c8-1228-7af1-4e3528f20b97","appliesTo":"CLASS"}],"config":{"loop":false,"playInReverse":false,"scrollOffsetValue":null,"scrollOffsetUnit":null,"delay":null,"direction":null,"effectIn":null},"createdOn":1653385117958},"e-98":{"id":"e-98","name":"","animationType":"custom","eventTypeId":"MOUSE_OVER","action":{"id":"","actionTypeId":"GENERAL_START_ACTION","config":{"delay":0,"easing":"","duration":0,"actionListId":"a-83","affectedElements":{},"playInReverse":false,"autoStopEventId":"e-92"}},"mediaQueries":["main","medium","small","tiny"],"target":{"selector":".back-bottun-desktop","originalId":"64be8056f46991cc7bfe15e1|07935c3b-3a5e-3053-fad9-3f5120577292","appliesTo":"CLASS"},"targets":[{"selector":".back-bottun-desktop","originalId":"64be8056f46991cc7bfe15e1|07935c3b-3a5e-3053-fad9-3f5120577292","appliesTo":"CLASS"}],"config":{"loop":false,"playInReverse":false,"scrollOffsetValue":null,"scrollOffsetUnit":null,"delay":null,"direction":null,"effectIn":null},"createdOn":1653226066274},"e-99":{"id":"e-99","name":"","animationType":"preset","eventTypeId":"MOUSE_OVER","action":{"id":"","actionTypeId":"GENERAL_START_ACTION","config":{"delay":0,"easing":"","duration":0,"actionListId":"a-79","affectedElements":{},"playInReverse":false,"autoStopEventId":"e-96"}},"mediaQueries":["main","medium","small","tiny"],"target":{"selector":".nav-button-copy-2","originalId":"64cd505cf47cd9cfb4c98f02|3135ca1a-09e6-6123-3efb-4f0dc4be0af1","appliesTo":"CLASS"},"targets":[{"selector":".nav-button-copy-2","originalId":"64cd505cf47cd9cfb4c98f02|3135ca1a-09e6-6123-3efb-4f0dc4be0af1","appliesTo":"CLASS"}],"config":{"loop":false,"playInReverse":false,"scrollOffsetValue":null,"scrollOffsetUnit":null,"delay":null,"direction":null,"effectIn":null},"createdOn":1653657620557},"e-100":{"id":"e-100","name":"","animationType":"custom","eventTypeId":"MOUSE_OVER","action":{"id":"","actionTypeId":"GENERAL_START_ACTION","config":{"delay":0,"easing":"","duration":0,"actionListId":"a-79","affectedElements":{},"playInReverse":false,"autoStopEventId":"e-97"}},"mediaQueries":["main","medium","small","tiny"],"target":{"selector":".nav-button-copy-2","originalId":"cd99032d-c0c8-1228-7af1-4e3528f20b97","appliesTo":"CLASS"},"targets":[{"selector":".nav-button-copy-2","originalId":"cd99032d-c0c8-1228-7af1-4e3528f20b97","appliesTo":"CLASS"}],"config":{"loop":false,"playInReverse":false,"scrollOffsetValue":null,"scrollOffsetUnit":null,"delay":null,"direction":null,"effectIn":null},"createdOn":1653385117950},"e-101":{"id":"e-101","name":"","animationType":"custom","eventTypeId":"MOUSE_OVER","action":{"id":"","actionTypeId":"GENERAL_START_ACTION","config":{"delay":0,"easing":"","duration":0,"actionListId":"a-83","affectedElements":{},"playInReverse":false,"autoStopEventId":"e-184"}},"mediaQueries":["main","medium","small","tiny"],"target":{"selector":".cta-button","originalId":"64cd505cf47cd9cfb4c98f02|d7af0842-d580-1aa8-c735-6a77d80368ce","appliesTo":"CLASS"},"targets":[{"selector":".cta-button","originalId":"64cd505cf47cd9cfb4c98f02|d7af0842-d580-1aa8-c735-6a77d80368ce","appliesTo":"CLASS"}],"config":{"loop":false,"playInReverse":false,"scrollOffsetValue":null,"scrollOffsetUnit":null,"delay":null,"direction":null,"effectIn":null},"createdOn":1653224259470},"e-110":{"id":"e-110","name":"","animationType":"custom","eventTypeId":"SCROLLING_IN_VIEW","action":{"id":"","actionTypeId":"GENERAL_CONTINUOUS_ACTION","config":{"actionListId":"a-89","affectedElements":{},"duration":0}},"mediaQueries":["main"],"target":{"selector":".guide_section-header","originalId":"64d13a5ac579e75db0db27d0|8b3a309c-60aa-4e0a-8304-a603f2232e68","appliesTo":"CLASS"},"targets":[{"selector":".guide_section-header","originalId":"64d13a5ac579e75db0db27d0|8b3a309c-60aa-4e0a-8304-a603f2232e68","appliesTo":"CLASS"}],"config":[{"continuousParameterGroupId":"a-89-p","smoothing":50,"startsEntering":true,"addStartOffset":false,"addOffsetValue":50,"startsExiting":false,"addEndOffset":false,"endOffsetValue":50}],"createdOn":1648398428160},"e-112":{"id":"e-112","name":"","animationType":"custom","eventTypeId":"SCROLLING_IN_VIEW","action":{"id":"","actionTypeId":"GENERAL_CONTINUOUS_ACTION","config":{"actionListId":"a-90","affectedElements":{},"duration":0}},"mediaQueries":["main","medium","small","tiny"],"target":{"selector":".guide_row","originalId":"64be8056f46991cc7bfe15e1|40b394f4-33fd-0374-4cda-3aecb1a2fabb","appliesTo":"CLASS"},"targets":[{"selector":".guide_row","originalId":"64be8056f46991cc7bfe15e1|40b394f4-33fd-0374-4cda-3aecb1a2fabb","appliesTo":"CLASS"}],"config":[{"continuousParameterGroupId":"a-90-p","smoothing":50,"startsEntering":true,"addStartOffset":false,"addOffsetValue":50,"startsExiting":false,"addEndOffset":false,"endOffsetValue":50}],"createdOn":1648868095576},"e-113":{"id":"e-113","name":"","animationType":"custom","eventTypeId":"DROPDOWN_CLOSE","action":{"id":"","actionTypeId":"GENERAL_START_ACTION","config":{"delay":0,"easing":"","duration":0,"actionListId":"a-102","affectedElements":{},"playInReverse":false,"autoStopEventId":"e-178"}},"mediaQueries":["small","tiny"],"target":{"selector":".footer__drop","originalId":"69c7d1d4-cd11-e782-c294-bdc3c2ab4a6a","appliesTo":"CLASS"},"targets":[{"selector":".footer__drop","originalId":"69c7d1d4-cd11-e782-c294-bdc3c2ab4a6a","appliesTo":"CLASS"}],"config":{"loop":false,"playInReverse":false,"scrollOffsetValue":null,"scrollOffsetUnit":null,"delay":null,"direction":null,"effectIn":null},"createdOn":1632843435003},"e-114":{"id":"e-114","name":"","animationType":"custom","eventTypeId":"MOUSE_OVER","action":{"id":"","actionTypeId":"GENERAL_START_ACTION","config":{"delay":0,"easing":"","duration":0,"actionListId":"a-105","affectedElements":{},"playInReverse":false,"autoStopEventId":"e-125"}},"mediaQueries":["main","medium","small","tiny"],"target":{"selector":".btn","originalId":"64be8056f46991cc7bfe15e1|d0deb974-8233-52dd-4a52-04585e9b8086","appliesTo":"CLASS"},"targets":[{"selector":".btn","originalId":"64be8056f46991cc7bfe15e1|d0deb974-8233-52dd-4a52-04585e9b8086","appliesTo":"CLASS"}],"config":{"loop":false,"playInReverse":false,"scrollOffsetValue":null,"scrollOffsetUnit":null,"delay":null,"direction":null,"effectIn":null},"createdOn":1657270179892},"e-121":{"id":"e-121","name":"","animationType":"custom","eventTypeId":"DROPDOWN_OPEN","action":{"id":"","actionTypeId":"GENERAL_START_ACTION","config":{"delay":0,"easing":"","duration":0,"actionListId":"a-95","affectedElements":{},"playInReverse":false,"autoStopEventId":"e-171"}},"mediaQueries":["small","tiny"],"target":{"selector":".footer__drop","originalId":"69c7d1d4-cd11-e782-c294-bdc3c2ab4a6a","appliesTo":"CLASS"},"targets":[{"selector":".footer__drop","originalId":"69c7d1d4-cd11-e782-c294-bdc3c2ab4a6a","appliesTo":"CLASS"}],"config":{"loop":false,"playInReverse":false,"scrollOffsetValue":null,"scrollOffsetUnit":null,"delay":null,"direction":null,"effectIn":null},"createdOn":1632843435002},"e-124":{"id":"e-124","name":"","animationType":"custom","eventTypeId":"MOUSE_OVER","action":{"id":"","actionTypeId":"GENERAL_START_ACTION","config":{"delay":0,"easing":"","duration":0,"actionListId":"a-96","affectedElements":{},"playInReverse":false,"autoStopEventId":"e-136"}},"mediaQueries":["main","medium","small","tiny"],"target":{"selector":".courses__block","originalId":"64be8056f46991cc7bfe15e1|d0deb974-8233-52dd-4a52-04585e9b8104","appliesTo":"CLASS"},"targets":[{"selector":".courses__block","originalId":"64be8056f46991cc7bfe15e1|d0deb974-8233-52dd-4a52-04585e9b8104","appliesTo":"CLASS"}],"config":{"loop":false,"playInReverse":false,"scrollOffsetValue":null,"scrollOffsetUnit":null,"delay":null,"direction":null,"effectIn":null},"createdOn":1643190791889},"e-125":{"id":"e-125","name":"","animationType":"custom","eventTypeId":"MOUSE_OUT","action":{"id":"","actionTypeId":"GENERAL_START_ACTION","config":{"delay":0,"easing":"","duration":0,"actionListId":"a-101","affectedElements":{},"playInReverse":false,"autoStopEventId":"e-211"}},"mediaQueries":["main","medium","small","tiny"],"target":{"selector":".btn","originalId":"64be8056f46991cc7bfe15e1|d0deb974-8233-52dd-4a52-04585e9b8086","appliesTo":"CLASS"},"targets":[{"selector":".btn","originalId":"64be8056f46991cc7bfe15e1|d0deb974-8233-52dd-4a52-04585e9b8086","appliesTo":"CLASS"}],"config":{"loop":false,"playInReverse":false,"scrollOffsetValue":null,"scrollOffsetUnit":null,"delay":null,"direction":null,"effectIn":null},"createdOn":1657270179893},"e-133":{"id":"e-133","name":"","animationType":"custom","eventTypeId":"MOUSE_CLICK","action":{"id":"","actionTypeId":"GENERAL_START_ACTION","config":{"delay":0,"easing":"","duration":0,"actionListId":"a-99","affectedElements":{},"playInReverse":false,"autoStopEventId":"e-183"}},"mediaQueries":["main","medium","small","tiny"],"target":{"selector":".header__humb-close","originalId":"6193c9dbb80976a755877ef4|bd7162f8-09c5-9cdf-1c88-d3df64d476ad","appliesTo":"CLASS"},"targets":[{"selector":".header__humb-close","originalId":"6193c9dbb80976a755877ef4|bd7162f8-09c5-9cdf-1c88-d3df64d476ad","appliesTo":"CLASS"}],"config":{"loop":false,"playInReverse":false,"scrollOffsetValue":null,"scrollOffsetUnit":null,"delay":null,"direction":null,"effectIn":null},"createdOn":1637673892225},"e-134":{"id":"e-134","name":"","animationType":"custom","eventTypeId":"MOUSE_CLICK","action":{"id":"","actionTypeId":"GENERAL_START_ACTION","config":{"delay":0,"easing":"","duration":0,"actionListId":"a-103","affectedElements":{},"playInReverse":false,"autoStopEventId":"e-131"}},"mediaQueries":["main","medium","small","tiny"],"target":{"selector":".header__humb","originalId":"64be8056f46991cc7bfe15e1|d0deb974-8233-52dd-4a52-04585e9b8073","appliesTo":"CLASS"},"targets":[{"selector":".header__humb","originalId":"64be8056f46991cc7bfe15e1|d0deb974-8233-52dd-4a52-04585e9b8073","appliesTo":"CLASS"}],"config":{"loop":false,"playInReverse":false,"scrollOffsetValue":null,"scrollOffsetUnit":null,"delay":null,"direction":null,"effectIn":null},"createdOn":1638285499259},"e-136":{"id":"e-136","name":"","animationType":"custom","eventTypeId":"MOUSE_OUT","action":{"id":"","actionTypeId":"GENERAL_START_ACTION","config":{"delay":0,"easing":"","duration":0,"actionListId":"a-104","affectedElements":{},"playInReverse":false,"autoStopEventId":"e-124"}},"mediaQueries":["main","medium","small","tiny"],"target":{"selector":".courses__block","originalId":"64be8056f46991cc7bfe15e1|d0deb974-8233-52dd-4a52-04585e9b8104","appliesTo":"CLASS"},"targets":[{"selector":".courses__block","originalId":"64be8056f46991cc7bfe15e1|d0deb974-8233-52dd-4a52-04585e9b8104","appliesTo":"CLASS"}],"config":{"loop":false,"playInReverse":false,"scrollOffsetValue":null,"scrollOffsetUnit":null,"delay":null,"direction":null,"effectIn":null},"createdOn":1643190791890},"e-137":{"id":"e-137","name":"","animationType":"preset","eventTypeId":"SCROLL_INTO_VIEW","action":{"id":"","actionTypeId":"SLIDE_EFFECT","instant":false,"config":{"actionListId":"slideInLeft","autoStopEventId":"e-138"}},"mediaQueries":["main","medium","small","tiny"],"target":{"id":"64cd536249333dd65b9f0f42|e16f41dd-d120-f88d-18c0-8aac1550da08","appliesTo":"ELEMENT","styleBlockIds":[]},"targets":[{"id":"64cd536249333dd65b9f0f42|e16f41dd-d120-f88d-18c0-8aac1550da08","appliesTo":"ELEMENT","styleBlockIds":[]}],"config":{"loop":false,"playInReverse":false,"scrollOffsetValue":20,"scrollOffsetUnit":"%","delay":0,"direction":"LEFT","effectIn":true},"createdOn":1691522297451},"e-139":{"id":"e-139","name":"","animationType":"preset","eventTypeId":"MOUSE_OVER","action":{"id":"","actionTypeId":"GENERAL_START_ACTION","config":{"delay":0,"easing":"","duration":0,"actionListId":"a-81","affectedElements":{},"playInReverse":false,"autoStopEventId":"e-140"}},"mediaQueries":["main","medium","small","tiny"],"target":{"id":"64cd536249333dd65b9f0f42|e16f41dd-d120-f88d-18c0-8aac1550da24","appliesTo":"ELEMENT","styleBlockIds":[]},"targets":[{"id":"64cd536249333dd65b9f0f42|e16f41dd-d120-f88d-18c0-8aac1550da24","appliesTo":"ELEMENT","styleBlockIds":[]}],"config":{"loop":false,"playInReverse":false,"scrollOffsetValue":null,"scrollOffsetUnit":null,"delay":null,"direction":null,"effectIn":null},"createdOn":1691522297451},"e-140":{"id":"e-140","name":"","animationType":"preset","eventTypeId":"MOUSE_OUT","action":{"id":"","actionTypeId":"GENERAL_START_ACTION","config":{"delay":0,"easing":"","duration":0,"actionListId":"a-82","affectedElements":{},"playInReverse":false,"autoStopEventId":"e-139"}},"mediaQueries":["main","medium","small","tiny"],"target":{"id":"64cd536249333dd65b9f0f42|e16f41dd-d120-f88d-18c0-8aac1550da24","appliesTo":"ELEMENT","styleBlockIds":[]},"targets":[{"id":"64cd536249333dd65b9f0f42|e16f41dd-d120-f88d-18c0-8aac1550da24","appliesTo":"ELEMENT","styleBlockIds":[]}],"config":{"loop":false,"playInReverse":false,"scrollOffsetValue":null,"scrollOffsetUnit":null,"delay":null,"direction":null,"effectIn":null},"createdOn":1691522297451},"e-141":{"id":"e-141","name":"","animationType":"preset","eventTypeId":"SCROLL_INTO_VIEW","action":{"id":"","actionTypeId":"SLIDE_EFFECT","instant":false,"config":{"actionListId":"slideInLeft","autoStopEventId":"e-142"}},"mediaQueries":["main","medium","small","tiny"],"target":{"id":"64cd536249333dd65b9f0f42|e16f41dd-d120-f88d-18c0-8aac1550da29","appliesTo":"ELEMENT","styleBlockIds":[]},"targets":[{"id":"64cd536249333dd65b9f0f42|e16f41dd-d120-f88d-18c0-8aac1550da29","appliesTo":"ELEMENT","styleBlockIds":[]}],"config":{"loop":false,"playInReverse":false,"scrollOffsetValue":10,"scrollOffsetUnit":"%","delay":0.3,"direction":"LEFT","effectIn":true},"createdOn":1691522297451},"e-143":{"id":"e-143","name":"","animationType":"preset","eventTypeId":"TAB_ACTIVE","action":{"id":"","actionTypeId":"GENERAL_START_ACTION","config":{"delay":0,"easing":"","duration":0,"actionListId":"a-87","affectedElements":{},"playInReverse":false,"autoStopEventId":"e-144"}},"mediaQueries":["main","medium","small","tiny"],"target":{"id":"64cd536249333dd65b9f0f42|c7c2b683-96f3-fba5-cfe6-10752ed7e35b","appliesTo":"ELEMENT","styleBlockIds":[]},"targets":[{"id":"64cd536249333dd65b9f0f42|c7c2b683-96f3-fba5-cfe6-10752ed7e35b","appliesTo":"ELEMENT","styleBlockIds":[]}],"config":{"loop":false,"playInReverse":false,"scrollOffsetValue":null,"scrollOffsetUnit":null,"delay":null,"direction":null,"effectIn":null},"createdOn":1691523073034},"e-144":{"id":"e-144","name":"","animationType":"preset","eventTypeId":"TAB_INACTIVE","action":{"id":"","actionTypeId":"GENERAL_START_ACTION","config":{"delay":0,"easing":"","duration":0,"actionListId":"a-88","affectedElements":{},"playInReverse":false,"autoStopEventId":"e-143"}},"mediaQueries":["main","medium","small","tiny"],"target":{"id":"64cd536249333dd65b9f0f42|c7c2b683-96f3-fba5-cfe6-10752ed7e35b","appliesTo":"ELEMENT","styleBlockIds":[]},"targets":[{"id":"64cd536249333dd65b9f0f42|c7c2b683-96f3-fba5-cfe6-10752ed7e35b","appliesTo":"ELEMENT","styleBlockIds":[]}],"config":{"loop":false,"playInReverse":false,"scrollOffsetValue":null,"scrollOffsetUnit":null,"delay":null,"direction":null,"effectIn":null},"createdOn":1691523073034},"e-145":{"id":"e-145","name":"","animationType":"preset","eventTypeId":"TAB_ACTIVE","action":{"id":"","actionTypeId":"GENERAL_START_ACTION","config":{"delay":0,"easing":"","duration":0,"actionListId":"a-87","affectedElements":{},"playInReverse":false,"autoStopEventId":"e-146"}},"mediaQueries":["main","medium","small","tiny"],"target":{"id":"64cd536249333dd65b9f0f42|c7c2b683-96f3-fba5-cfe6-10752ed7e366","appliesTo":"ELEMENT","styleBlockIds":[]},"targets":[{"id":"64cd536249333dd65b9f0f42|c7c2b683-96f3-fba5-cfe6-10752ed7e366","appliesTo":"ELEMENT","styleBlockIds":[]}],"config":{"loop":false,"playInReverse":false,"scrollOffsetValue":null,"scrollOffsetUnit":null,"delay":null,"direction":null,"effectIn":null},"createdOn":1691523073034},"e-146":{"id":"e-146","name":"","animationType":"preset","eventTypeId":"TAB_INACTIVE","action":{"id":"","actionTypeId":"GENERAL_START_ACTION","config":{"delay":0,"easing":"","duration":0,"actionListId":"a-88","affectedElements":{},"playInReverse":false,"autoStopEventId":"e-145"}},"mediaQueries":["main","medium","small","tiny"],"target":{"id":"64cd536249333dd65b9f0f42|c7c2b683-96f3-fba5-cfe6-10752ed7e366","appliesTo":"ELEMENT","styleBlockIds":[]},"targets":[{"id":"64cd536249333dd65b9f0f42|c7c2b683-96f3-fba5-cfe6-10752ed7e366","appliesTo":"ELEMENT","styleBlockIds":[]}],"config":{"loop":false,"playInReverse":false,"scrollOffsetValue":null,"scrollOffsetUnit":null,"delay":null,"direction":null,"effectIn":null},"createdOn":1691523073034},"e-147":{"id":"e-147","name":"","animationType":"preset","eventTypeId":"TAB_ACTIVE","action":{"id":"","actionTypeId":"GENERAL_START_ACTION","config":{"delay":0,"easing":"","duration":0,"actionListId":"a-87","affectedElements":{},"playInReverse":false,"autoStopEventId":"e-148"}},"mediaQueries":["main","medium","small","tiny"],"target":{"id":"64cd536249333dd65b9f0f42|c7c2b683-96f3-fba5-cfe6-10752ed7e371","appliesTo":"ELEMENT","styleBlockIds":[]},"targets":[{"id":"64cd536249333dd65b9f0f42|c7c2b683-96f3-fba5-cfe6-10752ed7e371","appliesTo":"ELEMENT","styleBlockIds":[]}],"config":{"loop":false,"playInReverse":false,"scrollOffsetValue":null,"scrollOffsetUnit":null,"delay":null,"direction":null,"effectIn":null},"createdOn":1691523073034},"e-148":{"id":"e-148","name":"","animationType":"preset","eventTypeId":"TAB_INACTIVE","action":{"id":"","actionTypeId":"GENERAL_START_ACTION","config":{"delay":0,"easing":"","duration":0,"actionListId":"a-88","affectedElements":{},"playInReverse":false,"autoStopEventId":"e-147"}},"mediaQueries":["main","medium","small","tiny"],"target":{"id":"64cd536249333dd65b9f0f42|c7c2b683-96f3-fba5-cfe6-10752ed7e371","appliesTo":"ELEMENT","styleBlockIds":[]},"targets":[{"id":"64cd536249333dd65b9f0f42|c7c2b683-96f3-fba5-cfe6-10752ed7e371","appliesTo":"ELEMENT","styleBlockIds":[]}],"config":{"loop":false,"playInReverse":false,"scrollOffsetValue":null,"scrollOffsetUnit":null,"delay":null,"direction":null,"effectIn":null},"createdOn":1691523073034},"e-168":{"id":"e-168","name":"","animationType":"custom","eventTypeId":"MOUSE_CLICK","action":{"id":"","actionTypeId":"GENERAL_START_ACTION","config":{"delay":0,"easing":"","duration":0,"actionListId":"a-109","affectedElements":{},"playInReverse":false,"autoStopEventId":"e-191"}},"mediaQueries":["main","medium","small","tiny"],"target":{"selector":".footer-link","originalId":"a8fef48c-b0b3-52dd-2db2-eece9c941d29","appliesTo":"CLASS"},"targets":[{"selector":".footer-link","originalId":"a8fef48c-b0b3-52dd-2db2-eece9c941d29","appliesTo":"CLASS"}],"config":{"loop":false,"playInReverse":false,"scrollOffsetValue":null,"scrollOffsetUnit":null,"delay":null,"direction":null,"effectIn":null},"createdOn":1637627353898},"e-197":{"id":"e-197","name":"","animationType":"custom","eventTypeId":"SCROLL_INTO_VIEW","action":{"id":"","actionTypeId":"GENERAL_START_ACTION","config":{"delay":0,"easing":"","duration":0,"actionListId":"a-113","affectedElements":{},"playInReverse":false,"autoStopEventId":"e-59"}},"mediaQueries":["main","medium","small","tiny"],"target":{"id":"64be8056f46991cc7bfe15e1|a02f1b8f-f76b-b0e9-b846-c59376ea212d","appliesTo":"ELEMENT","styleBlockIds":[]},"targets":[{"id":"64be8056f46991cc7bfe15e1|a02f1b8f-f76b-b0e9-b846-c59376ea212d","appliesTo":"ELEMENT","styleBlockIds":[]}],"config":{"loop":true,"playInReverse":false,"scrollOffsetValue":0,"scrollOffsetUnit":"%","delay":null,"direction":null,"effectIn":null},"createdOn":1636315660260},"e-210":{"id":"e-210","name":"","animationType":"custom","eventTypeId":"SCROLL_INTO_VIEW","action":{"id":"","actionTypeId":"GENERAL_START_ACTION","config":{"delay":0,"easing":"","duration":0,"actionListId":"a-113","affectedElements":{},"playInReverse":false,"autoStopEventId":"e-61"}},"mediaQueries":["main","medium","small","tiny"],"target":{"id":"64be8056f46991cc7bfe15e1|a02f1b8f-f76b-b0e9-b846-c59376ea2131","appliesTo":"ELEMENT","styleBlockIds":[]},"targets":[{"id":"64be8056f46991cc7bfe15e1|a02f1b8f-f76b-b0e9-b846-c59376ea2131","appliesTo":"ELEMENT","styleBlockIds":[]}],"config":{"loop":true,"playInReverse":false,"scrollOffsetValue":0,"scrollOffsetUnit":"%","delay":null,"direction":null,"effectIn":null},"createdOn":1636315674949},"e-239":{"id":"e-239","name":"","animationType":"custom","eventTypeId":"MOUSE_CLICK","action":{"id":"","actionTypeId":"GENERAL_START_ACTION","config":{"delay":0,"easing":"","duration":0,"actionListId":"a-109","affectedElements":{},"playInReverse":false,"autoStopEventId":"e-301"}},"mediaQueries":["main","medium","small","tiny"],"target":{"id":"64be8056f46991cc7bfe15e1|80cfc938-b9ed-2691-0b33-00835b96c204","appliesTo":"ELEMENT","styleBlockIds":[]},"targets":[{"id":"64be8056f46991cc7bfe15e1|80cfc938-b9ed-2691-0b33-00835b96c204","appliesTo":"ELEMENT","styleBlockIds":[]}],"config":{"loop":false,"playInReverse":false,"scrollOffsetValue":null,"scrollOffsetUnit":null,"delay":null,"direction":null,"effectIn":null},"createdOn":1637098472884},"e-241":{"id":"e-241","name":"","animationType":"custom","eventTypeId":"SCROLL_INTO_VIEW","action":{"id":"","actionTypeId":"GENERAL_START_ACTION","config":{"delay":0,"easing":"","duration":0,"actionListId":"a-117","affectedElements":{},"playInReverse":false,"autoStopEventId":"e-238"}},"mediaQueries":["main","medium","small","tiny"],"target":{"id":"64be8056f46991cc7bfe15e1|80cfc938-b9ed-2691-0b33-00835b96c1de","appliesTo":"ELEMENT","styleBlockIds":[]},"targets":[{"id":"64be8056f46991cc7bfe15e1|80cfc938-b9ed-2691-0b33-00835b96c1de","appliesTo":"ELEMENT","styleBlockIds":[]}],"config":{"loop":false,"playInReverse":false,"scrollOffsetValue":5,"scrollOffsetUnit":"%","delay":null,"direction":null,"effectIn":null},"createdOn":1636311472181},"e-249":{"id":"e-249","name":"","animationType":"custom","eventTypeId":"SCROLLING_IN_VIEW","action":{"id":"","actionTypeId":"GENERAL_CONTINUOUS_ACTION","config":{"actionListId":"a-115","affectedElements":{},"duration":0}},"mediaQueries":["main","medium","small","tiny"],"target":{"id":"64be8056f46991cc7bfe15e1|80cfc938-b9ed-2691-0b33-00835b96c207","appliesTo":"ELEMENT","styleBlockIds":[]},"targets":[{"id":"64be8056f46991cc7bfe15e1|80cfc938-b9ed-2691-0b33-00835b96c207","appliesTo":"ELEMENT","styleBlockIds":[]}],"config":[{"continuousParameterGroupId":"a-115-p","smoothing":98,"startsEntering":true,"addStartOffset":false,"addOffsetValue":50,"startsExiting":false,"addEndOffset":false,"endOffsetValue":50}],"createdOn":1636311611332},"e-256":{"id":"e-256","name":"","animationType":"custom","eventTypeId":"SCROLL_INTO_VIEW","action":{"id":"","actionTypeId":"GENERAL_START_ACTION","config":{"delay":0,"easing":"","duration":0,"actionListId":"a-110","affectedElements":{},"playInReverse":false,"autoStopEventId":"e-257"}},"mediaQueries":["main","medium"],"target":{"id":"64be8056f46991cc7bfe15e1|80cfc938-b9ed-2691-0b33-00835b96c1b1","appliesTo":"ELEMENT","styleBlockIds":[]},"targets":[{"id":"64be8056f46991cc7bfe15e1|80cfc938-b9ed-2691-0b33-00835b96c1b1","appliesTo":"ELEMENT","styleBlockIds":[]}],"config":{"loop":false,"playInReverse":false,"scrollOffsetValue":10,"scrollOffsetUnit":"%","delay":null,"direction":null,"effectIn":null},"createdOn":1636316999772},"e-258":{"id":"e-258","name":"","animationType":"custom","eventTypeId":"SCROLL_INTO_VIEW","action":{"id":"","actionTypeId":"GENERAL_START_ACTION","config":{"delay":0,"easing":"","duration":0,"actionListId":"a-107","affectedElements":{},"playInReverse":false,"autoStopEventId":"e-280"}},"mediaQueries":["main","medium","small","tiny"],"target":{"id":"64be8056f46991cc7bfe15e1|80cfc938-b9ed-2691-0b33-00835b96c204","appliesTo":"ELEMENT","styleBlockIds":[]},"targets":[{"id":"64be8056f46991cc7bfe15e1|80cfc938-b9ed-2691-0b33-00835b96c204","appliesTo":"ELEMENT","styleBlockIds":[]}],"config":{"loop":false,"playInReverse":false,"scrollOffsetValue":5,"scrollOffsetUnit":"%","delay":null,"direction":null,"effectIn":null},"createdOn":1636311536364},"e-264":{"id":"e-264","name":"","animationType":"custom","eventTypeId":"SCROLL_INTO_VIEW","action":{"id":"","actionTypeId":"GENERAL_START_ACTION","config":{"delay":0,"easing":"","duration":0,"actionListId":"a-107","affectedElements":{},"playInReverse":false,"autoStopEventId":"e-314"}},"mediaQueries":["main","medium","small","tiny"],"target":{"id":"64be8056f46991cc7bfe15e1|80cfc938-b9ed-2691-0b33-00835b96c1e7","appliesTo":"ELEMENT","styleBlockIds":[]},"targets":[{"id":"64be8056f46991cc7bfe15e1|80cfc938-b9ed-2691-0b33-00835b96c1e7","appliesTo":"ELEMENT","styleBlockIds":[]}],"config":{"loop":false,"playInReverse":false,"scrollOffsetValue":2,"scrollOffsetUnit":"%","delay":null,"direction":null,"effectIn":null},"createdOn":1637049790329},"e-266":{"id":"e-266","name":"","animationType":"custom","eventTypeId":"MOUSE_OVER","action":{"id":"","actionTypeId":"GENERAL_START_ACTION","config":{"delay":0,"easing":"","duration":0,"actionListId":"a-116","affectedElements":{},"playInReverse":false,"autoStopEventId":"e-323"}},"mediaQueries":["main","medium","small","tiny"],"target":{"id":"64be8056f46991cc7bfe15e1|80cfc938-b9ed-2691-0b33-00835b96c1b1","appliesTo":"ELEMENT","styleBlockIds":[]},"targets":[{"id":"64be8056f46991cc7bfe15e1|80cfc938-b9ed-2691-0b33-00835b96c1b1","appliesTo":"ELEMENT","styleBlockIds":[]}],"config":{"loop":false,"playInReverse":false,"scrollOffsetValue":null,"scrollOffsetUnit":null,"delay":null,"direction":null,"effectIn":null},"createdOn":1636847421339},"e-267":{"id":"e-267","name":"","animationType":"custom","eventTypeId":"SCROLL_INTO_VIEW","action":{"id":"","actionTypeId":"GENERAL_START_ACTION","config":{"delay":0,"easing":"","duration":0,"actionListId":"a-107","affectedElements":{},"playInReverse":false,"autoStopEventId":"e-250"}},"mediaQueries":["main","medium","small","tiny"],"target":{"id":"64be8056f46991cc7bfe15e1|80cfc938-b9ed-2691-0b33-00835b96c1fd","appliesTo":"ELEMENT","styleBlockIds":[]},"targets":[{"id":"64be8056f46991cc7bfe15e1|80cfc938-b9ed-2691-0b33-00835b96c1fd","appliesTo":"ELEMENT","styleBlockIds":[]}],"config":{"loop":false,"playInReverse":false,"scrollOffsetValue":5,"scrollOffsetUnit":"%","delay":null,"direction":null,"effectIn":null},"createdOn":1636311494731},"e-276":{"id":"e-276","name":"","animationType":"custom","eventTypeId":"SCROLL_INTO_VIEW","action":{"id":"","actionTypeId":"GENERAL_START_ACTION","config":{"delay":0,"easing":"","duration":0,"actionListId":"a-112","affectedElements":{},"playInReverse":false,"autoStopEventId":"e-254"}},"mediaQueries":["main","medium","small","tiny"],"target":{"id":"64be8056f46991cc7bfe15e1|80cfc938-b9ed-2691-0b33-00835b96c1c1","appliesTo":"ELEMENT","styleBlockIds":[]},"targets":[{"id":"64be8056f46991cc7bfe15e1|80cfc938-b9ed-2691-0b33-00835b96c1c1","appliesTo":"ELEMENT","styleBlockIds":[]}],"config":{"loop":false,"playInReverse":false,"scrollOffsetValue":0,"scrollOffsetUnit":"%","delay":null,"direction":null,"effectIn":null},"createdOn":1636310868964},"e-279":{"id":"e-279","name":"","animationType":"custom","eventTypeId":"SCROLL_INTO_VIEW","action":{"id":"","actionTypeId":"GENERAL_START_ACTION","config":{"delay":0,"easing":"","duration":0,"actionListId":"a-117","affectedElements":{},"playInReverse":false,"autoStopEventId":"e-324"}},"mediaQueries":["main","medium","small","tiny"],"target":{"id":"64be8056f46991cc7bfe15e1|80cfc938-b9ed-2691-0b33-00835b96c1bc","appliesTo":"ELEMENT","styleBlockIds":[]},"targets":[{"id":"64be8056f46991cc7bfe15e1|80cfc938-b9ed-2691-0b33-00835b96c1bc","appliesTo":"ELEMENT","styleBlockIds":[]}],"config":{"loop":false,"playInReverse":false,"scrollOffsetValue":0,"scrollOffsetUnit":"%","delay":null,"direction":null,"effectIn":null},"createdOn":1636310947536},"e-284":{"id":"e-284","name":"","animationType":"custom","eventTypeId":"SCROLL_INTO_VIEW","action":{"id":"","actionTypeId":"GENERAL_START_ACTION","config":{"delay":0,"easing":"","duration":0,"actionListId":"a-113","affectedElements":{},"playInReverse":false,"autoStopEventId":"e-59"}},"mediaQueries":["main","medium","small","tiny"],"target":{"id":"64be8056f46991cc7bfe15e1|80cfc938-b9ed-2691-0b33-00835b96c233","appliesTo":"ELEMENT","styleBlockIds":[]},"targets":[{"id":"64be8056f46991cc7bfe15e1|80cfc938-b9ed-2691-0b33-00835b96c233","appliesTo":"ELEMENT","styleBlockIds":[]}],"config":{"loop":true,"playInReverse":false,"scrollOffsetValue":0,"scrollOffsetUnit":"%","delay":null,"direction":null,"effectIn":null},"createdOn":1636315660260},"e-292":{"id":"e-292","name":"","animationType":"custom","eventTypeId":"SCROLL_INTO_VIEW","action":{"id":"","actionTypeId":"GENERAL_START_ACTION","config":{"delay":0,"easing":"","duration":0,"actionListId":"a-118","affectedElements":{},"playInReverse":false,"autoStopEventId":"e-317"}},"mediaQueries":["small","tiny"],"target":{"id":"64be8056f46991cc7bfe15e1|80cfc938-b9ed-2691-0b33-00835b96c1b1","appliesTo":"ELEMENT","styleBlockIds":[]},"targets":[{"id":"64be8056f46991cc7bfe15e1|80cfc938-b9ed-2691-0b33-00835b96c1b1","appliesTo":"ELEMENT","styleBlockIds":[]}],"config":{"loop":false,"playInReverse":false,"scrollOffsetValue":0,"scrollOffsetUnit":"%","delay":null,"direction":null,"effectIn":null},"createdOn":1636316146428},"e-297":{"id":"e-297","name":"","animationType":"custom","eventTypeId":"SCROLL_INTO_VIEW","action":{"id":"","actionTypeId":"GENERAL_START_ACTION","config":{"delay":0,"easing":"","duration":0,"actionListId":"a-113","affectedElements":{},"playInReverse":false,"autoStopEventId":"e-61"}},"mediaQueries":["main","medium","small","tiny"],"target":{"id":"64be8056f46991cc7bfe15e1|80cfc938-b9ed-2691-0b33-00835b96c237","appliesTo":"ELEMENT","styleBlockIds":[]},"targets":[{"id":"64be8056f46991cc7bfe15e1|80cfc938-b9ed-2691-0b33-00835b96c237","appliesTo":"ELEMENT","styleBlockIds":[]}],"config":{"loop":true,"playInReverse":false,"scrollOffsetValue":0,"scrollOffsetUnit":"%","delay":null,"direction":null,"effectIn":null},"createdOn":1636315674949},"e-300":{"id":"e-300","name":"","animationType":"custom","eventTypeId":"SCROLL_INTO_VIEW","action":{"id":"","actionTypeId":"GENERAL_START_ACTION","config":{"delay":0,"easing":"","duration":0,"actionListId":"a-107","affectedElements":{},"playInReverse":false,"autoStopEventId":"e-282"}},"mediaQueries":["main","medium","small","tiny"],"target":{"id":"64be8056f46991cc7bfe15e1|80cfc938-b9ed-2691-0b33-00835b96c1ea","appliesTo":"ELEMENT","styleBlockIds":[]},"targets":[{"id":"64be8056f46991cc7bfe15e1|80cfc938-b9ed-2691-0b33-00835b96c1ea","appliesTo":"ELEMENT","styleBlockIds":[]}],"config":{"loop":false,"playInReverse":false,"scrollOffsetValue":0,"scrollOffsetUnit":"%","delay":null,"direction":null,"effectIn":null},"createdOn":1636311488397},"e-304":{"id":"e-304","name":"","animationType":"custom","eventTypeId":"SCROLL_INTO_VIEW","action":{"id":"","actionTypeId":"GENERAL_START_ACTION","config":{"delay":0,"easing":"","duration":0,"actionListId":"a-107","affectedElements":{},"playInReverse":false,"autoStopEventId":"e-322"}},"mediaQueries":["main","medium","small","tiny"],"target":{"id":"64be8056f46991cc7bfe15e1|80cfc938-b9ed-2691-0b33-00835b96c1f1","appliesTo":"ELEMENT","styleBlockIds":[]},"targets":[{"id":"64be8056f46991cc7bfe15e1|80cfc938-b9ed-2691-0b33-00835b96c1f1","appliesTo":"ELEMENT","styleBlockIds":[]}],"config":{"loop":false,"playInReverse":false,"scrollOffsetValue":15,"scrollOffsetUnit":"%","delay":null,"direction":null,"effectIn":null},"createdOn":1636311513604},"e-307":{"id":"e-307","name":"","animationType":"custom","eventTypeId":"SCROLL_INTO_VIEW","action":{"id":"","actionTypeId":"GENERAL_START_ACTION","config":{"delay":0,"easing":"","duration":0,"actionListId":"a-107","affectedElements":{},"playInReverse":false,"autoStopEventId":"e-270"}},"mediaQueries":["main","medium","small","tiny"],"target":{"id":"64be8056f46991cc7bfe15e1|80cfc938-b9ed-2691-0b33-00835b96c1f7","appliesTo":"ELEMENT","styleBlockIds":[]},"targets":[{"id":"64be8056f46991cc7bfe15e1|80cfc938-b9ed-2691-0b33-00835b96c1f7","appliesTo":"ELEMENT","styleBlockIds":[]}],"config":{"loop":false,"playInReverse":false,"scrollOffsetValue":10,"scrollOffsetUnit":"%","delay":null,"direction":null,"effectIn":null},"createdOn":1636311505188},"e-308":{"id":"e-308","name":"","animationType":"preset","eventTypeId":"SCROLL_INTO_VIEW","action":{"id":"","actionTypeId":"GENERAL_START_ACTION","config":{"delay":0,"easing":"","duration":0,"actionListId":"a-112","affectedElements":{},"playInReverse":false,"autoStopEventId":"e-290"}},"mediaQueries":["main","medium","small","tiny"],"target":{"id":"64be8056f46991cc7bfe15e1|80cfc938-b9ed-2691-0b33-00835b96c1e4","appliesTo":"ELEMENT","styleBlockIds":[]},"targets":[{"id":"64be8056f46991cc7bfe15e1|80cfc938-b9ed-2691-0b33-00835b96c1e4","appliesTo":"ELEMENT","styleBlockIds":[]}],"config":{"loop":false,"playInReverse":false,"scrollOffsetValue":5,"scrollOffsetUnit":"%","delay":null,"direction":null,"effectIn":null},"createdOn":1637956895474},"e-315":{"id":"e-315","name":"","animationType":"custom","eventTypeId":"SCROLL_INTO_VIEW","action":{"id":"","actionTypeId":"GENERAL_START_ACTION","config":{"delay":0,"easing":"","duration":0,"actionListId":"a-112","affectedElements":{},"playInReverse":false,"autoStopEventId":"e-278"}},"mediaQueries":["main","medium","small","tiny"],"target":{"id":"64be8056f46991cc7bfe15e1|80cfc938-b9ed-2691-0b33-00835b96c1e1","appliesTo":"ELEMENT","styleBlockIds":[]},"targets":[{"id":"64be8056f46991cc7bfe15e1|80cfc938-b9ed-2691-0b33-00835b96c1e1","appliesTo":"ELEMENT","styleBlockIds":[]}],"config":{"loop":false,"playInReverse":false,"scrollOffsetValue":5,"scrollOffsetUnit":"%","delay":null,"direction":null,"effectIn":null},"createdOn":1636311477471},"e-323":{"id":"e-323","name":"","animationType":"custom","eventTypeId":"MOUSE_OUT","action":{"id":"","actionTypeId":"GENERAL_START_ACTION","config":{"delay":0,"easing":"","duration":0,"actionListId":"a-119","affectedElements":{},"playInReverse":false,"autoStopEventId":"e-266"}},"mediaQueries":["main","medium","small","tiny"],"target":{"id":"64be8056f46991cc7bfe15e1|80cfc938-b9ed-2691-0b33-00835b96c1b1","appliesTo":"ELEMENT","styleBlockIds":[]},"targets":[{"id":"64be8056f46991cc7bfe15e1|80cfc938-b9ed-2691-0b33-00835b96c1b1","appliesTo":"ELEMENT","styleBlockIds":[]}],"config":{"loop":false,"playInReverse":false,"scrollOffsetValue":null,"scrollOffsetUnit":null,"delay":null,"direction":null,"effectIn":null},"createdOn":1636847421341},"e-325":{"id":"e-325","name":"","animationType":"preset","eventTypeId":"SCROLL_INTO_VIEW","action":{"id":"","actionTypeId":"GENERAL_START_ACTION","config":{"delay":0,"easing":"","duration":0,"actionListId":"a-107","affectedElements":{},"playInReverse":false,"autoStopEventId":"e-326"}},"mediaQueries":["main","medium","small","tiny"],"target":{"id":"64be8056f46991cc7bfe15e1|e4f1f4bd-6d70-8d0f-8a98-f12373fa0535","appliesTo":"ELEMENT","styleBlockIds":[]},"targets":[{"id":"64be8056f46991cc7bfe15e1|e4f1f4bd-6d70-8d0f-8a98-f12373fa0535","appliesTo":"ELEMENT","styleBlockIds":[]}],"config":{"loop":false,"playInReverse":false,"scrollOffsetValue":15,"scrollOffsetUnit":"%","delay":null,"direction":null,"effectIn":null},"createdOn":1691595652825},"e-327":{"id":"e-327","name":"","animationType":"preset","eventTypeId":"SCROLL_INTO_VIEW","action":{"id":"","actionTypeId":"GENERAL_START_ACTION","config":{"delay":0,"easing":"","duration":0,"actionListId":"a-117","affectedElements":{},"playInReverse":false,"autoStopEventId":"e-328"}},"mediaQueries":["main","medium","small","tiny"],"target":{"id":"64cd536249333dd65b9f0f42|fd7d0e16-99a0-f699-93dc-188ebf819cd8","appliesTo":"ELEMENT","styleBlockIds":[]},"targets":[{"id":"64cd536249333dd65b9f0f42|fd7d0e16-99a0-f699-93dc-188ebf819cd8","appliesTo":"ELEMENT","styleBlockIds":[]}],"config":{"loop":false,"playInReverse":false,"scrollOffsetValue":0,"scrollOffsetUnit":"%","delay":null,"direction":null,"effectIn":null},"createdOn":1691673717380},"e-329":{"id":"e-329","name":"","animationType":"preset","eventTypeId":"SCROLL_INTO_VIEW","action":{"id":"","actionTypeId":"GENERAL_START_ACTION","config":{"delay":0,"easing":"","duration":0,"actionListId":"a-112","affectedElements":{},"playInReverse":false,"autoStopEventId":"e-330"}},"mediaQueries":["main","medium","small","tiny"],"target":{"id":"64cd536249333dd65b9f0f42|fd7d0e16-99a0-f699-93dc-188ebf819cdc","appliesTo":"ELEMENT","styleBlockIds":[]},"targets":[{"id":"64cd536249333dd65b9f0f42|fd7d0e16-99a0-f699-93dc-188ebf819cdc","appliesTo":"ELEMENT","styleBlockIds":[]}],"config":{"loop":false,"playInReverse":false,"scrollOffsetValue":0,"scrollOffsetUnit":"%","delay":null,"direction":null,"effectIn":null},"createdOn":1691673717380},"e-331":{"id":"e-331","name":"","animationType":"custom","eventTypeId":"MOUSE_CLICK","action":{"id":"","actionTypeId":"GENERAL_START_ACTION","config":{"delay":0,"easing":"","duration":0,"actionListId":"a-125","affectedElements":{},"playInReverse":false,"autoStopEventId":"e-332"}},"mediaQueries":["medium","small","tiny"],"target":{"selector":"._w-compare","originalId":"64be8056f46991cc7bfe15e1|8c0a120c-0c4c-c125-54df-4d1e70cdbe55","appliesTo":"CLASS"},"targets":[{"selector":"._w-compare","originalId":"64be8056f46991cc7bfe15e1|8c0a120c-0c4c-c125-54df-4d1e70cdbe55","appliesTo":"CLASS"}],"config":{"loop":false,"playInReverse":false,"scrollOffsetValue":null,"scrollOffsetUnit":null,"delay":null,"direction":null,"effectIn":null},"createdOn":1609061469739},"e-332":{"id":"e-332","name":"","animationType":"custom","eventTypeId":"MOUSE_SECOND_CLICK","action":{"id":"","actionTypeId":"GENERAL_START_ACTION","config":{"delay":0,"easing":"","duration":0,"actionListId":"a-126","affectedElements":{},"playInReverse":false,"autoStopEventId":"e-331"}},"mediaQueries":["medium","small","tiny"],"target":{"selector":"._w-compare","originalId":"64be8056f46991cc7bfe15e1|8c0a120c-0c4c-c125-54df-4d1e70cdbe55","appliesTo":"CLASS"},"targets":[{"selector":"._w-compare","originalId":"64be8056f46991cc7bfe15e1|8c0a120c-0c4c-c125-54df-4d1e70cdbe55","appliesTo":"CLASS"}],"config":{"loop":false,"playInReverse":false,"scrollOffsetValue":null,"scrollOffsetUnit":null,"delay":null,"direction":null,"effectIn":null},"createdOn":1609061469740},"e-333":{"id":"e-333","name":"","animationType":"custom","eventTypeId":"MOUSE_MOVE","action":{"id":"","actionTypeId":"GENERAL_CONTINUOUS_ACTION","config":{"actionListId":"a-127","affectedElements":{},"duration":0}},"mediaQueries":["main"],"target":{"selector":"._w-compare","originalId":"64be8056f46991cc7bfe15e1|8c0a120c-0c4c-c125-54df-4d1e70cdbe55","appliesTo":"CLASS"},"targets":[{"selector":"._w-compare","originalId":"64be8056f46991cc7bfe15e1|8c0a120c-0c4c-c125-54df-4d1e70cdbe55","appliesTo":"CLASS"}],"config":[{"continuousParameterGroupId":"a-127-p","selectedAxis":"X_AXIS","basedOn":"ELEMENT","reverse":false,"smoothing":75,"restingState":50},{"continuousParameterGroupId":"a-127-p-2","selectedAxis":"Y_AXIS","basedOn":"ELEMENT","reverse":false,"smoothing":75,"restingState":50}],"createdOn":1609062199401},"e-334":{"id":"e-334","name":"","animationType":"custom","eventTypeId":"MOUSE_OVER","action":{"id":"","actionTypeId":"GENERAL_START_ACTION","config":{"delay":0,"easing":"","duration":0,"actionListId":"a-128","affectedElements":{},"playInReverse":false,"autoStopEventId":"e-335"}},"mediaQueries":["main","medium","small","tiny"],"target":{"selector":"._w-info","originalId":"64be8056f46991cc7bfe15e1|8c0a120c-0c4c-c125-54df-4d1e70cdbe57","appliesTo":"CLASS"},"targets":[{"selector":"._w-info","originalId":"64be8056f46991cc7bfe15e1|8c0a120c-0c4c-c125-54df-4d1e70cdbe57","appliesTo":"CLASS"}],"config":{"loop":false,"playInReverse":false,"scrollOffsetValue":null,"scrollOffsetUnit":null,"delay":null,"direction":null,"effectIn":null},"createdOn":1609061027396},"e-335":{"id":"e-335","name":"","animationType":"custom","eventTypeId":"MOUSE_OUT","action":{"id":"","actionTypeId":"GENERAL_START_ACTION","config":{"delay":0,"easing":"","duration":0,"actionListId":"a-129","affectedElements":{},"playInReverse":false,"autoStopEventId":"e-334"}},"mediaQueries":["main","medium","small","tiny"],"target":{"selector":"._w-info","originalId":"64be8056f46991cc7bfe15e1|8c0a120c-0c4c-c125-54df-4d1e70cdbe57","appliesTo":"CLASS"},"targets":[{"selector":"._w-info","originalId":"64be8056f46991cc7bfe15e1|8c0a120c-0c4c-c125-54df-4d1e70cdbe57","appliesTo":"CLASS"}],"config":{"loop":false,"playInReverse":false,"scrollOffsetValue":null,"scrollOffsetUnit":null,"delay":null,"direction":null,"effectIn":null},"createdOn":1609061027397},"e-336":{"id":"e-336","name":"","animationType":"custom","eventTypeId":"MOUSE_MOVE","action":{"id":"","actionTypeId":"GENERAL_CONTINUOUS_ACTION","config":{"actionListId":"a-131","affectedElements":{},"duration":0}},"mediaQueries":["main","medium","small","tiny"],"target":{"id":"64be8056f46991cc7bfe15e1|08e99f63-70eb-0d71-20e3-2cef41ad3973","appliesTo":"ELEMENT","styleBlockIds":[]},"targets":[{"id":"64be8056f46991cc7bfe15e1|08e99f63-70eb-0d71-20e3-2cef41ad3973","appliesTo":"ELEMENT","styleBlockIds":[]}],"config":[{"continuousParameterGroupId":"a-131-p","selectedAxis":"X_AXIS","basedOn":"ELEMENT","reverse":false,"smoothing":90,"restingState":50},{"continuousParameterGroupId":"a-131-p-2","selectedAxis":"Y_AXIS","basedOn":"ELEMENT","reverse":false,"smoothing":90,"restingState":50}],"createdOn":1615632213394},"e-337":{"id":"e-337","name":"","animationType":"preset","eventTypeId":"MOUSE_OVER","action":{"id":"","actionTypeId":"GENERAL_START_ACTION","config":{"delay":0,"easing":"","duration":0,"actionListId":"a-76","affectedElements":{},"playInReverse":false,"autoStopEventId":"e-338"}},"mediaQueries":["main","medium","small","tiny"],"target":{"id":"64cd536249333dd65b9f0f42|d625624d-d6a1-1be6-389f-ebc09a309f11","appliesTo":"ELEMENT","styleBlockIds":[]},"targets":[{"id":"64cd536249333dd65b9f0f42|d625624d-d6a1-1be6-389f-ebc09a309f11","appliesTo":"ELEMENT","styleBlockIds":[]}],"config":{"loop":false,"playInReverse":false,"scrollOffsetValue":null,"scrollOffsetUnit":null,"delay":null,"direction":null,"effectIn":null},"createdOn":1691695452437},"e-338":{"id":"e-338","name":"","animationType":"preset","eventTypeId":"MOUSE_OUT","action":{"id":"","actionTypeId":"GENERAL_START_ACTION","config":{"delay":0,"easing":"","duration":0,"actionListId":"a-77","affectedElements":{},"playInReverse":false,"autoStopEventId":"e-337"}},"mediaQueries":["main","medium","small","tiny"],"target":{"id":"64cd536249333dd65b9f0f42|d625624d-d6a1-1be6-389f-ebc09a309f11","appliesTo":"ELEMENT","styleBlockIds":[]},"targets":[{"id":"64cd536249333dd65b9f0f42|d625624d-d6a1-1be6-389f-ebc09a309f11","appliesTo":"ELEMENT","styleBlockIds":[]}],"config":{"loop":false,"playInReverse":false,"scrollOffsetValue":null,"scrollOffsetUnit":null,"delay":null,"direction":null,"effectIn":null},"createdOn":1691695452437},"e-339":{"id":"e-339","animationType":"custom","eventTypeId":"MOUSE_CLICK","action":{"id":"","actionTypeId":"GENERAL_START_ACTION","config":{"delay":0,"easing":"","duration":0,"actionListId":"a-144","affectedElements":{},"playInReverse":false,"autoStopEventId":"e-342"}},"mediaQueries":["main","medium","small","tiny"],"target":{"id":"64be87af310bd687af9f327f|760f9b4c-8189-8792-ac2a-640948ad081c","appliesTo":"ELEMENT","styleBlockIds":[]},"targets":[{"id":"64be87af310bd687af9f327f|760f9b4c-8189-8792-ac2a-640948ad081c","appliesTo":"ELEMENT","styleBlockIds":[]}],"config":{"loop":false,"playInReverse":false,"scrollOffsetValue":null,"scrollOffsetUnit":null,"delay":null,"direction":null,"effectIn":null},"createdOn":1577925927261},"e-340":{"id":"e-340","animationType":"custom","eventTypeId":"SLIDER_INACTIVE","action":{"id":"","actionTypeId":"GENERAL_START_ACTION","config":{"delay":0,"easing":"","duration":0,"actionListId":"a-143","affectedElements":{},"playInReverse":false,"autoStopEventId":"e-345"}},"mediaQueries":["main","medium","small","tiny"],"target":{"id":"64be87af310bd687af9f327f|760f9b4c-8189-8792-ac2a-640948ad0801","appliesTo":"ELEMENT","styleBlockIds":[]},"targets":[{"id":"64be87af310bd687af9f327f|760f9b4c-8189-8792-ac2a-640948ad0801","appliesTo":"ELEMENT","styleBlockIds":[]}],"config":{"loop":false,"playInReverse":false,"scrollOffsetValue":null,"scrollOffsetUnit":null,"delay":null,"direction":null,"effectIn":null},"createdOn":1575646566787},"e-341":{"id":"e-341","animationType":"custom","eventTypeId":"SLIDER_INACTIVE","action":{"id":"","actionTypeId":"GENERAL_START_ACTION","config":{"delay":0,"easing":"","duration":0,"actionListId":"a-143","affectedElements":{},"playInReverse":false,"autoStopEventId":"e-353"}},"mediaQueries":["main","medium","small","tiny"],"target":{"id":"64be87af310bd687af9f327f|760f9b4c-8189-8792-ac2a-640948ad082e","appliesTo":"ELEMENT","styleBlockIds":[]},"targets":[{"id":"64be87af310bd687af9f327f|760f9b4c-8189-8792-ac2a-640948ad082e","appliesTo":"ELEMENT","styleBlockIds":[]}],"config":{"loop":false,"playInReverse":false,"scrollOffsetValue":null,"scrollOffsetUnit":null,"delay":null,"direction":null,"effectIn":null},"createdOn":1575646566787},"e-342":{"id":"e-342","animationType":"custom","eventTypeId":"MOUSE_SECOND_CLICK","action":{"id":"","actionTypeId":"GENERAL_START_ACTION","config":{"delay":0,"easing":"","duration":0,"actionListId":"a-145","affectedElements":{},"playInReverse":false,"autoStopEventId":"e-339"}},"mediaQueries":["main","medium","small","tiny"],"target":{"id":"64be87af310bd687af9f327f|760f9b4c-8189-8792-ac2a-640948ad081c","appliesTo":"ELEMENT","styleBlockIds":[]},"targets":[{"id":"64be87af310bd687af9f327f|760f9b4c-8189-8792-ac2a-640948ad081c","appliesTo":"ELEMENT","styleBlockIds":[]}],"config":{"loop":false,"playInReverse":false,"scrollOffsetValue":null,"scrollOffsetUnit":null,"delay":null,"direction":null,"effectIn":null},"createdOn":1577925927261},"e-343":{"id":"e-343","animationType":"custom","eventTypeId":"MOUSE_CLICK","action":{"id":"","actionTypeId":"GENERAL_START_ACTION","config":{"delay":0,"easing":"","duration":0,"actionListId":"a-144","affectedElements":{},"playInReverse":false,"autoStopEventId":"e-347"}},"mediaQueries":["main","medium","small","tiny"],"target":{"id":"64be87af310bd687af9f327f|760f9b4c-8189-8792-ac2a-640948ad080d","appliesTo":"ELEMENT","styleBlockIds":[]},"targets":[{"id":"64be87af310bd687af9f327f|760f9b4c-8189-8792-ac2a-640948ad080d","appliesTo":"ELEMENT","styleBlockIds":[]}],"config":{"loop":false,"playInReverse":false,"scrollOffsetValue":null,"scrollOffsetUnit":null,"delay":null,"direction":null,"effectIn":null},"createdOn":1577925927261},"e-344":{"id":"e-344","animationType":"custom","eventTypeId":"SLIDER_ACTIVE","action":{"id":"","actionTypeId":"GENERAL_START_ACTION","config":{"delay":0,"easing":"","duration":0,"actionListId":"a-142","affectedElements":{},"playInReverse":false,"autoStopEventId":"e-352"}},"mediaQueries":["main","medium","small","tiny"],"target":{"id":"64be87af310bd687af9f327f|760f9b4c-8189-8792-ac2a-640948ad0846","appliesTo":"ELEMENT","styleBlockIds":[]},"targets":[{"id":"64be87af310bd687af9f327f|760f9b4c-8189-8792-ac2a-640948ad0846","appliesTo":"ELEMENT","styleBlockIds":[]}],"config":{"loop":false,"playInReverse":false,"scrollOffsetValue":null,"scrollOffsetUnit":null,"delay":null,"direction":null,"effectIn":null},"createdOn":1575646566787},"e-345":{"id":"e-345","animationType":"custom","eventTypeId":"SLIDER_ACTIVE","action":{"id":"","actionTypeId":"GENERAL_START_ACTION","config":{"delay":0,"easing":"","duration":0,"actionListId":"a-142","affectedElements":{},"playInReverse":false,"autoStopEventId":"e-340"}},"mediaQueries":["main","medium","small","tiny"],"target":{"id":"64be87af310bd687af9f327f|760f9b4c-8189-8792-ac2a-640948ad0801","appliesTo":"ELEMENT","styleBlockIds":[]},"targets":[{"id":"64be87af310bd687af9f327f|760f9b4c-8189-8792-ac2a-640948ad0801","appliesTo":"ELEMENT","styleBlockIds":[]}],"config":{"loop":false,"playInReverse":false,"scrollOffsetValue":null,"scrollOffsetUnit":null,"delay":null,"direction":null,"effectIn":null},"createdOn":1575646566787},"e-346":{"id":"e-346","animationType":"custom","eventTypeId":"MOUSE_CLICK","action":{"id":"","actionTypeId":"GENERAL_START_ACTION","config":{"delay":0,"easing":"","duration":0,"actionListId":"a-144","affectedElements":{},"playInReverse":false,"autoStopEventId":"e-350"}},"mediaQueries":["main","medium","small","tiny"],"target":{"id":"64be87af310bd687af9f327f|760f9b4c-8189-8792-ac2a-640948ad0823","appliesTo":"ELEMENT","styleBlockIds":[]},"targets":[{"id":"64be87af310bd687af9f327f|760f9b4c-8189-8792-ac2a-640948ad0823","appliesTo":"ELEMENT","styleBlockIds":[]}],"config":{"loop":false,"playInReverse":false,"scrollOffsetValue":null,"scrollOffsetUnit":null,"delay":null,"direction":null,"effectIn":null},"createdOn":1577925927261},"e-347":{"id":"e-347","animationType":"custom","eventTypeId":"MOUSE_SECOND_CLICK","action":{"id":"","actionTypeId":"GENERAL_START_ACTION","config":{"delay":0,"easing":"","duration":0,"actionListId":"a-145","affectedElements":{},"playInReverse":false,"autoStopEventId":"e-343"}},"mediaQueries":["main","medium","small","tiny"],"target":{"id":"64be87af310bd687af9f327f|760f9b4c-8189-8792-ac2a-640948ad080d","appliesTo":"ELEMENT","styleBlockIds":[]},"targets":[{"id":"64be87af310bd687af9f327f|760f9b4c-8189-8792-ac2a-640948ad080d","appliesTo":"ELEMENT","styleBlockIds":[]}],"config":{"loop":false,"playInReverse":false,"scrollOffsetValue":null,"scrollOffsetUnit":null,"delay":null,"direction":null,"effectIn":null},"createdOn":1577925927261},"e-348":{"id":"e-348","animationType":"custom","eventTypeId":"MOUSE_CLICK","action":{"id":"","actionTypeId":"GENERAL_START_ACTION","config":{"delay":0,"easing":"","duration":0,"actionListId":"a-144","affectedElements":{},"playInReverse":false,"autoStopEventId":"e-351"}},"mediaQueries":["main","medium","small","tiny"],"target":{"id":"64be87af310bd687af9f327f|760f9b4c-8189-8792-ac2a-640948ad0815","appliesTo":"ELEMENT","styleBlockIds":[]},"targets":[{"id":"64be87af310bd687af9f327f|760f9b4c-8189-8792-ac2a-640948ad0815","appliesTo":"ELEMENT","styleBlockIds":[]}],"config":{"loop":false,"playInReverse":false,"scrollOffsetValue":null,"scrollOffsetUnit":null,"delay":null,"direction":null,"effectIn":null},"createdOn":1577925927261},"e-349":{"id":"e-349","animationType":"custom","eventTypeId":"SLIDER_INACTIVE","action":{"id":"","actionTypeId":"GENERAL_START_ACTION","config":{"delay":0,"easing":"","duration":0,"actionListId":"a-143","affectedElements":{},"playInReverse":false,"autoStopEventId":"e-354"}},"mediaQueries":["main","medium","small","tiny"],"target":{"id":"64be87af310bd687af9f327f|760f9b4c-8189-8792-ac2a-640948ad089d","appliesTo":"ELEMENT","styleBlockIds":[]},"targets":[{"id":"64be87af310bd687af9f327f|760f9b4c-8189-8792-ac2a-640948ad089d","appliesTo":"ELEMENT","styleBlockIds":[]}],"config":{"loop":false,"playInReverse":false,"scrollOffsetValue":null,"scrollOffsetUnit":null,"delay":null,"direction":null,"effectIn":null},"createdOn":1575646566787},"e-350":{"id":"e-350","animationType":"custom","eventTypeId":"MOUSE_SECOND_CLICK","action":{"id":"","actionTypeId":"GENERAL_START_ACTION","config":{"delay":0,"easing":"","duration":0,"actionListId":"a-145","affectedElements":{},"playInReverse":false,"autoStopEventId":"e-346"}},"mediaQueries":["main","medium","small","tiny"],"target":{"id":"64be87af310bd687af9f327f|760f9b4c-8189-8792-ac2a-640948ad0823","appliesTo":"ELEMENT","styleBlockIds":[]},"targets":[{"id":"64be87af310bd687af9f327f|760f9b4c-8189-8792-ac2a-640948ad0823","appliesTo":"ELEMENT","styleBlockIds":[]}],"config":{"loop":false,"playInReverse":false,"scrollOffsetValue":null,"scrollOffsetUnit":null,"delay":null,"direction":null,"effectIn":null},"createdOn":1577925927261},"e-351":{"id":"e-351","animationType":"custom","eventTypeId":"MOUSE_SECOND_CLICK","action":{"id":"","actionTypeId":"GENERAL_START_ACTION","config":{"delay":0,"easing":"","duration":0,"actionListId":"a-145","affectedElements":{},"playInReverse":false,"autoStopEventId":"e-348"}},"mediaQueries":["main","medium","small","tiny"],"target":{"id":"64be87af310bd687af9f327f|760f9b4c-8189-8792-ac2a-640948ad0815","appliesTo":"ELEMENT","styleBlockIds":[]},"targets":[{"id":"64be87af310bd687af9f327f|760f9b4c-8189-8792-ac2a-640948ad0815","appliesTo":"ELEMENT","styleBlockIds":[]}],"config":{"loop":false,"playInReverse":false,"scrollOffsetValue":null,"scrollOffsetUnit":null,"delay":null,"direction":null,"effectIn":null},"createdOn":1577925927261},"e-352":{"id":"e-352","animationType":"custom","eventTypeId":"SLIDER_INACTIVE","action":{"id":"","actionTypeId":"GENERAL_START_ACTION","config":{"delay":0,"easing":"","duration":0,"actionListId":"a-143","affectedElements":{},"playInReverse":false,"autoStopEventId":"e-344"}},"mediaQueries":["main","medium","small","tiny"],"target":{"id":"64be87af310bd687af9f327f|760f9b4c-8189-8792-ac2a-640948ad0846","appliesTo":"ELEMENT","styleBlockIds":[]},"targets":[{"id":"64be87af310bd687af9f327f|760f9b4c-8189-8792-ac2a-640948ad0846","appliesTo":"ELEMENT","styleBlockIds":[]}],"config":{"loop":false,"playInReverse":false,"scrollOffsetValue":null,"scrollOffsetUnit":null,"delay":null,"direction":null,"effectIn":null},"createdOn":1575646566787},"e-353":{"id":"e-353","animationType":"custom","eventTypeId":"SLIDER_ACTIVE","action":{"id":"","actionTypeId":"GENERAL_START_ACTION","config":{"delay":0,"easing":"","duration":0,"actionListId":"a-142","affectedElements":{},"playInReverse":false,"autoStopEventId":"e-341"}},"mediaQueries":["main","medium","small","tiny"],"target":{"id":"64be87af310bd687af9f327f|760f9b4c-8189-8792-ac2a-640948ad082e","appliesTo":"ELEMENT","styleBlockIds":[]},"targets":[{"id":"64be87af310bd687af9f327f|760f9b4c-8189-8792-ac2a-640948ad082e","appliesTo":"ELEMENT","styleBlockIds":[]}],"config":{"loop":false,"playInReverse":false,"scrollOffsetValue":null,"scrollOffsetUnit":null,"delay":null,"direction":null,"effectIn":null},"createdOn":1575646566787},"e-354":{"id":"e-354","animationType":"custom","eventTypeId":"SLIDER_ACTIVE","action":{"id":"","actionTypeId":"GENERAL_START_ACTION","config":{"delay":0,"easing":"","duration":0,"actionListId":"a-142","affectedElements":{},"playInReverse":false,"autoStopEventId":"e-349"}},"mediaQueries":["main","medium","small","tiny"],"target":{"id":"64be87af310bd687af9f327f|760f9b4c-8189-8792-ac2a-640948ad089d","appliesTo":"ELEMENT","styleBlockIds":[]},"targets":[{"id":"64be87af310bd687af9f327f|760f9b4c-8189-8792-ac2a-640948ad089d","appliesTo":"ELEMENT","styleBlockIds":[]}],"config":{"loop":false,"playInReverse":false,"scrollOffsetValue":null,"scrollOffsetUnit":null,"delay":null,"direction":null,"effectIn":null},"createdOn":1575646566787},"e-355":{"id":"e-355","name":"","animationType":"preset","eventTypeId":"MOUSE_CLICK","action":{"id":"","actionTypeId":"GENERAL_START_ACTION","config":{"delay":0,"easing":"","duration":0,"actionListId":"a-144","affectedElements":{},"playInReverse":false,"autoStopEventId":"e-356"}},"mediaQueries":["main","medium","small","tiny"],"target":{"id":"64be87af310bd687af9f327f|bf43dd20-b757-739d-87f4-99ed065b35c8","appliesTo":"ELEMENT","styleBlockIds":[]},"targets":[],"config":{"loop":false,"playInReverse":false,"scrollOffsetValue":null,"scrollOffsetUnit":null,"delay":null,"direction":null,"effectIn":null},"createdOn":1692041422976},"e-356":{"id":"e-356","name":"","animationType":"preset","eventTypeId":"MOUSE_SECOND_CLICK","action":{"id":"","actionTypeId":"GENERAL_START_ACTION","config":{"delay":0,"easing":"","duration":0,"actionListId":"a-145","affectedElements":{},"playInReverse":false,"autoStopEventId":"e-355"}},"mediaQueries":["main","medium","small","tiny"],"target":{"id":"64be87af310bd687af9f327f|bf43dd20-b757-739d-87f4-99ed065b35c8","appliesTo":"ELEMENT","styleBlockIds":[]},"targets":[],"config":{"loop":false,"playInReverse":false,"scrollOffsetValue":null,"scrollOffsetUnit":null,"delay":null,"direction":null,"effectIn":null},"createdOn":1692041422976},"e-357":{"id":"e-357","name":"","animationType":"preset","eventTypeId":"MOUSE_CLICK","action":{"id":"","actionTypeId":"GENERAL_START_ACTION","config":{"delay":0,"easing":"","duration":0,"actionListId":"a-144","affectedElements":{},"playInReverse":false,"autoStopEventId":"e-358"}},"mediaQueries":["main","medium","small","tiny"],"target":{"id":"64be87af310bd687af9f327f|c8fb5054-a627-8842-a866-860f3b3e5a85","appliesTo":"ELEMENT","styleBlockIds":[]},"targets":[],"config":{"loop":false,"playInReverse":false,"scrollOffsetValue":null,"scrollOffsetUnit":null,"delay":null,"direction":null,"effectIn":null},"createdOn":1692042379896},"e-358":{"id":"e-358","name":"","animationType":"preset","eventTypeId":"MOUSE_SECOND_CLICK","action":{"id":"","actionTypeId":"GENERAL_START_ACTION","config":{"delay":0,"easing":"","duration":0,"actionListId":"a-145","affectedElements":{},"playInReverse":false,"autoStopEventId":"e-357"}},"mediaQueries":["main","medium","small","tiny"],"target":{"id":"64be87af310bd687af9f327f|c8fb5054-a627-8842-a866-860f3b3e5a85","appliesTo":"ELEMENT","styleBlockIds":[]},"targets":[],"config":{"loop":false,"playInReverse":false,"scrollOffsetValue":null,"scrollOffsetUnit":null,"delay":null,"direction":null,"effectIn":null},"createdOn":1692042379896},"e-359":{"id":"e-359","name":"","animationType":"preset","eventTypeId":"MOUSE_CLICK","action":{"id":"","actionTypeId":"GENERAL_START_ACTION","config":{"delay":0,"easing":"","duration":0,"actionListId":"a-144","affectedElements":{},"playInReverse":false,"autoStopEventId":"e-360"}},"mediaQueries":["main","medium","small","tiny"],"target":{"id":"64be87af310bd687af9f327f|c8fb5054-a627-8842-a866-860f3b3e5a8e","appliesTo":"ELEMENT","styleBlockIds":[]},"targets":[],"config":{"loop":false,"playInReverse":false,"scrollOffsetValue":null,"scrollOffsetUnit":null,"delay":null,"direction":null,"effectIn":null},"createdOn":1692042379896},"e-360":{"id":"e-360","name":"","animationType":"preset","eventTypeId":"MOUSE_SECOND_CLICK","action":{"id":"","actionTypeId":"GENERAL_START_ACTION","config":{"delay":0,"easing":"","duration":0,"actionListId":"a-145","affectedElements":{},"playInReverse":false,"autoStopEventId":"e-359"}},"mediaQueries":["main","medium","small","tiny"],"target":{"id":"64be87af310bd687af9f327f|c8fb5054-a627-8842-a866-860f3b3e5a8e","appliesTo":"ELEMENT","styleBlockIds":[]},"targets":[],"config":{"loop":false,"playInReverse":false,"scrollOffsetValue":null,"scrollOffsetUnit":null,"delay":null,"direction":null,"effectIn":null},"createdOn":1692042379896},"e-361":{"id":"e-361","name":"","animationType":"preset","eventTypeId":"MOUSE_CLICK","action":{"id":"","actionTypeId":"GENERAL_START_ACTION","config":{"delay":0,"easing":"","duration":0,"actionListId":"a-144","affectedElements":{},"playInReverse":false,"autoStopEventId":"e-362"}},"mediaQueries":["main","medium","small","tiny"],"target":{"id":"64be87af310bd687af9f327f|c8fb5054-a627-8842-a866-860f3b3e5a96","appliesTo":"ELEMENT","styleBlockIds":[]},"targets":[],"config":{"loop":false,"playInReverse":false,"scrollOffsetValue":null,"scrollOffsetUnit":null,"delay":null,"direction":null,"effectIn":null},"createdOn":1692042379896},"e-362":{"id":"e-362","name":"","animationType":"preset","eventTypeId":"MOUSE_SECOND_CLICK","action":{"id":"","actionTypeId":"GENERAL_START_ACTION","config":{"delay":0,"easing":"","duration":0,"actionListId":"a-145","affectedElements":{},"playInReverse":false,"autoStopEventId":"e-361"}},"mediaQueries":["main","medium","small","tiny"],"target":{"id":"64be87af310bd687af9f327f|c8fb5054-a627-8842-a866-860f3b3e5a96","appliesTo":"ELEMENT","styleBlockIds":[]},"targets":[],"config":{"loop":false,"playInReverse":false,"scrollOffsetValue":null,"scrollOffsetUnit":null,"delay":null,"direction":null,"effectIn":null},"createdOn":1692042379896},"e-363":{"id":"e-363","name":"","animationType":"preset","eventTypeId":"MOUSE_CLICK","action":{"id":"","actionTypeId":"GENERAL_START_ACTION","config":{"delay":0,"easing":"","duration":0,"actionListId":"a-144","affectedElements":{},"playInReverse":false,"autoStopEventId":"e-364"}},"mediaQueries":["main","medium","small","tiny"],"target":{"id":"64be87af310bd687af9f327f|c8fb5054-a627-8842-a866-860f3b3e5a9d","appliesTo":"ELEMENT","styleBlockIds":[]},"targets":[],"config":{"loop":false,"playInReverse":false,"scrollOffsetValue":null,"scrollOffsetUnit":null,"delay":null,"direction":null,"effectIn":null},"createdOn":1692042379896},"e-364":{"id":"e-364","name":"","animationType":"preset","eventTypeId":"MOUSE_SECOND_CLICK","action":{"id":"","actionTypeId":"GENERAL_START_ACTION","config":{"delay":0,"easing":"","duration":0,"actionListId":"a-145","affectedElements":{},"playInReverse":false,"autoStopEventId":"e-363"}},"mediaQueries":["main","medium","small","tiny"],"target":{"id":"64be87af310bd687af9f327f|c8fb5054-a627-8842-a866-860f3b3e5a9d","appliesTo":"ELEMENT","styleBlockIds":[]},"targets":[],"config":{"loop":false,"playInReverse":false,"scrollOffsetValue":null,"scrollOffsetUnit":null,"delay":null,"direction":null,"effectIn":null},"createdOn":1692042379896},"e-365":{"id":"e-365","name":"","animationType":"preset","eventTypeId":"MOUSE_CLICK","action":{"id":"","actionTypeId":"GENERAL_START_ACTION","config":{"delay":0,"easing":"","duration":0,"actionListId":"a-144","affectedElements":{},"playInReverse":false,"autoStopEventId":"e-366"}},"mediaQueries":["main","medium","small","tiny"],"target":{"id":"64be87af310bd687af9f327f|c8fb5054-a627-8842-a866-860f3b3e5aa4","appliesTo":"ELEMENT","styleBlockIds":[]},"targets":[],"config":{"loop":false,"playInReverse":false,"scrollOffsetValue":null,"scrollOffsetUnit":null,"delay":null,"direction":null,"effectIn":null},"createdOn":1692042379896},"e-366":{"id":"e-366","name":"","animationType":"preset","eventTypeId":"MOUSE_SECOND_CLICK","action":{"id":"","actionTypeId":"GENERAL_START_ACTION","config":{"delay":0,"easing":"","duration":0,"actionListId":"a-145","affectedElements":{},"playInReverse":false,"autoStopEventId":"e-365"}},"mediaQueries":["main","medium","small","tiny"],"target":{"id":"64be87af310bd687af9f327f|c8fb5054-a627-8842-a866-860f3b3e5aa4","appliesTo":"ELEMENT","styleBlockIds":[]},"targets":[],"config":{"loop":false,"playInReverse":false,"scrollOffsetValue":null,"scrollOffsetUnit":null,"delay":null,"direction":null,"effectIn":null},"createdOn":1692042379896}},"actionLists":{"a-2":{"id":"a-2","title":"Stage Page load 1","actionItemGroups":[{"actionItems":[{"id":"a-2-n-16","actionTypeId":"STYLE_SIZE","config":{"delay":0,"easing":"","duration":500,"target":{"selector":".sun-page-load","selectorGuids":["d1df031a-ece9-eecd-aafe-d8005f63cd41"]},"widthValue":100,"heightValue":100,"widthUnit":"%","heightUnit":"%","locked":false}},{"id":"a-2-n-25","actionTypeId":"STYLE_OPACITY","config":{"delay":0,"easing":"","duration":500,"target":{"selector":".sun-page-load","selectorGuids":["d1df031a-ece9-eecd-aafe-d8005f63cd41"]},"value":0,"unit":""}},{"id":"a-2-n-9","actionTypeId":"TRANSFORM_MOVE","config":{"delay":0,"easing":"","duration":500,"target":{"selector":".sun-page-load","selectorGuids":["d1df031a-ece9-eecd-aafe-d8005f63cd41"]},"xValue":2,"yValue":10,"xUnit":"em","yUnit":"em","zUnit":"PX"}},{"id":"a-2-n-10","actionTypeId":"STYLE_SIZE","config":{"delay":0,"easing":"","duration":500,"target":{"selector":".savesion-wrapper","selectorGuids":["1edc069d-fc8d-fd1c-0680-04331e3c82ba"]},"widthValue":100,"heightValue":100,"widthUnit":"%","heightUnit":"vh","locked":false}},{"id":"a-2-n-11","actionTypeId":"TRANSFORM_MOVE","config":{"delay":0,"easing":"","duration":500,"target":{"selector":".savesion-wrapper","selectorGuids":["1edc069d-fc8d-fd1c-0680-04331e3c82ba"]},"yValue":-5,"xUnit":"PX","yUnit":"em","zUnit":"PX"}},{"id":"a-2-n-7","actionTypeId":"STYLE_SIZE","config":{"delay":0,"easing":"","duration":500,"target":{"selector":".stage-sun-wrapper","selectorGuids":["7d7a4295-7f7a-147a-cdc9-e60810069c11"]},"widthValue":100,"heightValue":100,"widthUnit":"vw","heightUnit":"vh","locked":false}},{"id":"a-2-n-14","actionTypeId":"TRANSFORM_SCALE","config":{"delay":0,"easing":"","duration":500,"target":{"selector":".savesion-type-wrapper","selectorGuids":["cdeb16eb-eb2e-c737-f862-cad0def45c01"]},"xValue":2.75,"yValue":2.75,"locked":true}},{"id":"a-2-n-19","actionTypeId":"TRANSFORM_MOVE","config":{"delay":0,"easing":"","duration":500,"target":{"selector":".save-sion-1","selectorGuids":["2d17e741-644a-de61-206e-aec32929015f"]},"yValue":110,"xUnit":"PX","yUnit":"%","zUnit":"PX"}},{"id":"a-2-n-21","actionTypeId":"TRANSFORM_MOVE","config":{"delay":0,"easing":"","duration":500,"target":{"selector":".save-sion-2","selectorGuids":["3b7e65e2-62c3-ace2-bd5c-401d28fa160e"]},"yValue":110,"xUnit":"PX","yUnit":"%","zUnit":"PX"}},{"id":"a-2-n-22","actionTypeId":"TRANSFORM_MOVE","config":{"delay":0,"easing":"","duration":500,"target":{"selector":".save-sion-3","selectorGuids":["b74e1143-fcae-6573-d879-ad8d8984ae91"]},"yValue":110,"xUnit":"PX","yUnit":"%","zUnit":"PX"}},{"id":"a-2-n-27","actionTypeId":"GENERAL_DISPLAY","config":{"delay":0,"easing":"","duration":0,"target":{"selector":".sun-page-load-overlay","selectorGuids":["f07bc460-5d79-910b-0921-3db316e352b0"]},"value":"block"}},{"id":"a-2-n-29","actionTypeId":"STYLE_OPACITY","config":{"delay":0,"easing":"","duration":500,"target":{"selector":".sun-page-load-overlay","selectorGuids":["f07bc460-5d79-910b-0921-3db316e352b0"]},"value":1,"unit":""}}]},{"actionItems":[{"id":"a-2-n-26","actionTypeId":"STYLE_OPACITY","config":{"delay":200,"easing":"ease","duration":800,"target":{"selector":".sun-page-load","selectorGuids":["d1df031a-ece9-eecd-aafe-d8005f63cd41"]},"value":1,"unit":""}},{"id":"a-2-n-20","actionTypeId":"TRANSFORM_MOVE","config":{"delay":500,"easing":"outQuart","duration":1000,"target":{"selector":".save-sion-1","selectorGuids":["2d17e741-644a-de61-206e-aec32929015f"]},"yValue":0,"xUnit":"PX","yUnit":"%","zUnit":"PX"}},{"id":"a-2-n-23","actionTypeId":"TRANSFORM_MOVE","config":{"delay":600,"easing":"outQuart","duration":1000,"target":{"selector":".save-sion-2","selectorGuids":["3b7e65e2-62c3-ace2-bd5c-401d28fa160e"]},"yValue":0,"xUnit":"PX","yUnit":"%","zUnit":"PX"}},{"id":"a-2-n-24","actionTypeId":"TRANSFORM_MOVE","config":{"delay":700,"easing":"outQuart","duration":1000,"target":{"selector":".save-sion-3","selectorGuids":["b74e1143-fcae-6573-d879-ad8d8984ae91"]},"yValue":0,"xUnit":"PX","yUnit":"%","zUnit":"PX"}},{"id":"a-2-n-13","actionTypeId":"TRANSFORM_MOVE","config":{"delay":1800,"easing":"inOutQuart","duration":1800,"target":{"selector":".savesion-wrapper","selectorGuids":["1edc069d-fc8d-fd1c-0680-04331e3c82ba"]},"yValue":0,"xUnit":"PX","yUnit":"em","zUnit":"PX"}},{"id":"a-2-n-15","actionTypeId":"TRANSFORM_SCALE","config":{"delay":1800,"easing":"inOutQuart","duration":1800,"target":{"selector":".savesion-type-wrapper","selectorGuids":["cdeb16eb-eb2e-c737-f862-cad0def45c01"]},"xValue":1,"yValue":1,"locked":true}},{"id":"a-2-n-12","actionTypeId":"STYLE_SIZE","config":{"delay":1800,"easing":"inOutQuart","duration":1800,"target":{"selector":".savesion-wrapper","selectorGuids":["1edc069d-fc8d-fd1c-0680-04331e3c82ba"]},"widthUnit":"AUTO","heightUnit":"AUTO","locked":false}},{"id":"a-2-n-8","actionTypeId":"STYLE_SIZE","config":{"delay":1800,"easing":"inOutQuart","duration":2000,"target":{"selector":".stage-sun-wrapper","selectorGuids":["7d7a4295-7f7a-147a-cdc9-e60810069c11"]},"widthUnit":"AUTO","heightUnit":"AUTO","locked":false}},{"id":"a-2-n-18","actionTypeId":"TRANSFORM_MOVE","config":{"delay":1800,"easing":"inOutQuart","duration":2000,"target":{"selector":".sun-page-load","selectorGuids":["d1df031a-ece9-eecd-aafe-d8005f63cd41"]},"xValue":0,"yValue":0,"xUnit":"em","yUnit":"em","zUnit":"PX"}},{"id":"a-2-n-17","actionTypeId":"STYLE_SIZE","config":{"delay":1800,"easing":"inOutQuart","duration":2000,"target":{"selector":".sun-page-load","selectorGuids":["d1df031a-ece9-eecd-aafe-d8005f63cd41"]},"widthUnit":"AUTO","heightUnit":"AUTO","locked":false}},{"id":"a-2-n-30","actionTypeId":"STYLE_OPACITY","config":{"delay":2300,"easing":"ease","duration":3000,"target":{"selector":".sun-page-load-overlay","selectorGuids":["f07bc460-5d79-910b-0921-3db316e352b0"]},"value":0,"unit":""}}]},{"actionItems":[{"id":"a-2-n-28","actionTypeId":"GENERAL_DISPLAY","config":{"delay":1500,"easing":"","duration":0,"target":{"selector":".sun-page-load-overlay","selectorGuids":["f07bc460-5d79-910b-0921-3db316e352b0"]},"value":"none"}}]}],"useFirstGroupAsInitialState":true,"createdOn":1672434926191},"a-3":{"id":"a-3","title":"Stage Page load 2","actionItemGroups":[{"actionItems":[{"id":"a-3-n-10","actionTypeId":"STYLE_OPACITY","config":{"delay":0,"easing":"","duration":500,"target":{"selector":".stage-copy-inner","selectorGuids":["8d518431-8cd4-084c-0213-58035377901f"]},"value":0,"unit":""}},{"id":"a-3-n-16","actionTypeId":"STYLE_OPACITY","config":{"delay":0,"easing":"","duration":500,"target":{"selector":".stage-car-floor","selectorGuids":["cf3570f1-5774-1b06-a55c-c70c52753e43"]},"value":0,"unit":""}},{"id":"a-3-n-18","actionTypeId":"TRANSFORM_SCALE","config":{"delay":0,"easing":"","duration":500,"target":{"selector":".stage-car-shadow-wrapper","selectorGuids":["1f1dacfe-f227-1731-65c3-448cba86c89c"]},"xValue":0.8,"yValue":0.8,"locked":true}},{"id":"a-3-n-20","actionTypeId":"STYLE_FILTER","config":{"delay":0,"easing":"","duration":500,"target":{"selector":".stage-car-shadow-wrapper","selectorGuids":["1f1dacfe-f227-1731-65c3-448cba86c89c"]},"filters":[{"type":"blur","filterId":"6d7d","value":0.4,"unit":"em"}]}},{"id":"a-3-n-6","actionTypeId":"TRANSFORM_SCALE","config":{"delay":0,"easing":"","duration":500,"target":{"selector":".stage-car-wrapper","selectorGuids":["648e2b6a-2df6-208c-74a3-798b739b2463"]},"xValue":1.4,"yValue":1.4,"locked":true}},{"id":"a-3-n-12","actionTypeId":"TRANSFORM_ROTATE","config":{"delay":0,"easing":"","duration":500,"target":{"selector":".stage-objects-wrapper","selectorGuids":["e54b9a32-ce09-1b7d-8cd7-1dc70ea0a7c8"]},"yValue":13,"xUnit":"DEG","yUnit":"deg","zUnit":"DEG"}},{"id":"a-3-n-3","actionTypeId":"TRANSFORM_SCALE","config":{"delay":0,"easing":"","duration":500,"target":{"selector":".stage-shapes-wrapper","selectorGuids":["69e6b8c9-cd54-1fd4-0e83-9a4e91971696"]},"xValue":1.5,"yValue":1.5,"locked":true}},{"id":"a-3-n-22","actionTypeId":"TRANSFORM_MOVE","config":{"delay":0,"easing":"","duration":500,"target":{"selector":".stage-shapes-wrapper","selectorGuids":["69e6b8c9-cd54-1fd4-0e83-9a4e91971696"]},"xValue":-10,"xUnit":"%","yUnit":"PX","zUnit":"PX"}},{"id":"a-3-n-24","actionTypeId":"TRANSFORM_ROTATE","config":{"delay":0,"easing":"","duration":500,"target":{"selector":".stage-shape-right","selectorGuids":["0db5c932-ab7b-5017-304b-33f226380891"]},"yValue":0,"xUnit":"DEG","yUnit":"deg","zUnit":"DEG"}},{"id":"a-3-n-26","actionTypeId":"STYLE_OPACITY","config":{"delay":0,"easing":"","duration":500,"target":{"selector":".why-this-site-wrapper","selectorGuids":["e4b625d6-1bd4-c57f-30db-87f8906177ad"]},"value":0,"unit":""}}]},{"actionItems":[{"id":"a-3-n-17","actionTypeId":"STYLE_OPACITY","config":{"delay":2300,"easing":"ease","duration":4000,"target":{"selector":".stage-car-floor","selectorGuids":["cf3570f1-5774-1b06-a55c-c70c52753e43"]},"value":1,"unit":""}},{"id":"a-3-n-19","actionTypeId":"TRANSFORM_SCALE","config":{"delay":2300,"easing":"outQuart","duration":2500,"target":{"selector":".stage-car-shadow-wrapper","selectorGuids":["1f1dacfe-f227-1731-65c3-448cba86c89c"]},"xValue":1,"yValue":1,"locked":true}},{"id":"a-3-n-21","actionTypeId":"STYLE_FILTER","config":{"delay":2300,"easing":"outQuart","duration":2500,"target":{"selector":".stage-car-shadow-wrapper","selectorGuids":["1f1dacfe-f227-1731-65c3-448cba86c89c"]},"filters":[{"type":"blur","filterId":"6d7d","value":0,"unit":"em"}]}},{"id":"a-3-n-7","actionTypeId":"TRANSFORM_SCALE","config":{"delay":2300,"easing":"outQuart","duration":2500,"target":{"selector":".stage-car-wrapper","selectorGuids":["648e2b6a-2df6-208c-74a3-798b739b2463"]},"xValue":1,"yValue":1,"locked":true}},{"id":"a-3-n-4","actionTypeId":"TRANSFORM_SCALE","config":{"delay":2300,"easing":"outQuart","duration":4000,"target":{"selector":".stage-shapes-wrapper","selectorGuids":["69e6b8c9-cd54-1fd4-0e83-9a4e91971696"]},"xValue":1,"yValue":1,"locked":true}},{"id":"a-3-n-13","actionTypeId":"TRANSFORM_ROTATE","config":{"delay":2300,"easing":"outQuart","duration":4000,"target":{"selector":".stage-objects-wrapper","selectorGuids":["e54b9a32-ce09-1b7d-8cd7-1dc70ea0a7c8"]},"yValue":0,"xUnit":"DEG","yUnit":"deg","zUnit":"DEG"}},{"id":"a-3-n-23","actionTypeId":"TRANSFORM_MOVE","config":{"delay":2300,"easing":"outQuart","duration":4000,"target":{"selector":".stage-shapes-wrapper","selectorGuids":["69e6b8c9-cd54-1fd4-0e83-9a4e91971696"]},"xValue":0,"xUnit":"%","yUnit":"PX","zUnit":"PX"}},{"id":"a-3-n-25","actionTypeId":"TRANSFORM_ROTATE","config":{"delay":2300,"easing":"outQuart","duration":4000,"target":{"selector":".stage-shape-right","selectorGuids":["0db5c932-ab7b-5017-304b-33f226380891"]},"yValue":-11,"xUnit":"DEG","yUnit":"deg","zUnit":"DEG"}},{"id":"a-3-n-11","actionTypeId":"STYLE_OPACITY","config":{"delay":3000,"easing":"ease","duration":2000,"target":{"selector":".stage-copy-inner","selectorGuids":["8d518431-8cd4-084c-0213-58035377901f"]},"value":1,"unit":""}},{"id":"a-3-n-27","actionTypeId":"STYLE_OPACITY","config":{"delay":3000,"easing":"ease","duration":2000,"target":{"selector":".why-this-site-wrapper","selectorGuids":["e4b625d6-1bd4-c57f-30db-87f8906177ad"]},"value":1,"unit":""}}]}],"useFirstGroupAsInitialState":true,"createdOn":1672663124830},"a-4":{"id":"a-4","title":"Stage Scroll Animation","continuousParameterGroups":[{"id":"a-4-p","type":"SCROLL_PROGRESS","parameterLabel":"Scroll","continuousActionGroups":[{"keyframe":0,"actionItems":[{"id":"a-4-n-11","actionTypeId":"TRANSFORM_SCALE","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".sun-scroll-animation","selectorGuids":["4692d3e6-766a-f518-17f1-a75fd77866d1"]},"xValue":1,"yValue":1,"locked":true}},{"id":"a-4-n-13","actionTypeId":"STYLE_OPACITY","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".sun-page-load-wrapper","selectorGuids":["44c9bc4a-5f74-3e47-17ee-0258cd10b7bf"]},"value":1,"unit":""}},{"id":"a-4-n-16","actionTypeId":"STYLE_FILTER","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".sun-scroll-animation","selectorGuids":["4692d3e6-766a-f518-17f1-a75fd77866d1"]},"filters":[{"type":"blur","filterId":"b0b5","value":0,"unit":"em"}]}},{"id":"a-4-n-31","actionTypeId":"STYLE_OPACITY","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".sun-scroll-animation","selectorGuids":["4692d3e6-766a-f518-17f1-a75fd77866d1"]},"value":0,"unit":""}},{"id":"a-4-n-37","actionTypeId":"TRANSFORM_MOVE","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".stage-car-shine","selectorGuids":["3b7b0047-25c4-add3-53c4-bb34c557b012"]},"xValue":-22,"zValue":4,"xUnit":"%","yUnit":"PX","zUnit":"px"}},{"id":"a-4-n-39","actionTypeId":"STYLE_OPACITY","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".stage-car-shine","selectorGuids":["3b7b0047-25c4-add3-53c4-bb34c557b012"]},"value":0.1,"unit":""}},{"id":"a-4-n-42","actionTypeId":"TRANSFORM_ROTATE","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".stage-object-inner","selectorGuids":["279fd0cc-680a-f7ac-5128-85dd8eb80e40"]},"yValue":0,"xUnit":"DEG","yUnit":"deg","zUnit":"DEG"}},{"id":"a-4-n-44","actionTypeId":"TRANSFORM_MOVE","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".stage-shape-right","selectorGuids":["0db5c932-ab7b-5017-304b-33f226380891"]},"xValue":0,"xUnit":"%","yUnit":"PX","zUnit":"PX"}},{"id":"a-4-n-21","actionTypeId":"TRANSFORM_SCALE","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".stage-car-shadow","selectorGuids":["ee710cf1-f90c-b38c-b9b6-3630729436e0"]},"xValue":1,"yValue":1,"locked":true}},{"id":"a-4-n-23","actionTypeId":"STYLE_FILTER","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".stage-car-shadow","selectorGuids":["ee710cf1-f90c-b38c-b9b6-3630729436e0"]},"filters":[{"type":"blur","filterId":"3ccc","value":0,"unit":"em"}]}},{"id":"a-4-n-35","actionTypeId":"STYLE_OPACITY","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".stage-car-shadow","selectorGuids":["ee710cf1-f90c-b38c-b9b6-3630729436e0"]},"value":1,"unit":""}},{"id":"a-4-n-7","actionTypeId":"TRANSFORM_MOVE","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".stage-car-wrapper","selectorGuids":["648e2b6a-2df6-208c-74a3-798b739b2463"]},"xValue":0,"yValue":0,"zValue":2,"xUnit":"%","yUnit":"%","zUnit":"px"}},{"id":"a-4-n-9","actionTypeId":"TRANSFORM_MOVE","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".sun-scroll-animation","selectorGuids":["4692d3e6-766a-f518-17f1-a75fd77866d1"]},"xValue":0,"yValue":0,"xUnit":"vw","yUnit":"vh","zUnit":"PX"}},{"id":"a-4-n-5","actionTypeId":"TRANSFORM_MOVE","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".stage-copy-wrapper","selectorGuids":["66dc1515-3af0-7f48-a18d-80592c3417d4"]},"yValue":0,"zValue":null,"xUnit":"PX","yUnit":"%","zUnit":"px"}}]},{"keyframe":5,"actionItems":[{"id":"a-4-n-15","actionTypeId":"STYLE_OPACITY","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".sun-page-load-wrapper","selectorGuids":["44c9bc4a-5f74-3e47-17ee-0258cd10b7bf"]},"value":1,"unit":""}},{"id":"a-4-n-32","actionTypeId":"STYLE_OPACITY","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".sun-scroll-animation","selectorGuids":["4692d3e6-766a-f518-17f1-a75fd77866d1"]},"value":1,"unit":""}}]},{"keyframe":10,"actionItems":[{"id":"a-4-n-14","actionTypeId":"STYLE_OPACITY","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".sun-page-load-wrapper","selectorGuids":["44c9bc4a-5f74-3e47-17ee-0258cd10b7bf"]},"value":0,"unit":""}}]},{"keyframe":15,"actionItems":[{"id":"a-4-n-41","actionTypeId":"TRANSFORM_MOVE","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".stage-car-shine","selectorGuids":["3b7b0047-25c4-add3-53c4-bb34c557b012"]},"xValue":-22,"zValue":4,"xUnit":"%","yUnit":"PX","zUnit":"px"}}]},{"keyframe":40,"actionItems":[{"id":"a-4-n-40","actionTypeId":"STYLE_OPACITY","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".stage-car-shine","selectorGuids":["3b7b0047-25c4-add3-53c4-bb34c557b012"]},"value":0.75,"unit":""}}]},{"keyframe":50,"actionItems":[{"id":"a-4-n-17","actionTypeId":"STYLE_FILTER","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".sun-scroll-animation","selectorGuids":["4692d3e6-766a-f518-17f1-a75fd77866d1"]},"filters":[{"type":"blur","filterId":"b0b5","value":0,"unit":"em"}]}}]},{"keyframe":70,"actionItems":[{"id":"a-4-n-38","actionTypeId":"TRANSFORM_MOVE","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".stage-car-shine","selectorGuids":["3b7b0047-25c4-add3-53c4-bb34c557b012"]},"xValue":25,"zValue":4,"xUnit":"%","yUnit":"PX","zUnit":"px"}}]},{"keyframe":100,"actionItems":[{"id":"a-4-n-8","actionTypeId":"TRANSFORM_MOVE","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".stage-car-wrapper","selectorGuids":["648e2b6a-2df6-208c-74a3-798b739b2463"]},"xValue":-5,"yValue":0,"zValue":2,"xUnit":"%","yUnit":"%","zUnit":"px"}},{"id":"a-4-n-12","actionTypeId":"TRANSFORM_SCALE","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".sun-scroll-animation","selectorGuids":["4692d3e6-766a-f518-17f1-a75fd77866d1"]},"xValue":2.2,"yValue":2.2,"locked":true}},{"id":"a-4-n-10","actionTypeId":"TRANSFORM_MOVE","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".sun-scroll-animation","selectorGuids":["4692d3e6-766a-f518-17f1-a75fd77866d1"]},"xValue":57,"yValue":37,"xUnit":"vw","yUnit":"vh","zUnit":"PX"}},{"id":"a-4-n-18","actionTypeId":"STYLE_FILTER","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".sun-scroll-animation","selectorGuids":["4692d3e6-766a-f518-17f1-a75fd77866d1"]},"filters":[{"type":"blur","filterId":"b0b5","value":2,"unit":"em"}]}},{"id":"a-4-n-22","actionTypeId":"TRANSFORM_SCALE","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".stage-car-shadow","selectorGuids":["ee710cf1-f90c-b38c-b9b6-3630729436e0"]},"xValue":0.8,"yValue":0.8,"locked":true}},{"id":"a-4-n-24","actionTypeId":"STYLE_FILTER","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".stage-car-shadow","selectorGuids":["ee710cf1-f90c-b38c-b9b6-3630729436e0"]},"filters":[{"type":"blur","filterId":"3ccc","value":0.8,"unit":"em"}]}},{"id":"a-4-n-36","actionTypeId":"STYLE_OPACITY","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".stage-car-shadow","selectorGuids":["ee710cf1-f90c-b38c-b9b6-3630729436e0"]},"value":0.8,"unit":""}},{"id":"a-4-n-43","actionTypeId":"TRANSFORM_ROTATE","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".stage-object-inner","selectorGuids":["279fd0cc-680a-f7ac-5128-85dd8eb80e40"]},"yValue":-10,"xUnit":"DEG","yUnit":"deg","zUnit":"DEG"}},{"id":"a-4-n-45","actionTypeId":"TRANSFORM_MOVE","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".stage-shape-right","selectorGuids":["0db5c932-ab7b-5017-304b-33f226380891"]},"xValue":13,"xUnit":"%","yUnit":"PX","zUnit":"PX"}},{"id":"a-4-n-6","actionTypeId":"TRANSFORM_MOVE","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".stage-copy-wrapper","selectorGuids":["66dc1515-3af0-7f48-a18d-80592c3417d4"]},"yValue":-70,"zValue":null,"xUnit":"PX","yUnit":"%","zUnit":"px"}}]}]}],"createdOn":1672664126023},"a-6":{"id":"a-6","title":"Hero Image Scroll Effect – DESKTOP","continuousParameterGroups":[{"id":"a-6-p","type":"SCROLL_PROGRESS","parameterLabel":"Scroll","continuousActionGroups":[{"keyframe":0,"actionItems":[{"id":"a-6-n","actionTypeId":"TRANSFORM_SCALE","config":{"delay":0,"easing":"","duration":500,"target":{"selector":".has-parallax-effect","selectorGuids":["5b5f0e59-e6e9-58dc-752e-f4f17176a086"]},"xValue":1.25,"yValue":1.25,"locked":true}},{"id":"a-6-n-5","actionTypeId":"STYLE_OPACITY","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".hero-image-inner","selectorGuids":["39d1cdb1-0a9d-b6fa-bf35-54fe20fb20b8"]},"value":0.05,"unit":""}},{"id":"a-6-n-3","actionTypeId":"TRANSFORM_MOVE","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".hero-image-inner","selectorGuids":["39d1cdb1-0a9d-b6fa-bf35-54fe20fb20b8"]},"yValue":-15,"xUnit":"PX","yUnit":"vh","zUnit":"PX"}}]},{"keyframe":40,"actionItems":[{"id":"a-6-n-6","actionTypeId":"STYLE_OPACITY","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".hero-image-inner","selectorGuids":["39d1cdb1-0a9d-b6fa-bf35-54fe20fb20b8"]},"value":1,"unit":""}}]},{"keyframe":100,"actionItems":[{"id":"a-6-n-4","actionTypeId":"TRANSFORM_MOVE","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".hero-image-inner","selectorGuids":["39d1cdb1-0a9d-b6fa-bf35-54fe20fb20b8"]},"yValue":15,"xUnit":"PX","yUnit":"vh","zUnit":"PX"}},{"id":"a-6-n-2","actionTypeId":"TRANSFORM_SCALE","config":{"delay":0,"easing":"","duration":500,"target":{"selector":".has-parallax-effect","selectorGuids":["5b5f0e59-e6e9-58dc-752e-f4f17176a086"]},"xValue":1,"yValue":1,"locked":true}}]}]}],"createdOn":1673861557167},"a-7":{"id":"a-7","title":"Specs Divider Scroll Animation","continuousParameterGroups":[{"id":"a-7-p","type":"SCROLL_PROGRESS","parameterLabel":"Scroll","continuousActionGroups":[{"keyframe":0,"actionItems":[{"id":"a-7-n","actionTypeId":"STYLE_SIZE","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":true,"id":"64b989a0f55ae22f8e1ea63f|5f09188f-6ca9-cea9-ed10-75565be12f4c"},"widthValue":0,"widthUnit":"%","heightUnit":"PX","locked":false}}]},{"keyframe":28,"actionItems":[{"id":"a-7-n-2","actionTypeId":"STYLE_SIZE","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":true,"id":"64b989a0f55ae22f8e1ea63f|5f09188f-6ca9-cea9-ed10-75565be12f4c"},"widthValue":100,"widthUnit":"%","heightUnit":"PX","locked":false}}]}]}],"createdOn":1673954436998},"a-8":{"id":"a-8","title":"Hero Image Scroll Effect – MOBILE","continuousParameterGroups":[{"id":"a-8-p","type":"SCROLL_PROGRESS","parameterLabel":"Scroll","continuousActionGroups":[{"keyframe":0,"actionItems":[{"id":"a-8-n","actionTypeId":"TRANSFORM_SCALE","config":{"delay":0,"easing":"","duration":500,"target":{"selector":".has-parallax-effect","selectorGuids":["5b5f0e59-e6e9-58dc-752e-f4f17176a086"]},"xValue":1.5,"yValue":1.5,"locked":true}},{"id":"a-8-n-2","actionTypeId":"STYLE_OPACITY","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".hero-image-inner","selectorGuids":["39d1cdb1-0a9d-b6fa-bf35-54fe20fb20b8"]},"value":0.05,"unit":""}}]},{"keyframe":40,"actionItems":[{"id":"a-8-n-4","actionTypeId":"STYLE_OPACITY","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".hero-image-inner","selectorGuids":["39d1cdb1-0a9d-b6fa-bf35-54fe20fb20b8"]},"value":1,"unit":""}}]},{"keyframe":100,"actionItems":[{"id":"a-8-n-6","actionTypeId":"TRANSFORM_SCALE","config":{"delay":0,"easing":"","duration":500,"target":{"selector":".has-parallax-effect","selectorGuids":["5b5f0e59-e6e9-58dc-752e-f4f17176a086"]},"xValue":1,"yValue":1,"locked":true}}]}]}],"createdOn":1673861557167},"a-11":{"id":"a-11","title":"Feature Gallery Scroll Animation","continuousParameterGroups":[{"id":"a-11-p","type":"SCROLL_PROGRESS","parameterLabel":"Scroll","continuousActionGroups":[{"keyframe":0,"actionItems":[{"id":"a-11-n-4","actionTypeId":"TRANSFORM_SCALE","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".gallery-item-content-inner","selectorGuids":["1de2e5f9-90c0-8080-06d4-7b00f05a38db"]},"xValue":1.2,"yValue":1.2,"locked":true}},{"id":"a-11-n-5","actionTypeId":"STYLE_OPACITY","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".gallery-item-content-inner","selectorGuids":["1de2e5f9-90c0-8080-06d4-7b00f05a38db"]},"value":0,"unit":""}},{"id":"a-11-n-3","actionTypeId":"TRANSFORM_MOVE","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".gallery-item-content-inner","selectorGuids":["1de2e5f9-90c0-8080-06d4-7b00f05a38db"]},"yValue":0,"xUnit":"PX","yUnit":"vh","zUnit":"PX"}},{"id":"a-11-n","actionTypeId":"TRANSFORM_SCALE","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".gallery-item-media","selectorGuids":["5d1d3369-546f-b24f-f4a7-a04da6c0298c"]},"xValue":1.5,"yValue":1.5,"locked":true}},{"id":"a-11-n-14","actionTypeId":"TRANSFORM_MOVE","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".gallery-item-media","selectorGuids":["5d1d3369-546f-b24f-f4a7-a04da6c0298c"]},"yValue":20,"xUnit":"PX","yUnit":"vh","zUnit":"PX"}},{"id":"a-11-n-6","actionTypeId":"STYLE_OPACITY","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".gallery-item-media","selectorGuids":["5d1d3369-546f-b24f-f4a7-a04da6c0298c"]},"value":0,"unit":""}}]},{"keyframe":10,"actionItems":[{"id":"a-11-n-17","actionTypeId":"STYLE_OPACITY","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".gallery-item-content-inner","selectorGuids":["1de2e5f9-90c0-8080-06d4-7b00f05a38db"]},"value":0,"unit":""}}]},{"keyframe":20,"actionItems":[{"id":"a-11-n-7","actionTypeId":"STYLE_OPACITY","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".gallery-item-media","selectorGuids":["5d1d3369-546f-b24f-f4a7-a04da6c0298c"]},"value":1,"unit":""}}]},{"keyframe":25,"actionItems":[{"id":"a-11-n-12","actionTypeId":"TRANSFORM_SCALE","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".gallery-item-content-inner","selectorGuids":["1de2e5f9-90c0-8080-06d4-7b00f05a38db"]},"xValue":1,"yValue":1,"locked":true}},{"id":"a-11-n-8","actionTypeId":"STYLE_OPACITY","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".gallery-item-content-inner","selectorGuids":["1de2e5f9-90c0-8080-06d4-7b00f05a38db"]},"value":1,"unit":""}}]},{"keyframe":60,"actionItems":[{"id":"a-11-n-13","actionTypeId":"TRANSFORM_SCALE","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".gallery-item-media","selectorGuids":["5d1d3369-546f-b24f-f4a7-a04da6c0298c"]},"xValue":1,"yValue":1,"locked":true}}]},{"keyframe":85,"actionItems":[{"id":"a-11-n-15","actionTypeId":"TRANSFORM_MOVE","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".gallery-item-media","selectorGuids":["5d1d3369-546f-b24f-f4a7-a04da6c0298c"]},"yValue":-25,"xUnit":"PX","yUnit":"vh","zUnit":"PX"}},{"id":"a-11-n-16","actionTypeId":"TRANSFORM_SCALE","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".gallery-item-content-inner","selectorGuids":["1de2e5f9-90c0-8080-06d4-7b00f05a38db"]},"xValue":0.7,"yValue":0.7,"locked":true}}]},{"keyframe":100,"actionItems":[{"id":"a-11-n-11","actionTypeId":"TRANSFORM_MOVE","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".gallery-item-content-inner","selectorGuids":["1de2e5f9-90c0-8080-06d4-7b00f05a38db"]},"yValue":-40,"xUnit":"PX","yUnit":"vh","zUnit":"PX"}}]}]}],"createdOn":1673362020185},"a-23":{"id":"a-23","title":"Popup open","actionItemGroups":[{"actionItems":[{"id":"a-23-n","actionTypeId":"TRANSFORM_MOVE","config":{"delay":0,"easing":"","duration":500,"target":{"selector":".popup-content-wrapper","selectorGuids":["fb64883e-d804-dacd-44a8-519a4a332d0b"]},"yValue":3,"xUnit":"PX","yUnit":"em","zUnit":"PX"}},{"id":"a-23-n-2","actionTypeId":"GENERAL_DISPLAY","config":{"delay":0,"easing":"","duration":0,"target":{"useEventTarget":"SIBLINGS","selector":".popup-wrapper","selectorGuids":["fb64883e-d804-dacd-44a8-519a4a332d12"]},"value":"none"}},{"id":"a-23-n-3","actionTypeId":"STYLE_OPACITY","config":{"delay":0,"easing":"","duration":500,"target":{"selector":".popup-inner","selectorGuids":["fb64883e-d804-dacd-44a8-519a4a332d0d"]},"value":0,"unit":""}}]},{"actionItems":[{"id":"a-23-n-4","actionTypeId":"GENERAL_DISPLAY","config":{"delay":0,"easing":"","duration":0,"target":{"useEventTarget":"SIBLINGS","selector":".popup-wrapper","selectorGuids":["fb64883e-d804-dacd-44a8-519a4a332d12"]},"value":"block"}},{"id":"a-23-n-5","actionTypeId":"TRANSFORM_MOVE","config":{"delay":0,"easing":"outQuart","duration":500,"target":{"selector":".popup-content-wrapper","selectorGuids":["fb64883e-d804-dacd-44a8-519a4a332d0b"]},"yValue":0,"xUnit":"PX","yUnit":"em","zUnit":"PX"}},{"id":"a-23-n-6","actionTypeId":"STYLE_OPACITY","config":{"delay":0,"easing":"ease","duration":500,"target":{"selector":".popup-inner","selectorGuids":["fb64883e-d804-dacd-44a8-519a4a332d0d"]},"value":1,"unit":""}}]}],"useFirstGroupAsInitialState":true,"createdOn":1637075271621},"a-24":{"id":"a-24","title":"Popup close","actionItemGroups":[{"actionItems":[{"id":"a-24-n","actionTypeId":"TRANSFORM_MOVE","config":{"delay":0,"easing":"outQuart","duration":500,"target":{"selector":".popup-content-wrapper","selectorGuids":["fb64883e-d804-dacd-44a8-519a4a332d0b"]},"yValue":3,"xUnit":"PX","yUnit":"em","zUnit":"PX"}},{"id":"a-24-n-2","actionTypeId":"STYLE_OPACITY","config":{"delay":0,"easing":"ease","duration":500,"target":{"selector":".popup-inner","selectorGuids":["fb64883e-d804-dacd-44a8-519a4a332d0d"]},"value":0,"unit":""}}]},{"actionItems":[{"id":"a-24-n-3","actionTypeId":"GENERAL_DISPLAY","config":{"delay":0,"easing":"","duration":0,"target":{"selector":".popup-wrapper","selectorGuids":["fb64883e-d804-dacd-44a8-519a4a332d12"]},"value":"none"}}]}],"useFirstGroupAsInitialState":false,"createdOn":1637075271621},"a-25":{"id":"a-25","title":"Sunset Scroll Animation","continuousParameterGroups":[{"id":"a-25-p","type":"SCROLL_PROGRESS","parameterLabel":"Scroll","continuousActionGroups":[{"keyframe":0,"actionItems":[{"id":"a-25-n","actionTypeId":"TRANSFORM_SCALE","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".sunset-image-wrap","selectorGuids":["4678e772-e01f-8075-a38b-723f28d4776f"]},"xValue":3,"yValue":3,"locked":true}},{"id":"a-25-n-3","actionTypeId":"TRANSFORM_MOVE","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".sunset-image-wrap","selectorGuids":["4678e772-e01f-8075-a38b-723f28d4776f"]},"xValue":90,"yValue":-80,"xUnit":"vw","yUnit":"vh","zUnit":"PX"}},{"id":"a-25-n-2","actionTypeId":"STYLE_OPACITY","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".sunset-image","selectorGuids":["4678e772-e01f-8075-a38b-723f28d47770"]},"value":0,"unit":""}},{"id":"a-25-n-4","actionTypeId":"TRANSFORM_SCALE","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".sunset-sun","selectorGuids":["4678e772-e01f-8075-a38b-723f28d4776c"]},"xValue":5,"yValue":5,"locked":true}},{"id":"a-25-n-5","actionTypeId":"STYLE_OPACITY","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".sunset-sun","selectorGuids":["4678e772-e01f-8075-a38b-723f28d4776c"]},"value":0,"unit":""}},{"id":"a-25-n-6","actionTypeId":"TRANSFORM_MOVE","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".sunset-title","selectorGuids":["4678e772-e01f-8075-a38b-723f28d4776a"]},"yValue":-15,"xUnit":"PX","yUnit":"vh","zUnit":"PX"}}]},{"keyframe":5,"actionItems":[{"id":"a-25-n-7","actionTypeId":"STYLE_OPACITY","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".sunset-title._1","selectorGuids":["4678e772-e01f-8075-a38b-723f28d4776a","4678e772-e01f-8075-a38b-723f28d47775"]},"value":0,"unit":""}},{"id":"a-25-n-8","actionTypeId":"STYLE_OPACITY","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".sunset-title._2","selectorGuids":["4678e772-e01f-8075-a38b-723f28d4776a","4678e772-e01f-8075-a38b-723f28d47776"]},"value":0,"unit":""}}]},{"keyframe":10,"actionItems":[{"id":"a-25-n-9","actionTypeId":"STYLE_OPACITY","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".sunset-sun","selectorGuids":["4678e772-e01f-8075-a38b-723f28d4776c"]},"value":1,"unit":""}}]},{"keyframe":12,"actionItems":[{"id":"a-25-n-10","actionTypeId":"STYLE_OPACITY","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".sunset-title._1","selectorGuids":["4678e772-e01f-8075-a38b-723f28d4776a","4678e772-e01f-8075-a38b-723f28d47775"]},"value":1,"unit":""}}]},{"keyframe":30,"actionItems":[{"id":"a-25-n-11","actionTypeId":"STYLE_OPACITY","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".sunset-title._1","selectorGuids":["4678e772-e01f-8075-a38b-723f28d4776a","4678e772-e01f-8075-a38b-723f28d47775"]},"value":1,"unit":""}}]},{"keyframe":33,"actionItems":[{"id":"a-25-n-12","actionTypeId":"STYLE_OPACITY","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".sunset-title._1","selectorGuids":["4678e772-e01f-8075-a38b-723f28d4776a","4678e772-e01f-8075-a38b-723f28d47775"]},"value":0,"unit":""}}]},{"keyframe":36,"actionItems":[{"id":"a-25-n-13","actionTypeId":"STYLE_OPACITY","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".sunset-title._2","selectorGuids":["4678e772-e01f-8075-a38b-723f28d4776a","4678e772-e01f-8075-a38b-723f28d47776"]},"value":0,"unit":""}}]},{"keyframe":41,"actionItems":[{"id":"a-25-n-14","actionTypeId":"STYLE_OPACITY","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".sunset-title._2","selectorGuids":["4678e772-e01f-8075-a38b-723f28d4776a","4678e772-e01f-8075-a38b-723f28d47776"]},"value":1,"unit":""}}]},{"keyframe":59,"actionItems":[{"id":"a-25-n-15","actionTypeId":"STYLE_OPACITY","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".sunset-title._2","selectorGuids":["4678e772-e01f-8075-a38b-723f28d4776a","4678e772-e01f-8075-a38b-723f28d47776"]},"value":1,"unit":""}}]},{"keyframe":65,"actionItems":[{"id":"a-25-n-16","actionTypeId":"STYLE_OPACITY","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".sunset-title._2","selectorGuids":["4678e772-e01f-8075-a38b-723f28d4776a","4678e772-e01f-8075-a38b-723f28d47776"]},"value":0,"unit":""}},{"id":"a-25-n-17","actionTypeId":"STYLE_OPACITY","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".sunset-image","selectorGuids":["4678e772-e01f-8075-a38b-723f28d47770"]},"value":0,"unit":""}},{"id":"a-25-n-19","actionTypeId":"TRANSFORM_SCALE","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".sunset-sun","selectorGuids":["4678e772-e01f-8075-a38b-723f28d4776c"]},"xValue":6,"yValue":6,"locked":true}},{"id":"a-25-n-20","actionTypeId":"TRANSFORM_MOVE","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".sunset-title","selectorGuids":["4678e772-e01f-8075-a38b-723f28d4776a"]},"yValue":5,"xUnit":"PX","yUnit":"vh","zUnit":"PX"}},{"id":"a-25-n-29","actionTypeId":"TRANSFORM_MOVE","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".sunset-image-wrap","selectorGuids":["4678e772-e01f-8075-a38b-723f28d4776f"]},"xValue":10,"yValue":0,"xUnit":"vw","yUnit":"vh","zUnit":"PX"}}]},{"keyframe":70,"actionItems":[{"id":"a-25-n-21","actionTypeId":"STYLE_OPACITY","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".sunset-savesion-text","selectorGuids":["4678e772-e01f-8075-a38b-723f28d47772"]},"value":0,"unit":""}}]},{"keyframe":80,"actionItems":[{"id":"a-25-n-22","actionTypeId":"STYLE_OPACITY","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".sunset-image","selectorGuids":["4678e772-e01f-8075-a38b-723f28d47770"]},"value":1,"unit":""}},{"id":"a-25-n-23","actionTypeId":"STYLE_OPACITY","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".sunset-sun","selectorGuids":["4678e772-e01f-8075-a38b-723f28d4776c"]},"value":1,"unit":""}},{"id":"a-25-n-24","actionTypeId":"STYLE_OPACITY","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".sunset-savesion-text","selectorGuids":["4678e772-e01f-8075-a38b-723f28d47772"]},"value":1,"unit":""}}]},{"keyframe":83,"actionItems":[{"id":"a-25-n-25","actionTypeId":"TRANSFORM_SCALE","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".sunset-image-wrap","selectorGuids":["4678e772-e01f-8075-a38b-723f28d4776f"]},"xValue":1,"yValue":1,"locked":true}},{"id":"a-25-n-26","actionTypeId":"TRANSFORM_MOVE","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".sunset-image-wrap","selectorGuids":["4678e772-e01f-8075-a38b-723f28d4776f"]},"xValue":0,"yValue":0,"xUnit":"vw","yUnit":"vh","zUnit":"PX"}},{"id":"a-25-n-27","actionTypeId":"TRANSFORM_SCALE","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".sunset-sun","selectorGuids":["4678e772-e01f-8075-a38b-723f28d4776c"]},"xValue":0,"yValue":0,"locked":true}},{"id":"a-25-n-28","actionTypeId":"STYLE_OPACITY","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".sunset-sun","selectorGuids":["4678e772-e01f-8075-a38b-723f28d4776c"]},"value":0,"unit":""}}]}]}],"createdOn":1674655398426},"a-26":{"id":"a-26","title":"Hide my Nav","actionItemGroups":[{"actionItems":[{"id":"a-26-n","actionTypeId":"STYLE_OPACITY","config":{"delay":0,"easing":"ease","duration":200,"target":{"useEventTarget":"SIBLINGS","selector":".nav","selectorGuids":["7d5ce405-b305-6754-325d-ec11a0180616"]},"value":0,"unit":""}},{"id":"a-26-n-2","actionTypeId":"TRANSFORM_MOVE","config":{"delay":0,"easing":"outQuart","duration":200,"target":{"useEventTarget":"SIBLINGS","selector":".nav","selectorGuids":["7d5ce405-b305-6754-325d-ec11a0180616"]},"yValue":110,"xUnit":"PX","yUnit":"%","zUnit":"PX"}}]}],"useFirstGroupAsInitialState":false,"createdOn":1675244672208},"a-27":{"id":"a-27","title":"Show my Nav","actionItemGroups":[{"actionItems":[{"id":"a-27-n","actionTypeId":"STYLE_OPACITY","config":{"delay":0,"easing":"ease","duration":200,"target":{"useEventTarget":"SIBLINGS","selector":".nav","selectorGuids":["7d5ce405-b305-6754-325d-ec11a0180616"]},"value":1,"unit":""}},{"id":"a-27-n-2","actionTypeId":"TRANSFORM_MOVE","config":{"delay":0,"easing":"outQuart","duration":200,"target":{"useEventTarget":"SIBLINGS","selector":".nav","selectorGuids":["7d5ce405-b305-6754-325d-ec11a0180616"]},"yValue":0,"xUnit":"PX","yUnit":"%","zUnit":"PX"}}]}],"useFirstGroupAsInitialState":false,"createdOn":1675244672208},"a-54":{"id":"a-54","title":"Button (arrow right) -> HOVER IN","actionItemGroups":[{"actionItems":[{"id":"a-54-n","actionTypeId":"TRANSFORM_MOVE","config":{"delay":0,"easing":"ease","duration":300,"target":{"useEventTarget":"CHILDREN","selector":".uui-button-icon","selectorGuids":["ee5c8eed-6156-7d32-b29c-6ee6dea5cc99"]},"xValue":0.25,"xUnit":"rem","yUnit":"PX","zUnit":"PX"}}]}],"useFirstGroupAsInitialState":false,"createdOn":1645232367525},"a-57":{"id":"a-57","title":"Button (arrow right) -> HOVER OUT","actionItemGroups":[{"actionItems":[{"id":"a-57-n","actionTypeId":"TRANSFORM_MOVE","config":{"delay":0,"easing":"ease","duration":300,"target":{"useEventTarget":"CHILDREN","selector":".uui-button-icon","selectorGuids":["ee5c8eed-6156-7d32-b29c-6ee6dea5cc99"]},"xValue":0,"xUnit":"rem","yUnit":"PX","zUnit":"PX"}}]}],"useFirstGroupAsInitialState":false,"createdOn":1645232367525},"a-62":{"id":"a-62","title":"Scroll-Content","actionItemGroups":[{"actionItems":[{"id":"a-62-n","actionTypeId":"GENERAL_DISPLAY","config":{"delay":0,"easing":"","duration":0,"target":{"useEventTarget":"CHILDREN","selector":".bg-shadow","selectorGuids":["d592a4dc-47c0-ba3e-71fd-24f70f3ecac1"]},"value":"none"}},{"id":"a-62-n-2","actionTypeId":"STYLE_BACKGROUND_COLOR","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".dot","selectorGuids":["63bbda3e-1fbd-4f7a-790a-bb7d992d1100"]},"globalSwatchId":"1730333e","rValue":238,"bValue":244,"gValue":239,"aValue":1}},{"id":"a-62-n-3","actionTypeId":"STYLE_SIZE","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".dot","selectorGuids":["63bbda3e-1fbd-4f7a-790a-bb7d992d1100"]},"widthValue":12,"heightValue":12,"widthUnit":"px","heightUnit":"px","locked":false}},{"id":"a-62-n-4","actionTypeId":"STYLE_OPACITY","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".img-block","selectorGuids":["63bbda3e-1fbd-4f7a-790a-bb7d992d10f8"]},"value":0.4,"unit":""}},{"id":"a-62-n-5","actionTypeId":"STYLE_TEXT_COLOR","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".content","selectorGuids":["63bbda3e-1fbd-4f7a-790a-bb7d992d10fe"]},"globalSwatchId":"1f0d510e","rValue":71,"bValue":87,"gValue":74,"aValue":1}},{"id":"a-62-n-6","actionTypeId":"STYLE_TEXT_COLOR","config":{"delay":0,"easing":"","duration":500,"target":{},"globalSwatchId":"","rValue":173,"bValue":194,"gValue":180,"aValue":1}},{"id":"a-62-n-7","actionTypeId":"STYLE_TEXT_COLOR","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".label","selectorGuids":["d592a4dc-47c0-ba3e-71fd-24f70f3ecac5"]},"globalSwatchId":"1f0d510e","rValue":71,"bValue":87,"gValue":74,"aValue":1}},{"id":"a-62-n-8","actionTypeId":"STYLE_BACKGROUND_COLOR","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".step","selectorGuids":["63bbda3e-1fbd-4f7a-790a-bb7d992d1102"]},"globalSwatchId":"1730333e","rValue":238,"bValue":244,"gValue":239,"aValue":1}}]},{"actionItems":[{"id":"a-62-n-9","actionTypeId":"STYLE_TEXT_COLOR","config":{"delay":600,"easing":"","duration":200,"target":{"useEventTarget":"CHILDREN","selector":".content","selectorGuids":["63bbda3e-1fbd-4f7a-790a-bb7d992d10fe"]},"globalSwatchId":"0b375fce","rValue":18,"bValue":18,"gValue":18,"aValue":1}},{"id":"a-62-n-10","actionTypeId":"STYLE_BACKGROUND_COLOR","config":{"delay":600,"easing":"","duration":200,"target":{"useEventTarget":"CHILDREN","selector":".dot","selectorGuids":["63bbda3e-1fbd-4f7a-790a-bb7d992d1100"]},"globalSwatchId":"6126b98f","rValue":0,"bValue":208,"gValue":108,"aValue":1}},{"id":"a-62-n-11","actionTypeId":"STYLE_SIZE","config":{"delay":600,"easing":"","duration":200,"target":{"useEventTarget":"CHILDREN","selector":".dot","selectorGuids":["63bbda3e-1fbd-4f7a-790a-bb7d992d1100"]},"widthValue":24,"heightValue":24,"widthUnit":"px","heightUnit":"px","locked":false}},{"id":"a-62-n-12","actionTypeId":"STYLE_OPACITY","config":{"delay":600,"easing":"","duration":400,"target":{"useEventTarget":"CHILDREN","selector":".img-block","selectorGuids":["63bbda3e-1fbd-4f7a-790a-bb7d992d10f8"]},"value":1,"unit":""}},{"id":"a-62-n-13","actionTypeId":"STYLE_BACKGROUND_COLOR","config":{"delay":600,"easing":"","duration":200,"target":{"useEventTarget":"CHILDREN","selector":".step","selectorGuids":["63bbda3e-1fbd-4f7a-790a-bb7d992d1102"]},"globalSwatchId":"50035ee0","rValue":255,"bValue":255,"gValue":255,"aValue":1}},{"id":"a-62-n-14","actionTypeId":"GENERAL_DISPLAY","config":{"delay":600,"easing":"","duration":0,"target":{"useEventTarget":"CHILDREN","selector":".bg-shadow","selectorGuids":["d592a4dc-47c0-ba3e-71fd-24f70f3ecac1"]},"value":"block"}},{"id":"a-62-n-15","actionTypeId":"STYLE_TEXT_COLOR","config":{"delay":600,"easing":"","duration":200,"target":{"useEventTarget":"CHILDREN","selector":".label","selectorGuids":["d592a4dc-47c0-ba3e-71fd-24f70f3ecac5"]},"globalSwatchId":"6126b98f","rValue":0,"bValue":208,"gValue":108,"aValue":1}},{"id":"a-62-n-16","actionTypeId":"STYLE_TEXT_COLOR","config":{"delay":600,"easing":"","duration":200,"target":{},"globalSwatchId":"e5674d92","rValue":112,"bValue":138,"gValue":118,"aValue":1}}]}],"useFirstGroupAsInitialState":true,"createdOn":1611336400626},"a-63":{"id":"a-63","title":"Scroll Line","actionItemGroups":[{"actionItems":[{"id":"a-63-n","actionTypeId":"TRANSFORM_SCALE","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".scroll-animate","selectorGuids":["d592a4dc-47c0-ba3e-71fd-24f70f3ecac8"]},"xValue":1,"yValue":0,"locked":false}}]},{"actionItems":[{"id":"a-63-n-2","actionTypeId":"TRANSFORM_SCALE","config":{"delay":0,"easing":"","duration":600,"target":{"useEventTarget":"CHILDREN","selector":".scroll-animate","selectorGuids":["d592a4dc-47c0-ba3e-71fd-24f70f3ecac8"]},"xValue":1,"yValue":1,"locked":false}}]}],"useFirstGroupAsInitialState":true,"createdOn":1611752162523},"a-65":{"id":"a-65","title":"Infinite Slide 3","actionItemGroups":[{"actionItems":[{"id":"a-65-n","actionTypeId":"TRANSFORM_MOVE","config":{"delay":0,"easing":"","duration":30000,"target":{"id":"64c7c6599a6df8af863da028|fa86782a-de80-5240-a3dc-50fd31c8c151"},"xValue":-2184,"xUnit":"PX","yUnit":"PX","zUnit":"PX"}}]},{"actionItems":[{"id":"a-65-n-2","actionTypeId":"TRANSFORM_MOVE","config":{"delay":0,"easing":"","duration":0,"target":{"id":"64c7c6599a6df8af863da028|fa86782a-de80-5240-a3dc-50fd31c8c151"},"xValue":0,"xUnit":"PX","yUnit":"PX","zUnit":"PX"}}]}],"useFirstGroupAsInitialState":false,"createdOn":1568617555051},"a-84":{"id":"a-84","title":"mouse hover out","actionItemGroups":[{"actionItems":[{"id":"a-84-n","actionTypeId":"TRANSFORM_SCALE","config":{"delay":0,"easing":"inBack","duration":500,"target":{},"xValue":1,"yValue":1,"locked":true}},{"id":"a-84-n-2","actionTypeId":"STYLE_OPACITY","config":{"delay":0,"easing":"inBack","duration":500,"target":{},"value":1,"unit":""}}]}],"useFirstGroupAsInitialState":false,"createdOn":1653223641920},"a-85":{"id":"a-85","title":"cta hover","actionItemGroups":[{"actionItems":[{"id":"a-85-n","actionTypeId":"TRANSFORM_MOVE","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".arrow-icon","selectorGuids":["b5cedd8e-d92c-6e1c-ecfc-a5603a13632a"]},"xValue":0,"xUnit":"px","yUnit":"PX","zUnit":"PX"}}]},{"actionItems":[{"id":"a-85-n-2","actionTypeId":"TRANSFORM_MOVE","config":{"delay":0,"easing":"inBack","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".arrow-icon","selectorGuids":["b5cedd8e-d92c-6e1c-ecfc-a5603a13632a"]},"xValue":4,"yValue":-4,"xUnit":"px","yUnit":"px","zUnit":"PX"}}]}],"useFirstGroupAsInitialState":true,"createdOn":1653224935099},"a-83":{"id":"a-83","title":"mouse hover","actionItemGroups":[{"actionItems":[{"id":"a-83-n","actionTypeId":"TRANSFORM_SCALE","config":{"delay":0,"easing":"inBack","duration":500,"target":{},"xValue":2,"yValue":2,"locked":true}},{"id":"a-83-n-2","actionTypeId":"STYLE_OPACITY","config":{"delay":0,"easing":"inBack","duration":500,"target":{},"value":0.6,"unit":""}}]}],"useFirstGroupAsInitialState":false,"createdOn":1653223641920},"a-86":{"id":"a-86","title":"cta hover out","actionItemGroups":[{"actionItems":[{"id":"a-86-n","actionTypeId":"TRANSFORM_MOVE","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".arrow-icon","selectorGuids":["b5cedd8e-d92c-6e1c-ecfc-a5603a13632a"]},"xValue":2,"yValue":-2,"xUnit":"px","yUnit":"px","zUnit":"PX"}}]},{"actionItems":[{"id":"a-86-n-2","actionTypeId":"TRANSFORM_MOVE","config":{"delay":0,"easing":"inBack","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".arrow-icon","selectorGuids":["b5cedd8e-d92c-6e1c-ecfc-a5603a13632a"]},"xValue":0,"yValue":0,"xUnit":"px","yUnit":"px","zUnit":"PX"}}]}],"useFirstGroupAsInitialState":true,"createdOn":1653224935099},"a-80":{"id":"a-80","title":"button color out 5","actionItemGroups":[{"actionItems":[{"id":"a-80-n","actionTypeId":"STYLE_TEXT_COLOR","config":{"delay":0,"easing":"inBack","duration":0,"target":{"useEventTarget":"CHILDREN","selector":".cv-button-2","selectorGuids":["b5cedd8e-d92c-6e1c-ecfc-a5603a136331"]},"globalSwatchId":"1672f1ac","rValue":51,"bValue":51,"gValue":51,"aValue":1}}]}],"useFirstGroupAsInitialState":false,"createdOn":1653385124841},"a-79":{"id":"a-79","title":"button color in 5","actionItemGroups":[{"actionItems":[{"id":"a-79-n","actionTypeId":"STYLE_TEXT_COLOR","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".cv-button-2","selectorGuids":["b5cedd8e-d92c-6e1c-ecfc-a5603a136331"]},"globalSwatchId":"1672f1ac","rValue":51,"bValue":51,"gValue":51,"aValue":1}}]},{"actionItems":[{"id":"a-79-n-2","actionTypeId":"STYLE_TEXT_COLOR","config":{"delay":0,"easing":"inBack","duration":0,"target":{"useEventTarget":"CHILDREN","selector":".cv-button-2","selectorGuids":["b5cedd8e-d92c-6e1c-ecfc-a5603a136331"]},"globalSwatchId":"66b5909e","rValue":255,"bValue":46,"gValue":71,"aValue":1}}]}],"useFirstGroupAsInitialState":true,"createdOn":1653385124841},"a-89":{"id":"a-89","title":"Outline Header","continuousParameterGroups":[{"id":"a-89-p","type":"SCROLL_PROGRESS","parameterLabel":"Scroll","continuousActionGroups":[{"keyframe":40,"actionItems":[{"id":"a-89-n","actionTypeId":"STYLE_SIZE","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".stroke-top","selectorGuids":["6fa2d9fe-c336-dfc4-6ea8-08ced5441a30"]},"widthValue":0,"widthUnit":"%","heightUnit":"PX","locked":false}},{"id":"a-89-n-2","actionTypeId":"STYLE_SIZE","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".stroke-left","selectorGuids":["6fa2d9fe-c336-dfc4-6ea8-08ced5441a2f"]},"heightValue":0,"widthUnit":"PX","heightUnit":"%","locked":false}},{"id":"a-89-n-3","actionTypeId":"STYLE_OPACITY","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".guide_header-wrap","selectorGuids":["6fa2d9fe-c336-dfc4-6ea8-08ced5441a2b"]},"value":0,"unit":""}},{"id":"a-89-n-4","actionTypeId":"TRANSFORM_MOVE","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".guide_header-wrap","selectorGuids":["6fa2d9fe-c336-dfc4-6ea8-08ced5441a2b"]},"yValue":-20,"xUnit":"PX","yUnit":"px","zUnit":"PX"}},{"id":"a-89-n-5","actionTypeId":"STYLE_OPACITY","config":{"delay":0,"easing":"","duration":500,"target":{},"value":0,"unit":""}}]},{"keyframe":50,"actionItems":[{"id":"a-89-n-6","actionTypeId":"STYLE_SIZE","config":{"delay":0,"easing":"","duration":500,"target":{},"heightValue":0,"widthUnit":"PX","heightUnit":"%","locked":false}}]},{"keyframe":55,"actionItems":[{"id":"a-89-n-7","actionTypeId":"STYLE_SIZE","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".stroke-top","selectorGuids":["6fa2d9fe-c336-dfc4-6ea8-08ced5441a30"]},"widthValue":100,"widthUnit":"%","heightUnit":"PX","locked":false}},{"id":"a-89-n-8","actionTypeId":"STYLE_SIZE","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".stroke-right","selectorGuids":["6fa2d9fe-c336-dfc4-6ea8-08ced5441a31"]},"heightValue":0,"widthUnit":"PX","heightUnit":"%","locked":false}},{"id":"a-89-n-9","actionTypeId":"STYLE_SIZE","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".stroke-left","selectorGuids":["6fa2d9fe-c336-dfc4-6ea8-08ced5441a2f"]},"heightValue":100,"widthUnit":"PX","heightUnit":"%","locked":false}},{"id":"a-89-n-10","actionTypeId":"STYLE_SIZE","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".stroke-bottom","selectorGuids":["6fa2d9fe-c336-dfc4-6ea8-08ced5441a2d"]},"widthValue":0,"widthUnit":"%","heightUnit":"%","locked":false}},{"id":"a-89-n-11","actionTypeId":"STYLE_OPACITY","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".guide-description","selectorGuids":["6fa2d9fe-c336-dfc4-6ea8-08ced5441a2c"]},"value":0,"unit":""}},{"id":"a-89-n-12","actionTypeId":"STYLE_BACKGROUND_COLOR","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":true,"id":"64d13a5ac579e75db0db27d0|8b3a309c-60aa-4e0a-8304-a603f2232e68"},"globalSwatchId":"","rValue":28,"bValue":34,"gValue":29,"aValue":1}},{"id":"a-89-n-13","actionTypeId":"TRANSFORM_MOVE","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".guide-description","selectorGuids":["6fa2d9fe-c336-dfc4-6ea8-08ced5441a2c"]},"yValue":-20,"xUnit":"PX","yUnit":"px","zUnit":"PX"}},{"id":"a-89-n-14","actionTypeId":"STYLE_OPACITY","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".guide_header-wrap","selectorGuids":["6fa2d9fe-c336-dfc4-6ea8-08ced5441a2b"]},"value":1,"unit":""}},{"id":"a-89-n-15","actionTypeId":"TRANSFORM_MOVE","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".guide_header-wrap","selectorGuids":["6fa2d9fe-c336-dfc4-6ea8-08ced5441a2b"]},"yValue":0,"xUnit":"PX","yUnit":"px","zUnit":"PX"}}]},{"keyframe":60,"actionItems":[{"id":"a-89-n-16","actionTypeId":"STYLE_SIZE","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".stroke-right","selectorGuids":["6fa2d9fe-c336-dfc4-6ea8-08ced5441a31"]},"heightValue":100,"widthUnit":"PX","heightUnit":"%","locked":false}},{"id":"a-89-n-17","actionTypeId":"STYLE_SIZE","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".stroke-bottom","selectorGuids":["6fa2d9fe-c336-dfc4-6ea8-08ced5441a2d"]},"widthValue":100,"widthUnit":"%","heightUnit":"PX","locked":false}},{"id":"a-89-n-18","actionTypeId":"STYLE_SIZE","config":{"delay":0,"easing":"","duration":500,"target":{},"heightValue":100,"widthUnit":"PX","heightUnit":"%","locked":false}},{"id":"a-89-n-19","actionTypeId":"STYLE_OPACITY","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".guide-description","selectorGuids":["6fa2d9fe-c336-dfc4-6ea8-08ced5441a2c"]},"value":1,"unit":""}},{"id":"a-89-n-20","actionTypeId":"STYLE_BACKGROUND_COLOR","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":true,"id":"64d13a5ac579e75db0db27d0|8b3a309c-60aa-4e0a-8304-a603f2232e68"},"globalSwatchId":"","rValue":35,"bValue":42,"gValue":36,"aValue":1}},{"id":"a-89-n-21","actionTypeId":"TRANSFORM_MOVE","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".guide-description","selectorGuids":["6fa2d9fe-c336-dfc4-6ea8-08ced5441a2c"]},"yValue":0,"xUnit":"PX","yUnit":"px","zUnit":"PX"}},{"id":"a-89-n-22","actionTypeId":"STYLE_OPACITY","config":{"delay":0,"easing":"","duration":500,"target":{},"value":0.3,"unit":""}}]}]}],"createdOn":1648398430872},"a-90":{"id":"a-90","title":"Fade Element In/Out","continuousParameterGroups":[{"id":"a-90-p","type":"SCROLL_PROGRESS","parameterLabel":"Scroll","continuousActionGroups":[{"keyframe":30,"actionItems":[{"id":"a-90-n","actionTypeId":"STYLE_OPACITY","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":true,"id":"64d13a5ac579e75db0db27d0|16c98c9b-480f-1262-9b5b-73d78122e479"},"value":0.4,"unit":""}}]},{"keyframe":40,"actionItems":[{"id":"a-90-n-2","actionTypeId":"STYLE_OPACITY","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":true,"id":"64d13a5ac579e75db0db27d0|16c98c9b-480f-1262-9b5b-73d78122e479"},"value":1,"unit":""}}]}]}],"createdOn":1648866471710},"a-102":{"id":"a-102","title":"footer__drop-close","actionItemGroups":[{"actionItems":[{"id":"a-102-n","actionTypeId":"TRANSFORM_ROTATE","config":{"delay":0,"easing":"outCubic","duration":300,"target":{"useEventTarget":"CHILDREN","selector":".footer__drop-arrow","selectorGuids":["ca2dcb06-b4ac-9dbb-8d07-35eb5dc64484"]},"xValue":0,"zValue":null,"xUnit":"deg","yUnit":"DEG","zUnit":"deg"}},{"id":"a-102-n-2","actionTypeId":"STYLE_SIZE","config":{"delay":0,"easing":"outCubic","duration":400,"target":{"useEventTarget":"CHILDREN","selector":".footer__drop-list","selectorGuids":["ca2dcb06-b4ac-9dbb-8d07-35eb5dc64462"]},"heightValue":0,"widthUnit":"PX","heightUnit":"px","locked":false}}]}],"useFirstGroupAsInitialState":false,"createdOn":1631701751908},"a-105":{"id":"a-105","title":"btn_hover","actionItemGroups":[{"actionItems":[{"id":"a-105-n","actionTypeId":"TRANSFORM_SCALE","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".btn__bg","selectorGuids":["ca2dcb06-b4ac-9dbb-8d07-35eb5dc6442d"]},"xValue":0,"yValue":0,"locked":true}}]},{"actionItems":[{"id":"a-105-n-2","actionTypeId":"TRANSFORM_SCALE","config":{"delay":0,"easing":"ease","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".btn__bg","selectorGuids":["ca2dcb06-b4ac-9dbb-8d07-35eb5dc6442d"]},"xValue":1,"yValue":1,"locked":true}}]}],"useFirstGroupAsInitialState":true,"createdOn":1642674170269},"a-95":{"id":"a-95","title":"footer__drop-open","actionItemGroups":[{"actionItems":[{"id":"a-95-n","actionTypeId":"STYLE_SIZE","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".footer__drop-list","selectorGuids":["ca2dcb06-b4ac-9dbb-8d07-35eb5dc64462"]},"heightValue":0,"widthUnit":"PX","heightUnit":"px","locked":false}}]},{"actionItems":[{"id":"a-95-n-2","actionTypeId":"TRANSFORM_ROTATE","config":{"delay":0,"easing":"outCubic","duration":300,"target":{"useEventTarget":"CHILDREN","selector":".footer__drop-arrow","selectorGuids":["ca2dcb06-b4ac-9dbb-8d07-35eb5dc64484"]},"xValue":-180,"zValue":null,"xUnit":"deg","yUnit":"DEG","zUnit":"deg"}},{"id":"a-95-n-3","actionTypeId":"STYLE_SIZE","config":{"delay":0,"easing":"outCubic","duration":400,"target":{"useEventTarget":"CHILDREN","selector":".footer__drop-list","selectorGuids":["ca2dcb06-b4ac-9dbb-8d07-35eb5dc64462"]},"widthUnit":"PX","heightUnit":"AUTO","locked":false}}]}],"useFirstGroupAsInitialState":true,"createdOn":1631701751908},"a-96":{"id":"a-96","title":"courses-block_hover","actionItemGroups":[{"actionItems":[{"id":"a-96-n","actionTypeId":"STYLE_SIZE","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".courses__block-bg","selectorGuids":["ca2dcb06-b4ac-9dbb-8d07-35eb5dc6445f"]},"widthValue":0,"heightValue":0,"widthUnit":"px","heightUnit":"px","locked":false}}]},{"actionItems":[{"id":"a-96-n-2","actionTypeId":"STYLE_SIZE","config":{"delay":0,"easing":"ease","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".courses__block-bg","selectorGuids":["ca2dcb06-b4ac-9dbb-8d07-35eb5dc6445f"]},"widthUnit":"AUTO","heightUnit":"AUTO","locked":false}}]}],"useFirstGroupAsInitialState":true,"createdOn":1643190805260},"a-101":{"id":"a-101","title":"btn_over-out","actionItemGroups":[{"actionItems":[{"id":"a-101-n","actionTypeId":"TRANSFORM_SCALE","config":{"delay":0,"easing":"ease","duration":400,"target":{"useEventTarget":"CHILDREN","selector":".btn__bg","selectorGuids":["ca2dcb06-b4ac-9dbb-8d07-35eb5dc6442d"]},"xValue":0,"yValue":0,"locked":true}}]}],"useFirstGroupAsInitialState":false,"createdOn":1642674170269},"a-99":{"id":"a-99","title":"menu-close 2","actionItemGroups":[{"actionItems":[{"id":"a-99-n","actionTypeId":"STYLE_SIZE","config":{"delay":0,"easing":"ease","duration":200,"target":{"selector":".header__humb-line.mod--2","selectorGuids":["ca2dcb06-b4ac-9dbb-8d07-35eb5dc64416","ca2dcb06-b4ac-9dbb-8d07-35eb5dc644dc"]},"widthUnit":"AUTO","heightUnit":"PX","locked":false}},{"id":"a-99-n-2","actionTypeId":"TRANSFORM_MOVE","config":{"delay":0,"easing":"ease","duration":200,"target":{"selector":".header__humb-line.mod--3","selectorGuids":["ca2dcb06-b4ac-9dbb-8d07-35eb5dc64416","ca2dcb06-b4ac-9dbb-8d07-35eb5dc644a0"]},"yValue":0,"xUnit":"PX","yUnit":"px","zUnit":"PX"}},{"id":"a-99-n-3","actionTypeId":"TRANSFORM_MOVE","config":{"delay":0,"easing":"ease","duration":200,"target":{"selector":".header__humb-line.mod--1","selectorGuids":["ca2dcb06-b4ac-9dbb-8d07-35eb5dc64416","ca2dcb06-b4ac-9dbb-8d07-35eb5dc644ac"]},"yValue":0,"xUnit":"PX","yUnit":"px","zUnit":"PX"}},{"id":"a-99-n-4","actionTypeId":"TRANSFORM_ROTATE","config":{"delay":0,"easing":"ease","duration":200,"target":{"selector":".header__humb-line.mod--3","selectorGuids":["ca2dcb06-b4ac-9dbb-8d07-35eb5dc64416","ca2dcb06-b4ac-9dbb-8d07-35eb5dc644a0"]},"zValue":0,"xUnit":"DEG","yUnit":"DEG","zUnit":"deg"}},{"id":"a-99-n-5","actionTypeId":"TRANSFORM_ROTATE","config":{"delay":0,"easing":"ease","duration":200,"target":{"selector":".header__humb-line.mod--1","selectorGuids":["ca2dcb06-b4ac-9dbb-8d07-35eb5dc64416","ca2dcb06-b4ac-9dbb-8d07-35eb5dc644ac"]},"zValue":0,"xUnit":"DEG","yUnit":"DEG","zUnit":"deg"}},{"id":"a-99-n-6","actionTypeId":"STYLE_OPACITY","config":{"delay":0,"easing":"","duration":300,"target":{},"value":0,"unit":""}},{"id":"a-99-n-7","actionTypeId":"TRANSFORM_MOVE","config":{"delay":0,"easing":"ease","duration":500,"target":{},"yValue":100,"xUnit":"PX","yUnit":"px","zUnit":"PX"}},{"id":"a-99-n-8","actionTypeId":"STYLE_OPACITY","config":{"delay":0,"easing":"","duration":300,"target":{},"value":0,"unit":""}},{"id":"a-99-n-9","actionTypeId":"TRANSFORM_MOVE","config":{"delay":0,"easing":"ease","duration":500,"target":{},"yValue":100,"xUnit":"PX","yUnit":"px","zUnit":"PX"}},{"id":"a-99-n-10","actionTypeId":"STYLE_SIZE","config":{"delay":500,"easing":"ease","duration":500,"target":{},"heightValue":0,"widthUnit":"PX","heightUnit":"px","locked":false}},{"id":"a-99-n-11","actionTypeId":"TRANSFORM_MOVE","config":{"delay":800,"easing":"ease","duration":500,"target":{},"yValue":0,"xUnit":"PX","yUnit":"%","zUnit":"PX"}},{"id":"a-99-n-12","actionTypeId":"GENERAL_DISPLAY","config":{"delay":800,"easing":"","duration":0,"target":{"selector":".header__humb-close","selectorGuids":["ca2dcb06-b4ac-9dbb-8d07-35eb5dc64402"]},"value":"none"}},{"id":"a-99-n-13","actionTypeId":"TRANSFORM_MOVE","config":{"delay":800,"easing":"ease","duration":500,"target":{},"xValue":0,"xUnit":"%","yUnit":"PX","zUnit":"PX"}},{"id":"a-99-n-14","actionTypeId":"TRANSFORM_MOVE","config":{"delay":800,"easing":"ease","duration":500,"target":{},"xValue":0,"xUnit":"%","yUnit":"PX","zUnit":"PX"}},{"id":"a-99-n-15","actionTypeId":"GENERAL_DISPLAY","config":{"delay":800,"easing":"","duration":0,"target":{},"value":"none"}},{"id":"a-99-n-16","actionTypeId":"STYLE_OPACITY","config":{"delay":800,"easing":"","duration":200,"target":{},"value":0,"unit":""}}]}],"useFirstGroupAsInitialState":false,"createdOn":1636360273246},"a-103":{"id":"a-103","title":"menu-open","actionItemGroups":[{"actionItems":[{"id":"a-103-n","actionTypeId":"GENERAL_DISPLAY","config":{"delay":0,"easing":"","duration":0,"target":{},"value":"none"}},{"id":"a-103-n-2","actionTypeId":"STYLE_OPACITY","config":{"delay":0,"easing":"","duration":500,"target":{},"value":0,"unit":""}}]},{"actionItems":[{"id":"a-103-n-3","actionTypeId":"GENERAL_DISPLAY","config":{"delay":0,"easing":"","duration":0,"target":{},"value":"flex"}}]},{"actionItems":[{"id":"a-103-n-4","actionTypeId":"STYLE_SIZE","config":{"delay":0,"easing":"ease","duration":200,"target":{"selector":".header__humb-line.mod--2","selectorGuids":["ca2dcb06-b4ac-9dbb-8d07-35eb5dc64416","ca2dcb06-b4ac-9dbb-8d07-35eb5dc644dc"]},"widthValue":0,"widthUnit":"px","heightUnit":"PX","locked":false}},{"id":"a-103-n-5","actionTypeId":"STYLE_OPACITY","config":{"delay":0,"easing":"","duration":200,"target":{},"value":1,"unit":""}},{"id":"a-103-n-6","actionTypeId":"TRANSFORM_MOVE","config":{"delay":0,"easing":"ease","duration":200,"target":{"selector":".header__humb-line.mod--3","selectorGuids":["ca2dcb06-b4ac-9dbb-8d07-35eb5dc64416","ca2dcb06-b4ac-9dbb-8d07-35eb5dc644a0"]},"yValue":-8,"xUnit":"PX","yUnit":"px","zUnit":"PX"}},{"id":"a-103-n-7","actionTypeId":"TRANSFORM_MOVE","config":{"delay":0,"easing":"ease","duration":200,"target":{"selector":".header__humb-line.mod--1","selectorGuids":["ca2dcb06-b4ac-9dbb-8d07-35eb5dc64416","ca2dcb06-b4ac-9dbb-8d07-35eb5dc644ac"]},"yValue":8,"xUnit":"PX","yUnit":"px","zUnit":"PX"}},{"id":"a-103-n-8","actionTypeId":"TRANSFORM_ROTATE","config":{"delay":0,"easing":"ease","duration":200,"target":{"selector":".header__humb-line.mod--3","selectorGuids":["ca2dcb06-b4ac-9dbb-8d07-35eb5dc64416","ca2dcb06-b4ac-9dbb-8d07-35eb5dc644a0"]},"zValue":-45,"xUnit":"DEG","yUnit":"DEG","zUnit":"deg"}},{"id":"a-103-n-9","actionTypeId":"TRANSFORM_ROTATE","config":{"delay":0,"easing":"ease","duration":200,"target":{"selector":".header__humb-line.mod--1","selectorGuids":["ca2dcb06-b4ac-9dbb-8d07-35eb5dc64416","ca2dcb06-b4ac-9dbb-8d07-35eb5dc644ac"]},"zValue":45,"xUnit":"DEG","yUnit":"DEG","zUnit":"deg"}},{"id":"a-103-n-10","actionTypeId":"GENERAL_DISPLAY","config":{"delay":600,"easing":"","duration":0,"target":{"selector":".header__humb-close","selectorGuids":["ca2dcb06-b4ac-9dbb-8d07-35eb5dc64402"]},"value":"block"}}]}],"useFirstGroupAsInitialState":true,"createdOn":1636360273246},"a-104":{"id":"a-104","title":"courses-block_hover-out","actionItemGroups":[{"actionItems":[{"id":"a-104-n","actionTypeId":"STYLE_SIZE","config":{"delay":0,"easing":"ease","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".courses__block-bg","selectorGuids":["ca2dcb06-b4ac-9dbb-8d07-35eb5dc6445f"]},"widthValue":0,"heightValue":0,"widthUnit":"px","heightUnit":"px","locked":false}}]}],"useFirstGroupAsInitialState":false,"createdOn":1643190805260},"a-81":{"id":"a-81","title":"cv hover 2","actionItemGroups":[{"actionItems":[{"id":"a-81-n","actionTypeId":"TRANSFORM_MOVE","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".cv-arrow","selectorGuids":["b5cedd8e-d92c-6e1c-ecfc-a5603a136343"]},"xValue":0,"xUnit":"px","yUnit":"PX","zUnit":"PX"}}]},{"actionItems":[{"id":"a-81-n-2","actionTypeId":"TRANSFORM_MOVE","config":{"delay":0,"easing":"inBack","duration":200,"target":{"useEventTarget":"CHILDREN","selector":".cv-arrow","selectorGuids":["b5cedd8e-d92c-6e1c-ecfc-a5603a136343"]},"xValue":4,"yValue":-4,"xUnit":"px","yUnit":"px","zUnit":"PX"}}]}],"useFirstGroupAsInitialState":true,"createdOn":1653224481722},"a-82":{"id":"a-82","title":"cv hover out 2","actionItemGroups":[{"actionItems":[{"id":"a-82-n","actionTypeId":"TRANSFORM_MOVE","config":{"delay":0,"easing":"","duration":500,"target":{"selector":".cv-arrow","selectorGuids":["b5cedd8e-d92c-6e1c-ecfc-a5603a136343"]},"zValue":0,"xUnit":"PX","yUnit":"PX","zUnit":"px"}}]},{"actionItems":[{"id":"a-82-n-2","actionTypeId":"TRANSFORM_MOVE","config":{"delay":0,"easing":"inBack","duration":200,"target":{"selector":".cv-arrow","selectorGuids":["b5cedd8e-d92c-6e1c-ecfc-a5603a136343"]},"xValue":0,"yValue":0,"zValue":0,"xUnit":"px","yUnit":"px","zUnit":"px"}}]}],"useFirstGroupAsInitialState":true,"createdOn":1653224481722},"a-87":{"id":"a-87","title":"Tab in","actionItemGroups":[{"actionItems":[{"id":"a-87-n","actionTypeId":"STYLE_SIZE","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".c-autotabs_load","selectorGuids":["e41bf309-e262-da3b-ae36-b819c4dcce5b"]},"heightValue":0,"widthUnit":"PX","heightUnit":"px","locked":false}}]},{"actionItems":[{"id":"a-87-n-2","actionTypeId":"STYLE_SIZE","config":{"delay":0,"easing":"","duration":6000,"target":{"useEventTarget":"CHILDREN","selector":".c-autotabs_load","selectorGuids":["e41bf309-e262-da3b-ae36-b819c4dcce5b"]},"heightValue":100,"widthUnit":"PX","heightUnit":"%","locked":false}}]}],"useFirstGroupAsInitialState":true,"createdOn":1641383774153},"a-88":{"id":"a-88","title":"Tab out","actionItemGroups":[{"actionItems":[{"id":"a-88-n","actionTypeId":"STYLE_SIZE","config":{"delay":0,"easing":"","duration":0,"target":{"useEventTarget":"CHILDREN","selector":".c-autotabs_load","selectorGuids":["e41bf309-e262-da3b-ae36-b819c4dcce5b"]},"heightValue":0,"widthUnit":"PX","heightUnit":"px","locked":false}}]}],"useFirstGroupAsInitialState":false,"createdOn":1641383942467},"a-109":{"id":"a-109","title":"Outro","actionItemGroups":[{"actionItems":[{"id":"a-109-n","actionTypeId":"GENERAL_DISPLAY","config":{"delay":0,"easing":"","duration":0,"target":{},"value":"none"}},{"id":"a-109-n-2","actionTypeId":"STYLE_SIZE","config":{"delay":0,"easing":"","duration":500,"target":{},"widthValue":100,"heightValue":0,"widthUnit":"%","heightUnit":"%","locked":false}},{"id":"a-109-n-3","actionTypeId":"STYLE_OPACITY","config":{"delay":0,"easing":"","duration":500,"target":{},"value":0,"unit":""}},{"id":"a-109-n-4","actionTypeId":"STYLE_OPACITY","config":{"delay":0,"easing":"","duration":500,"target":{},"value":0,"unit":""}},{"id":"a-109-n-5","actionTypeId":"STYLE_OPACITY","config":{"delay":0,"easing":"","duration":500,"target":{},"value":0,"unit":""}},{"id":"a-109-n-6","actionTypeId":"STYLE_SIZE","config":{"delay":0,"easing":"","duration":500,"target":{},"widthValue":100,"heightValue":0,"widthUnit":"%","heightUnit":"%","locked":false}}]},{"actionItems":[{"id":"a-109-n-7","actionTypeId":"GENERAL_DISPLAY","config":{"delay":0,"easing":"","duration":0,"target":{},"value":"flex"}}]},{"actionItems":[{"id":"a-109-n-8","actionTypeId":"STYLE_SIZE","config":{"delay":0,"easing":"inOutQuart","duration":1000,"target":{},"widthValue":100,"heightValue":100,"widthUnit":"%","heightUnit":"%","locked":false}},{"id":"a-109-n-9","actionTypeId":"STYLE_SIZE","config":{"delay":50,"easing":"inOutQuart","duration":1000,"target":{},"widthValue":100,"heightValue":100,"widthUnit":"%","heightUnit":"%","locked":false}},{"id":"a-109-n-10","actionTypeId":"STYLE_OPACITY","config":{"delay":1000,"easing":"ease","duration":400,"target":{},"value":1,"unit":""}},{"id":"a-109-n-11","actionTypeId":"STYLE_OPACITY","config":{"delay":1000,"easing":"ease","duration":400,"target":{},"value":1,"unit":""}},{"id":"a-109-n-12","actionTypeId":"STYLE_OPACITY","config":{"delay":1000,"easing":"ease","duration":400,"target":{},"value":1,"unit":""}}]}],"useFirstGroupAsInitialState":true,"createdOn":1637091367494},"a-113":{"id":"a-113","title":"Floating - Delay","actionItemGroups":[{"actionItems":[{"id":"a-113-n","actionTypeId":"TRANSFORM_MOVE","config":{"delay":200,"easing":"inOutSine","duration":2000,"target":{"useEventTarget":true,"id":"64d2943967aea347b363ada4|8da66dce-954f-f484-bac2-97ca4b46e20b"},"xValue":null,"yValue":5,"xUnit":"%","yUnit":"%","zUnit":"PX"}}]},{"actionItems":[{"id":"a-113-n-2","actionTypeId":"TRANSFORM_MOVE","config":{"delay":200,"easing":"inOutSine","duration":2000,"target":{"useEventTarget":true,"id":"64d2943967aea347b363ada4|8da66dce-954f-f484-bac2-97ca4b46e20b"},"yValue":-5,"xUnit":"PX","yUnit":"%","zUnit":"PX"}}]}],"useFirstGroupAsInitialState":false,"createdOn":1636314659479},"a-117":{"id":"a-117","title":"Heading In - Normal","actionItemGroups":[{"actionItems":[{"id":"a-117-n","actionTypeId":"TRANSFORM_MOVE","config":{"delay":0,"easing":"","duration":600,"target":{"useEventTarget":true,"id":"64be8056f46991cc7bfe15e1|a02f1b8f-f76b-b0e9-b846-c59376ea20c2"},"yValue":110,"xUnit":"PX","yUnit":"%","zUnit":"PX"}}]},{"actionItems":[{"id":"a-117-n-2","actionTypeId":"TRANSFORM_MOVE","config":{"delay":0,"easing":"inOutQuart","duration":600,"target":{"useEventTarget":true,"id":"64be8056f46991cc7bfe15e1|a02f1b8f-f76b-b0e9-b846-c59376ea20c2"},"yValue":0,"xUnit":"PX","yUnit":"%","zUnit":"PX"}}]}],"useFirstGroupAsInitialState":true,"createdOn":1636310680255},"a-115":{"id":"a-115","title":"Home Services - Image Move","continuousParameterGroups":[{"id":"a-115-p","type":"SCROLL_PROGRESS","parameterLabel":"Scroll","continuousActionGroups":[{"keyframe":5,"actionItems":[{"id":"a-115-n","actionTypeId":"TRANSFORM_MOVE","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".img-parent.h-services._5","selectorGuids":["3c908db4-127f-c6f8-5bfe-5373dd104168","3c908db4-127f-c6f8-5bfe-5373dd10418a","3c908db4-127f-c6f8-5bfe-5373dd1041c1"]},"yValue":0,"xUnit":"PX","yUnit":"%","zUnit":"PX"}},{"id":"a-115-n-2","actionTypeId":"TRANSFORM_MOVE","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".img-parent.h-services._4","selectorGuids":["3c908db4-127f-c6f8-5bfe-5373dd104168","3c908db4-127f-c6f8-5bfe-5373dd10418a","3c908db4-127f-c6f8-5bfe-5373dd1041b6"]},"yValue":0,"xUnit":"PX","yUnit":"%","zUnit":"PX"}},{"id":"a-115-n-3","actionTypeId":"TRANSFORM_MOVE","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".img-parent.h-services._3","selectorGuids":["3c908db4-127f-c6f8-5bfe-5373dd104168","3c908db4-127f-c6f8-5bfe-5373dd10418a","3c908db4-127f-c6f8-5bfe-5373dd1041b8"]},"yValue":0,"xUnit":"PX","yUnit":"%","zUnit":"PX"}},{"id":"a-115-n-4","actionTypeId":"TRANSFORM_MOVE","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".img-parent.h-services._2","selectorGuids":["3c908db4-127f-c6f8-5bfe-5373dd104168","3c908db4-127f-c6f8-5bfe-5373dd10418a","3c908db4-127f-c6f8-5bfe-5373dd1041be"]},"yValue":0,"xUnit":"PX","yUnit":"%","zUnit":"PX"}},{"id":"a-115-n-5","actionTypeId":"TRANSFORM_MOVE","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".img-parent.h-services._1","selectorGuids":["3c908db4-127f-c6f8-5bfe-5373dd104168","3c908db4-127f-c6f8-5bfe-5373dd10418a","3c908db4-127f-c6f8-5bfe-5373dd1041bf"]},"yValue":0,"xUnit":"PX","yUnit":"%","zUnit":"PX"}}]},{"keyframe":80,"actionItems":[{"id":"a-115-n-6","actionTypeId":"TRANSFORM_MOVE","config":{"delay":0,"easing":"inOutSine","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".img-parent.h-services._5","selectorGuids":["3c908db4-127f-c6f8-5bfe-5373dd104168","3c908db4-127f-c6f8-5bfe-5373dd10418a","3c908db4-127f-c6f8-5bfe-5373dd1041c1"]},"yValue":15,"xUnit":"PX","yUnit":"%","zUnit":"PX"}},{"id":"a-115-n-7","actionTypeId":"TRANSFORM_MOVE","config":{"delay":0,"easing":"inOutSine","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".img-parent.h-services._4","selectorGuids":["3c908db4-127f-c6f8-5bfe-5373dd104168","3c908db4-127f-c6f8-5bfe-5373dd10418a","3c908db4-127f-c6f8-5bfe-5373dd1041b6"]},"yValue":-25,"xUnit":"PX","yUnit":"%","zUnit":"PX"}},{"id":"a-115-n-8","actionTypeId":"TRANSFORM_MOVE","config":{"delay":0,"easing":"inOutSine","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".img-parent.h-services._3","selectorGuids":["3c908db4-127f-c6f8-5bfe-5373dd104168","3c908db4-127f-c6f8-5bfe-5373dd10418a","3c908db4-127f-c6f8-5bfe-5373dd1041b8"]},"yValue":25,"xUnit":"PX","yUnit":"%","zUnit":"PX"}},{"id":"a-115-n-9","actionTypeId":"TRANSFORM_MOVE","config":{"delay":0,"easing":"inOutSine","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".img-parent.h-services._2","selectorGuids":["3c908db4-127f-c6f8-5bfe-5373dd104168","3c908db4-127f-c6f8-5bfe-5373dd10418a","3c908db4-127f-c6f8-5bfe-5373dd1041be"]},"yValue":-45,"xUnit":"PX","yUnit":"%","zUnit":"PX"}},{"id":"a-115-n-10","actionTypeId":"TRANSFORM_MOVE","config":{"delay":0,"easing":"inOutSine","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".img-parent.h-services._1","selectorGuids":["3c908db4-127f-c6f8-5bfe-5373dd104168","3c908db4-127f-c6f8-5bfe-5373dd10418a","3c908db4-127f-c6f8-5bfe-5373dd1041bf"]},"yValue":-15,"xUnit":"PX","yUnit":"%","zUnit":"PX"}}]}]}],"createdOn":1636311619668},"a-110":{"id":"a-110","title":"Project Intro - Featured - Desktop","actionItemGroups":[{"actionItems":[{"id":"a-110-n","actionTypeId":"STYLE_SIZE","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".project-card-bg.bg-thats-clutch","selectorGuids":["3c908db4-127f-c6f8-5bfe-5373dd104160","3c908db4-127f-c6f8-5bfe-5373dd104190"]},"widthValue":0,"heightValue":100,"widthUnit":"%","heightUnit":"%","locked":false}},{"id":"a-110-n-2","actionTypeId":"TRANSFORM_MOVE","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".project-img-1.thats-clutch-app","selectorGuids":["3c908db4-127f-c6f8-5bfe-5373dd104152","3c908db4-127f-c6f8-5bfe-5373dd1041b1"]},"yValue":10,"xUnit":"PX","yUnit":"%","zUnit":"PX"}},{"id":"a-110-n-3","actionTypeId":"TRANSFORM_MOVE","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".project-site-img","selectorGuids":["3c908db4-127f-c6f8-5bfe-5373dd104185"]},"yValue":10,"xUnit":"PX","yUnit":"%","zUnit":"PX"}},{"id":"a-110-n-4","actionTypeId":"STYLE_OPACITY","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".project-img-1.thats-clutch-app","selectorGuids":["3c908db4-127f-c6f8-5bfe-5373dd104152","3c908db4-127f-c6f8-5bfe-5373dd1041b1"]},"value":0,"unit":""}},{"id":"a-110-n-5","actionTypeId":"STYLE_OPACITY","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".poster-img._1","selectorGuids":["3c908db4-127f-c6f8-5bfe-5373dd104147","3c908db4-127f-c6f8-5bfe-5373dd10418d"]},"value":0,"unit":""}},{"id":"a-110-n-6","actionTypeId":"STYLE_OPACITY","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".project-site-img","selectorGuids":["3c908db4-127f-c6f8-5bfe-5373dd104185"]},"value":0,"unit":""}},{"id":"a-110-n-7","actionTypeId":"STYLE_OPACITY","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".poster-img._2","selectorGuids":["3c908db4-127f-c6f8-5bfe-5373dd104147","3c908db4-127f-c6f8-5bfe-5373dd1041a0"]},"value":0,"unit":""}},{"id":"a-110-n-8","actionTypeId":"STYLE_OPACITY","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".poster-img._3","selectorGuids":["3c908db4-127f-c6f8-5bfe-5373dd104147","3c908db4-127f-c6f8-5bfe-5373dd1041ab"]},"value":0,"unit":""}},{"id":"a-110-n-9","actionTypeId":"STYLE_OPACITY","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".project-sticker","selectorGuids":["3c908db4-127f-c6f8-5bfe-5373dd104179"]},"value":0,"unit":""}},{"id":"a-110-n-10","actionTypeId":"TRANSFORM_MOVE","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".poster-img._3","selectorGuids":["3c908db4-127f-c6f8-5bfe-5373dd104147","3c908db4-127f-c6f8-5bfe-5373dd1041ab"]},"yValue":10,"xUnit":"PX","yUnit":"%","zUnit":"PX"}},{"id":"a-110-n-11","actionTypeId":"TRANSFORM_MOVE","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".poster-img._2","selectorGuids":["3c908db4-127f-c6f8-5bfe-5373dd104147","3c908db4-127f-c6f8-5bfe-5373dd1041a0"]},"yValue":10,"xUnit":"PX","yUnit":"%","zUnit":"PX"}},{"id":"a-110-n-12","actionTypeId":"TRANSFORM_MOVE","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".poster-img._1","selectorGuids":["3c908db4-127f-c6f8-5bfe-5373dd104147","3c908db4-127f-c6f8-5bfe-5373dd10418d"]},"yValue":10,"xUnit":"PX","yUnit":"%","zUnit":"PX"}},{"id":"a-110-n-13","actionTypeId":"TRANSFORM_MOVE","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".project-sticker","selectorGuids":["3c908db4-127f-c6f8-5bfe-5373dd104179"]},"yValue":10,"xUnit":"PX","yUnit":"%","zUnit":"PX"}}]},{"actionItems":[{"id":"a-110-n-14","actionTypeId":"STYLE_SIZE","config":{"delay":0,"easing":"inOutQuart","duration":1000,"target":{"useEventTarget":"CHILDREN","selector":".project-card-bg.bg-thats-clutch","selectorGuids":["3c908db4-127f-c6f8-5bfe-5373dd104160","3c908db4-127f-c6f8-5bfe-5373dd104190"]},"widthValue":100,"heightValue":100,"widthUnit":"%","heightUnit":"%","locked":false}},{"id":"a-110-n-15","actionTypeId":"STYLE_OPACITY","config":{"delay":800,"easing":"ease","duration":400,"target":{"useEventTarget":"CHILDREN","selector":".project-site-img","selectorGuids":["3c908db4-127f-c6f8-5bfe-5373dd104185"]},"value":1,"unit":""}},{"id":"a-110-n-16","actionTypeId":"TRANSFORM_MOVE","config":{"delay":800,"easing":"ease","duration":400,"target":{"useEventTarget":"CHILDREN","selector":".project-site-img","selectorGuids":["3c908db4-127f-c6f8-5bfe-5373dd104185"]},"yValue":0,"xUnit":"PX","yUnit":"%","zUnit":"PX"}}]},{"actionItems":[{"id":"a-110-n-17","actionTypeId":"TRANSFORM_MOVE","config":{"delay":0,"easing":"ease","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".project-img-1.thats-clutch-app","selectorGuids":["3c908db4-127f-c6f8-5bfe-5373dd104152","3c908db4-127f-c6f8-5bfe-5373dd1041b1"]},"yValue":0,"xUnit":"PX","yUnit":"%","zUnit":"PX"}},{"id":"a-110-n-18","actionTypeId":"STYLE_OPACITY","config":{"delay":0,"easing":"ease","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".project-img-1.thats-clutch-app","selectorGuids":["3c908db4-127f-c6f8-5bfe-5373dd104152","3c908db4-127f-c6f8-5bfe-5373dd1041b1"]},"value":1,"unit":""}},{"id":"a-110-n-19","actionTypeId":"TRANSFORM_MOVE","config":{"delay":200,"easing":"ease","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".poster-img._3","selectorGuids":["3c908db4-127f-c6f8-5bfe-5373dd104147","3c908db4-127f-c6f8-5bfe-5373dd1041ab"]},"yValue":0,"xUnit":"PX","yUnit":"%","zUnit":"PX"}},{"id":"a-110-n-20","actionTypeId":"STYLE_OPACITY","config":{"delay":200,"easing":"ease","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".poster-img._3","selectorGuids":["3c908db4-127f-c6f8-5bfe-5373dd104147","3c908db4-127f-c6f8-5bfe-5373dd1041ab"]},"value":1,"unit":""}},{"id":"a-110-n-21","actionTypeId":"STYLE_OPACITY","config":{"delay":400,"easing":"ease","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".poster-img._2","selectorGuids":["3c908db4-127f-c6f8-5bfe-5373dd104147","3c908db4-127f-c6f8-5bfe-5373dd1041a0"]},"value":1,"unit":""}},{"id":"a-110-n-22","actionTypeId":"TRANSFORM_MOVE","config":{"delay":400,"easing":"ease","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".poster-img._2","selectorGuids":["3c908db4-127f-c6f8-5bfe-5373dd104147","3c908db4-127f-c6f8-5bfe-5373dd1041a0"]},"yValue":0,"xUnit":"PX","yUnit":"%","zUnit":"PX"}},{"id":"a-110-n-23","actionTypeId":"STYLE_OPACITY","config":{"delay":600,"easing":"ease","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".poster-img._1","selectorGuids":["3c908db4-127f-c6f8-5bfe-5373dd104147","3c908db4-127f-c6f8-5bfe-5373dd10418d"]},"value":1,"unit":""}},{"id":"a-110-n-24","actionTypeId":"TRANSFORM_MOVE","config":{"delay":600,"easing":"ease","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".poster-img._1","selectorGuids":["3c908db4-127f-c6f8-5bfe-5373dd104147","3c908db4-127f-c6f8-5bfe-5373dd10418d"]},"yValue":0,"xUnit":"PX","yUnit":"%","zUnit":"PX"}},{"id":"a-110-n-25","actionTypeId":"STYLE_OPACITY","config":{"delay":800,"easing":"ease","duration":200,"target":{"useEventTarget":"CHILDREN","selector":".project-sticker","selectorGuids":["3c908db4-127f-c6f8-5bfe-5373dd104179"]},"value":1,"unit":""}},{"id":"a-110-n-26","actionTypeId":"TRANSFORM_MOVE","config":{"delay":800,"easing":"ease","duration":200,"target":{"useEventTarget":"CHILDREN","selector":".project-sticker","selectorGuids":["3c908db4-127f-c6f8-5bfe-5373dd104179"]},"yValue":0,"xUnit":"PX","yUnit":"%","zUnit":"PX"}}]}],"useFirstGroupAsInitialState":true,"createdOn":1636316156861},"a-107":{"id":"a-107","title":"Fade In","actionItemGroups":[{"actionItems":[{"id":"a-107-n","actionTypeId":"STYLE_OPACITY","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":true,"id":"64be8056f46991cc7bfe15e1|a02f1b8f-f76b-b0e9-b846-c59376ea20cf"},"value":0,"unit":""}}]},{"actionItems":[{"id":"a-107-n-2","actionTypeId":"STYLE_OPACITY","config":{"delay":0,"easing":"easeIn","duration":1000,"target":{"useEventTarget":true,"id":"64be8056f46991cc7bfe15e1|a02f1b8f-f76b-b0e9-b846-c59376ea20cf"},"value":1,"unit":""}}]}],"useFirstGroupAsInitialState":true,"createdOn":1636311322694},"a-116":{"id":"a-116","title":"Project Hover","actionItemGroups":[{"actionItems":[{"id":"a-116-n","actionTypeId":"STYLE_FILTER","config":{"delay":0,"easing":"ease","duration":500,"target":{"selector":".project-card-bg","selectorGuids":["3c908db4-127f-c6f8-5bfe-5373dd104160"]},"filters":[{"type":"saturate","filterId":"2868","value":200,"unit":"%"}]}}]}],"useFirstGroupAsInitialState":false,"createdOn":1636847340641},"a-112":{"id":"a-112","title":"Heading In - Delay 0.1","actionItemGroups":[{"actionItems":[{"id":"a-112-n","actionTypeId":"TRANSFORM_MOVE","config":{"delay":0,"easing":"","duration":600,"target":{"useEventTarget":true,"id":"64be8056f46991cc7bfe15e1|a02f1b8f-f76b-b0e9-b846-c59376ea20c2"},"yValue":110,"xUnit":"PX","yUnit":"%","zUnit":"PX"}}]},{"actionItems":[{"id":"a-112-n-2","actionTypeId":"TRANSFORM_MOVE","config":{"delay":100,"easing":"inOutQuart","duration":600,"target":{"useEventTarget":true,"id":"64be8056f46991cc7bfe15e1|a02f1b8f-f76b-b0e9-b846-c59376ea20c2"},"yValue":0,"xUnit":"PX","yUnit":"%","zUnit":"PX"}}]}],"useFirstGroupAsInitialState":true,"createdOn":1636310680255},"a-118":{"id":"a-118","title":"Project Intro - Featured - Mobile","actionItemGroups":[{"actionItems":[{"id":"a-118-n","actionTypeId":"STYLE_SIZE","config":{"delay":0,"easing":"","duration":500,"target":{"selector":".project-card-bg","selectorGuids":["3c908db4-127f-c6f8-5bfe-5373dd104160"]},"widthValue":100,"heightValue":0,"widthUnit":"%","heightUnit":"%","locked":false}},{"id":"a-118-n-2","actionTypeId":"TRANSFORM_ROTATE","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".project-img-1.thats-clutch-app","selectorGuids":["3c908db4-127f-c6f8-5bfe-5373dd104152","3c908db4-127f-c6f8-5bfe-5373dd1041b1"]},"zValue":17.6,"xUnit":"DEG","yUnit":"DEG","zUnit":"deg"}},{"id":"a-118-n-3","actionTypeId":"TRANSFORM_ROTATE","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".m-project-site-img","selectorGuids":["3c908db4-127f-c6f8-5bfe-5373dd10417a"]},"zValue":-5.5,"xUnit":"DEG","yUnit":"DEG","zUnit":"deg"}},{"id":"a-118-n-4","actionTypeId":"TRANSFORM_MOVE","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".project-img-1.thats-clutch-app","selectorGuids":["3c908db4-127f-c6f8-5bfe-5373dd104152","3c908db4-127f-c6f8-5bfe-5373dd1041b1"]},"yValue":10,"xUnit":"PX","yUnit":"%","zUnit":"PX"}},{"id":"a-118-n-5","actionTypeId":"TRANSFORM_MOVE","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".m-project-site-img","selectorGuids":["3c908db4-127f-c6f8-5bfe-5373dd10417a"]},"yValue":10,"xUnit":"PX","yUnit":"%","zUnit":"PX"}},{"id":"a-118-n-6","actionTypeId":"STYLE_OPACITY","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".project-img-1.thats-clutch-app","selectorGuids":["3c908db4-127f-c6f8-5bfe-5373dd104152","3c908db4-127f-c6f8-5bfe-5373dd1041b1"]},"value":0,"unit":""}},{"id":"a-118-n-7","actionTypeId":"STYLE_OPACITY","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".poster-img._1","selectorGuids":["3c908db4-127f-c6f8-5bfe-5373dd104147","3c908db4-127f-c6f8-5bfe-5373dd10418d"]},"value":0,"unit":""}},{"id":"a-118-n-8","actionTypeId":"STYLE_OPACITY","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".m-project-site-img","selectorGuids":["3c908db4-127f-c6f8-5bfe-5373dd10417a"]},"value":0,"unit":""}},{"id":"a-118-n-9","actionTypeId":"STYLE_OPACITY","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".project-sticker","selectorGuids":["3c908db4-127f-c6f8-5bfe-5373dd104179"]},"value":0,"unit":""}},{"id":"a-118-n-10","actionTypeId":"TRANSFORM_MOVE","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".project-sticker","selectorGuids":["3c908db4-127f-c6f8-5bfe-5373dd104179"]},"yValue":10,"xUnit":"PX","yUnit":"%","zUnit":"PX"}}]},{"actionItems":[{"id":"a-118-n-11","actionTypeId":"STYLE_SIZE","config":{"delay":0,"easing":"inOutQuart","duration":1000,"target":{"selector":".project-card-bg","selectorGuids":["3c908db4-127f-c6f8-5bfe-5373dd104160"]},"widthValue":100,"heightValue":100,"widthUnit":"%","heightUnit":"%","locked":false}},{"id":"a-118-n-12","actionTypeId":"STYLE_OPACITY","config":{"delay":800,"easing":"ease","duration":400,"target":{"useEventTarget":"CHILDREN","selector":".m-project-site-img","selectorGuids":["3c908db4-127f-c6f8-5bfe-5373dd10417a"]},"value":1,"unit":""}},{"id":"a-118-n-13","actionTypeId":"TRANSFORM_MOVE","config":{"delay":800,"easing":"ease","duration":400,"target":{"useEventTarget":"CHILDREN","selector":".m-project-site-img","selectorGuids":["3c908db4-127f-c6f8-5bfe-5373dd10417a"]},"yValue":0,"xUnit":"PX","yUnit":"%","zUnit":"PX"}}]},{"actionItems":[{"id":"a-118-n-14","actionTypeId":"TRANSFORM_MOVE","config":{"delay":0,"easing":"ease","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".project-img-1.thats-clutch-app","selectorGuids":["3c908db4-127f-c6f8-5bfe-5373dd104152","3c908db4-127f-c6f8-5bfe-5373dd1041b1"]},"yValue":0,"xUnit":"PX","yUnit":"%","zUnit":"PX"}},{"id":"a-118-n-15","actionTypeId":"STYLE_OPACITY","config":{"delay":0,"easing":"ease","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".project-img-1.thats-clutch-app","selectorGuids":["3c908db4-127f-c6f8-5bfe-5373dd104152","3c908db4-127f-c6f8-5bfe-5373dd1041b1"]},"value":1,"unit":""}},{"id":"a-118-n-16","actionTypeId":"STYLE_OPACITY","config":{"delay":400,"easing":"ease","duration":200,"target":{"useEventTarget":"CHILDREN","selector":".project-sticker","selectorGuids":["3c908db4-127f-c6f8-5bfe-5373dd104179"]},"value":1,"unit":""}},{"id":"a-118-n-17","actionTypeId":"TRANSFORM_MOVE","config":{"delay":400,"easing":"ease","duration":200,"target":{"useEventTarget":"CHILDREN","selector":".project-sticker","selectorGuids":["3c908db4-127f-c6f8-5bfe-5373dd104179"]},"yValue":0,"xUnit":"PX","yUnit":"%","zUnit":"PX"}}]}],"useFirstGroupAsInitialState":true,"createdOn":1636316156861},"a-119":{"id":"a-119","title":"Project Hover 2","actionItemGroups":[{"actionItems":[{"id":"a-119-n","actionTypeId":"STYLE_FILTER","config":{"delay":0,"easing":"ease","duration":500,"target":{"selector":".project-card-bg","selectorGuids":["3c908db4-127f-c6f8-5bfe-5373dd104160"]},"filters":[{"type":"saturate","filterId":"2868","value":100,"unit":"%"}]}}]}],"useFirstGroupAsInitialState":false,"createdOn":1636847340641},"a-125":{"id":"a-125","title":"Before TAP","actionItemGroups":[{"actionItems":[{"id":"a-125-n","actionTypeId":"STYLE_SIZE","config":{"delay":0,"easing":"ease","duration":350,"target":{"useEventTarget":"CHILDREN","selector":".c-compare-after","selectorGuids":["7f01e23d-4c80-5b11-99b4-d10e1b0e0fd7"]},"widthValue":50,"widthUnit":"%","heightUnit":"PX","locked":false}}]},{"actionItems":[{"id":"a-125-n-2","actionTypeId":"STYLE_SIZE","config":{"delay":0,"easing":"ease","duration":350,"target":{"useEventTarget":"CHILDREN","selector":".c-compare-after","selectorGuids":["7f01e23d-4c80-5b11-99b4-d10e1b0e0fd7"]},"widthValue":100,"widthUnit":"%","heightUnit":"PX","locked":false}}]}],"useFirstGroupAsInitialState":true,"createdOn":1609061710812},"a-126":{"id":"a-126","title":"After TAP","actionItemGroups":[{"actionItems":[{"id":"a-126-n","actionTypeId":"STYLE_SIZE","config":{"delay":0,"easing":"ease","duration":350,"target":{"useEventTarget":"CHILDREN","selector":".c-compare-after","selectorGuids":["7f01e23d-4c80-5b11-99b4-d10e1b0e0fd7"]},"widthValue":0,"widthUnit":"%","heightUnit":"PX","locked":false}}]}],"useFirstGroupAsInitialState":false,"createdOn":1609061710812},"a-127":{"id":"a-127","title":"Before/After","continuousParameterGroups":[{"id":"a-127-p","type":"MOUSE_X","parameterLabel":"Mouse X","continuousActionGroups":[{"keyframe":0,"actionItems":[{"id":"a-127-n","actionTypeId":"STYLE_SIZE","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".c-compare-after","selectorGuids":["7f01e23d-4c80-5b11-99b4-d10e1b0e0fd7"]},"widthValue":100,"widthUnit":"%","heightUnit":"PX","locked":false}}]},{"keyframe":100,"actionItems":[{"id":"a-127-n-2","actionTypeId":"STYLE_SIZE","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".c-compare-after","selectorGuids":["7f01e23d-4c80-5b11-99b4-d10e1b0e0fd7"]},"widthValue":0,"widthUnit":"%","heightUnit":"PX","locked":false}}]}]},{"id":"a-127-p-2","type":"MOUSE_Y","parameterLabel":"Mouse Y","continuousActionGroups":[]}],"createdOn":1609059409226},"a-128":{"id":"a-128","title":"Compare Info IN","actionItemGroups":[{"actionItems":[{"id":"a-128-n","actionTypeId":"TRANSFORM_MOVE","config":{"delay":0,"easing":"ease","duration":350,"target":{"useEventTarget":"SIBLINGS","selector":".c-info-details","selectorGuids":["7f01e23d-4c80-5b11-99b4-d10e1b0e0fdb"]},"yValue":-50,"xUnit":"PX","yUnit":"%","zUnit":"PX"}},{"id":"a-128-n-2","actionTypeId":"STYLE_OPACITY","config":{"delay":0,"easing":"ease","duration":350,"target":{"useEventTarget":"SIBLINGS","selector":".c-info-details","selectorGuids":["7f01e23d-4c80-5b11-99b4-d10e1b0e0fdb"]},"value":0,"unit":""}},{"id":"a-128-n-3","actionTypeId":"STYLE_OPACITY","config":{"delay":0,"easing":"ease","duration":350,"target":{"useEventTarget":true,"id":"64be8056f46991cc7bfe15e1|8c0a120c-0c4c-c125-54df-4d1e70cdbe57"},"value":0.5,"unit":""}}]},{"actionItems":[{"id":"a-128-n-4","actionTypeId":"TRANSFORM_MOVE","config":{"delay":0,"easing":"ease","duration":350,"target":{"useEventTarget":"SIBLINGS","selector":".c-info-details","selectorGuids":["7f01e23d-4c80-5b11-99b4-d10e1b0e0fdb"]},"yValue":0,"xUnit":"PX","yUnit":"%","zUnit":"PX"}},{"id":"a-128-n-5","actionTypeId":"STYLE_OPACITY","config":{"delay":0,"easing":"ease","duration":350,"target":{"useEventTarget":"SIBLINGS","selector":".c-info-details","selectorGuids":["7f01e23d-4c80-5b11-99b4-d10e1b0e0fdb"]},"value":1,"unit":""}},{"id":"a-128-n-6","actionTypeId":"STYLE_OPACITY","config":{"delay":0,"easing":"ease","duration":350,"target":{"useEventTarget":true,"id":"64be8056f46991cc7bfe15e1|8c0a120c-0c4c-c125-54df-4d1e70cdbe57"},"value":1,"unit":""}}]}],"useFirstGroupAsInitialState":true,"createdOn":1609060878642},"a-129":{"id":"a-129","title":"Compare Info OUT","actionItemGroups":[{"actionItems":[{"id":"a-129-n","actionTypeId":"TRANSFORM_MOVE","config":{"delay":0,"easing":"ease","duration":350,"target":{"useEventTarget":"SIBLINGS","selector":".c-info-details","selectorGuids":["7f01e23d-4c80-5b11-99b4-d10e1b0e0fdb"]},"yValue":-50,"xUnit":"PX","yUnit":"%","zUnit":"PX"}},{"id":"a-129-n-2","actionTypeId":"STYLE_OPACITY","config":{"delay":0,"easing":"ease","duration":350,"target":{"useEventTarget":"SIBLINGS","selector":".c-info-details","selectorGuids":["7f01e23d-4c80-5b11-99b4-d10e1b0e0fdb"]},"value":0,"unit":""}},{"id":"a-129-n-3","actionTypeId":"STYLE_OPACITY","config":{"delay":0,"easing":"ease","duration":350,"target":{"useEventTarget":true,"id":"64be8056f46991cc7bfe15e1|8c0a120c-0c4c-c125-54df-4d1e70cdbe57"},"value":0.5,"unit":""}}]}],"useFirstGroupAsInitialState":false,"createdOn":1609060878642},"a-131":{"id":"a-131","title":"Before / after animation 3","continuousParameterGroups":[{"id":"a-131-p","type":"MOUSE_X","parameterLabel":"Mouse X","continuousActionGroups":[{"keyframe":0,"actionItems":[{"id":"a-131-n","actionTypeId":"TRANSFORM_MOVE","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".after-wrapper","selectorGuids":["5f701352-f22c-a6cb-4410-2a4593b599a1"]},"xValue":0,"xUnit":"%","yUnit":"PX","zUnit":"PX"}},{"id":"a-131-n-2","actionTypeId":"TRANSFORM_MOVE","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".before-wrapper","selectorGuids":["5f701352-f22c-a6cb-4410-2a4593b59994"]},"xValue":-100,"xUnit":"%","yUnit":"PX","zUnit":"PX"}},{"id":"a-131-n-3","actionTypeId":"TRANSFORM_MOVE","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".before-image","selectorGuids":["5f701352-f22c-a6cb-4410-2a4593b5999e"]},"xValue":100,"xUnit":"%","yUnit":"PX","zUnit":"PX"}},{"id":"a-131-n-4","actionTypeId":"TRANSFORM_MOVE","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".after-image-inner-3","selectorGuids":["a76dda39-ec71-d6f9-5fa9-9d914943b11f"]},"xValue":0,"xUnit":"%","yUnit":"PX","zUnit":"PX"}}]},{"keyframe":100,"actionItems":[{"id":"a-131-n-5","actionTypeId":"TRANSFORM_MOVE","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".after-wrapper","selectorGuids":["5f701352-f22c-a6cb-4410-2a4593b599a1"]},"xValue":100,"xUnit":"%","yUnit":"PX","zUnit":"PX"}},{"id":"a-131-n-6","actionTypeId":"TRANSFORM_MOVE","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".before-wrapper","selectorGuids":["5f701352-f22c-a6cb-4410-2a4593b59994"]},"xValue":0,"xUnit":"%","yUnit":"PX","zUnit":"PX"}},{"id":"a-131-n-7","actionTypeId":"TRANSFORM_MOVE","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".before-image","selectorGuids":["5f701352-f22c-a6cb-4410-2a4593b5999e"]},"xValue":0,"xUnit":"%","yUnit":"PX","zUnit":"PX"}},{"id":"a-131-n-8","actionTypeId":"TRANSFORM_MOVE","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".after-image-inner-3","selectorGuids":["a76dda39-ec71-d6f9-5fa9-9d914943b11f"]},"xValue":-100,"xUnit":"%","yUnit":"PX","zUnit":"PX"}}]}]},{"id":"a-131-p-2","type":"MOUSE_Y","parameterLabel":"Mouse Y","continuousActionGroups":[]}],"createdOn":1615632217419},"a-76":{"id":"a-76","title":"Dropdown [Open] 4","actionItemGroups":[{"actionItems":[{"id":"a-76-n","actionTypeId":"TRANSFORM_MOVE","config":{"delay":0,"easing":"","duration":300,"target":{"useEventTarget":"CHILDREN","selector":".wbs-dropdown-list-2","selectorGuids":["feface77-d56d-4fcc-1140-596dc56c6745"]},"yValue":0,"xUnit":"PX","yUnit":"px","zUnit":"PX"}},{"id":"a-76-n-2","actionTypeId":"STYLE_OPACITY","config":{"delay":0,"easing":"","duration":300,"target":{"useEventTarget":"CHILDREN","selector":".wbs-dropdown-list-2","selectorGuids":["feface77-d56d-4fcc-1140-596dc56c6745"]},"value":0,"unit":""}},{"id":"a-76-n-3","actionTypeId":"STYLE_OPACITY","config":{"delay":0,"easing":"","duration":300,"target":{"useEventTarget":"CHILDREN","selector":".wbs-dropdown-list-2","selectorGuids":["feface77-d56d-4fcc-1140-596dc56c6745"]},"value":1,"unit":""}},{"id":"a-76-n-4","actionTypeId":"TRANSFORM_MOVE","config":{"delay":0,"easing":"","duration":300,"target":{"useEventTarget":"CHILDREN","selector":".wbs-dropdown-list-2","selectorGuids":["feface77-d56d-4fcc-1140-596dc56c6745"]},"yValue":-5,"xUnit":"PX","yUnit":"px","zUnit":"PX"}}]}],"useFirstGroupAsInitialState":false,"createdOn":1678939764953},"a-77":{"id":"a-77","title":"Dropdown [Close] 4","actionItemGroups":[{"actionItems":[{"id":"a-77-n","actionTypeId":"TRANSFORM_MOVE","config":{"delay":0,"easing":"","duration":300,"target":{"useEventTarget":"CHILDREN","selector":".wbs-dropdown-list-2","selectorGuids":["feface77-d56d-4fcc-1140-596dc56c6745"]},"yValue":15,"xUnit":"PX","yUnit":"px","zUnit":"PX"}},{"id":"a-77-n-2","actionTypeId":"STYLE_OPACITY","config":{"delay":0,"easing":"","duration":300,"target":{"useEventTarget":"CHILDREN","selector":".wbs-dropdown-list-2","selectorGuids":["feface77-d56d-4fcc-1140-596dc56c6745"]},"value":0,"unit":""}}]}],"useFirstGroupAsInitialState":false,"createdOn":1678939764953},"a-144":{"id":"a-144","title":"FORM12 Checkbox On 4","actionItemGroups":[{"actionItems":[{"id":"a-144-n","actionTypeId":"STYLE_BORDER","config":{"delay":0,"easing":"easeOut","duration":200,"target":{"useEventTarget":"PARENT","selector":".form12_check_field-3.form12_checkbox_field","selectorGuids":["ba95025c-1328-0c43-04e8-10149c4980f5","ba95025c-1328-0c43-04e8-10149c4980dc"]},"globalSwatchId":"58bd1003","rValue":255,"bValue":44,"gValue":108,"aValue":1}},{"id":"a-144-n-2","actionTypeId":"TRANSFORM_SCALE","config":{"delay":0,"easing":"inOutElastic","duration":200,"target":{"useEventTarget":"PARENT","selector":".form12_check_field-3.form12_checkbox_field","selectorGuids":["ba95025c-1328-0c43-04e8-10149c4980f5","ba95025c-1328-0c43-04e8-10149c4980dc"]},"xValue":1.02,"yValue":1.02,"locked":true}},{"id":"a-144-n-3","actionTypeId":"STYLE_BACKGROUND_COLOR","config":{"delay":0,"easing":"easeOut","duration":200,"target":{"useEventTarget":"PARENT","selector":".form12_check_field-3.form12_checkbox_field","selectorGuids":["ba95025c-1328-0c43-04e8-10149c4980f5","ba95025c-1328-0c43-04e8-10149c4980dc"]},"globalSwatchId":"","rValue":255,"bValue":44,"gValue":108,"aValue":0.1}}]}],"useFirstGroupAsInitialState":false,"createdOn":1554204518962},"a-143":{"id":"a-143","title":"Slide Change Off 2","actionItemGroups":[{"actionItems":[{"id":"a-143-n","actionTypeId":"STYLE_OPACITY","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".details-right","selectorGuids":["ba95025c-1328-0c43-04e8-10149c4980f1"]},"value":0,"unit":""}},{"id":"a-143-n-2","actionTypeId":"STYLE_OPACITY","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".title-left","selectorGuids":["ba95025c-1328-0c43-04e8-10149c4980d1"]},"value":0,"unit":""}},{"id":"a-143-n-3","actionTypeId":"STYLE_OPACITY","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".form-wrap-full","selectorGuids":["ba95025c-1328-0c43-04e8-10149c4980e7"]},"value":0,"unit":""}},{"id":"a-143-n-4","actionTypeId":"TRANSFORM_MOVE","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".form-wrap-full","selectorGuids":["ba95025c-1328-0c43-04e8-10149c4980e7"]},"yValue":25,"xUnit":"PX","yUnit":"PX","zUnit":"PX"}},{"id":"a-143-n-5","actionTypeId":"STYLE_OPACITY","config":{"delay":0,"easing":"","duration":500,"target":{},"value":0,"unit":""}},{"id":"a-143-n-6","actionTypeId":"STYLE_OPACITY","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".form-title-wrap","selectorGuids":["ba95025c-1328-0c43-04e8-10149c4980e2"]},"value":0,"unit":""}},{"id":"a-143-n-7","actionTypeId":"TRANSFORM_MOVE","config":{"delay":0,"easing":"","duration":500,"target":{},"yValue":25,"xUnit":"PX","yUnit":"PX","zUnit":"PX"}},{"id":"a-143-n-8","actionTypeId":"TRANSFORM_MOVE","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".form-title-wrap","selectorGuids":["ba95025c-1328-0c43-04e8-10149c4980e2"]},"yValue":25,"xUnit":"PX","yUnit":"PX","zUnit":"PX"}}]}],"useFirstGroupAsInitialState":false,"createdOn":1565083264512},"a-145":{"id":"a-145","title":"FORM12 Checkbox Off 3","actionItemGroups":[{"actionItems":[{"id":"a-145-n","actionTypeId":"STYLE_BORDER","config":{"delay":0,"easing":"easeOut","duration":200,"target":{"useEventTarget":"PARENT","selector":".form12_check_field-3.form12_checkbox_field","selectorGuids":["ba95025c-1328-0c43-04e8-10149c4980f5","ba95025c-1328-0c43-04e8-10149c4980dc"]},"globalSwatchId":"bac0f424","rValue":54,"bValue":69,"gValue":63,"aValue":1}},{"id":"a-145-n-2","actionTypeId":"TRANSFORM_SCALE","config":{"delay":0,"easing":"inOutElastic","duration":200,"target":{"useEventTarget":"PARENT","selector":".form12_check_field-3.form12_checkbox_field","selectorGuids":["ba95025c-1328-0c43-04e8-10149c4980f5","ba95025c-1328-0c43-04e8-10149c4980dc"]},"xValue":1,"yValue":1,"locked":true}},{"id":"a-145-n-3","actionTypeId":"STYLE_BACKGROUND_COLOR","config":{"delay":0,"easing":"easeOut","duration":200,"target":{"useEventTarget":"PARENT","selector":".form12_check_field-3.form12_checkbox_field","selectorGuids":["ba95025c-1328-0c43-04e8-10149c4980f5","ba95025c-1328-0c43-04e8-10149c4980dc"]},"globalSwatchId":"","rValue":0,"bValue":0,"gValue":0,"aValue":0}}]}],"useFirstGroupAsInitialState":false,"createdOn":1554204518962},"a-142":{"id":"a-142","title":"Slide Change On 2","actionItemGroups":[{"actionItems":[{"id":"a-142-n","actionTypeId":"TRANSFORM_MOVE","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".form-title-wrap","selectorGuids":["ba95025c-1328-0c43-04e8-10149c4980e2"]},"yValue":25,"xUnit":"PX","yUnit":"PX","zUnit":"PX"}},{"id":"a-142-n-2","actionTypeId":"STYLE_OPACITY","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".form-title-wrap","selectorGuids":["ba95025c-1328-0c43-04e8-10149c4980e2"]},"value":0,"unit":""}},{"id":"a-142-n-3","actionTypeId":"TRANSFORM_MOVE","config":{"delay":0,"easing":"","duration":500,"target":{},"yValue":25,"xUnit":"PX","yUnit":"PX","zUnit":"PX"}},{"id":"a-142-n-4","actionTypeId":"STYLE_OPACITY","config":{"delay":0,"easing":"","duration":500,"target":{},"value":0,"unit":""}},{"id":"a-142-n-5","actionTypeId":"TRANSFORM_MOVE","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".form-wrap-full","selectorGuids":["ba95025c-1328-0c43-04e8-10149c4980e7"]},"yValue":25,"xUnit":"PX","yUnit":"PX","zUnit":"PX"}},{"id":"a-142-n-6","actionTypeId":"STYLE_OPACITY","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".form-wrap-full","selectorGuids":["ba95025c-1328-0c43-04e8-10149c4980e7"]},"value":0,"unit":""}},{"id":"a-142-n-7","actionTypeId":"STYLE_OPACITY","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".title-left","selectorGuids":["ba95025c-1328-0c43-04e8-10149c4980d1"]},"value":0,"unit":""}},{"id":"a-142-n-8","actionTypeId":"STYLE_OPACITY","config":{"delay":0,"easing":"","duration":500,"target":{"useEventTarget":"CHILDREN","selector":".details-right","selectorGuids":["ba95025c-1328-0c43-04e8-10149c4980f1"]},"value":0,"unit":""}}]},{"actionItems":[{"id":"a-142-n-9","actionTypeId":"STYLE_OPACITY","config":{"delay":0,"easing":"ease","duration":800,"target":{"useEventTarget":"CHILDREN","selector":".form-title-wrap","selectorGuids":["ba95025c-1328-0c43-04e8-10149c4980e2"]},"value":1,"unit":""}},{"id":"a-142-n-10","actionTypeId":"TRANSFORM_MOVE","config":{"delay":0,"easing":"ease","duration":800,"target":{"useEventTarget":"CHILDREN","selector":".form-title-wrap","selectorGuids":["ba95025c-1328-0c43-04e8-10149c4980e2"]},"yValue":0,"xUnit":"PX","yUnit":"PX","zUnit":"PX"}},{"id":"a-142-n-11","actionTypeId":"STYLE_OPACITY","config":{"delay":0,"easing":"ease","duration":1000,"target":{"useEventTarget":"CHILDREN","selector":".title-left","selectorGuids":["ba95025c-1328-0c43-04e8-10149c4980d1"]},"value":1,"unit":""}},{"id":"a-142-n-12","actionTypeId":"STYLE_OPACITY","config":{"delay":0,"easing":"ease","duration":1000,"target":{"useEventTarget":"CHILDREN","selector":".details-right","selectorGuids":["ba95025c-1328-0c43-04e8-10149c4980f1"]},"value":1,"unit":""}},{"id":"a-142-n-13","actionTypeId":"TRANSFORM_MOVE","config":{"delay":200,"easing":"ease","duration":800,"target":{},"yValue":0,"xUnit":"PX","yUnit":"PX","zUnit":"PX"}},{"id":"a-142-n-14","actionTypeId":"STYLE_OPACITY","config":{"delay":200,"easing":"ease","duration":800,"target":{},"value":1,"unit":""}},{"id":"a-142-n-15","actionTypeId":"STYLE_OPACITY","config":{"delay":200,"easing":"ease","duration":800,"target":{"useEventTarget":"CHILDREN","selector":".form-wrap-full","selectorGuids":["ba95025c-1328-0c43-04e8-10149c4980e7"]},"value":1,"unit":""}},{"id":"a-142-n-16","actionTypeId":"TRANSFORM_MOVE","config":{"delay":200,"easing":"ease","duration":800,"target":{"useEventTarget":"CHILDREN","selector":".form-wrap-full","selectorGuids":["ba95025c-1328-0c43-04e8-10149c4980e7"]},"yValue":0,"xUnit":"PX","yUnit":"PX","zUnit":"PX"}}]}],"useFirstGroupAsInitialState":true,"createdOn":1565083264512},"slideInLeft":{"id":"slideInLeft","useFirstGroupAsInitialState":true,"actionItemGroups":[{"actionItems":[{"actionTypeId":"STYLE_OPACITY","config":{"delay":0,"duration":0,"target":{"id":"N/A","appliesTo":"TRIGGER_ELEMENT","useEventTarget":true},"value":0}}]},{"actionItems":[{"actionTypeId":"TRANSFORM_MOVE","config":{"delay":0,"duration":0,"target":{"id":"N/A","appliesTo":"TRIGGER_ELEMENT","useEventTarget":true},"xValue":-100,"yValue":0,"xUnit":"PX","yUnit":"PX","zUnit":"PX"}}]},{"actionItems":[{"actionTypeId":"STYLE_OPACITY","config":{"delay":0,"easing":"outQuart","duration":1000,"target":{"id":"N/A","appliesTo":"TRIGGER_ELEMENT","useEventTarget":true},"value":1}},{"actionTypeId":"TRANSFORM_MOVE","config":{"delay":0,"easing":"outQuart","duration":1000,"target":{"id":"N/A","appliesTo":"TRIGGER_ELEMENT","useEventTarget":true},"xValue":0,"yValue":0,"xUnit":"PX","yUnit":"PX","zUnit":"PX"}}]}]}},"site":{"mediaQueries":[{"key":"main","min":992,"max":10000},{"key":"medium","min":768,"max":991},{"key":"small","min":480,"max":767},{"key":"tiny","min":0,"max":479}]}}
 );
