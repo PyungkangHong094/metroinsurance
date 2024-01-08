@@ -12566,6 +12566,10 @@ figure {
   display: flex;
 }
 
+.bold-text-3, .bold-text-4 {
+  font-size: 6.8rem;
+}
+
 @media screen and (min-width: 1280px) {
   .content-container {
     max-width: 1100px;
